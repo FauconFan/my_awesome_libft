@@ -1,13 +1,12 @@
-# My awesome libft
+# My awesome libft - [![Build Status](https://travis-ci.org/FauconFan/my_awesome_libft.svg?branch=master)](https://travis-ci.org/FauconFan/my_awesome_libft)
 
 Contains the awesome libft.
 
 ## How to use it
 
 You have to compile the library using make
-Next, you have to specify two folders for the includes flags :
+Next, you have to specify one folder for the includes flags :
  - the root path of this project
- - the includes path
 
 ## How to test it
 

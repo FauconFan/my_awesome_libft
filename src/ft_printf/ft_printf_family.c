@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_family.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 14:34:29 by fauconfan         #+#    #+#             */
-/*   Updated: 2017/12/05 11:29:31 by jpriou           ###   ########.fr       */
+/*   Updated: 2017/12/15 14:32:05 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				ft_center_printf(const char *restrict format, va_list va,
+int				ft_center_printf(const char *format, va_list va,
 					char **answer, int *len_to_print)
 {
 	t_string_buffer		*sb;
@@ -44,7 +44,7 @@ int				ft_center_printf(const char *restrict format, va_list va,
 **	ft_printf...
 */
 
-int				ft_printf(const char *restrict format, ...)
+int				ft_printf(const char *format, ...)
 {
 	va_list				va;
 	int					res;
@@ -66,7 +66,7 @@ int				ft_printf(const char *restrict format, ...)
 **	ft_dprintf...
 */
 
-int				ft_dprintf(int fd, const char *restrict format, ...)
+int				ft_dprintf(int fd, const char *format, ...)
 {
 	va_list				va;
 	int					res;
@@ -88,7 +88,7 @@ int				ft_dprintf(int fd, const char *restrict format, ...)
 **	ft_sprintf
 */
 
-int				ft_sprintf(char **str, const char *restrict format, ...)
+int				ft_sprintf(char **str, const char *format, ...)
 {
 	va_list				va;
 	int					res;
@@ -110,7 +110,7 @@ int				ft_sprintf(char **str, const char *restrict format, ...)
 */
 
 int				ft_snprintf(char **str, size_t size,
-					const char *restrict format, ...)
+					const char *format, ...)
 {
 	va_list				va;
 	int					res;

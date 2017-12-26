@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:15:24 by fauconfan         #+#    #+#             */
-/*   Updated: 2017/12/11 15:43:32 by jpriou           ###   ########.fr       */
+/*   Updated: 2017/12/24 18:53:32 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@
 **	Includes for ft_printf
 */
 
-# include "string_buffer.h"
-# include "string_buffer_utils.h"
-# include "treat_data_utils.h"
+# include "includes/string_buffer.h"
+# include "includes/string_buffer_utils.h"
+# include "includes/treat_data_utils.h"
 
 /*
 **	Define Get next line
@@ -237,41 +237,41 @@ char			**find_buff_prog(t_env_gnl *head, int searched_fd);
 */
 
 int				ft_center_printf(
-						const char *restrict format,
+						const char *format,
 						va_list va,
 						char **answer,
 						int *len_to_print);
 
 int				ft_printf(
-						const char *restrict format,
+						const char *format,
 						...);
 int				ft_dprintf(
 						int fd,
-						const char *restrict format,
+						const char *format,
 						...);
 int				ft_sprintf(char **str,
-						const char *restrict format,
+						const char *format,
 						...);
 int				ft_snprintf(
 						char **str,
 						size_t size,
-						const char *restrict format,
+						const char *format,
 						...);
 
 int				ft_vprintf(
-						const char *restrict format,
+						const char *format,
 						va_list ap);
 int				ft_vdprintf(
 						int fd,
-						const char *restrict format,
+						const char *format,
 						va_list ap);
 int				ft_vsprintf(
 						char **str,
-						const char *restrict format,
+						const char *format,
 						va_list ap);
 int				ft_vsnprintf(char **str,
 						size_t size,
-						const char *restrict format,
+						const char *format,
 						va_list ap);
 
 #endif

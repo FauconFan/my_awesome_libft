@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 11:37:25 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/05 11:36:56 by jpriou           ###   ########.fr       */
+/*   Updated: 2017/12/21 08:19:18 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define CI_UNUSED_FLAGS_H
 
 # include "libft.h"
-# include "treat_data_utils.h"
-# include "struct_treat_data.h"
-# include "string_buffer.h"
+# include "includes/treat_data_utils.h"
+# include "includes/struct_treat_data.h"
+# include "includes/string_buffer.h"
 
 void	process_unused_flag(t_treat_data *data, t_string_buffer *sb);
 

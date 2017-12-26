@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:18:07 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/05 11:36:58 by jpriou           ###   ########.fr       */
+/*   Updated: 2017/12/21 08:19:01 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define CI_NUMBERS_UTILS_H
 
 # include "libft.h"
-# include "struct_treat_data.h"
-# include "ci_numbers_utils2.h"
+# include "includes/struct_treat_data.h"
+# include "includes/ci_numbers_utils2.h"
 
 # define PREFIX_XMIN	"0x"
 # define PREFIX_XMAJ	"0X"

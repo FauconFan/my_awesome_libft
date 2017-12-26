@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vprintf_family.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 13:24:49 by fauconfan         #+#    #+#             */
-/*   Updated: 2017/12/05 11:33:01 by jpriou           ###   ########.fr       */
+/*   Updated: 2017/12/15 14:32:43 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				ft_vprintf(const char *restrict format, va_list ap)
+int				ft_vprintf(const char *format, va_list ap)
 {
 	int					res;
 	int					len_to_print;
@@ -27,7 +27,7 @@ int				ft_vprintf(const char *restrict format, va_list ap)
 	return (res == -2 ? -1 : res);
 }
 
-int				ft_vdprintf(int fd, const char *restrict format, va_list ap)
+int				ft_vdprintf(int fd, const char *format, va_list ap)
 {
 	int					res;
 	int					len_to_print;
@@ -42,7 +42,7 @@ int				ft_vdprintf(int fd, const char *restrict format, va_list ap)
 	return (res == -2 ? -1 : res);
 }
 
-int				ft_vsprintf(char **str, const char *restrict format, va_list ap)
+int				ft_vsprintf(char **str, const char *format, va_list ap)
 {
 	int					res;
 	char				*to_print;
@@ -56,7 +56,7 @@ int				ft_vsprintf(char **str, const char *restrict format, va_list ap)
 }
 
 int				ft_vsnprintf(char **str, size_t size,
-					const char *restrict format, va_list ap)
+					const char *format, va_list ap)
 {
 	int					res;
 	int					len_to_print;

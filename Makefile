@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+         #
+#    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfan         #+#    #+#              #
-#    Updated: 2017/12/13 10:39:25 by jpriou           ###   ########.fr        #
+#    Updated: 2017/12/15 18:16:07 by fauconfan        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ LIBFT_LINKED_LIST_FOLDER = libft_linked_list/
 GET_NEXT_LINE_FOLDER = get_next_line/
 FT_PRINTF_FOLDER = ft_printf/
 
-CC = gcc
+CC ?= gcc
 COMPILATION_FLAGS = -Wall -Wextra -Werror
 INCLUDES_FLAGS = -I $(INCLUDES_FOLDER) -I ./
 FLAGS = $(COMPILATION_FLAGS) $(INCLUDES_FLAGS)
@@ -52,6 +52,7 @@ SRC = $(SRC_LIBFT_CHAR_FP) \
 OBJ = $(SRC:%.c=%.o)
 
 all : $(NAME)
+	@echo builted with $(CC)
 
 $(NAME) : $(OBJ)
 	@ar -rc $@ $(OBJ)

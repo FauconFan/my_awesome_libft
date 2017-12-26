@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 08:59:25 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/05 12:30:45 by jpriou           ###   ########.fr       */
+/*   Updated: 2017/12/21 08:19:37 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 # define TREAT_DATA_UTILS_H
 
 # include "libft.h"
-# include "struct_treat_data.h"
-# include "set_values_treat_data.h"
-# include "ci_string_ascii.h"
-# include "ci_string_unicode.h"
-# include "ci_sep.h"
-# include "ci_numbers.h"
-# include "ci_unused_flags.h"
+# include "includes/struct_treat_data.h"
+# include "includes/set_values_treat_data.h"
+# include "includes/ci_string_ascii.h"
+# include "includes/ci_string_unicode.h"
+# include "includes/ci_sep.h"
+# include "includes/ci_numbers.h"
+# include "includes/ci_unused_flags.h"
 
 # define SEPERATOR		'%'
 

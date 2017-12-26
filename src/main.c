@@ -6,11 +6,10 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 17:02:01 by fauconfan         #+#    #+#             */
-/*   Updated: 2017/12/05 11:41:50 by jpriou           ###   ########.fr       */
+/*   Updated: 2017/12/21 08:20:30 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
 #include "libft.h"
 
 int		main(void)
@@ -20,7 +19,7 @@ int		main(void)
 	str = ft_strtrim("             coucou          ");
 	ft_putendl(str);
 	free(str);
-	ft_printf(" debug time : %d %s %x", 42, "coucou", 42);
+	ft_printf(" debug time : %d %s %x\n", 42, "coucou", 42);
 }
 
 /*
