@@ -6,7 +6,7 @@
 /*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 13:13:28 by fauconfan         #+#    #+#             */
-/*   Updated: 2017/12/27 13:13:55 by fauconfan        ###   ########.fr       */
+/*   Updated: 2017/12/27 22:30:51 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,5 @@
 int			main(void)
 {
 	ft_putstr("first_test\n");
+	return (0);
 }

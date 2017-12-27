@@ -18,4 +18,11 @@ matrix:
       env:
          - MATRIX_EVAL="CC=gcc"
          - NAME="Single Compile test"
-
+    - os: linux
+      script : make -C tests/build_custom/ 01
+      env :
+         - NAME="Build Custon 01"
+    - os: linux
+      script : make -C tests/build_custom/ 02
+      env :
+         - NAME="Build Custon 02"
