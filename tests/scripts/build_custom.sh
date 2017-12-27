@@ -3,9 +3,6 @@
 verify_build_custom()
 {
 	path="../build_custom/$1"
-	if [ ! ${path:$((${#path} - 1)):1} = '/' ]; then
-		path="$path/"
-	fi
 	make -C ${path}libft
 	gcc ${path}main.c -I ${path}libft/ -o ${path}a.out -L ${path}libft -l ft
 	${path}a.out
