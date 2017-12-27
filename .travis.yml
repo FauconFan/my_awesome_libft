@@ -21,8 +21,8 @@ matrix:
     - os: linux
       script : make -C tests/build_custom/ 01
       env :
-         - NAME="Build Custon 01"
+         - NAME="Build Custom 01"
     - os: linux
       script : make -C tests/build_custom/ 02
       env :
-         - NAME="Build Custon 02"
+         - NAME="Build Custom 02"

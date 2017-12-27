@@ -6,7 +6,7 @@
 /*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 15:37:54 by pepe              #+#    #+#             */
-/*   Updated: 2017/12/26 18:06:02 by fauconfan        ###   ########.fr       */
+/*   Updated: 2017/12/27 22:54:08 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,12 @@ static int				check_forbidden_function(char *str)
 							"if", "while", "return",
 							"&&", "||", "+",
 							"-", "*", "/", "%", "=", "==", "<=", ">=", 0};
+	int		i;
 
+	i = -1;
 	if (*str == '(')
 		return (1);
-	for (int i = 0; list_forbidden[i]; ++i)
+	while (list_forbidden[++i])
 	{
 		if (strncmp(str, list_forbidden[i], strlen(list_forbidden[i])) == 0)
 			return (1);
