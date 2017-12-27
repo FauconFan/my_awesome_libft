@@ -6,7 +6,7 @@
 #    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/15 19:01:46 by fauconfan         #+#    #+#              #
-#    Updated: 2017/12/27 12:12:04 by fauconfan        ###   ########.fr        #
+#    Updated: 2017/12/27 13:27:10 by fauconfan        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ OBJ = $(addprefix $(SRC_FOLDER), $(OBJ_TMP))
 
 all : clean $(OBJ)
 	gcc $(FLAGS) $(OBJ) -I $(INCLUDES_FOLDER)
-	@./a.out $(PARAM)
+	@valgrind --leak-check=yes ./a.out $(PARAM)
 	make fclean
 
 %.o : %.c

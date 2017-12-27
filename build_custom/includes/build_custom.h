@@ -6,7 +6,7 @@
 /*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 18:59:41 by fauconfan         #+#    #+#             */
-/*   Updated: 2017/12/27 10:28:16 by fauconfan        ###   ########.fr       */
+/*   Updated: 2017/12/27 13:17:45 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void				bc_update_str_stillstr(char **str, int (*f)(char *c));
 void				bc_update_str_untilstr(char **str, int (*f)(char *c));
 char				*bc_strjoin(char *s1, char *s2);
 char				*bc_strjoin_folder(char *s1, char *s2);
+int					bc_normalize_absolute_path(char *res);
 
 /*
 **	Malloc Utilities

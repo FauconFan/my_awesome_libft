@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bc_str_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 15:20:43 by pepe              #+#    #+#             */
-/*   Updated: 2017/12/17 00:04:20 by pepe             ###   ########.fr       */
+/*   Updated: 2017/12/27 13:20:37 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,4 +143,33 @@ char	*bc_strjoin_folder(char *s1, char *s2)
 	}
 	res[l1 + 1 + l2] = 0;
 	return (res);
+}
+
+int		bc_normalize_absolute_path(char *res)
+{
+	int		size;
+	int		index;
+
+	size = 1;
+	while (res[size] != 0 && (res[size] != '/' || size++))
+	{
+		if (strncmp(res + size, "../", 3) == 0)
+		{
+			size--;
+			index = 4;
+			while (--size >= 0 && res[size] != '/')
+				index++;
+			if (size < 0)
+				return (1);
+			strncpy(res + size, res + size + index,
+						strlen(res + size + index) + 1);
+		}
+		else if (strncmp(res + size, "./", 2) == 0)
+			strncpy(res + size, res + size + 2,
+							strlen(res + size + 2) + 1);
+		else
+			while (res[size] != '/' && res[size] != 0)
+				size++;
+	}
+	return (0);
 }
