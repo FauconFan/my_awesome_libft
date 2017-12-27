@@ -6,7 +6,7 @@
 /*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 18:59:41 by fauconfan         #+#    #+#             */
-/*   Updated: 2017/12/26 17:54:50 by fauconfan        ###   ########.fr       */
+/*   Updated: 2017/12/27 10:28:16 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,20 @@ t_file_depedencies	*new_file_depedencies(char *name_file);
 char				**from_list_to_array(t_simple_list **head);
 void				simple_display(t_simple_list *head);
 int					size_simple_list(t_simple_list *tmp);
+int					is_in_list(t_simple_list *head, char *str);
+t_simple_list		*bc_lstiter(t_simple_list *head, char *(*treat)(char *str));
 
 /*
 **	Read Utilities
 */
 
 int					open_read_file(char *name_file, unsigned int size_tot, char **str_tot);
+
+/*
+**	Make rendu Utilities
+*/
+
+void				handle_make_rendu(t_simple_list **list_file);
 
 /*
 **	Project Build Utilities

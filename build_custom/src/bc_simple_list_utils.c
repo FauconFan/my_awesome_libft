@@ -6,7 +6,7 @@
 /*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 22:42:32 by pepe              #+#    #+#             */
-/*   Updated: 2017/12/26 18:15:44 by fauconfan        ###   ########.fr       */
+/*   Updated: 2017/12/27 10:39:08 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,30 @@ void				add_list_check_doublon(char *str, t_simple_list **head)
 		prev->next = new;
 }
 
+t_simple_list		*bc_lstiter(t_simple_list *head, char *(*treat)(char *str))
+{
+	t_simple_list	*new;
+
+	new = 0;
+	if (head)
+	{
+		if ((new = (t_simple_list *)malloc(sizeof(t_simple_list))) == 0)
+			exit (1);
+		new->str = treat(head->str);
+		new->next = bc_lstiter(head->next, treat);
+	}
+	return (new);
+}
+
+int					is_in_list(t_simple_list *head, char *str)
+{
+	if (head == 0)
+		return (0);
+	if (strcmp(head->str, str) == 0)
+		return (1);
+	return (is_in_list(head->next, str));
+}
+
 int					size_simple_list(t_simple_list *tmp)
 {
 	int		res;
@@ -79,7 +103,6 @@ void				free_simple_list(t_simple_list **head)
 		if (tmp == 0)
 			break ;
 	}
-	free(*head);
 	*head = 0;
 }
 
