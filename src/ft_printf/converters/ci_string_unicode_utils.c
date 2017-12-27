@@ -6,11 +6,11 @@
 /*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 11:58:42 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/03 12:25:47 by fauconfan        ###   ########.fr       */
+/*   Updated: 2017/12/27 12:33:08 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ci_string_unicode.h"
+#include "includes/ci_string_unicode.h"
 
 int		get_byte_size(wchar_t *wstr, t_treat_data *data)
 {

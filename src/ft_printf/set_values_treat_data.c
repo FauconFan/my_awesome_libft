@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   set_values_treat_data.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 09:05:56 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/02 11:41:56 by jpriou           ###   ########.fr       */
+/*   Updated: 2017/12/27 12:32:19 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "set_values_treat_data.h"
+#include "includes/set_values_treat_data.h"
 
 char	*set_flags_treat_data(char *str, t_treat_data *data)
 {

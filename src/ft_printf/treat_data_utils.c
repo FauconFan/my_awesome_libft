@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   treat_data_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 08:49:36 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/02 12:38:04 by jpriou           ###   ########.fr       */
+/*   Updated: 2017/12/27 12:32:06 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "treat_data_utils.h"
+#include "includes/treat_data_utils.h"
 
 /*
 **	Init the struct

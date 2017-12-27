@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ci_sep.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 14:56:49 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/02 09:19:15 by jpriou           ###   ########.fr       */
+/*   Updated: 2017/12/27 12:32:54 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ci_sep.h"
+#include "includes/ci_sep.h"
 
 void	process_sep(t_treat_data *data, t_string_buffer *sb)
 {

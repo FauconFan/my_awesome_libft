@@ -6,7 +6,7 @@
 #    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfan         #+#    #+#              #
-#    Updated: 2017/12/15 18:16:07 by fauconfan        ###   ########.fr        #
+#    Updated: 2017/12/27 12:31:32 by fauconfan        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ FT_PRINTF_FOLDER = ft_printf/
 
 CC ?= gcc
 COMPILATION_FLAGS = -Wall -Wextra -Werror
-INCLUDES_FLAGS = -I $(INCLUDES_FOLDER) -I ./
+INCLUDES_FLAGS = -I ./
 FLAGS = $(COMPILATION_FLAGS) $(INCLUDES_FLAGS)
 
 include $(INCLUDES_MK_FOLDER)libft_char.mk

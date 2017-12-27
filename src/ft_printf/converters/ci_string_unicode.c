@@ -6,11 +6,11 @@
 /*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 19:36:56 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/03 12:26:09 by fauconfan        ###   ########.fr       */
+/*   Updated: 2017/12/27 12:33:04 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ci_string_unicode.h"
+#include "includes/ci_string_unicode.h"
 
 int				ft_wcharlen(wchar_t wchar)
 {
