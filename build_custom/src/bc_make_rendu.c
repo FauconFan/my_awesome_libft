@@ -6,7 +6,7 @@
 /*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 10:03:54 by fauconfan         #+#    #+#             */
-/*   Updated: 2017/12/27 12:08:41 by fauconfan        ###   ########.fr       */
+/*   Updated: 2017/12/27 12:48:22 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ static void		cpy_one_single_file(char *from, char *to)
 		dprintf(2, "%s\n", strerror(errno));
 		exit (1);
 	}
-	if (write(fd2, file_content, stats.st_size + 1) == -1)
+	if (write(fd2, file_content, stats.st_size) == -1)
 	{
 		dprintf(2, "%s\n", strerror(errno));
 		exit (1);
@@ -172,6 +172,65 @@ static void		add_includes_to_list_file(t_simple_list **list_file)
 	add_list_check_doublon("../libft.h", list_file);
 }
 
+static void		display_what_was_copied(t_simple_list *list_file)
+{
+	printf("%d files have been copied\n\n", size_simple_list(list_file));
+	while (list_file)
+	{
+		printf("\t%s\n", list_file->str + 3);
+		list_file = list_file->next;
+	}
+}
+
+static void		create_an_adaptative_makefile(t_simple_list *list_file)
+{
+	int		fd;
+	char	*str_to_display;
+
+	printf("Create an adaptative Makefile\n");
+	if ((fd = open("../rendu/Makefile", O_CREAT|O_WRONLY, 0644)) == -1)
+	{
+		dprintf(2, "%s\n", strerror(errno));
+		exit (1);
+	}
+	dprintf(fd, "NAME = libft.a\n\n");
+	dprintf(fd, "CC ?= gcc\n");
+	dprintf(fd, "FLAGS = -Wall -Werror -Wextra -I ./\n\n");
+	dprintf(fd, "SRC = \\\n");
+	while (list_file)
+	{
+		str_to_display = list_file->str;
+		str_to_display += 3;
+		if (str_to_display[strlen(str_to_display) - 1] == 'c' && str_to_display[strlen(str_to_display) - 2] == '.')
+		{
+			dprintf(fd, "\t\t\t%s \\\n", str_to_display);
+		}
+		list_file = list_file->next;
+	}
+	dprintf(fd, "\n\n");
+	dprintf(fd, "OBJ = $(SRC:%s=%s)\n\n", "%.c", "%.o");
+	dprintf(fd, "all : $(NAME)\n\t@echo builted with $(CC)\n\n");
+	dprintf(fd, "$(NAME) : $(OBJ)\n");
+	dprintf(fd, "\t@ar -rc $@ $(OBJ)\n");
+	dprintf(fd, "\t@ranlib $@\n");
+	dprintf(fd, "\t@printf \"                                                                \\r\"\n");
+	dprintf(fd, "\t@echo \"libft built successfully\"\n\n");
+	dprintf(fd, "%s:%s\n", "%.o", "%.c");
+	dprintf(fd, "\t@printf \"                                                                \\r\"\n");
+	dprintf(fd, "\t@printf \"  🍏  <= $?\\r\"\n");
+	dprintf(fd, "\t@$(CC) $(FLAGS) -c $? -o $@\n\n");
+	dprintf(fd, "clean :\n");
+	dprintf(fd, "\t@rm -rf $(OBJ)\n\t@echo \"libft cleaned\"\n\n");
+	dprintf(fd, "fclean : clean\n");
+	dprintf(fd, "\t@rm -rf $(OBJ)\n\t@rm -rf $(NAME)\n\t@echo \"libft fcleaned\"\n\n");
+	dprintf(fd, "re : fclean all\n");
+	if (close(fd) == -1)
+	{
+		dprintf(2, "%s\n", strerror(errno));
+		exit (1);
+	}
+}
+
 void			handle_make_rendu(t_simple_list **list_file)
 {
 	t_simple_list	*directories_to_create;
@@ -184,6 +243,8 @@ void			handle_make_rendu(t_simple_list **list_file)
 	create_directories(directories_to_create);
 	free_simple_list(&directories_to_create);
 	cpy_all_files(*list_file, list_file_treated);
+	display_what_was_copied(*list_file);
+	create_an_adaptative_makefile(*list_file);
 	free_simple_list(list_file);
 	free_simple_list(&list_file_treated);
 }
