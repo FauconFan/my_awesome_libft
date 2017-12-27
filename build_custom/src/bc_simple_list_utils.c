@@ -6,7 +6,7 @@
 /*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 22:42:32 by pepe              #+#    #+#             */
-/*   Updated: 2017/12/27 10:39:08 by fauconfan        ###   ########.fr       */
+/*   Updated: 2017/12/27 13:08:03 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,40 @@ void				add_list_check_doublon(char *str, t_simple_list **head)
 {
 	t_simple_list	*new;
 	t_simple_list	*actu;
-	t_simple_list	*prev;
 
 	actu = *head;
-	prev = 0;
 	while (actu)
 	{
 		if (strcmp(str, actu->str) == 0)
 		{
 			return ;
 		}
-		prev = actu;
 		actu = actu->next;
 	}
 	new = new_simple_list(str);
-	if (prev == 0)
+	if (*head == 0)
 		*head = new;
 	else
-		prev->next = new;
+	{
+		if (strcmp(str, (*head)->str) < 0)
+		{
+			new->next = *head;
+			*head = new;
+		}
+		else
+		{
+			actu = *head;
+			while (actu->next != 0 && strcmp(str, actu->next->str) > 0)
+				actu = actu->next;
+			if (actu->next == 0)
+				actu->next = new;
+			else
+			{
+				new->next = actu->next;
+				actu->next = new;
+			}
+		}
+	}
 }
 
 t_simple_list		*bc_lstiter(t_simple_list *head, char *(*treat)(char *str))
