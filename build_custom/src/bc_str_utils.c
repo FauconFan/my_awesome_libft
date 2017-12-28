@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bc_str_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 15:20:43 by pepe              #+#    #+#             */
-/*   Updated: 2017/12/27 13:20:37 by fauconfan        ###   ########.fr       */
+/*   Updated: 2017/12/28 09:22:37 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,7 @@ char	*bc_strjoin_folder(char *s1, char *s2)
 
 int		bc_normalize_absolute_path(char *res)
 {
+	char	*tmp;
 	int		size;
 	int		index;
 
@@ -161,8 +162,10 @@ int		bc_normalize_absolute_path(char *res)
 				index++;
 			if (size < 0)
 				return (1);
-			strncpy(res + size, res + size + index,
-						strlen(res + size + index) + 1);
+			tmp = bc_strdup(res + size + index);
+			bzero(res + size, strlen(res + size));
+			strcat(res + size, tmp);
+			free(tmp);
 		}
 		else if (strncmp(res + size, "./", 2) == 0)
 			strncpy(res + size, res + size + 2,

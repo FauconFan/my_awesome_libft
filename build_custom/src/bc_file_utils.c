@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bc_file_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 15:37:54 by pepe              #+#    #+#             */
-/*   Updated: 2017/12/27 22:54:08 by fauconfan        ###   ########.fr       */
+/*   Updated: 2017/12/28 09:26:16 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static int				check_forbidden_function(char *str)
 		return (1);
 	while (list_forbidden[++i])
 	{
-		if (strncmp(str, list_forbidden[i], strlen(list_forbidden[i])) == 0)
+		if (strcmp(str, list_forbidden[i]) == 0)
 			return (1);
 	}
 	return (0);

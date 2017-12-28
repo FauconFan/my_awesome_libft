@@ -26,3 +26,7 @@ matrix:
       script : make -C tests/build_custom/ 02
       env :
          - NAME="Build Custom 02"
+    - os: linux
+      script : make -C tests/build_custom/ 21
+      env :
+         - NAME="Build Custom 21"
