@@ -6,6 +6,9 @@ verify_build_custom()
 	make -C ${path}libft
 	gcc ${path}main.c -I ${path}libft/ -o ${path}a.out -L ${path}libft -l ft
 	${path}a.out
+	if [ ! $? = 0 ]; then
+		exit 1
+	fi
 	rm -rf ${path}a.out
 	res=$(find ${path}libft/src -name "*.c" | wc -l)
 	if [ ! $res = 1 ]; then
@@ -15,7 +18,7 @@ verify_build_custom()
 	make fclean -C ${path}libft
 }
 
-test_tg()
+test_ok()
 {
 	path="../build_custom/$1"
 	make -C ${path}libft
@@ -34,6 +37,6 @@ G_MODE=$1
 
 case $G_MODE in
 	"simple_test") verify_build_custom $2 ;;
-	"test_tg") test_tg $2 ;;
+	"test_ok") test_ok $2 ;;
 	*) printf "this mode is not recognised"; exit 1;;
 esac

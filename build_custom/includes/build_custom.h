@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_custom.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 18:59:41 by fauconfan         #+#    #+#             */
-/*   Updated: 2017/12/27 13:17:45 by fauconfan        ###   ########.fr       */
+/*   Updated: 2017/12/29 10:23:46 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void				bc_update_str_still(char **str, int (*f)(char c));
 void				bc_update_str_until(char **str, int (*f)(char c));
 void				bc_update_str_stillstr(char **str, int (*f)(char *c));
 void				bc_update_str_untilstr(char **str, int (*f)(char *c));
+int					bc_strcpos(char *str, char c);
 char				*bc_strjoin(char *s1, char *s2);
 char				*bc_strjoin_folder(char *s1, char *s2);
 int					bc_normalize_absolute_path(char *res);

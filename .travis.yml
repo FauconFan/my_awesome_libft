@@ -19,13 +19,33 @@ matrix:
          - MATRIX_EVAL="CC=gcc"
          - NAME="Single Compile test"
     - os: linux
-      script : make -C tests/build_custom/ 01
+      script : make -C tests/build_custom/ 10
       env :
-         - NAME="Build Custom 01"
+         - NAME="Full Build Custom 11--16"
     - os: linux
-      script : make -C tests/build_custom/ 02
+      script : make -C tests/build_custom/ 11
       env :
-         - NAME="Build Custom 02"
+         - NAME="Build Custom 11"
+    - os: linux
+      script : make -C tests/build_custom/ 12
+      env :
+         - NAME="Build Custom 12"
+    - os: linux
+      script : make -C tests/build_custom/ 13
+      env :
+         - NAME="Build Custom 13"
+    - os: linux
+      script : make -C tests/build_custom/ 14
+      env :
+         - NAME="Build Custom 14"
+    - os: linux
+      script : make -C tests/build_custom/ 15
+      env :
+         - NAME="Build Custom 15"
+    - os: linux
+      script : make -C tests/build_custom/ 16
+      env :
+         - NAME="Build Custom 16"
     - os: linux
       script : make -C tests/build_custom/ 21
       env :

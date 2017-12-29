@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 15:20:43 by pepe              #+#    #+#             */
-/*   Updated: 2017/12/28 09:22:37 by jpriou           ###   ########.fr       */
+/*   Updated: 2017/12/29 10:16:07 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,20 @@ char	*bc_strndup(char *str, unsigned int size)
 		index++;
 	}
 	return (res);
+}
+
+int		bc_strcpos(char *str, char c)
+{
+	int		index;
+
+	index = 0;
+	while (str[index])
+	{
+		if (str[index] == c)
+			return (index);
+		index++;
+	}
+	return (-1);
 }
 
 char	*bc_strjoin(char *s1, char *s2)

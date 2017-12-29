@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 15:37:54 by pepe              #+#    #+#             */
-/*   Updated: 2017/12/28 09:26:16 by jpriou           ###   ########.fr       */
+/*   Updated: 2017/12/29 17:48:44 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,11 +120,75 @@ static char				*verify_static_function(char *str_tot)
 	return (0);
 }
 
+static void				handle_function_ptr_as_argument(char *cpy, t_simple_list **list)
+{
+	char	*tmp;
+	char	*tmp2;
+	int		pos;
+
+	if ((pos = bc_strcpos(cpy, ',')) == -1)
+	{
+		while (bc_isspace(*cpy))
+			cpy++;
+		if ((((*cpy >= 'a' && *cpy <= 'z')) || (*cpy >= 'A' && *cpy <= 'Z')) == 0)
+			return ;
+		if (bc_strcpos(cpy, '(') != -1 ||
+			bc_strcpos(cpy, ')') != -1 ||
+			bc_strcpos(cpy, '+') != -1 ||
+			bc_strcpos(cpy, '-') != -1 ||
+			bc_strcpos(cpy, '&') != -1 ||
+			bc_strcpos(cpy, '|') != -1 ||
+			bc_strcpos(cpy, '^') != -1 ||
+			bc_strcpos(cpy, '*') != -1 ||
+			bc_strcpos(cpy, '/') != -1 ||
+			bc_strcpos(cpy, '%') != -1 ||
+			bc_strcpos(cpy, '<') != -1 ||
+			bc_strcpos(cpy, '=') != -1 ||
+			bc_strcpos(cpy, '[') != -1 ||
+			bc_strcpos(cpy, ']') != -1 ||
+			bc_strcpos(cpy, '>') != -1 ||
+			bc_strcpos(cpy, ' ') != -1 ||
+			strlen(cpy) <= 3 ||
+			strcmp(cpy, "NULL") == 0 ||
+			strcmp(cpy, "void") == 0 ||
+			strcmp(cpy, "char") == 0 ||
+			strcmp(cpy, "little") == 0 ||
+			strcmp(cpy, "needle") == 0 ||
+			strcmp(cpy, "TRUE") == 0 ||
+			strcmp(cpy, "FALSE") == 0 ||
+			strcmp(cpy, "data") == 0 ||
+			strcmp(cpy, "null") == 0 ||
+			strcmp(cpy, "length") == 0 ||
+			strcmp(cpy, "base") == 0 ||
+			strcmp(cpy, "lengthbase") == 0 ||
+			strcmp(cpy, "index") == 0 ||
+			strcmp(cpy, "size") == 0 ||
+			strcmp(cpy, "format") == 0 ||
+			strcmp(cpy, "baselen") == 0 ||
+			strcmp(cpy, "dest") == 0 ||
+			strcmp(cpy, "nb_words") == 0)
+				return ;
+		add_list_check_doublon(cpy, list);
+	}
+	else
+	{
+		tmp = bc_strndup(cpy, pos);
+		tmp2 = bc_strdup(cpy + pos + 1);
+		handle_function_ptr_as_argument(tmp, list);
+		handle_function_ptr_as_argument(tmp2, list);
+		free(tmp);
+		free(tmp2);
+	}
+}
+
 static void				add_name_to_list(char *str, t_simple_list **list)
 {
 	unsigned int		index;
 	char				*string_to_add;
+	char				*string_to_treat;
+	char				*cpy;
 
+	cpy = str;
 	str--;
 	while (bc_isspace(*str))
 		str--;
@@ -141,6 +205,13 @@ static void				add_name_to_list(char *str, t_simple_list **list)
 		add_list_check_doublon(string_to_add, list);
 		free(string_to_add);
 	}
+	index = 0;
+	cpy++;
+	while (cpy[index] != ')' && cpy[index] != 0)
+		index++;
+	string_to_treat = bc_strndup(cpy, index);
+	handle_function_ptr_as_argument(string_to_treat, list);
+	free(string_to_treat);
 }
 
 static void				update_until_next_function_declaration(char **str_tot)
