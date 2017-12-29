@@ -24,6 +24,9 @@ test_ok()
 	make -C ${path}libft
 	gcc ${path}main.c -I ${path}libft/ -o ${path}a.out -L ${path}libft -l ft
 	${path}a.out
+	if [ ! $? = 0 ]; then
+		exit 1
+	fi
 	rm -rf ${path}a.out
 	make fclean -C ${path}libft
 }

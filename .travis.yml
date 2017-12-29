@@ -47,6 +47,22 @@ matrix:
       env :
          - NAME="Build Custom 16"
     - os: linux
+      script : make -C tests/build_custom/ 20
+      env :
+         - NAME="Full Build Custom 21--24"
+    - os: linux
       script : make -C tests/build_custom/ 21
       env :
          - NAME="Build Custom 21"
+    - os: linux
+      script : make -C tests/build_custom/ 22
+      env :
+         - NAME="Build Custom 22"
+    - os: linux
+      script : make -C tests/build_custom/ 23
+      env :
+         - NAME="Build Custom 23"
+    - os: linux
+      script : make -C tests/build_custom/ 24
+      env :
+         - NAME="Build Custom 24"

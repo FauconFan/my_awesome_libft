@@ -6,7 +6,7 @@
 #    By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/27 13:14:13 by fauconfan         #+#    #+#              #
-#    Updated: 2017/12/29 18:02:12 by jpriou           ###   ########.fr        #
+#    Updated: 2017/12/29 18:28:43 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,19 +36,30 @@ FOLDER_NAME = "01_simpletest_putstr"
 16 :
 	make singletest_buildcustom FOLDER_NAME=16_simpletest_memdel/
 
+20 : 21 22 23 24
+
 21 :
 	make test_ok_buildcustom FOLDER_NAME=21_simple_compilable_printf/
 
+22 :
+	make test_ok_buildcustom FOLDER_NAME=22_simple_compilable_str_is_alnum/
+
+23 :
+	make test_ok_buildcustom FOLDER_NAME=23_simple_compilable_strsplit/
+
+24 :
+	make test_ok_buildcustom FOLDER_NAME=24_simple_compilable_convertbase/
+
 test_ok_buildcustom :
 	make -C $(PATH_BUILD_CUSTOM) PARAM=$(RELATIVE_PATH_FORM_BUILD_CUSTOM)$(FOLDER_NAME)
-	cp -r $(PATH_RENDU) $(FOLDER_NAME)/libft
+	cp -r $(PATH_RENDU) $(FOLDER_NAME)libft
 	sh ../scripts/build_custom.sh test_ok $(FOLDER_NAME)
 	rm -rf $(PATH_RENDU)
-	rm -rf $(FOLDER_NAME)/libft
+	rm -rf $(FOLDER_NAME)libft
 
 singletest_buildcustom :
 	make -C $(PATH_BUILD_CUSTOM) PARAM=$(RELATIVE_PATH_FORM_BUILD_CUSTOM)$(FOLDER_NAME)
-	cp -r $(PATH_RENDU) $(FOLDER_NAME)/libft
+	cp -r $(PATH_RENDU) $(FOLDER_NAME)libft
 	sh ../scripts/build_custom.sh simple_test $(FOLDER_NAME)
 	rm -rf $(PATH_RENDU)
 	rm -rf $(FOLDER_NAME)libft

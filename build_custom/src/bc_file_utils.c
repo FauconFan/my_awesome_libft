@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 15:37:54 by pepe              #+#    #+#             */
-/*   Updated: 2017/12/29 17:48:44 by jpriou           ###   ########.fr       */
+/*   Updated: 2017/12/29 18:17:03 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,8 @@ static void				handle_function_ptr_as_argument(char *cpy, t_simple_list **list)
 	{
 		while (bc_isspace(*cpy))
 			cpy++;
+		if (*cpy == '&')
+			cpy++;
 		if ((((*cpy >= 'a' && *cpy <= 'z')) || (*cpy >= 'A' && *cpy <= 'Z')) == 0)
 			return ;
 		if (bc_strcpos(cpy, '(') != -1 ||
@@ -168,6 +170,7 @@ static void				handle_function_ptr_as_argument(char *cpy, t_simple_list **list)
 			strcmp(cpy, "dest") == 0 ||
 			strcmp(cpy, "nb_words") == 0)
 				return ;
+		printf("%s\n", cpy);
 		add_list_check_doublon(cpy, list);
 	}
 	else
