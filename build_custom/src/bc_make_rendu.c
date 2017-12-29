@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bc_make_rendu.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 10:03:54 by fauconfan         #+#    #+#             */
-/*   Updated: 2017/12/27 12:48:22 by fauconfan        ###   ########.fr       */
+/*   Updated: 2017/12/29 19:35:24 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,10 +174,25 @@ static void		add_includes_to_list_file(t_simple_list **list_file)
 
 static void		display_what_was_copied(t_simple_list *list_file)
 {
-	printf("%d files have been copied\n\n", size_simple_list(list_file));
+	int					size_tot_source_code;
+	t_simple_list		*cpy_list;
+
+	printf("\n%d files have been copied (headers and source code)\n\n", size_simple_list(list_file));
+	size_tot_source_code = 0;
+	cpy_list = list_file;
+	while (cpy_list)
+	{
+		int len = strlen(cpy_list->str);
+		if (cpy_list->str[len - 1] == 'c' && cpy_list->str[len - 2] == '.')
+			size_tot_source_code++;
+		cpy_list = cpy_list->next;
+	}
+	printf("  %d source code have been copied\n", size_tot_source_code);
 	while (list_file)
 	{
-		printf("\t%s\n", list_file->str + 3);
+		int len = strlen(list_file->str);
+		if (list_file->str[len - 1] == 'c' && list_file->str[len - 2] == '.')
+			printf("\t%s\n", list_file->str + 3);
 		list_file = list_file->next;
 	}
 }
