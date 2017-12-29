@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/29 19:00:14 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/29 19:03:22 by jpriou           ###   ########.fr       */
+/*   Updated: 2017/12/29 19:23:32 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ int			main(void)
 	ft_strclr(str);
 	ft_strdel(&str);
 	ft_putstr(str);
+	return (0);
 }
