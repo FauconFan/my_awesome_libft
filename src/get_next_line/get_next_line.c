@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 13:42:36 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/05 09:38:00 by jpriou           ###   ########.fr       */
+/*   Updated: 2017/12/29 19:08:44 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int				get_next_line(const int fd, char **line, t_env_gnl *env_gnl)
 {
 	char		**buff_prog;
 
-	if (line == 0 || read(fd, 0, 0) < 0)
+	if (line == 0 || read(fd, 0, 0) < 0 || env_gnl == 0)
 		return (-1);
 	buff_prog = find_buff_prog(env_gnl, (int)fd);
 	if (loop(fd, buff_prog) == -1)

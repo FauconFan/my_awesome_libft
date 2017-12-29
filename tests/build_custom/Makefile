@@ -6,7 +6,7 @@
 #    By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/27 13:14:13 by fauconfan         #+#    #+#              #
-#    Updated: 2017/12/29 18:28:43 by jpriou           ###   ########.fr        #
+#    Updated: 2017/12/29 19:12:42 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ PATH_RENDU = ../../rendu/
 RELATIVE_PATH_FORM_BUILD_CUSTOM = ../tests/build_custom/
 
 FOLDER_NAME = "01_simpletest_putstr"
+
+0 : 10 20 30
 
 10 : 11 12 13 14 15 16
 
@@ -49,6 +51,23 @@ FOLDER_NAME = "01_simpletest_putstr"
 
 24 :
 	make test_ok_buildcustom FOLDER_NAME=24_simple_compilable_convertbase/
+
+30 : 31 32 33 34 35
+
+31 :
+	make test_ok_buildcustom FOLDER_NAME=31_miscellaneous/
+
+32 :
+	make test_ok_buildcustom FOLDER_NAME=32_miscellaneous/
+
+33 :
+	make test_ok_buildcustom FOLDER_NAME=33_miscellaneous/
+
+34 :
+	make test_ok_buildcustom FOLDER_NAME=34_miscellaneous/
+
+35 :
+	make test_ok_buildcustom FOLDER_NAME=35_miscellaneous/
 
 test_ok_buildcustom :
 	make -C $(PATH_BUILD_CUSTOM) PARAM=$(RELATIVE_PATH_FORM_BUILD_CUSTOM)$(FOLDER_NAME)

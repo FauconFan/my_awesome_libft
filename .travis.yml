@@ -19,6 +19,10 @@ matrix:
          - MATRIX_EVAL="CC=gcc"
          - NAME="Single Compile test"
     - os: linux
+      script : make -C tests/build_custom/ 0
+      env :
+         - NAME="Full Build Custom All"
+    - os: linux
       script : make -C tests/build_custom/ 10
       env :
          - NAME="Full Build Custom 11--16"
@@ -66,3 +70,27 @@ matrix:
       script : make -C tests/build_custom/ 24
       env :
          - NAME="Build Custom 24"
+    - os: linux
+      script : make -C tests/build_custom/ 30
+      env :
+         - NAME="Full Build Custom 31--35"
+    - os: linux
+      script : make -C tests/build_custom/ 31
+      env :
+         - NAME="Build Custom 31"
+    - os: linux
+      script : make -C tests/build_custom/ 32
+      env :
+         - NAME="Build Custom 32"
+    - os: linux
+      script : make -C tests/build_custom/ 33
+      env :
+         - NAME="Build Custom 33"
+    - os: linux
+      script : make -C tests/build_custom/ 34
+      env :
+         - NAME="Build Custom 34"
+    - os: linux
+      script : make -C tests/build_custom/ 35
+      env :
+         - NAME="Build Custom 35"
