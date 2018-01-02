@@ -10,6 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
+CONVERTERS_FT_PRINTF_FOLDER = converters/
+
 SRC_FT_PRINTF = ft_printf_family.c \
 				ft_vprintf_family.c  \
 				treat_data_utils.c \

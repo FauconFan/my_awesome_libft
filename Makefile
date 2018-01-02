@@ -6,7 +6,7 @@
 #    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfan         #+#    #+#              #
-#    Updated: 2017/12/27 12:31:32 by fauconfan        ###   ########.fr        #
+#    Updated: 2018/01/02 19:26:58 by fauconfan        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ NAME = libft.a
 SRC_FOLDER = src/
 INCLUDES_MK_FOLDER = includes_mk/
 INCLUDES_FOLDER = includes/
-CONVERTERS_FT_PRINTF_FOLDER = converters/
 
 LIBFT_CHAR_FOLDER = libft_char/
 LIBFT_STR_FOLDER = libft_str/
