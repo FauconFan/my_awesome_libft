@@ -22,10 +22,13 @@ then use make test, it will compile the library, compile the main file, run it a
  - Create a little libray to make some simple test...
  	- assert
  	- assertNull
+ 	- assertNotNull
  	- assertNumEquals
  	- assertStrEquals
+ 	- assertDoubleEquals
  	- assertArrNumEquals
  	- assertArrStrEquals
+ 	- assertArrDoubleEquals
  - Create an associated script to automate tests for each test
  - Link with travis
  - Create a lot of tests for all files

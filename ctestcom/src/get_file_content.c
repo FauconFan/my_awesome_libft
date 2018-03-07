@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bc_read_utils.c                                    :+:      :+:    :+:   */
+/*   get_file_content.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/16 15:35:39 by pepe              #+#    #+#             */
-/*   Updated: 2018/01/14 12:16:42 by fauconfan        ###   ########.fr       */
+/*   Created: 2018/01/14 17:41:48 by fauconfan         #+#    #+#             */
+/*   Updated: 2018/01/14 18:32:35 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "build_custom.h"
+#include "ctestcom.h"
 
-int		open_read_file(char *name_file, unsigned int size_tot, char **str_tot)
+char	*get_file_content(char *path)
 {
-	int		fd;
-	int		ret;
+	char				*res;
+	struct stat			statbuffer;
+	int					fd;
+	int					ret;
 
-	if ((fd = open(name_file, O_RDONLY)) == -1)
+	if ((lstat(path, &statbuffer)) == -1 || (fd = open(path, O_RDONLY)) == -1)
 	{
-		dprintf(2, "name_file is not valid\n");
+		dprintf(2, "%s\n", strerror(errno));
 		exit(1);
 	}
-	if ((ret = read(fd, *str_tot, size_tot)) == -1)
+	res = tct_strnew(statbuffer.st_size);
+	if ((ret = read(fd, res, statbuffer.st_size)) == -1 || close(fd) == -1)
+	{
+		dprintf(2, "%s\n", strerror(errno));
 		exit(1);
-	(*str_tot)[ret] = 0;
-	return (fd);
+	}
+	res[ret] = '\0';
+	return (res);
 }
