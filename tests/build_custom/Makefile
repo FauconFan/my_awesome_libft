@@ -6,7 +6,7 @@
 #    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/27 13:14:13 by fauconfan         #+#    #+#              #
-#    Updated: 2018/03/20 08:59:01 by fauconfan        ###   ########.fr        #
+#    Updated: 2018/03/20 22:21:01 by fauconfan        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,13 +72,13 @@ FOLDER_NAME = ""
 test_ok_buildcustom :
 	make -C $(PATH_BUILD_CUSTOM) PARAM=$(RELATIVE_PATH_FROM_BUILD_CUSTOM)$(FOLDER_NAME)
 	cp -r $(PATH_RENDU) $(FOLDER_NAME)libft
-	sh ../scripts/build_custom.sh test_ok $(FOLDER_NAME)
+	sh ../build_custom.sh test_ok $(FOLDER_NAME)
 	rm -rf $(PATH_RENDU)
 	rm -rf $(FOLDER_NAME)libft
 
 singletest_buildcustom :
 	make -C $(PATH_BUILD_CUSTOM) PARAM=$(RELATIVE_PATH_FROM_BUILD_CUSTOM)$(FOLDER_NAME)
 	cp -r $(PATH_RENDU) $(FOLDER_NAME)libft
-	sh ../scripts/build_custom.sh simple_test $(FOLDER_NAME)
+	sh ../build_custom.sh simple_test $(FOLDER_NAME)
 	rm -rf $(PATH_RENDU)
 	rm -rf $(FOLDER_NAME)libft
