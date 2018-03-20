@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+         #
+#    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/15 19:01:46 by fauconfan         #+#    #+#              #
-#    Updated: 2017/12/29 17:49:04 by jpriou           ###   ########.fr        #
+#    Updated: 2018/03/20 09:00:20 by fauconfan        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_FOLDER = src/
 INCLUDES_FOLDER = includes/
 
-FLAGS = -g -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 PARAM = ""
 
@@ -33,7 +33,7 @@ OBJ = $(addprefix $(SRC_FOLDER), $(OBJ_TMP))
 
 all : clean $(OBJ)
 	gcc $(FLAGS) $(OBJ) -I $(INCLUDES_FOLDER)
-	@./a.out $(PARAM)
+	./a.out $(PARAM)
 	make fclean
 
 %.o : %.c

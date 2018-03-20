@@ -6,7 +6,7 @@
 /*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 23:14:20 by pepe              #+#    #+#             */
-/*   Updated: 2017/12/26 18:58:09 by fauconfan        ###   ########.fr       */
+/*   Updated: 2018/03/20 09:04:21 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ t_project_depedencies				*build_dep_libft(void)
 {
 	t_project_depedencies	*res;
 
-	res = build_depedencies("../src");
+	res = build_depedencies("../libft/src");
 	purge_depedency(res, res);
 	return (res);
 }

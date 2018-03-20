@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bc_make_rendu.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 10:03:54 by fauconfan         #+#    #+#             */
-/*   Updated: 2017/12/29 19:35:24 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/03/20 09:26:31 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,15 @@ static void		handle_all_path(t_simple_list *list_file, t_simple_list **directori
 	}
 }
 
-static char		*add_rendu_prefix(char *str)
+static char		*adapt_path_name(char *str)
 {
 	char	*res;
 
-	if ((res = (char *)malloc(sizeof(char) * (strlen(str) + 6 + 1))) == 0)
+	str += 8;
+	if ((res = (char *)malloc(sizeof(char) * (strlen(str) + 8 + 1))) == 0)
 		exit (1);
 	strcpy(res, "../rendu");
-	strncpy(res + 8, str + 2, strlen(str + 2) + 1);
+	strncpy(res + 8, str, strlen(str) + 1);
 	return (res);
 }
 
@@ -168,8 +169,8 @@ static void		add_all_files_in_this_folder_recursively(t_simple_list **list_file,
 
 static void		add_includes_to_list_file(t_simple_list **list_file)
 {
-	add_all_files_in_this_folder_recursively(list_file, "../includes");
-	add_list_check_doublon("../libft.h", list_file);
+	add_all_files_in_this_folder_recursively(list_file, "../libft/includes");
+	add_list_check_doublon("../libft/libft.h", list_file);
 }
 
 static void		display_what_was_copied(t_simple_list *list_file)
@@ -218,7 +219,7 @@ static void		create_an_adaptative_makefile(t_simple_list *list_file)
 		str_to_display += 3;
 		if (str_to_display[strlen(str_to_display) - 1] == 'c' && str_to_display[strlen(str_to_display) - 2] == '.')
 		{
-			dprintf(fd, "\t\t\t%s \\\n", str_to_display);
+			dprintf(fd, "\t\t\t%s \\\n", str_to_display + 6);
 		}
 		list_file = list_file->next;
 	}
@@ -253,13 +254,13 @@ void			handle_make_rendu(t_simple_list **list_file)
 
 	directories_to_create = 0;
 	add_includes_to_list_file(list_file);
-	list_file_treated = bc_lstiter(*list_file, add_rendu_prefix);
+	list_file_treated = bc_lstiter(*list_file, adapt_path_name);
 	handle_all_path(list_file_treated, &directories_to_create);
 	create_directories(directories_to_create);
 	free_simple_list(&directories_to_create);
 	cpy_all_files(*list_file, list_file_treated);
 	display_what_was_copied(*list_file);
-	create_an_adaptative_makefile(*list_file);
+	create_an_adaptative_makefile(list_file_treated);
 	free_simple_list(list_file);
 	free_simple_list(&list_file_treated);
 }

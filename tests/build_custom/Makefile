@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+         #
+#    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/27 13:14:13 by fauconfan         #+#    #+#              #
-#    Updated: 2017/12/29 19:12:42 by jpriou           ###   ########.fr        #
+#    Updated: 2018/03/20 08:59:01 by fauconfan        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PATH_BUILD_CUSTOM = ../../build_custom/
 PATH_RENDU = ../../rendu/
-RELATIVE_PATH_FORM_BUILD_CUSTOM = ../tests/build_custom/
+RELATIVE_PATH_FROM_BUILD_CUSTOM = ../tests/build_custom/
 
-FOLDER_NAME = "01_simpletest_putstr"
+FOLDER_NAME = ""
 
 0 : 10 20 30
 
@@ -70,14 +70,14 @@ FOLDER_NAME = "01_simpletest_putstr"
 	make test_ok_buildcustom FOLDER_NAME=35_miscellaneous/
 
 test_ok_buildcustom :
-	make -C $(PATH_BUILD_CUSTOM) PARAM=$(RELATIVE_PATH_FORM_BUILD_CUSTOM)$(FOLDER_NAME)
+	make -C $(PATH_BUILD_CUSTOM) PARAM=$(RELATIVE_PATH_FROM_BUILD_CUSTOM)$(FOLDER_NAME)
 	cp -r $(PATH_RENDU) $(FOLDER_NAME)libft
 	sh ../scripts/build_custom.sh test_ok $(FOLDER_NAME)
 	rm -rf $(PATH_RENDU)
 	rm -rf $(FOLDER_NAME)libft
 
 singletest_buildcustom :
-	make -C $(PATH_BUILD_CUSTOM) PARAM=$(RELATIVE_PATH_FORM_BUILD_CUSTOM)$(FOLDER_NAME)
+	make -C $(PATH_BUILD_CUSTOM) PARAM=$(RELATIVE_PATH_FROM_BUILD_CUSTOM)$(FOLDER_NAME)
 	cp -r $(PATH_RENDU) $(FOLDER_NAME)libft
 	sh ../scripts/build_custom.sh simple_test $(FOLDER_NAME)
 	rm -rf $(PATH_RENDU)
