@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 12:20:17 by fauconfan         #+#    #+#             */
-/*   Updated: 2018/03/07 13:46:18 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/03/20 11:23:12 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,6 @@ void	ft_printusage(void)
 {
 	dprintf(2, "./ctestcom PATH_ORIGIN PATH_TARGET\n");
 }
-
-/*
-** Testcom :
-**	printf("coucou\n");
-**	printf("ceci est le menu !\n");
-**	assert(0);
-**	assert(1);
-*/
 
 int		main(int argc, char **argv)
 {
@@ -41,3 +33,42 @@ int		main(int argc, char **argv)
 	free_ctestcom(&ctestcom);
 	return (0);
 }
+
+/*
+** Testcom :
+**	printf("main test\n");
+**	assert(1);
+**	assert(1);
+**	assert_null(0);
+**	assert_notnull(&strlen);
+**	assert_char('c', 'c', 0);
+**	assert_short((short)-2, (short)-2, 0);
+**	assert_int(42, 42, 0);
+**	assert_long((long) -123456789123456789, (long) -123456789123456789, 0);
+**	assert_long_long((long long) 123456789123456789, (long long) 123456789123456789, 0);
+**	assert_float(-0.5f, -0.5f, 0);
+**	assert_double(-0.5, -0.5, 0);
+**	assert_long_double(((long double)5.0)/3.0, ((long double)5.0)/3.0, 0);
+**	assert_unsigned_char('c', 'c', 0);
+**	assert_unsigned_short((short)2, (short)2, 0);
+**	assert_unsigned_int(42, 42, 0);
+**	assert_unsigned_long((long) 123456789123456789, (long) 123456789123456789, 0);
+**	assert_unsigned_long_long((long long) 123456789123456789, (long long) 123456789123456789, 0);
+**	assert_char('d', 'c', 1);
+**	assert_char('c', 'c', EQU);
+**	assert_char('d', 'c', GTE);
+**	assert_char('d', 'c', GT);
+**	assert_char('b', 'c', LTE);
+**	assert_char('b', 'c', LT);
+**	assert_char('c', 'c', LTE);
+**	assert_char('c', 'c', GTE);
+**	assert_short((short)-2, (short)-2, GTE);
+**	assert_short((short)-2, (short)-2, LTE);
+**	assert_int(42, 42, 0);
+**	assert_int(42, 41, 1);
+**	assert_int(42, 43, -1);
+**	assert_int(42, 42, GTE);
+**	assert_int(42, 42, LTE);
+**	assert_int(43, 42, GT);
+**	assert_int(42, 43, LT);
+*/

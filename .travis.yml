@@ -34,3 +34,7 @@ matrix:
       script : make -C tests/build_custom/ 30
       env :
          - NAME="Full Build Custom 31--35"
+    - os: linux
+      script : make -C ctestcom testctestcom
+      env :
+         - NAME="CtestCom main test in"

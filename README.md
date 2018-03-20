@@ -2,30 +2,55 @@
 
 Contains the awesome libft.
 
-# This Makefile is not up to date - Check the code by your own or harass the owner to update this README file :3
-
-## How to use it
-
-You have to compile the library using make
-Next, you have to specify one folder for the includes flags :
- - the root path of this project
+# This project is not viable. It is still in development
 
 ## How to test it
 
 You can edit the file main.c in the src directory,
 then use make test, it will compile the library, compile the main file, run it and delete all useless files in the same time.
 
-## To do list : CTestCom
+## CTestCom
+  - All tests
+  	- Normal tests
+ 	  - assert
+ 	  - assert_null
+ 	  - assert_notnull
+ 	- Number test
+ 	  - assert_char
+ 	  - assert_short
+ 	  - assert_int
+ 	  - assert_long
+ 	  - assert_long_long
+ 	  - assert_float
+ 	  - assert_double
+ 	  - assert_long_double
+ 	  - assert_unsigned_char
+ 	  - assert_unsigned_short
+ 	  - assert_unsigned_int
+ 	  - assert_unsigned_long
+ 	  - assert_unsigned_long_long
+ 	  - assert_unsigned_float
+ 	  - assert_unsigned_double
+ 	  - assert_unsigned_long_double
+ 	- String test
+ 	  - assert_strequ
+ 	  - assert_strlen
+ 	  - assert_strlengteq
+ 	  - assert_strlengt
+ 	  - assert_strlenlteq
+ 	  - assert_strlenlt
+ 	  - assert_str_beginwith
+ 	  - assert_str_endwith
+ 	  - assert_str_countlines
+ 	  - assert_str_isprintble
+ 	  - assert_str_isascii
+ 	  - assert_str_isalnum
 
- - Parse files and generate associated tests
- - Send an error if no tests
- - Create a little libray to make some simple test...
- 	- assert
- 	- assertNull
- 	- assertNotNull
- 	- assertNumEquals
- 	- assertStrEquals
- 	- assertDoubleEquals
+
+## To Do list
+
+### CTestCom
+  - Array test
  	- assertArrNumEquals
  	- assertArrStrEquals
  	- assertArrDoubleEquals

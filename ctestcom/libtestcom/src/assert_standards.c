@@ -6,7 +6,7 @@
 /*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 11:28:32 by fauconfan         #+#    #+#             */
-/*   Updated: 2018/01/14 12:01:03 by fauconfan        ###   ########.fr       */
+/*   Updated: 2018/03/20 09:49:47 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void		assert(short is_passed)
 	add_test_to_env(test);
 }
 
-void		assertNull(void *ptr)
+void		assert_null(void *ptr)
 {
 	t_simpletest	*test;
 
@@ -28,7 +28,7 @@ void		assertNull(void *ptr)
 	add_test_to_env(test);
 }
 
-void		assertNotNull(void *ptr)
+void		assert_notnull(void *ptr)
 {
 	t_simpletest	*test;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   malloc_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 17:17:41 by fauconfan         #+#    #+#             */
-/*   Updated: 2018/03/07 13:44:51 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/03/20 10:18:20 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_ctestcom		*init_ctestcom(char *path_origin, char *path_target)
 		exit(1);
 	res->path_origin = path_origin;
 	res->path_target = path_target;
-	if ((res->fd_target = open(path_target, O_CREAT | O_RDWR, 0644)) == -1)
+	if ((res->fd_target = open(path_target, O_CREAT | O_RDWR | O_TRUNC, 0644)) == -1)
 	{
 		dprintf(2, "Couldn't open the target file...\nerror : %s\n", strerror(errno));
 		exit(1);

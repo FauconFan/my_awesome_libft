@@ -6,7 +6,7 @@
 /*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 11:02:41 by fauconfan         #+#    #+#             */
-/*   Updated: 2018/01/14 11:56:53 by fauconfan        ###   ########.fr       */
+/*   Updated: 2018/03/20 11:17:26 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,37 @@
 # define FALSE		0
 # endif
 
+/*
+**	Handle compareason with bit values
+*/
+
+# define EQU			0b00100
+# define GT				0b01000
+# define LT				0b10000
+# define GTE			0b01100
+# define LTE			0b10100
+
+# define TEST_EQUALS 	0b00100
+# define TEST_GREATER	0b01000
+# define TEST_LESS		0b10000
+
+# define TREAT_H__(h)	(h == -1 ? TEST_LESS : h)
+# define TREAT_H_(h)	(h == 1 ? TEST_GREATER : TREAT_H__(h))
+# define TREAT_H(h)		(h == 0 ? TEST_EQUALS : TREAT_H_(h))
+
+# define TEST__E(a,b,h) ((h & TEST_EQUALS) ? a == b : 0)
+# define TEST__G(a,b,h) ((h & TEST_GREATER) ? a > b : 0)
+# define TEST__L(a,b,h) ((h & TEST_LESS) ? a < b : 0)
+# define TEST_(a,b,h) 	(TEST__E(a,b,h) || TEST__L(a,b,h) || TEST__G(a,b,h))
+
+# define TEST(a,b,h) 	(TEST_(a,b,TREAT_H(h)))
+
 typedef enum		e_typetest
 {
 	ASSERT,
 	ASSERT_NULL,
 	ASSERT_NOT_NULL,
-	ASSERT_NUM_EQUALS,
-	ASSERT_DOUBLE_EQUALS,
-	ASSERT_STR_EQUALS,
-	ASSERT_ARR_NUM_EQUALS,
-	ASSERT_ARR_DOUBLE_EQUALS,
-	ASSERT_ARR_STR_EQUALS
+	ASSERT_NUM_EQUALS
 }					t_typetest;
 
 typedef struct		s_simpletest
@@ -78,7 +98,21 @@ void				free_n_print_result();
 */
 
 void				assert(short is_passed);
-void				assertNull(void *ptr);
-void				assertNotNull(void *ptr);
+void				assert_null(void *ptr);
+void				assert_notnull(void *ptr);
+
+void				assert_char(char a, char b, int comp);
+void				assert_short(short a, short b, int comp);
+void				assert_int(int a, int b, int comp);
+void				assert_long(long a, long b, int comp);
+void				assert_long_long(long long a, long long b, int comp);
+void				assert_float(float a, float b, int comp);
+void				assert_double(double a, double b, int comp);
+void				assert_long_double(long double a, long double b, int comp);
+void				assert_unsigned_char(unsigned char a, unsigned char b, int comp);
+void				assert_unsigned_short(unsigned short a, unsigned short b, int comp);
+void				assert_unsigned_int(unsigned int a, unsigned int b, int comp);
+void				assert_unsigned_long(unsigned long a, unsigned long b, int comp);
+void				assert_unsigned_long_long(unsigned long long a, unsigned long long b, int comp);
 
 #endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+         #
+#    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/14 11:01:01 by fauconfan         #+#    #+#              #
-#    Updated: 2018/03/06 23:16:51 by jpriou           ###   ########.fr        #
+#    Updated: 2018/03/20 11:21:39 by fauconfan        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,5 +47,11 @@ fclean :
 	rm -f $(OBJ)
 	rm -f $(NAME)
 	make -C $(CTESTCOM_LIBRARY_FOLDER) fclean
+
+testctestcom : all
+	@./$(NAME) src/main.c testmain.c
+	@gcc testmain.c -L $(CTESTCOM_LIBRARY_FOLDER) -l ctestcom -I $(CTESTCOM_LIBRARY_FOLDER)$(INCLUDES_FOLDER) -o testmain
+	@./testmain
+	@rm -f ./testmain testmain.c
 
 re : fclean all

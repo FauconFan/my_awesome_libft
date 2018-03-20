@@ -6,7 +6,7 @@
 #    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/14 11:01:35 by fauconfan         #+#    #+#              #
-#    Updated: 2018/01/14 17:05:38 by fauconfan        ###   ########.fr        #
+#    Updated: 2018/03/20 11:22:18 by fauconfan        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ INCLUDES_FOLDER = includes/
 SRC = env_utils.c \
 		malloc_utils.c \
 		assert_standards.c \
+		assert_primitives.c \
 
 MAIN_TEST = $(SRC_FOLDER)main_test.c
 
@@ -35,7 +36,7 @@ $(NAME) : $(OBJ)
 	@ranlib $@
 
 %.o : %.c
-	@$(GWW) -c $? -o $@
+	$(GWW) -c $? -o $@
 
 clean :
 	@rm -f $(OBJ)
@@ -45,9 +46,3 @@ fclean :
 	@rm -f $(NAME)
 
 re : fclean all
-
-test : $(NAME)
-	@$(GWW) $(MAIN_TEST) -o $(NAME_MAIN_TEST) -L ./ -l ctestcom
-	@./$(NAME_MAIN_TEST)
-	@rm -f $(NAME_MAIN_TEST)
-	@make fclean --quiet
