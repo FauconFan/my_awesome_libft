@@ -5,8 +5,8 @@ compiler :
   - cc
   - clang
 
-script : make
-after_script : make fclean
+script : make -C libft
+after_script : make -C libft fclean
 
 matrix:
   include:
