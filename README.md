@@ -39,10 +39,13 @@ then use make test, it will compile the library, compile the main file, run it a
  	  - assert_strlengt
  	  - assert_strlenlteq
  	  - assert_strlenlt
+ 	  - assert_str_match
  	  - assert_str_beginwith
  	  - assert_str_endwith
+ 	  - assert_str_contains
+ 	  - assert_str_countchar
  	  - assert_str_countlines
- 	  - assert_str_isprintble
+ 	  - assert_str_isprintable
  	  - assert_str_isascii
  	  - assert_str_isalnum
 

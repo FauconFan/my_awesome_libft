@@ -6,7 +6,7 @@
 #    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/14 11:01:35 by fauconfan         #+#    #+#              #
-#    Updated: 2018/03/20 11:22:18 by fauconfan        ###   ########.fr        #
+#    Updated: 2018/03/20 13:12:44 by fauconfan        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC = env_utils.c \
 		malloc_utils.c \
 		assert_standards.c \
 		assert_primitives.c \
+		assert_string.c \
 
 MAIN_TEST = $(SRC_FOLDER)main_test.c
 

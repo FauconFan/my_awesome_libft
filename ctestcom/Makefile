@@ -6,7 +6,7 @@
 #    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/14 11:01:01 by fauconfan         #+#    #+#              #
-#    Updated: 2018/03/20 11:21:39 by fauconfan        ###   ########.fr        #
+#    Updated: 2018/03/20 13:14:00 by fauconfan        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC_FP = $(addprefix $(SRC_FOLDER), $(SRC))
 
 OBJ = $(SRC_FP:%.c=%.o)
 
-GWW = gcc -g -Wall -Wextra -Werror -I $(INCLUDES_FOLDER)
+GWW = gcc -Wall -Wextra -Werror -I $(INCLUDES_FOLDER)
 
 all : $(NAME)
 

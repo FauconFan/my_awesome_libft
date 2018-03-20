@@ -6,7 +6,7 @@
 /*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 11:02:41 by fauconfan         #+#    #+#             */
-/*   Updated: 2018/03/20 11:17:26 by fauconfan        ###   ########.fr       */
+/*   Updated: 2018/03/20 17:46:36 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ typedef enum		e_typetest
 	ASSERT,
 	ASSERT_NULL,
 	ASSERT_NOT_NULL,
-	ASSERT_NUM_EQUALS
+	ASSERT_NUM_EQUALS,
+	ASSERT_STRING
 }					t_typetest;
 
 typedef struct		s_simpletest
@@ -114,5 +115,23 @@ void				assert_unsigned_short(unsigned short a, unsigned short b, int comp);
 void				assert_unsigned_int(unsigned int a, unsigned int b, int comp);
 void				assert_unsigned_long(unsigned long a, unsigned long b, int comp);
 void				assert_unsigned_long_long(unsigned long long a, unsigned long long b, int comp);
+
+void				assert_strequ(char *s1, char *s2);
+void				assert_strlen(char *s, unsigned int len);
+void				assert_strlengteq(char *s, unsigned int len);
+void				assert_strlengt(char *s, unsigned int len);
+void				assert_strlenlteq(char *s, unsigned int len);
+void				assert_strlenlt(char *s, unsigned int len);
+
+void				assert_str_match(char *s, char *pattern);
+void				assert_str_beginwith(char *big, char *little);
+void				assert_str_endwith(char *big, char *little);
+void				assert_str_contains(char *big, char *little);
+void				assert_str_countchar(char *str, char c, size_t nb);
+void				assert_str_countlines(char *str, size_t nb);
+
+void				assert_str_isprintable(char *str);
+void				assert_str_isascii(char *str);
+void				assert_str_isalnum(char *str);
 
 #endif

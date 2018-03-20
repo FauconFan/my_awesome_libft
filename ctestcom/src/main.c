@@ -6,7 +6,7 @@
 /*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 12:20:17 by fauconfan         #+#    #+#             */
-/*   Updated: 2018/03/20 11:23:12 by fauconfan        ###   ########.fr       */
+/*   Updated: 2018/03/20 18:26:01 by fauconfan        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		main(int argc, char **argv)
 **	assert(1);
 **	assert_null(0);
 **	assert_notnull(&strlen);
+**	
 **	assert_char('c', 'c', 0);
 **	assert_short((short)-2, (short)-2, 0);
 **	assert_int(42, 42, 0);
@@ -71,4 +72,20 @@ int		main(int argc, char **argv)
 **	assert_int(42, 42, LTE);
 **	assert_int(43, 42, GT);
 **	assert_int(42, 43, LT);
+**
+**	assert_strequ("Coucou", "Coucou");
+**	assert_str_beginwith("Coucou", "Cou");
+**	assert_str_endwith("Coucou", "cou");
+**	assert_str_contains("Coucou", "cou");
+**	assert_str_contains("Coucou", "ouc");
+**	assert_str_contains("Coucou", "Coucou");
+**	assert_str_contains("Coucou", "ouco");
+**	
+**	assert_str_countlines("coucoucououcocuoucocuo\n", 1);
+**	assert_str_countchar("coucoucoucoucoucoucoucoucoucoucoucou\n", 'c', 12);
+**	assert_str_countchar("coucoucoucoucoucoucoucoucoucoucoucou\n", 'o', 12);
+**	assert_str_countchar("coucoucoucoucoucoucoucoucoucoucoucou\n", 'u', 12);
+**	assert_str_isprintable("coucoucoucoucoucoucoucoucoucoucoucou");
+**	assert_str_isascii("coucoucoucoucoucoucoucoucoucoucoucou");
+**	assert_str_isalnum("coucou123456789");
 */
