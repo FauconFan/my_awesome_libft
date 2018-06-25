@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
+#    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/12/15 19:01:46 by fauconfan         #+#    #+#              #
-#    Updated: 2018/03/20 09:00:20 by fauconfan        ###   ########.fr        #
+#    Created: 2017/12/15 19:01:46 by fauconfa          #+#    #+#              #
+#    Updated: 2018/06/25 17:23:40 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ OBJ_TMP = $(SRC:%.c=%.o)
 
 OBJ = $(addprefix $(SRC_FOLDER), $(OBJ_TMP))
 
-all : clean $(OBJ)
+all : fclean $(OBJ)
 	gcc $(FLAGS) $(OBJ) -I $(INCLUDES_FOLDER)
 	./a.out $(PARAM)
 	make fclean

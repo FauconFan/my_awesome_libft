@@ -3,20 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
+#    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/12/27 13:14:13 by fauconfan         #+#    #+#              #
-#    Updated: 2018/03/20 22:21:01 by fauconfan        ###   ########.fr        #
+#    Created: 2017/12/27 13:14:13 by fauconfa          #+#    #+#              #
+#    Updated: 2018/06/25 17:25:54 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PATH_BUILD_CUSTOM = ../../build_custom/
+PATH_BUILD_CUSTOM = ../../
 PATH_RENDU = ../../rendu/
-RELATIVE_PATH_FROM_BUILD_CUSTOM = ../tests/build_custom/
+RELATIVE_PATH_FROM_BUILD_CUSTOM = tests/build_custom/
 
 FOLDER_NAME = ""
 
-0 : 10 20 30
+all : 10 20 30
 
 10 : 11 12 13 14 15 16
 
@@ -70,15 +70,15 @@ FOLDER_NAME = ""
 	make test_ok_buildcustom FOLDER_NAME=35_miscellaneous/
 
 test_ok_buildcustom :
-	make -C $(PATH_BUILD_CUSTOM) PARAM=$(RELATIVE_PATH_FROM_BUILD_CUSTOM)$(FOLDER_NAME)
+	make -C $(PATH_BUILD_CUSTOM) build_custom_project PARAM=$(RELATIVE_PATH_FROM_BUILD_CUSTOM)$(FOLDER_NAME)
 	cp -r $(PATH_RENDU) $(FOLDER_NAME)libft
-	sh ../build_custom.sh test_ok $(FOLDER_NAME)
+	sh ./build_custom.sh test_ok $(FOLDER_NAME)
 	rm -rf $(PATH_RENDU)
 	rm -rf $(FOLDER_NAME)libft
 
 singletest_buildcustom :
-	make -C $(PATH_BUILD_CUSTOM) PARAM=$(RELATIVE_PATH_FROM_BUILD_CUSTOM)$(FOLDER_NAME)
+	make -C $(PATH_BUILD_CUSTOM) build_custom_project PARAM=$(RELATIVE_PATH_FROM_BUILD_CUSTOM)$(FOLDER_NAME)
 	cp -r $(PATH_RENDU) $(FOLDER_NAME)libft
-	sh ../build_custom.sh simple_test $(FOLDER_NAME)
+	sh ./build_custom.sh simple_test $(FOLDER_NAME)
 	rm -rf $(PATH_RENDU)
 	rm -rf $(FOLDER_NAME)libft

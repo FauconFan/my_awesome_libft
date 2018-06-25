@@ -4,6 +4,13 @@ Contains the awesome libft.
 
 # This project is not viable. It is still in development
 
+# Organisation
+
+The repository is divided in 3 sub modules.
+ - libft : The library itself.
+ - build_custom : A program that builds the minimal libft that you need.
+ - CTestCom : A program that generates tests from comments in the source code.
+
 ## How to test it
 
 You can edit the file main.c in the src directory,

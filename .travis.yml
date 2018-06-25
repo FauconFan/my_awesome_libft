@@ -1,40 +1,55 @@
 sudo : disabled
 language : c
-compiler :
-  - gcc
-  - cc
-  - clang
+os: linux
 
-script : make -C libft
-after_script : make -C libft fclean
+script : make libft_library
+after_script : make fclean
+
+stages:
+    - build
+    - build_custom_test
+    - ctestcom_test
+    - final
 
 matrix:
   include:
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
+    - stage: build
       env:
-         - MATRIX_EVAL="CC=gcc"
-         - NAME="Single Compile test"
-    - os: linux
-      script : make -C tests/build_custom/ 0
-      env :
+        - NAME="Test GCC"
+        - CC="gcc"
+    - stage: build
+      env:
+        - NAME="Test CC"
+        - CC="cc"
+    - stage: build
+      env:
+        - NAME="Test CLANG"
+        - CC="clang"
+    - stage: build
+      script: make ctestcom_program
+      env:
+        - NAME="Build Ctestcom"
+    - stage: build
+      script: make ctestcom_program
+      env:
+        - NAME="Build Ctestcom"
+     - stage: build_custom_test
+       script : make -C tests/build_custom/ 10
+       env :
+         - NAME="Full Build Custom 10"
+     - stage: build_custom_test
+       script : make -C tests/build_custom/ 20
+       env :
+         - NAME="Full Build Custom 20"
+     - stage: build_custom_test
+       script : make -C tests/build_custom/ 30
+       env :
+         - NAME="Full Build Custom 30"
+     - stage: ctestcom_test
+       script : make -C ctestcom testctestcom
+       env :
+          - NAME="CtestCom main test in"
+     - stage: final
+       script : make -C tests/build_custom/ all
+       env :
          - NAME="Full Build Custom All"
-    - os: linux
-      script : make -C tests/build_custom/ 10
-      env :
-         - NAME="Full Build Custom 11--16"
-    - os: linux
-      script : make -C tests/build_custom/ 20
-      env :
-         - NAME="Full Build Custom 21--24"
-    - os: linux
-      script : make -C tests/build_custom/ 30
-      env :
-         - NAME="Full Build Custom 31--35"
-    - os: linux
-      script : make -C ctestcom testctestcom
-      env :
-         - NAME="CtestCom main test in"
