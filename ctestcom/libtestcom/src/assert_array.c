@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 14:31:19 by jpriou            #+#    #+#             */
-/*   Updated: 2018/06/25 17:01:45 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/06/25 20:13:47 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,7 @@ void 	assert_arr_str(char **s1, char **s2, size_t len) {
         if ((s1[i] == NULL) ^ (s2[i] == NULL)) {
             passed = 0;
         }
-        else if (s1[i] == NULL) {
-            continue ;
-        }
-        else if (strcmp(s1[i], s2[i])) {
+        else if (s1[i] != NULL && strcmp(s1[i], s2[i])) {
             passed = 0;
         }
         i++;
