@@ -29,10 +29,6 @@ matrix:
       script: make ctestcom_program
       env:
         - NAME="Build Ctestcom"
-    - stage: build
-      script: make ctestcom_program
-      env:
-        - NAME="Build Ctestcom"
     - stage: build_custom_test
       script : make -C tests/build_custom/ 10
       env :
