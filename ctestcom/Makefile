@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
+#    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/01/14 11:01:01 by fauconfan         #+#    #+#              #
-#    Updated: 2018/03/20 13:14:00 by fauconfan        ###   ########.fr        #
+#    Created: 2018/01/14 11:01:01 by fauconfa          #+#    #+#              #
+#    Updated: 2018/06/25 15:01:47 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ INCLUDES_FOLDER = includes/
 CTESTCOM_LIBRARY_FOLDER = libtestcom/
 
 NAME_LIB_CTESTCOM = ctestcom
+
+PATH_LIB_CTESTCOM = $(CTESTCOM_LIBRARY_FOLDER)lib$(NAME_LIB_CTESTCOM).a
 
 SRC = main.c \
 		malloc_utils.c \
@@ -32,8 +34,7 @@ GWW = gcc -Wall -Wextra -Werror -I $(INCLUDES_FOLDER)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
-	make -C $(CTESTCOM_LIBRARY_FOLDER)
+$(NAME) : $(OBJ) $(PATH_LIB_CTESTCOM)
 	$(GWW) $(OBJ) -o $@ -L $(CTESTCOM_LIBRARY_FOLDER) -l $(NAME_LIB_CTESTCOM)
 
 %.o : %.c
@@ -48,7 +49,11 @@ fclean :
 	rm -f $(NAME)
 	make -C $(CTESTCOM_LIBRARY_FOLDER) fclean
 
-testctestcom : all
+$(PATH_LIB_CTESTCOM):
+	make -C $(CTESTCOM_LIBRARY_FOLDER)
+
+testctestcom : all $(PATH_LIB_CTESTCOM)
+	make -C $(CTESTCOM_LIBRARY_FOLDER)
 	@./$(NAME) src/main.c testmain.c
 	@gcc testmain.c -L $(CTESTCOM_LIBRARY_FOLDER) -l ctestcom -I $(CTESTCOM_LIBRARY_FOLDER)$(INCLUDES_FOLDER) -o testmain
 	@./testmain

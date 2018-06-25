@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
+#    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/12/03 15:58:37 by fauconfan         #+#    #+#              #
-#    Updated: 2018/01/02 19:26:58 by fauconfan        ###   ########.fr        #
+#    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
+#    Updated: 2018/06/25 13:49:20 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,13 +56,12 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	@ar -rc $@ $(OBJ)
 	@ranlib $@
-	@printf "                                                                \r"
 	@echo "libft built successfully"
 
 %.o : %.c
-	@printf "                                                                \r"
-	@printf "  🍏  <= $?\r"
+	@printf "Compiling $?... "
 	@$(CC) $(FLAGS) -c $? -o $@
+	@printf "compiled\\n"
 
 clean :
 	@rm -rf $(OBJ)

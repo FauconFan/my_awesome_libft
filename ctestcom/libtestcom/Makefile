@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
+#    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/01/14 11:01:35 by fauconfan         #+#    #+#              #
-#    Updated: 2018/03/20 13:12:44 by fauconfan        ###   ########.fr        #
+#    Created: 2018/01/14 11:01:35 by fauconfa          #+#    #+#              #
+#    Updated: 2018/06/25 14:43:35 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC = env_utils.c \
 		assert_standards.c \
 		assert_primitives.c \
 		assert_string.c \
+		assert_array.c
 
 MAIN_TEST = $(SRC_FOLDER)main_test.c
 

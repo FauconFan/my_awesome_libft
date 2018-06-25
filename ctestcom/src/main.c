@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/14 12:20:17 by fauconfan         #+#    #+#             */
-/*   Updated: 2018/03/20 18:26:01 by fauconfan        ###   ########.fr       */
+/*   Created: 2018/01/14 12:20:17 by fauconfa          #+#    #+#             */
+/*   Updated: 2018/06/25 15:36:30 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		main(int argc, char **argv)
 **	assert(1);
 **	assert_null(0);
 **	assert_notnull(&strlen);
-**	
+**
 **	assert_char('c', 'c', 0);
 **	assert_short((short)-2, (short)-2, 0);
 **	assert_int(42, 42, 0);
@@ -80,7 +80,7 @@ int		main(int argc, char **argv)
 **	assert_str_contains("Coucou", "ouc");
 **	assert_str_contains("Coucou", "Coucou");
 **	assert_str_contains("Coucou", "ouco");
-**	
+**
 **	assert_str_countlines("coucoucououcocuoucocuo\n", 1);
 **	assert_str_countchar("coucoucoucoucoucoucoucoucoucoucoucou\n", 'c', 12);
 **	assert_str_countchar("coucoucoucoucoucoucoucoucoucoucoucou\n", 'o', 12);
@@ -88,4 +88,18 @@ int		main(int argc, char **argv)
 **	assert_str_isprintable("coucoucoucoucoucoucoucoucoucoucoucou");
 **	assert_str_isascii("coucoucoucoucoucoucoucoucoucoucoucou");
 **	assert_str_isalnum("coucou123456789");
+**
+**	int a[3] = {12, 24, 36};
+**	int b[3] = {12, 24, 36};
+**	unsigned long long c[2] = {5123781923847162, 12638213912471};
+**	unsigned long long d[2] = {5123781923847162, 12638213912471};
+**	double e[4] = {0.42042, 42.98, 78.238, 5.260218};
+**	double f[4] = {0.42042, 42.98, 78.238, 5.260218};
+**	char *g[4] = {"La", "france", NULL, "OUI !"};
+**	char *h[4] = {"La", "france", NULL, "OUI !"};
+**
+**	assert_arr_int(a, b, 3);
+**	assert_arr_unsigned_long_long(c, d, 2);
+**	assert_arr_double(e, f, 4);
+**	assert_arr_str(g, h, 4);
 */

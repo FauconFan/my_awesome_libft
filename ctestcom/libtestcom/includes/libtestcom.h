@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libtestcom.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/14 11:02:41 by fauconfan         #+#    #+#             */
-/*   Updated: 2018/03/20 17:46:36 by fauconfan        ###   ########.fr       */
+/*   Created: 2018/01/14 11:02:41 by fauconfa          #+#    #+#             */
+/*   Updated: 2018/06/25 15:17:50 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,28 +35,14 @@
 # define GTE			0b01100
 # define LTE			0b10100
 
-# define TEST_EQUALS 	0b00100
-# define TEST_GREATER	0b01000
-# define TEST_LESS		0b10000
-
-# define TREAT_H__(h)	(h == -1 ? TEST_LESS : h)
-# define TREAT_H_(h)	(h == 1 ? TEST_GREATER : TREAT_H__(h))
-# define TREAT_H(h)		(h == 0 ? TEST_EQUALS : TREAT_H_(h))
-
-# define TEST__E(a,b,h) ((h & TEST_EQUALS) ? a == b : 0)
-# define TEST__G(a,b,h) ((h & TEST_GREATER) ? a > b : 0)
-# define TEST__L(a,b,h) ((h & TEST_LESS) ? a < b : 0)
-# define TEST_(a,b,h) 	(TEST__E(a,b,h) || TEST__L(a,b,h) || TEST__G(a,b,h))
-
-# define TEST(a,b,h) 	(TEST_(a,b,TREAT_H(h)))
-
 typedef enum		e_typetest
 {
 	ASSERT,
 	ASSERT_NULL,
 	ASSERT_NOT_NULL,
-	ASSERT_NUM_EQUALS,
-	ASSERT_STRING
+	ASSERT_NUM,
+	ASSERT_STRING,
+	ASSERT_ARR
 }					t_typetest;
 
 typedef struct		s_simpletest
@@ -134,4 +120,19 @@ void				assert_str_isprintable(char *str);
 void				assert_str_isascii(char *str);
 void				assert_str_isalnum(char *str);
 
+void				assert_arr_char(char a[], char b[], size_t len);
+void				assert_arr_short(short a[], short b[], size_t len);
+void				assert_arr_int(int a[], int b[], size_t len);
+void				assert_arr_long(long a[], long b[], size_t len);
+void				assert_arr_long_long(long long a[], long long b[], size_t len);
+void				assert_arr_float(float a[], float b[], size_t len);
+void				assert_arr_double(double a[], double b[], size_t len);
+void				assert_arr_long_double(long double a[], long double b[], size_t len);
+void				assert_arr_unsigned_char(unsigned char a[], unsigned char b[], size_t len);
+void				assert_arr_unsigned_short(unsigned short a[], unsigned short b[], size_t len);
+void				assert_arr_unsigned_int(unsigned int a[], unsigned int b[], size_t len);
+void				assert_arr_unsigned_long(unsigned long a[], unsigned long b[], size_t len);
+void				assert_arr_unsigned_long_long(unsigned long long a[], unsigned long long b[], size_t len);
+
+void 				assert_arr_str(char **s1, char **s2, size_t len);
 #endif
