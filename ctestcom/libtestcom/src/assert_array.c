@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 14:31:19 by jpriou            #+#    #+#             */
-/*   Updated: 2018/06/25 15:35:50 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/06/25 17:01:45 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 # define NUM_EQUALS(a, b)           ((a) == (b))
 
 # define FUNC_ARR_CON       short passed = 1; \
+                            size_t i = 0; \
                             \
-                            for (size_t i = 0; i < len; i++) { \
+                            while (i < len) { \
                                 if (NUM_EQUALS(a[i], b[i]) == 0) { \
                                     passed = 0; \
                                 } \
+                                i++; \
                             } \
                             add_test_to_env(init_new_test(ASSERT_ARR, passed));
 
@@ -41,8 +43,9 @@ void assert_arr_unsigned_long_long(FUNC_ARR_PRO(unsigned long long)) { FUNC_ARR_
 
 void 	assert_arr_str(char **s1, char **s2, size_t len) {
     short passed = 1;
+    size_t i = 0;
 
-    for (size_t i = 0; i < len; i++) {
+    while (i < len) {
         if ((s1[i] == NULL) ^ (s2[i] == NULL)) {
             passed = 0;
         }
@@ -52,6 +55,7 @@ void 	assert_arr_str(char **s1, char **s2, size_t len) {
         else if (strcmp(s1[i], s2[i])) {
             passed = 0;
         }
+        i++;
     }
     add_test_to_env(init_new_test(ASSERT_ARR, passed));
 }
