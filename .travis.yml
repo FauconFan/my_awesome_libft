@@ -33,23 +33,23 @@ matrix:
       script: make ctestcom_program
       env:
         - NAME="Build Ctestcom"
-     - stage: build_custom_test
-       script : make -C tests/build_custom/ 10
-       env :
-         - NAME="Full Build Custom 10"
-     - stage: build_custom_test
-       script : make -C tests/build_custom/ 20
-       env :
-         - NAME="Full Build Custom 20"
-     - stage: build_custom_test
-       script : make -C tests/build_custom/ 30
-       env :
-         - NAME="Full Build Custom 30"
-     - stage: ctestcom_test
-       script : make -C ctestcom testctestcom
-       env :
-          - NAME="CtestCom main test in"
-     - stage: final
-       script : make -C tests/build_custom/ all
-       env :
-         - NAME="Full Build Custom All"
+    - stage: build_custom_test
+      script : make -C tests/build_custom/ 10
+      env :
+        - NAME="Full Build Custom 10"
+    - stage: build_custom_test
+      script : make -C tests/build_custom/ 20
+      env :
+        - NAME="Full Build Custom 20"
+    - stage: build_custom_test
+      script : make -C tests/build_custom/ 30
+      env :
+        - NAME="Full Build Custom 30"
+    - stage: ctestcom_test
+      script : make -C ctestcom testctestcom
+      env :
+       - NAME="CtestCom main test in"
+    - stage: final
+      script : make -C tests/build_custom/ all
+      env :
+        - NAME="Full Build Custom All"
