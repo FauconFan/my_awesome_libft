@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 11:21:55 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/06/25 15:57:26 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/06/25 16:06:36 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,57 +80,61 @@ void		free_n_print_result()
 
 	if (g_env_testcom == NULL)
 	{
-		dprintf(2, "You don't have specified any tests...\n");
-		exit(1);
+		dprintf(2, "Unexcepted error...\n");
 	}
-	nb_test_failed = g_env_testcom->meta->nb_test_failed;
-	printf("All tests %d\n\tTest passed %d\n\tTest failed %d\n",
+	else if (g_env_testcom->meta->nb_test == 0) {
+		printf("Not enough tests is provided...\n");
+	}
+	else {
+		nb_test_failed = g_env_testcom->meta->nb_test_failed;
+		printf("All tests %d\n\tTest passed %d\n\tTest failed %d\n",
 		g_env_testcom->meta->nb_test,
 		g_env_testcom->meta->nb_test_passed,
 		g_env_testcom->meta->nb_test_failed);
-	printf("\tAssert tests : %d", g_env_testcom->meta->nb_assert);
-	if (g_env_testcom->meta->nb_assert_failed) {
-		printf(" (Failed %d)\n", g_env_testcom->meta->nb_assert_failed);
+		printf("\tAssert tests : %d", g_env_testcom->meta->nb_assert);
+		if (g_env_testcom->meta->nb_assert_failed) {
+			printf(" (Failed %d)\n", g_env_testcom->meta->nb_assert_failed);
+		}
+		else {
+			printf("\n");
+		}
+		printf("\tAssert Null tests : %d", g_env_testcom->meta->nb_assert_null);
+		if (g_env_testcom->meta->nb_assert_null_failed) {
+			printf(" (Failed %d)\n", g_env_testcom->meta->nb_assert_null_failed);
+		}
+		else {
+			printf("\n");
+		}
+		printf("\tAssert Not Null tests : %d", g_env_testcom->meta->nb_assert_not_null);
+		if (g_env_testcom->meta->nb_assert_not_null_failed) {
+			printf(" (Failed %d)\n", g_env_testcom->meta->nb_assert_not_null_failed);
+		}
+		else {
+			printf("\n");
+		}
+		printf("\tAssert Num tests : %d", g_env_testcom->meta->nb_assert_num);
+		if (g_env_testcom->meta->nb_assert_num_failed) {
+			printf(" (Failed %d)\n", g_env_testcom->meta->nb_assert_num_failed);
+		}
+		else {
+			printf("\n");
+		}
+		printf("\tAssert String tests : %d", g_env_testcom->meta->nb_assert_string);
+		if (g_env_testcom->meta->nb_assert_string_failed) {
+			printf(" (Failed %d)\n", g_env_testcom->meta->nb_assert_string_failed);
+		}
+		else {
+			printf("\n");
+		}
+		printf("\tAssert Array tests : %d", g_env_testcom->meta->nb_assert_arr);
+		if (g_env_testcom->meta->nb_assert_arr_failed) {
+			printf(" (Failed %d)\n", g_env_testcom->meta->nb_assert_arr_failed);
+		}
+		else {
+			printf("\n");
+		}
+		free_env_testcom();
+		if (nb_test_failed)
+			exit(1);
 	}
-	else {
-		printf("\n");
-	}
-	printf("\tAssert Null tests : %d", g_env_testcom->meta->nb_assert_null);
-	if (g_env_testcom->meta->nb_assert_null_failed) {
-		printf(" (Failed %d)\n", g_env_testcom->meta->nb_assert_null_failed);
-	}
-	else {
-		printf("\n");
-	}
-	printf("\tAssert Not Null tests : %d", g_env_testcom->meta->nb_assert_not_null);
-	if (g_env_testcom->meta->nb_assert_not_null_failed) {
-		printf(" (Failed %d)\n", g_env_testcom->meta->nb_assert_not_null_failed);
-	}
-	else {
-		printf("\n");
-	}
-	printf("\tAssert Num tests : %d", g_env_testcom->meta->nb_assert_num);
-	if (g_env_testcom->meta->nb_assert_num_failed) {
-		printf(" (Failed %d)\n", g_env_testcom->meta->nb_assert_num_failed);
-	}
-	else {
-		printf("\n");
-	}
-	printf("\tAssert String tests : %d", g_env_testcom->meta->nb_assert_string);
-	if (g_env_testcom->meta->nb_assert_string_failed) {
-		printf(" (Failed %d)\n", g_env_testcom->meta->nb_assert_string_failed);
-	}
-	else {
-		printf("\n");
-	}
-	printf("\tAssert Array tests : %d", g_env_testcom->meta->nb_assert_arr);
-	if (g_env_testcom->meta->nb_assert_arr_failed) {
-		printf(" (Failed %d)\n", g_env_testcom->meta->nb_assert_arr_failed);
-	}
-	else {
-		printf("\n");
-	}
-	free_env_testcom();
-	if (nb_test_failed)
-		exit(1);
 }

@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/14 11:01:01 by fauconfa          #+#    #+#              #
-#    Updated: 2018/06/25 15:58:02 by jpriou           ###   ########.fr        #
+#    Updated: 2018/06/25 16:03:38 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ testctestcom : all $(PATH_LIB_CTESTCOM)
 	make -C $(CTESTCOM_LIBRARY_FOLDER)
 	@./$(NAME) src/main.c testmain.c
 	@gcc testmain.c -L $(CTESTCOM_LIBRARY_FOLDER) -l ctestcom -I $(CTESTCOM_LIBRARY_FOLDER)$(INCLUDES_FOLDER) -o testmain
-	@valgrind ./testmain
+	@./testmain
 	@rm -f ./testmain testmain.c
 
 re : fclean all
