@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:10:33 by jpriou            #+#    #+#             */
-/*   Updated: 2018/06/27 08:12:12 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/06/27 08:45:51 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ void	ft_fill_wstring_len(wchar_t wchar, char *str, int size)
 
 void    ft_fill_wstring(wchar_t wchar, char *str)
 {
-    ft_fill_wstring(wchar, str, ft_wcharlen(wchar));
+    ft_fill_wstring_len(wchar, str, ft_wcharlen(wchar));
 }
