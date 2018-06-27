@@ -12,6 +12,12 @@ class TravisTest(object):
 
 def buildTravisData():
     ret = []
+    TravisTest.CURRENT_STAGE = "Verify .travis.yml"
+    ret.append(TravisTest("Use python script to verify", [
+        "python scripts/gen_travis_file.py > test.out",
+        "diff test.out .travis.yml",
+        "rm -f test.out"
+        ]))
     TravisTest.CURRENT_STAGE = "Build"
     version_gcc = 5
     while version_gcc <= 8:
@@ -70,7 +76,12 @@ def genererateHeader(stages):
 def buildBody(content, list):
     for test in list:
         content += "    - stage: " + test.stage + "\n"
-        content += "      script: " + test.script + "\n"
+        if isinstance(test.script, type(list)):
+            content += "      script:\n"
+            for command in test.script:
+                content += "        - " + command + "\n"
+        else:
+            content += "      script: " + test.script + "\n"
         content += "      after_script: " + test.after_script + "\n"
         content += "      env:\n"
         content += "        - NAME=\"" + test.name + "\"\n"
