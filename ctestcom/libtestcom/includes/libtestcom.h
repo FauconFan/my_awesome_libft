@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 11:02:41 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/06/25 15:49:37 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/06/27 09:37:30 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 **	Handle compareason with bit values
 */
 
+# define NEQU			0b11000
 # define EQU			0b00100
 # define GT				0b01000
 # define LT				0b10000

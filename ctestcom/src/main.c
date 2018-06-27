@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 12:20:17 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/06/25 15:36:30 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/06/27 09:38:30 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,10 @@ int		main(int argc, char **argv)
 **	assert_int(42, 42, LTE);
 **	assert_int(43, 42, GT);
 **	assert_int(42, 43, LT);
+**	assert_int(42, 0, NEQU);
+**	assert_short(42, 43, NEQU);
+**	assert_char(42, -90, NEQU);
+**	assert_long(420000000, 0, NEQU);
 **
 **	assert_strequ("Coucou", "Coucou");
 **	assert_str_beginwith("Coucou", "Cou");

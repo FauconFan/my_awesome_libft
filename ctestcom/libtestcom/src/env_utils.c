@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 11:21:55 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/06/25 16:06:36 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/06/27 09:39:28 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,10 @@ void		free_n_print_result()
 	else {
 		nb_test_failed = g_env_testcom->meta->nb_test_failed;
 		printf("All tests %d\n\tTest passed %d\n\tTest failed %d\n",
-		g_env_testcom->meta->nb_test,
-		g_env_testcom->meta->nb_test_passed,
-		g_env_testcom->meta->nb_test_failed);
+			g_env_testcom->meta->nb_test,
+			g_env_testcom->meta->nb_test_passed,
+			g_env_testcom->meta->nb_test_failed);
+		printf("Types tests:\n");
 		printf("\tAssert tests : %d", g_env_testcom->meta->nb_assert);
 		if (g_env_testcom->meta->nb_assert_failed) {
 			printf(" (Failed %d)\n", g_env_testcom->meta->nb_assert_failed);
