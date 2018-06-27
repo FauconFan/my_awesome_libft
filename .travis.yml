@@ -33,7 +33,7 @@ matrix:
       env:
         - NAME="Build libft with gcc 8"
     - stage: Build
-      script: make -C test_docker_compile_gcc
+      script: make -C libft test_docker_compile_gcc
       after_script: make fclean
       env:
         - NAME="Build libft with gcc latest"
