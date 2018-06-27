@@ -38,7 +38,7 @@ matrix:
       env:
         - NAME="Build libft with gcc latest"
     - stage: Build
-      script: make -C test_docker_compile_clang
+      script: make -C libft test_docker_compile_clang
       after_script: make fclean
       env:
         - NAME="Build libft with clang (latest on Debian)"

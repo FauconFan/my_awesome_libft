@@ -21,7 +21,7 @@ def buildTravisData():
     ret.append(TravisTest("Build libft with gcc latest",
                 "make -C libft test_docker_compile_gcc"))
     ret.append(TravisTest("Build libft with clang (latest on Debian)",
-                "make -C test_docker_compile_clang"))
+                "make -C libft test_docker_compile_clang"))
     ret.append(TravisTest("Build ctestcom", "make ctestcom"))
     ret.append(TravisTest("Build build_custom", "make build_custom"))
 
