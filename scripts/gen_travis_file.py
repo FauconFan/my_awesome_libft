@@ -16,7 +16,7 @@ def buildTravisData():
     version_gcc = 5
     while version_gcc <= 8:
         ret.append(TravisTest("Build libft with gcc " + str(version_gcc),
-                    "make -C test_docker_compile_gcc VERSION_GCC_DOCKER=" + str(version_gcc)))
+                    "make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=" + str(version_gcc)))
         version_gcc = version_gcc + 1
     ret.append(TravisTest("Build libft with gcc latest",
                 "make -C test_docker_compile_gcc"))
@@ -74,7 +74,7 @@ def buildBody(content, list):
         content += "      after_script: " + test.after_script + "\n"
         content += "      env:\n"
         content += "        - NAME=\"" + test.name + "\"\n"
-    return content 
+    return content
 
 def main():
     list = buildTravisData()
