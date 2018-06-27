@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/03 16:15:24 by fauconfan         #+#    #+#             */
-/*   Updated: 2017/12/24 18:53:32 by fauconfan        ###   ########.fr       */
+/*   Created: 2017/12/03 16:15:24 by fauconfa          #+#    #+#             */
+/*   Updated: 2018/06/27 08:14:02 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@
 **	Includes for ft_printf
 */
 
-# include "includes/string_buffer.h"
-# include "includes/string_buffer_utils.h"
-# include "includes/treat_data_utils.h"
+# include "includes/ft_printf.h"
 
 /*
 **	Define Get next line
@@ -66,6 +64,15 @@ int				ft_toupper(int c);
 int				ft_tolower(int c);
 
 /*
+**	-------------------------- LIBFT_WCHAR_FUNCTIONS --------------------------
+*/
+
+
+int		ft_wcharlen(wchar_t wchar);
+void	ft_fill_wstring_len(wchar_t wchar, char *str, int size);
+void    ft_fill_wstring(wchar_t wchar, char *str);
+
+/*
 **	--------------------------- LIBFT_STR_FUNCTIONS ---------------------------
 */
 
@@ -82,6 +89,9 @@ int				ft_atoi_base(char *str, char *base);
 char			*ft_itoa(int n);
 char			*ft_itoa_base(int n, char *base);
 char			*ft_convert_base(char *nbr, char *base_from, char *base_to);
+
+char			*ft_lltoa_base(long long n, char *base);
+char			*ft_ulltoa_base(unsigned long long n, char *base);
 
 int				ft_strcmp(char const *s1, char const *s2);
 int				ft_strncmp(char const *s1, char const *s2, size_t size);

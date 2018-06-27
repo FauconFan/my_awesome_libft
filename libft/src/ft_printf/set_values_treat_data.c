@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/set_values_treat_data.h"
+#include "libft.h"
 
 char	*set_flags_treat_data(char *str, t_treat_data *data)
 {

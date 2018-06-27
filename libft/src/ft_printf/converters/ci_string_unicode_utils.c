@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ci_string_unicode_utils.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 11:58:42 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/27 12:33:08 by fauconfan        ###   ########.fr       */
+/*   Updated: 2018/06/27 08:15:33 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ci_string_unicode.h"
+#include "libft.h"
 
 int		get_byte_size(wchar_t *wstr, t_treat_data *data)
 {
@@ -57,7 +57,7 @@ char	*fill_full_string(int max, wchar_t *wstr)
 		bytes_cara = ft_wcharlen(wstr[index]);
 		if (bytes_tot_cara + bytes_cara > max)
 			break ;
-		fill_string(wstr[index], str + bytes_tot_cara, bytes_cara);
+		ft_fill_wstring_len(wstr[index], str + bytes_tot_cara, bytes_cara);
 		bytes_tot_cara += bytes_cara;
 		index++;
 	}

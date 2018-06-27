@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ci_numbers.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 18:17:02 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/27 12:32:40 by fauconfan        ###   ########.fr       */
+/*   Updated: 2018/06/26 14:25:23 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ci_numbers.h"
+#include "libft.h"
 
 /*
 ** 1 => left empty

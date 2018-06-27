@@ -61,6 +61,7 @@ SRC_LIBFT_INTEGER_STR = \
 					ft_convert_base.c \
 					ft_itoa_base.c \
 					ft_itoa.c \
+					ft_lltoa.c \
 
 SRC_LIBFT_ALLOC_STR = \
 					ft_strdel.c \

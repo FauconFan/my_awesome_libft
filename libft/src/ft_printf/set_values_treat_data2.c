@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   set_values_treat_data2.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 16:16:19 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/27 12:32:23 by fauconfan        ###   ########.fr       */
+/*   Updated: 2018/06/26 14:23:53 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/set_values_treat_data2.h"
+#include "libft.h"
 
 int		set_converter_treat_data2(char cpy)
 {

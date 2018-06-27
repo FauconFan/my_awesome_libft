@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lltoa_n_ulltoa.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 17:07:09 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/27 12:33:17 by fauconfan        ###   ########.fr       */
+/*   Updated: 2018/06/26 14:26:05 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_lltoa_n_ulltoa.h"
+#include "libft.h"
 
 static int	my_logll(unsigned long long n, int len)
 {

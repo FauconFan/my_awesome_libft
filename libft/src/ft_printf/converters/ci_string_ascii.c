@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ci_string_ascii.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 23:28:12 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/27 12:32:58 by fauconfan        ###   ########.fr       */
+/*   Updated: 2018/06/26 14:25:39 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ci_string_ascii.h"
+#include "libft.h"
 
 void	process_normal_string(va_list va, t_treat_data *data,
 			t_string_buffer *sb)

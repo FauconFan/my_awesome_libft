@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ci_numbers_utils2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 07:50:03 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/27 12:32:49 by fauconfan        ###   ########.fr       */
+/*   Updated: 2018/06/26 14:25:17 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ci_numbers_utils2.h"
+#include "libft.h"
 
 char	*handle_negative_decimal_numbers(t_treat_data *data)
 {

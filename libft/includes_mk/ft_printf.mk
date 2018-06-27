@@ -20,8 +20,7 @@ SRC_FT_PRINTF = ft_printf_family.c \
 				string_buffer.c \
 				string_buffer_utils.c \
 
-SRC_FT_PRINTF_CONVERTERS = ft_lltoa_n_ulltoa.c \
-							ci_sep.c \
+SRC_FT_PRINTF_CONVERTERS = ci_sep.c \
 							ci_numbers.c \
 							ci_string_ascii.c \
 							ci_string_unicode.c \

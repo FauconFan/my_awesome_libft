@@ -3,51 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ci_string_unicode.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 19:36:56 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/27 12:33:04 by fauconfan        ###   ########.fr       */
+/*   Updated: 2018/06/27 08:15:26 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ci_string_unicode.h"
-
-int				ft_wcharlen(wchar_t wchar)
-{
-	if (wchar <= 0x7F)
-		return (1);
-	else if (wchar <= 0x7FF)
-		return (2);
-	else if (wchar <= 0xFFFF)
-		return (3);
-	else if (wchar <= 0x10FFFF)
-		return (4);
-	return (0);
-}
-
-void			fill_string(wchar_t wchar, char *str, int size)
-{
-	if (size == 1)
-		str[0] = wchar;
-	else if (size == 2)
-	{
-		str[0] = ((wchar >> 6) + 0xc0);
-		str[1] = ((wchar & 0x3F) + 0x80);
-	}
-	else if (size == 3)
-	{
-		str[0] = (((wchar >> 12) & 0xF) + 0xE0);
-		str[1] = (((wchar >> 6) & 0x3F) + 0x80);
-		str[2] = ((wchar & 0x3F) + 0x80);
-	}
-	else
-	{
-		str[0] = (((wchar >> 18) & 0x7) + 0xF0);
-		str[1] = (((wchar >> 12) & 0x3F) + 0x80);
-		str[2] = (((wchar >> 6) & 0x3F) + 0x80);
-		str[3] = ((wchar & 0x3F) + 0x80);
-	}
-}
+#include "libft.h"
 
 int				process_special_char(va_list va, t_treat_data *data,
 						t_string_buffer *sb)
@@ -68,9 +31,9 @@ int				process_special_char(va_list va, t_treat_data *data,
 	else
 		str = ft_strsetnew(size, (data->zero_flag) ? '0' : ' ');
 	if (data->minus_flag)
-		fill_string(wchar, str, size);
+		ft_fill_wstring_len(wchar, str, size);
 	else
-		fill_string(wchar, str + len - 1, size);
+		ft_fill_wstring_len(wchar, str + len - 1, size);
 	sb_append_special(sb, str, size + len - 1);
 	free(str);
 	return (0);

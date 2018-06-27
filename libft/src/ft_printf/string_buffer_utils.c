@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   string_buffer_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 11:41:22 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/27 12:32:31 by fauconfan        ###   ########.fr       */
+/*   Updated: 2018/06/26 14:24:42 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/string_buffer_utils.h"
+#include "libft.h"
 
 /*
 **	free_string_buffer, assez explicit.
