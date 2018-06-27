@@ -10,10 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
+LIBFT_MATH_FOLDER = $(SRC_FOLDER)libft_math/
+
 SRC_LIBFT_MATH = ft_abs.c \
 					ft_log10.c \
 					ft_logb.c \
 					ft_max.c \
 					ft_min.c \
 
-SRC_LIBFT_MATH_FP = $(addprefix $(SRC_FOLDER)$(LIBFT_MATH_FOLDER), $(SRC_LIBFT_MATH))
+SRC += $(addprefix $(LIBFT_MATH_FOLDER), $(SRC_LIBFT_MATH))

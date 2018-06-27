@@ -10,6 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
+LIBFT_LINKED_LIST_FOLDER = $(SRC_FOLDER)libft_linked_list/
+
 SRC_LIBFT_LINKED_LIST = ft_lstadd.c \
 							ft_lstfree.c \
 							ft_lstiter.c \
@@ -18,4 +20,4 @@ SRC_LIBFT_LINKED_LIST = ft_lstadd.c \
 							ft_lstsize.c \
 							ft_lstmerge.c \
 
-SRC_LIBFT_LINKED_LIST_FP = $(addprefix $(SRC_FOLDER)$(LIBFT_LINKED_LIST_FOLDER), $(SRC_LIBFT_LINKED_LIST))
+SRC += $(addprefix $(LIBFT_LINKED_LIST_FOLDER), $(SRC_LIBFT_LINKED_LIST))

@@ -10,6 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
+LIBFT_CHAR_FOLDER = $(SRC_FOLDER)libft_char/
+
 SRC_LIBFT_CHAR = ft_isalnum.c \
 				ft_isalpha.c \
 				ft_isascii.c \
@@ -24,4 +26,4 @@ SRC_LIBFT_CHAR = ft_isalnum.c \
 				ft_tolower.c \
 				ft_toupper.c \
 
-SRC_LIBFT_CHAR_FP = $(addprefix $(SRC_FOLDER)$(LIBFT_CHAR_FOLDER), $(SRC_LIBFT_CHAR))
+SRC += $(addprefix $(LIBFT_CHAR_FOLDER), $(SRC_LIBFT_CHAR))

@@ -10,6 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
+LIBFT_PUT_FOLDER = $(SRC_FOLDER)libft_put/
+
 SRC_LIBFT_PUT = ft_putchar.c \
 					ft_putchar_fd.c \
 					ft_putendl.c \
@@ -20,4 +22,4 @@ SRC_LIBFT_PUT = ft_putchar.c \
 					ft_putstr.c \
 					ft_putstr_fd.c \
 
-SRC_LIBFT_PUT_FP = $(addprefix $(SRC_FOLDER)$(LIBFT_PUT_FOLDER), $(SRC_LIBFT_PUT))
+SRC += $(addprefix $(LIBFT_PUT_FOLDER), $(SRC_LIBFT_PUT))

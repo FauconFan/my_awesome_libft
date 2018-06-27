@@ -10,7 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
+GET_NEXT_LINE_FOLDER = $(SRC_FOLDER)get_next_line/
+
 SRC_GET_NEXT_LINE = get_next_line.c \
 						env_gnl.c \
 
-SRC_GET_NEXT_LINE_FP = $(addprefix $(SRC_FOLDER)$(GET_NEXT_LINE_FOLDER), $(SRC_GET_NEXT_LINE))
+SRC += $(addprefix $(GET_NEXT_LINE_FOLDER), $(SRC_GET_NEXT_LINE))

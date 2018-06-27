@@ -10,7 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-CONVERTERS_FT_PRINTF_FOLDER = converters/
+FT_PRINTF_FOLDER = $(SRC_FOLDER)ft_printf/
+CONVERTERS_FT_PRINTF_FOLDER = $(FT_PRINTF_FOLDER)converters/
 
 SRC_FT_PRINTF = ft_printf_family.c \
 				ft_vprintf_family.c  \
@@ -29,7 +30,5 @@ SRC_FT_PRINTF_CONVERTERS = ci_sep.c \
 							ci_numbers_utils2.c \
 							ci_unused_flags.c \
 
-SRC_FT_PRINTF_CONVERTERS_TMP = $(addprefix $(CONVERTERS_FT_PRINTF_FOLDER), $(SRC_FT_PRINTF_CONVERTERS))
-SRC_FT_PRINTF += $(SRC_FT_PRINTF_CONVERTERS_TMP)
-
-SRC_FT_PRINTF_FP = $(addprefix $(SRC_FOLDER)$(FT_PRINTF_FOLDER), $(SRC_FT_PRINTF))
+SRC += $(addprefix $(CONVERTERS_FT_PRINTF_FOLDER), $(SRC_FT_PRINTF_CONVERTERS))
+SRC += $(addprefix $(FT_PRINTF_FOLDER), $(SRC_FT_PRINTF))
