@@ -2,7 +2,7 @@ sudo : disabled
 language : c
 os: linux
 
-script : make libft_library
+script : make libft
 after_script : make fclean
 
 stages:
@@ -26,7 +26,7 @@ matrix:
         - NAME="Test CLANG"
         - CC="clang"
     - stage: build
-      script: make ctestcom_program
+      script: make ctestcom
       env:
         - NAME="Build Ctestcom"
     - stage: build_custom_test
