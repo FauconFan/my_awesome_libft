@@ -31,11 +31,20 @@ def buildTravisData():
     ret.append(TravisTest("Build ctestcom", "make ctestcom"))
     ret.append(TravisTest("Build build_custom", "make build_custom"))
 
-    TravisTest.CURRENT_STAGE = "CTestCom"
+    TravisTest.CURRENT_STAGE = "CTestCom Unit"
 
     ret.append(TravisTest("CTestCom Main Test", "make -C ctestcom testctestcom"))
 
-    TravisTest.CURRENT_STAGE = "Build Custom Test"
+    TravisTest.CURRENT_STAGE = "CTestCom Test"
+
+    list_folders = os.listdir('./libft/src')
+    list_folders.sort()
+    for folder in list_folders:
+        name = './libft/src/' + folder
+        if os.path.isdir(name):
+            ret.append(TravisTest("CTestCom " + folder, "bash scripts/exec_ctestcom.sh " + folder))
+
+    TravisTest.CURRENT_STAGE = "Build Custom Unit"
     list_tests = os.listdir('./tests/build_custom')
     list_tests.sort()
     for file in list_tests:
