@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/27 13:14:13 by fauconfa          #+#    #+#              #
-#    Updated: 2018/06/27 09:40:42 by jpriou           ###   ########.fr        #
+#    Updated: 2018/06/27 16:24:12 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,14 +70,14 @@ all : 10 20 30
 	make test_ok_buildcustom FOLDER_NAME=35_miscellaneous/
 
 test_ok_buildcustom :
-	make -C $(PATH_BUILD_CUSTOM) build_custom PARAM=$(RELATIVE_PATH_FROM_BUILD_CUSTOM)$(FOLDER_NAME)
+	make -C $(PATH_BUILD_CUSTOM) build_custom_run PARAM=$(RELATIVE_PATH_FROM_BUILD_CUSTOM)$(FOLDER_NAME)
 	cp -r $(PATH_RENDU) $(FOLDER_NAME)libft
 	sh ./build_custom.sh test_ok $(FOLDER_NAME)
 	rm -rf $(PATH_RENDU)
 	rm -rf $(FOLDER_NAME)libft
 
 singletest_buildcustom :
-	make -C $(PATH_BUILD_CUSTOM) build_custom PARAM=$(RELATIVE_PATH_FROM_BUILD_CUSTOM)$(FOLDER_NAME)
+	make -C $(PATH_BUILD_CUSTOM) build_custom_run PARAM=$(RELATIVE_PATH_FROM_BUILD_CUSTOM)$(FOLDER_NAME)
 	cp -r $(PATH_RENDU) $(FOLDER_NAME)libft
 	sh ./build_custom.sh simple_test $(FOLDER_NAME)
 	rm -rf $(PATH_RENDU)
