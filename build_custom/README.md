@@ -5,5 +5,5 @@ This folder is for the build_custom module. You give him a path project as a arg
 You have to respect the architecture of the repository. It will not work if you move folders...
 
 ```bash
-make PARAM=[YOUR PATH FROM THIS FOLDER]
+make run PARAM=[YOUR PATH FROM THIS FOLDER]
 ```
