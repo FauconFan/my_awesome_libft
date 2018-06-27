@@ -30,6 +30,10 @@ matrix:
       env:
         - NAME="Build libft gcc 8"
     - stage: build
+      script: make -C libft test_docker_compile_gcc
+      env:
+        - NAME="Build libft gcc latest"
+    - stage: build
       script: make -C libft test_docker_compile_clang
       env:
         - NAME="Build libft clang latest (on Debian)"
