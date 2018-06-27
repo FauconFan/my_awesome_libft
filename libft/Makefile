@@ -6,11 +6,13 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/06/27 08:44:13 by jpriou           ###   ########.fr        #
+#    Updated: 2018/06/27 11:27:14 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+VERSION_GCC_DOCKER = latest
 
 SRC_FOLDER = src/
 INCLUDES_MK_FOLDER = includes_mk/
@@ -57,6 +59,18 @@ fclean :
 	@echo "libft fcleaned"
 
 re : fclean all
+
+testdockercompile: fclean
+	docker run -d \
+			--name build_libft \
+			--volume `pwd`:/libft_repo \
+			-w /libft_repo \
+			gcc:$(VERSION_GCC_DOCKER) \
+			tail -f /dev/null
+	docker exec build_libft gcc --version
+	docker exec build_libft make
+	docker exec build_libft make fclean
+	docker rm --force build_libft
 
 test : $(NAME)
 	@gcc $(SRC_FOLDER)main.c -L ./ -l ft -o test_libft $(INCLUDES_FLAGS)

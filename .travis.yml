@@ -14,9 +14,21 @@ stages:
 matrix:
   include:
     - stage: build
+      script: make -C libft testdockercompile VERSION_GCC_DOCKER=5
       env:
-        - NAME="Build libft"
-        - CC="gcc"
+        - NAME="Build libft gcc 5"
+    - stage: build
+      script: make -C libft testdockercompile VERSION_GCC_DOCKER=6
+      env:
+        - NAME="Build libft gcc 6"
+    - stage: build
+      script: make -C libft testdockercompile VERSION_GCC_DOCKER=7
+      env:
+        - NAME="Build libft gcc 7"
+    - stage: build
+      script: make -C libft testdockercompile VERSION_GCC_DOCKER=8
+      env:
+        - NAME="Build libft gcc 8"
     - stage: build
       script: make ctestcom
       env:
