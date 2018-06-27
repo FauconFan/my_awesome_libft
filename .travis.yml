@@ -15,16 +15,8 @@ matrix:
   include:
     - stage: build
       env:
-        - NAME="Test GCC"
+        - NAME="Build libft"
         - CC="gcc"
-    - stage: build
-      env:
-        - NAME="Test CC"
-        - CC="cc"
-    - stage: build
-      env:
-        - NAME="Test CLANG"
-        - CC="clang"
     - stage: build
       script: make ctestcom
       env:
