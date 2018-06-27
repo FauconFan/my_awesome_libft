@@ -5,6 +5,7 @@ os: linux
 after_script: make fclean
 
 stages:
+  - Verify .travis.yml
   - Build
   - CTestCom
   - Build Custom Test
@@ -12,6 +13,14 @@ stages:
 
 matrix:
   include:
+    - stage: Verify .travis.yml
+      script:
+        - python scripts/gen_travis_file.py > test.out
+        - diff test.out .travis.yml
+        - rm -f test.out
+      after_script: make fclean
+      env:
+        - NAME="Use python script to verify"
     - stage: Build
       script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=5
       after_script: make fclean
