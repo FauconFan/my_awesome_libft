@@ -43,6 +43,7 @@ for FILE in ${FILES}; do
     fi
     if echo ${RET_OUTPUT} | grep 'enough tests' > /dev/null 2>&1; then
         FILES_WITH_NO_TESTS=$((${FILES_WITH_NO_TESTS} + 1))
+        RC=1
     else
         FILES_WITH_TESTS=$((${FILES_WITH_TESTS} + 1))
     fi
