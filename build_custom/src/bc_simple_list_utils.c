@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bc_simple_list_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 22:42:32 by pepe              #+#    #+#             */
-/*   Updated: 2017/12/27 13:08:03 by fauconfan        ###   ########.fr       */
+/*   Updated: 2018/06/28 16:19:09 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,7 @@ int					size_simple_list(t_simple_list *tmp)
 {
 	int		res;
 
-	if (tmp == 0)
-		return (0);
-	res = 1;
+	res = 0;
 	while (tmp)
 	{
 		res++;
