@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/15 19:01:46 by fauconfa          #+#    #+#              #
-#    Updated: 2018/06/27 16:24:41 by jpriou           ###   ########.fr        #
+#    Updated: 2018/06/28 16:03:15 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,4 +51,3 @@ re: fclean all
 
 run: all
 	./$(NAME) $(PARAM)
-	make fclean
