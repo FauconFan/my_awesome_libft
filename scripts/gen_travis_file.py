@@ -1,5 +1,24 @@
 import os
 import re
+import yaml
+from collections import OrderedDict
+
+def represent_ordereddict(self, data):
+    return self.represent_mapping('tag:yaml.org,2002:map', data.items())
+
+class OrderedDumper(yaml.Dumper):
+    def __init__(self, *args, **kwargs):
+        yaml.Dumper.__init__(self, *args, **kwargs)
+        self.add_representer(OrderedDict, type(self).represent_ordereddict)
+
+    represent_ordereddict = represent_ordereddict
+
+class SafeOrderedDumper(yaml.SafeDumper):
+    def __init__(self, *args, **kwargs):
+        yaml.SafeDumper.__init__(self, *args, **kwargs)
+        self.add_representer(OrderedDict, type(self).represent_ordereddict)
+
+    represent_ordereddict = represent_ordereddict
 
 class TravisTest(object):
     CURRENT_STAGE = ""
@@ -65,44 +84,52 @@ def getStages(list_tests):
             ret.append(test.stage)
     return ret
 
-def genererateHeader(stages):
-    content  = "sudo: disabled\n"
-    content += "language: c\n"
-    content += "os: linux\n"
-    content += "\n"
-    content += "after_script: make fclean\n"
-    content += "\n"
+def genererateHeader(output, stages):
+    output['sudo'] = 'disabled'
+    output['language'] = 'c'
+    output['os'] = 'linux'
+    output['after_script'] = 'make fclean'
     if len(stages) != 0:
-        content += "stages:\n"
+        list_stages = []
         for stage in stages:
-            content += "  - " + stage + "\n"
-    content += "\n"
-    content += "matrix:\n"
-    content += "  include:\n"
+            list_stages.append(stage)
+        output['stage'] = list_stages
 
-    return content
+    return output
 
-def buildBody(content, list):
+def buildBody(output, list):
+    output['matrix'] = dict()
+    output['matrix']['include'] = []
+    testbook = output['matrix']['include']
     for test in list:
-        content += "    - stage: " + test.stage + "\n"
+        testsingle = OrderedDict()
+        testsingle['stage'] = test.stage
         if isinstance(test.script, type(list)):
-            content += "      script:\n"
+            testsingle['script'] = []
             for command in test.script:
-                content += "        - " + command + "\n"
+                testsingle['script'].append(command)
         else:
-            content += "      script: " + test.script + "\n"
-        content += "      after_script: " + test.after_script + "\n"
-        content += "      env:\n"
-        content += "        - NAME=\"" + test.name + "\"\n"
-    return content
+            testsingle['script'] = test.script
+        testsingle['after_script'] = test.after_script
+        testsingle['env'] = dict()
+        testsingle['env']['NAME'] = test.name
+        testbook.append(testsingle)
+    return output
 
 def main():
+    output = OrderedDict()
     list = buildTravisData()
     stages = getStages(list)
-    content = genererateHeader(stages)
-    content = buildBody(content, list)
+    output = genererateHeader(output, stages)
+    output = buildBody(output, list)
 
-    print(content)
+    print(yaml.dump(output,
+            Dumper=SafeOrderedDumper,
+            explicit_start=True,
+            explicit_end=True,
+            indent=4,
+            width=2,
+            default_flow_style=False))
 
 
 if __name__ == "__main__":
