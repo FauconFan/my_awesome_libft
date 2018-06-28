@@ -6,12 +6,16 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 12:06:58 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/11 15:43:53 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/06/28 15:18:19 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+** Testcom :
+**	assert(ft_isalnum('O') == 1);
+*/
 t_bool		ft_isalnum(int c)
 {
 	return (((c >= '0' && c <= '9') ||

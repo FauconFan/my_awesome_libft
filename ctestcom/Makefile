@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/14 11:01:01 by fauconfa          #+#    #+#              #
-#    Updated: 2018/06/25 16:03:38 by jpriou           ###   ########.fr        #
+#    Updated: 2018/06/28 15:11:26 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = ctestcom
 SRC_FOLDER = src/
 INCLUDES_FOLDER = includes/
 CTESTCOM_LIBRARY_FOLDER = libtestcom/
+RELATIVE_PATH_LIBFT = ../libft/
 
 NAME_LIB_CTESTCOM = ctestcom
 
@@ -55,7 +56,10 @@ $(PATH_LIB_CTESTCOM):
 testctestcom : all $(PATH_LIB_CTESTCOM)
 	make -C $(CTESTCOM_LIBRARY_FOLDER)
 	@./$(NAME) src/main.c testmain.c
-	@gcc testmain.c -L $(CTESTCOM_LIBRARY_FOLDER) -l ctestcom -I $(CTESTCOM_LIBRARY_FOLDER)$(INCLUDES_FOLDER) -o testmain
+	@gcc testmain.c -o testmain \
+		-I $(RELATIVE_PATH_LIBFT) \
+		-I $(CTESTCOM_LIBRARY_FOLDER)$(INCLUDES_FOLDER) \
+		-L $(CTESTCOM_LIBRARY_FOLDER) -l ctestcom
 	@./testmain
 	@rm -f ./testmain testmain.c
 

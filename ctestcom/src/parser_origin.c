@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_origin.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/14 17:56:36 by fauconfan         #+#    #+#             */
-/*   Updated: 2018/03/07 13:48:12 by jpriou           ###   ########.fr       */
+/*   Created: 2018/01/14 17:56:36 by fauconfa          #+#    #+#             */
+/*   Updated: 2018/06/28 15:07:57 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #define TESTCOM_MARKER		"** Testcom :\n"
 #define SEARCHING_MODE		0
 #define COPY_MODE			1
-#define HEADER_STR			"#include \"libtestcom.h\"\n\nint main() {\n\tinit_env_testcom();\n"
+#define INCLUDES_STR		"#include \"libtestcom.h\"\n#include \"libft.h\"\n"
+#define HEADER_STR			INCLUDES_STR"\nint main() {\n\tinit_env_testcom();\n"
 #define TAIL_STR			"\n\tfree_n_print_result();\n\treturn (0);\n}\n"
 
 static char		*treat_arg(t_ctestcom *ctestcom, char *str)

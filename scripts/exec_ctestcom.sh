@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+LIBFT_FOLDER="libft"
 LIBFT_SRC="libft/src/"
 CTESTCOM_FOLDER="ctestcom"
 PATH_CTESTCOM="ctestcom/ctestcom"
+FLAGS_COMP_LIBFT="-L ${LIBFT_FOLDER} -l ft -I ${LIBFT_FOLDER}"
 FLAGS_COMP_CTESTCOM="-L ctestcom/libtestcom -l ctestcom -I ctestcom/libtestcom/includes"
 OUTPUT_CTESTCOM=$(mktemp)
 OUTPUT_POST_BUILD=$(mktemp)
@@ -28,14 +30,18 @@ printf "Building ctestcom... "
 make -C ${CTESTCOM_FOLDER} > /dev/null 2>&1
 printf "built\\n"
 
+printf "Building libft... "
+make -C ${LIBFT_FOLDER} > /dev/null 2>&1
+printf "built\\n"
+
 for FILE in ${FILES}; do
     NB_FILES=$((${NB_FILES} + 1))
     printf "Handling %s\\n" "${FILE}"
     ./${PATH_CTESTCOM} ${FILE} ${OUTPUT_CTESTCOM}.c
-    gcc ${OUTPUT_CTESTCOM}.c ${FLAGS_COMP_CTESTCOM} -o ${OUTPUT_POST_BUILD}
+    gcc ${OUTPUT_CTESTCOM}.c ${FLAGS_COMP_CTESTCOM} ${FLAGS_COMP_LIBFT} -o ${OUTPUT_POST_BUILD}
     RET_OUTPUT=$(${OUTPUT_POST_BUILD})
     OUTPUT_RC=$?
-    echo ${RET_OUTPUT}
+    echo "${RET_OUTPUT}"
     if ! [[ ${OUTPUT_RC} = 0 ]]; then
         echo "Tests not passed"
         RC=1

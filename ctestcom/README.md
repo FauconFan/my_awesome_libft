@@ -14,7 +14,9 @@ make
 ./ctestcom src/main.c test.c
 
 #Compile it with the appropriate flags
-gcc test.c -o test -I libtestcom/includes -L libtestcom -l ctestcom
+gcc test.c -o test \
+    -I ../ \
+    -I libtestcom/includes -L libtestcom -l ctestcom \
 
 #Execute it
 ./test
