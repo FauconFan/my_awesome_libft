@@ -1,6 +1,6 @@
 #/bin/sh
 
-verify_build_custom()
+verify_single_file_build_custom()
 {
 	path="../build_custom/$1"
 	make -C ${path}libft
@@ -39,7 +39,7 @@ fi
 G_MODE=$1
 
 case $G_MODE in
-	"simple_test") verify_build_custom $2 ;;
+	"simple_file_test") verify_single_file_build_custom $2 ;;
 	"test_ok") test_ok $2 ;;
 	*) printf "this mode is not recognised"; exit 1;;
 esac

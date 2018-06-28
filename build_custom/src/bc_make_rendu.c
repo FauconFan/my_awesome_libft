@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bc_make_rendu.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/27 10:03:54 by fauconfan         #+#    #+#             */
-/*   Updated: 2018/03/20 09:26:31 by fauconfan        ###   ########.fr       */
+/*   Created: 2017/12/27 10:03:54 by fauconfa          #+#    #+#             */
+/*   Updated: 2018/06/28 14:42:57 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,7 +233,7 @@ static void		create_an_adaptative_makefile(t_simple_list *list_file)
 	dprintf(fd, "\t@echo \"libft built successfully\"\n\n");
 	dprintf(fd, "%s:%s\n", "%.o", "%.c");
 	dprintf(fd, "\t@printf \"                                                                \\r\"\n");
-	dprintf(fd, "\t@printf \"  🍏  <= $?\\r\"\n");
+	dprintf(fd, "\t@printf \"$?\\r\"\n");
 	dprintf(fd, "\t@$(CC) $(FLAGS) -c $? -o $@\n\n");
 	dprintf(fd, "clean :\n");
 	dprintf(fd, "\t@rm -rf $(OBJ)\n\t@echo \"libft cleaned\"\n\n");

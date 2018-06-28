@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bc_project_depedencies.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 23:14:20 by pepe              #+#    #+#             */
-/*   Updated: 2018/03/20 09:04:21 by fauconfan        ###   ########.fr       */
+/*   Updated: 2018/06/28 14:49:29 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,17 @@ static void							free_list_depedency(t_list_depedencies **tmp)
 	*tmp = 0;
 }
 
-void								handle_directories(char *path_folder, t_project_depedencies *res)
+static void							handle_file(char *path_file, t_project_depedencies *res)
+{
+	if (strlen(path_file) >= 2
+			&& path_file[strlen(path_file) - 2] == '.'
+			&& path_file[strlen(path_file) - 1] == 'c')
+		add_front_list_depedencies(&(res->list_all_files), init_file_depedencies(path_file));
+	else
+		dprintf(2, "WARNING this file %s may not be a file code.\n", path_file);
+}
+
+static void							handle_directories(char *path_folder, t_project_depedencies *res)
 {
 	DIR						*folder_project;
 	struct dirent			*dirent_actu;
@@ -68,10 +78,7 @@ void								handle_directories(char *path_folder, t_project_depedencies *res)
 		}
 		else if (S_ISREG(stat_actu.st_mode))
 		{
-			if (path_file[strlen(path_file) - 1] == 'c' && path_file[strlen(path_file) - 2] == '.')
-				add_front_list_depedencies(&(res->list_all_files), init_file_depedencies(path_file, stat_actu.st_size));
-			else
-				dprintf(2, "WARNING this file %s may not be a code.\n", path_file);
+			handle_file(path_file, res);
 		}
 		else
 		{
@@ -86,15 +93,34 @@ void								handle_directories(char *path_folder, t_project_depedencies *res)
 	}
 }
 
-t_project_depedencies				*build_depedencies(char *path_folder)
+t_project_depedencies				*build_depedencies(char *path)
 {
 	t_project_depedencies	*res;
+	struct stat				stat_actu;
 
 	if ((res = (t_project_depedencies *)malloc(sizeof(t_project_depedencies))) == 0)
 		exit (1);
-	res->path_folder = path_folder;
+	if (lstat(path, &stat_actu) == -1)
+	{
+		dprintf(2, "%s\n", strerror(errno));
+		exit (1);
+	}
+
 	res->list_all_files = 0;
-	handle_directories(path_folder, res);
+	if (S_ISREG(stat_actu.st_mode))
+	{
+		handle_file(path, res);
+	}
+	else if (S_ISDIR(stat_actu.st_mode))
+	{
+		handle_directories(path, res);
+	}
+	else
+	{
+		dprintf(2, "WARNING this file type is no recognised %s\n", path);
+		dprintf(2, "That normally never happened...\n");
+		exit(1);
+	}
 	return (res);
 }
 
@@ -153,7 +179,7 @@ void								purge_depedency(t_project_depedencies *actu, t_project_depedencies *
 	t_file_depedencies		*file_actu;
 	t_simple_list			*list_depe_actu;
 	t_simple_list			*tmp;
-	
+
 	list_actu = actu->list_all_files;
 	while (list_actu)
 	{

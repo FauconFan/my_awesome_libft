@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bc_file_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/16 15:37:54 by pepe              #+#    #+#             */
-/*   Updated: 2017/12/29 19:19:14 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/06/28 14:35:27 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ static char				*verify_static_function(char *str_tot)
 			index++;
 		}
 		if (index == 6 && strncmp("static", str_tot + 1, 6) == 0)
-		{	
+		{
 			name_function--;
 			while (bc_isspace(*name_function))
 				name_function--;
@@ -307,22 +307,28 @@ static void				remove_static_depedencies_and_free_them(t_simple_list **list_depe
 	*list_static_function = 0;
 }
 
-t_file_depedencies		*init_file_depedencies(char *name_file, unsigned int size_tot)
+t_file_depedencies		*init_file_depedencies(char *name_file)
 {
 	t_file_depedencies		*res;
 	t_simple_list			*list_function_name;
 	t_simple_list			*list_depedencies;
 	t_simple_list			*list_static_function;
+	struct stat				stat_actu;
 	char					*name_function_static_actu;
 	char					*str_tot;
 	char					*str_cpy;
 	int						depth;
 	int						fd;
 
+	if (lstat(name_file, &stat_actu) == -1)
+	{
+		dprintf(2, "%s\n", strerror(errno));
+		exit (1);
+	}
 	res = new_file_depedencies(name_file);
-	if ((str_tot = (char *)malloc(sizeof(char) * (size_tot + 1))) == 0)
+	if ((str_tot = (char *)malloc(sizeof(char) * (stat_actu.st_size + 1))) == 0)
 		exit(1);
-	fd = open_read_file(name_file, size_tot, &str_tot);
+	fd = open_read_file(name_file, stat_actu.st_size, &str_tot);
 	str_cpy = str_tot;
 	depth = 0;
 	list_function_name = 0;

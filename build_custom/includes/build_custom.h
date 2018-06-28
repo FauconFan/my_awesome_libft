@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_custom.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/15 18:59:41 by fauconfan         #+#    #+#             */
-/*   Updated: 2017/12/29 10:23:46 by jpriou           ###   ########.fr       */
+/*   Created: 2017/12/15 18:59:41 by fauconfa          #+#    #+#             */
+/*   Updated: 2018/06/28 14:41:29 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct		s_list_depedencies
 
 typedef struct		s_project_depedencies
 {
-	char					*path_folder;
 	t_list_depedencies		*list_all_files;
 }					t_project_depedencies;
 
@@ -52,7 +51,7 @@ typedef struct		s_project_depedencies
 **	File depedencies utils
 */
 
-t_file_depedencies		*init_file_depedencies(char *name_file, unsigned int size_tot);
+t_file_depedencies		*init_file_depedencies(char *name_file);
 void					free_file_depedencies(t_file_depedencies **elem);
 void					describe_file_depedencies(t_file_depedencies *file_actu);
 

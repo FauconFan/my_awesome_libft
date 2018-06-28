@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/15 18:59:03 by fauconfan         #+#    #+#             */
-/*   Updated: 2018/03/20 09:04:34 by fauconfan        ###   ########.fr       */
+/*   Created: 2017/12/15 18:59:03 by fauconfa          #+#    #+#             */
+/*   Updated: 2018/06/28 14:37:22 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ static char		*verify_argv(char *av)
 	if (*av != '/')
 		return ("This path is not absolute");
 	if (lstat(av, &stats) == -1)
-		return ("This path don't point to a folder");
-	if (S_ISDIR(stats.st_mode) == 0)
-		return ("This path point to a non_folder file");
+		return ("This file cannot be stat(ed) for some reason");
+	if (S_ISDIR(stats.st_mode) == 0 && S_ISREG(stats.st_mode) == 0)
+		return ("This path is not a foler or a regulat file...");
 	return (0);
 }
 
