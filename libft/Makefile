@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/06/27 11:46:54 by jpriou           ###   ########.fr        #
+#    Updated: 2018/07/16 11:57:44 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,14 +25,15 @@ FLAGS = $(COMPILATION_FLAGS) $(INCLUDES_FLAGS)
 
 SRC =
 
-include $(INCLUDES_MK_FOLDER)libft_char.mk
-include $(INCLUDES_MK_FOLDER)libft_str.mk
-include $(INCLUDES_MK_FOLDER)libft_put.mk
-include $(INCLUDES_MK_FOLDER)libft_memmory.mk
-include $(INCLUDES_MK_FOLDER)libft_math.mk
-include $(INCLUDES_MK_FOLDER)libft_linked_list.mk
-include $(INCLUDES_MK_FOLDER)get_next_line.mk
 include $(INCLUDES_MK_FOLDER)ft_printf.mk
+include $(INCLUDES_MK_FOLDER)get_next_line.mk
+include $(INCLUDES_MK_FOLDER)libft_char.mk
+include $(INCLUDES_MK_FOLDER)libft_linked_list.mk
+include $(INCLUDES_MK_FOLDER)libft_math.mk
+include $(INCLUDES_MK_FOLDER)libft_memmory.mk
+include $(INCLUDES_MK_FOLDER)libft_put.mk
+include $(INCLUDES_MK_FOLDER)libft_str.mk
+include $(INCLUDES_MK_FOLDER)libft_wchar.mk
 
 OBJ = $(SRC:%.c=%.o)
 
