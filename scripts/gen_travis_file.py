@@ -49,6 +49,15 @@ def buildTravisData():
                 "make -C libft test_docker_compile_clang"))
     ret.append(TravisTest("Build build_custom", "make build_custom"))
 
+    TravisTest.CURRENT_STAGE = "Build Custom Unit"
+    list_tests = os.listdir('./tests/build_custom')
+    list_tests.sort()
+    for file in list_tests:
+        if re.match('^\d\d.*', file):
+            nu = file[:2]
+            ret.append(TravisTest("Build_Custom Test " + str(nu),
+                        "make -C tests/build_custom/ " + str(nu)))
+
     TravisTest.CURRENT_STAGE = "Final"
     ret.append(TravisTest("Full Build Custom All", "make -C tests/build_custom/ all"))
     return ret
