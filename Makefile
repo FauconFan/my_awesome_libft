@@ -6,7 +6,7 @@
 #    By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/25 16:27:58 by jpriou            #+#    #+#              #
-#    Updated: 2018/07/16 13:16:58 by jpriou           ###   ########.fr        #
+#    Updated: 2018/07/16 13:22:16 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,5 +33,4 @@ build_custom_run:
 
 fclean:
 	@make -C libft fclean
-	@make -C ctestcom fclean
 	@make -C build_custom fclean

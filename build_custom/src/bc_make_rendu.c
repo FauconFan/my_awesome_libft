@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 10:03:54 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/06/28 14:42:57 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/07/16 13:22:33 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,7 +203,7 @@ static void		create_an_adaptative_makefile(t_simple_list *list_file)
 	int		fd;
 	char	*str_to_display;
 
-	printf("Create an adaptative Makefile\n");
+	printf("Create an adapted Makefile\n");
 	if ((fd = open("../rendu/Makefile", O_CREAT|O_WRONLY, 0644)) == -1)
 	{
 		dprintf(2, "%s\n", strerror(errno));
