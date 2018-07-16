@@ -6,7 +6,7 @@
 #    By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/25 16:27:58 by jpriou            #+#    #+#              #
-#    Updated: 2018/06/27 16:23:49 by jpriou           ###   ########.fr        #
+#    Updated: 2018/07/16 13:16:58 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,11 @@ all:
 	echo "No default rules is provided"
 	echo ""
 	echo "make libft_library"
+	echo "make build_custom"
 
 libft :
 	@make -C libft
 	@echo "the library is in libft folder."
-
-ctestcom :
-	@make -C ctestcom
 
 build_custom :
 	@make -C build_custom

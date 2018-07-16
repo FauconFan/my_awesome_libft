@@ -47,30 +47,7 @@ def buildTravisData():
                 "make -C libft test_docker_compile_gcc"))
     ret.append(TravisTest("Build libft with clang (latest on Debian)",
                 "make -C libft test_docker_compile_clang"))
-    ret.append(TravisTest("Build ctestcom", "make ctestcom"))
     ret.append(TravisTest("Build build_custom", "make build_custom"))
-
-    TravisTest.CURRENT_STAGE = "CTestCom Unit"
-
-    ret.append(TravisTest("CTestCom Main Test", "make -C ctestcom testctestcom"))
-
-    TravisTest.CURRENT_STAGE = "CTestCom Test"
-
-    list_folders = os.listdir('./libft/src')
-    list_folders.sort()
-    for folder in list_folders:
-        name = './libft/src/' + folder
-        if os.path.isdir(name):
-            ret.append(TravisTest("CTestCom " + folder, "bash scripts/exec_ctestcom.sh " + folder))
-
-    TravisTest.CURRENT_STAGE = "Build Custom Unit"
-    list_tests = os.listdir('./tests/build_custom')
-    list_tests.sort()
-    for file in list_tests:
-        if re.match('^\d\d.*', file):
-            nu = file[:2]
-            ret.append(TravisTest("Build_Custom Test " + str(nu),
-                        "make -C tests/build_custom/ " + str(nu)))
 
     TravisTest.CURRENT_STAGE = "Final"
     ret.append(TravisTest("Full Build Custom All", "make -C tests/build_custom/ all"))
