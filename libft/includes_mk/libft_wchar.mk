@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-LIBFT_CHAR_FOLDER = $(SRC_FOLDER)libft_wchar/
+LIBFT_WCHAR_FOLDER = $(SRC_FOLDER)libft_wchar/
 
-SRC_LIBFT_CHAR = ft_wcharlen.c \
-				ft_fill_wstring.c \
+SRC_LIBFT_WCHAR = ft_wcharlen.c \
+					ft_fill_wstring.c \
 
-SRC += $(addprefix $(LIBFT_CHAR_FOLDER), $(SRC_LIBFT_CHAR))
+SRC += $(addprefix $(LIBFT_WCHAR_FOLDER), $(SRC_LIBFT_WCHAR))
