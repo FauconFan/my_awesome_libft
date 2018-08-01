@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/01 17:32:37 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/01 17:55:40 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,8 @@ test_docker_compile_gcc: fclean
 	docker exec build_libft_gcc gcc --version
 	docker exec build_libft_gcc make
 	docker exec build_libft_gcc make fclean
-	docker rm --force build_libft_gcc
+	docker stop build_libft_gcc
+	docker rm build_libft_gcc
 
 test_docker_compile_clang: fclean
 	docker run -d \
@@ -84,7 +85,8 @@ test_docker_compile_clang: fclean
 	docker exec build_libft_clang apt-get install -y clang make
 	docker exec build_libft_clang make CC=clang
 	docker exec build_libft_clang make fclean
-	docker rm --force build_libft_clang
+	docker stop build_libft_clang
+	docker rm build_libft_clang
 
 test : $(NAME)
 	@gcc $(SRC_FOLDER)main.c -L ./ -l ft -o test_libft $(INCLUDES_FLAGS)
