@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 13:42:36 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/29 19:08:44 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/01 17:38:40 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void		fill_line(char **line, char **buff_prog)
 	*buff_prog = tmp;
 }
 
-static int		loop(const int fd, char **buff_prog)
+static int		loop(const int fd, char **buff_prog, size_t buff_size_gnl)
 {
 	char	*tmp;
 	char	*buff;
@@ -52,11 +52,11 @@ static int		loop(const int fd, char **buff_prog)
 	buff = 0;
 	ret = 0;
 	if (ft_strchr(*buff_prog, '\n') == 0)
-		buff = ft_strnew(BUFF_SIZE_GNL + 1);
+		buff = ft_strnew(buff_size_gnl + 1);
 	while (ft_strchr(*buff_prog, '\n') == 0)
 	{
-		ft_bzero(buff, BUFF_SIZE_GNL + 1);
-		if ((ret = read(fd, buff, BUFF_SIZE_GNL)) == -1)
+		ft_bzero(buff, buff_size_gnl + 1);
+		if ((ret = read(fd, buff, buff_size_gnl)) == -1)
 			break ;
 		if (ret == 0)
 			break ;
@@ -64,7 +64,7 @@ static int		loop(const int fd, char **buff_prog)
 		tmp = ft_strjoin(*buff_prog, buff);
 		free(*buff_prog);
 		*buff_prog = tmp;
-		if (ft_strlen(buff) < BUFF_SIZE_GNL)
+		if (ft_strlen(buff) < buff_size_gnl)
 			break ;
 	}
 	if (buff != 0)
@@ -74,15 +74,36 @@ static int		loop(const int fd, char **buff_prog)
 
 int				get_next_line(const int fd, char **line, t_env_gnl *env_gnl)
 {
+	return get_next_line_c(fd, line, env_gnl, BUFF_SIZE_GNL);
+}
+
+int				get_next_line_c(const int fd, char **line,
+					t_env_gnl *env_gnl, size_t buff_size_gnl) {
 	char		**buff_prog;
 
-	if (line == 0 || read(fd, 0, 0) < 0 || env_gnl == 0)
+	if (line == 0 || read(fd, 0, 0) < 0 || env_gnl == 0 || buff_size_gnl == 0)
 		return (-1);
 	buff_prog = find_buff_prog(env_gnl, (int)fd);
-	if (loop(fd, buff_prog) == -1)
+	if (loop(fd, buff_prog, buff_size_gnl) == -1)
 		return (-1);
 	if (**buff_prog == 0)
 		return (0);
 	fill_line(line, buff_prog);
+	return (1);
+}
+
+int				get_next_line_stdin(char **line) {
+	size_t len;
+
+	if (line == 0 || read(0, 0, 0) < 0) {
+		return (-1);
+	}
+	*line = ft_strnew(0);
+	if (loop(0, line, 1) == -1)
+		return (0);
+	len = ft_strlen(*line);
+	if (len > 0 && (*line)[len - 1] == '\n') {
+		(*line)[len - 1] = '\0';
+	}
 	return (1);
 }

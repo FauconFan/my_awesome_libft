@@ -3,21 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/03 17:02:01 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/01 17:40:29 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/01 17:25:13 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/01 17:26:45 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(void)
-{
-	char	*str;
+int main() {
+	char *line;
 
-	str = ft_strtrim("             coucou          ");
-	ft_putendl(str);
-	free(str);
-	ft_printf(" debug time : %d %s %x\n", 42, "coucou", 42);
+	get_next_line_stdin(&line);
+	ft_printf("%s\n", line);
+	ft_memdel(((void **)&line));
+	return 0;
 }

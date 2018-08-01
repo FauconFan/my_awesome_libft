@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:24:56 by jpriou            #+#    #+#             */
-/*   Updated: 2018/06/27 08:30:10 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/01 17:24:59 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ typedef struct	s_env_gnl
 }				t_env_gnl;
 
 int				get_next_line(const int fd, char **line, t_env_gnl *env_gnl);
+int				get_next_line_c(const int fd, char **line,
+					t_env_gnl *env_gnl, size_t buff_size_gnl);
+int				get_next_line_stdin(char **line);
 
 t_env_gnl		*init_env_gnl(void);
 void			free_env_gnl(t_env_gnl *head);

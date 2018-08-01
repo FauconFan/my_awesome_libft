@@ -2,3 +2,4 @@ rendu
 .vscode/
 *.o
 *.a
+examples/bin
