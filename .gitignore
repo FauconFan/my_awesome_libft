@@ -1,2 +1,4 @@
 rendu
 .vscode/
+*.o
+*.a
