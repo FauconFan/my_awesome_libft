@@ -6,7 +6,7 @@
 #    By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/25 16:27:58 by jpriou            #+#    #+#              #
-#    Updated: 2018/07/16 13:22:16 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/01 17:51:16 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,6 @@ libft :
 
 build_custom :
 	@make -C build_custom
-
-build_custom_run:
-	@test "$(PARAM)" || (echo "set the PARAM argument" && exit 1)
-	@make -C build_custom run PARAM=../"$(PARAM)"
 
 fclean:
 	@make -C libft fclean

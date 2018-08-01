@@ -6,13 +6,13 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/27 13:14:13 by fauconfa          #+#    #+#              #
-#    Updated: 2018/06/28 15:02:35 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/01 17:50:31 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PATH_ROOT = ../../
+PATH_BC = ../../build_custom
 PATH_RENDU = ../../rendu/
-RELATIVE_PATH_FROM_ROOT = tests/build_custom/
+RELATIVE_PATH_FROM_BC = ../tests/build_custom/
 
 FOLDER_NAME = ""
 
@@ -87,21 +87,21 @@ all : 10 20 30 40
 	make test_ok_on_file_buildcustom FOLDER_NAME=45_miscellaneous_on_file/
 
 test_ok_buildcustom :
-	make -C $(PATH_ROOT) build_custom_run PARAM=$(RELATIVE_PATH_FROM_ROOT)$(FOLDER_NAME)
+	make -C $(PATH_BC) run PARAM=$(RELATIVE_PATH_FROM_BC)$(FOLDER_NAME)
 	cp -r $(PATH_RENDU) $(FOLDER_NAME)libft
 	sh ./build_custom.sh test_ok $(FOLDER_NAME)
 	rm -rf $(PATH_RENDU)
 	rm -rf $(FOLDER_NAME)libft
 
 test_ok_on_file_buildcustom:
-	make -C $(PATH_ROOT) build_custom_run PARAM=$(RELATIVE_PATH_FROM_ROOT)$(FOLDER_NAME)main.c
+	make -C $(PATH_BC) run PARAM=$(RELATIVE_PATH_FROM_BC)$(FOLDER_NAME)main.c
 	cp -r $(PATH_RENDU) $(FOLDER_NAME)libft
 	sh ./build_custom.sh test_ok $(FOLDER_NAME)
 	rm -rf $(PATH_RENDU)
 	rm -rf $(FOLDER_NAME)libft
 
 singlefile_buildcustom :
-	make -C $(PATH_ROOT) build_custom_run PARAM=$(RELATIVE_PATH_FROM_ROOT)$(FOLDER_NAME)
+	make -C $(PATH_BC) run PARAM=$(RELATIVE_PATH_FROM_BC)$(FOLDER_NAME)
 	cp -r $(PATH_RENDU) $(FOLDER_NAME)libft
 	sh ./build_custom.sh simple_file_test $(FOLDER_NAME)
 	rm -rf $(PATH_RENDU)
