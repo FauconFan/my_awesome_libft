@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/27 13:14:13 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/01 17:50:31 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/02 20:44:23 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ RELATIVE_PATH_FROM_BC = ../tests/build_custom/
 
 FOLDER_NAME = ""
 
-all : 10 20 30 40
+all : 10 20 30 40 50
 
 10 : 11 12 13 14 15 16
 
@@ -25,6 +25,8 @@ all : 10 20 30 40
 30 : 31 32 33 34 35
 
 40 : 41 42 43 44 45
+
+50 : 51
 
 11 :
 	make singlefile_buildcustom FOLDER_NAME=11_simpletest_putstr/
@@ -85,6 +87,12 @@ all : 10 20 30 40
 
 45:
 	make test_ok_on_file_buildcustom FOLDER_NAME=45_miscellaneous_on_file/
+
+51 :
+	make test_ok_buildcustom FOLDER_NAME=51_mathsimple/
+
+52 :
+	make test_ok_buildcustom FOLDER_NAME=52_mathsimple/
 
 test_ok_buildcustom :
 	make -C $(PATH_BC) run PARAM=$(RELATIVE_PATH_FROM_BC)$(FOLDER_NAME)

@@ -153,6 +153,16 @@ matrix:
         after_script: make fclean
         env:
             NAME: Build_Custom Test 45
+    -   stage: Build Custom Unit
+        script: make -C tests/build_custom/ 51
+        after_script: make fclean
+        env:
+            NAME: Build_Custom Test 51
+    -   stage: Build Custom Unit
+        script: make -C tests/build_custom/ 52
+        after_script: make fclean
+        env:
+            NAME: Build_Custom Test 52
     -   stage: Final
         script: make -C tests/build_custom/ all
         after_script: make fclean
