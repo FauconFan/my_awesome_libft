@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:24:00 by jpriou            #+#    #+#             */
-/*   Updated: 2018/06/27 08:24:46 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/02 17:30:10 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,22 @@
 
 #include "libft.h"
 
-int 	ft_min(int a, int b);
-int 	ft_max(int a, int b);
+#define MATH_OK					0
+#define MATH_NRT_EVEN_NEG		1
 
-int 	ft_abs(int c);
-int 	ft_log10(int n);
-int 	ft_logb(int n, int lengthbase);
+#define PREC_DOUBLE				1e-8
+
+double 	ft_min(double a, double b);
+double 	ft_max(double a, double b);
+
+double 	ft_abs(double c);
+double 	ft_log10(double n);
+double 	ft_logb(double n, int lengthbase);
+
+double	ft_pow(double x, size_t n);
+
+double	ft_nrt(double, size_t n, short *rc);
+double	ft_sqrt(double);
+double	ft_curt(double, short *rc);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/01 17:55:40 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/02 17:25:04 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,6 @@ include $(INCLUDES_MK_FOLDER)libft_wchar.mk
 OBJ = $(SRC:%.c=%.o)
 
 all : $(NAME)
-	@echo builted with $(CC)
 
 $(NAME) : $(OBJ)
 	@ar -rc $@ $(OBJ)

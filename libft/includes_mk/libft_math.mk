@@ -17,5 +17,9 @@ SRC_LIBFT_MATH = ft_abs.c \
 					ft_logb.c \
 					ft_max.c \
 					ft_min.c \
+					ft_pow.c \
+					ft_sqrt.c \
+					ft_curt.c \
+					ft_nrt.c
 
 SRC += $(addprefix $(LIBFT_MATH_FOLDER), $(SRC_LIBFT_MATH))

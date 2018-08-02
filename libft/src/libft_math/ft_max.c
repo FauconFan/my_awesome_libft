@@ -6,13 +6,13 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 07:34:36 by jpriou            #+#    #+#             */
-/*   Updated: 2017/11/12 07:35:21 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/02 17:31:37 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_max(int a, int b)
+double		ft_max(double a, double b)
 {
 	return ((a < b) ? b : a);
 }
