@@ -6,7 +6,7 @@
 #    By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/25 16:27:58 by jpriou            #+#    #+#              #
-#    Updated: 2018/08/02 17:24:21 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/04 16:00:20 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,3 +30,7 @@ build_custom :
 fclean:
 	@make -C libft fclean
 	@make -C build_custom fclean
+	@rm -rf rendu
+
+testall:
+	./scripts/test_all.sh

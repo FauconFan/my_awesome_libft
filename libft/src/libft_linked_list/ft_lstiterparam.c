@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstiterparam.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/29 18:53:00 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/04 15:25:44 by jpriou           ###   ########.fr       */
+/*   Created: 2017/09/11 23:26:21 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/04 14:46:19 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		display(void *s)
+void	ft_lstiterparam(t_list *lst, void *param,
+			void (*f)(void *content, void *param))
 {
-	ft_printf("%s\n", s);
-}
-
-void		del(void *s)
-{
-	free(s);
-}
-
-int			main(void)
-{
-	t_list		*head;
-
-	head = ft_lstnew(ft_strdup("coucou"));
-	ft_lstaddback(&head, ft_strdup("allo"));
-	ft_lstaddfront(&head, ft_strdup("ne nous regarde pas"));
-	ft_printf("size %d\n", ft_lstsize(head));
-	ft_lstiter(head, display);
-	ft_lstfreeall(&head, del);
-	ft_printf("size %d\n", ft_lstsize(head));
-	return (0);
+	if (lst != NULL)
+	{
+		f(lst->content, param);
+		ft_lstiterparam(lst->next, param, f);
+	}
 }

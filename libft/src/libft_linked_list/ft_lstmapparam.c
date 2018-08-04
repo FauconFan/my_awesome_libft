@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstmapparam.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/29 18:53:00 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/04 15:25:44 by jpriou           ###   ########.fr       */
+/*   Created: 2017/09/11 23:29:35 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/04 15:17:12 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		display(void *s)
+t_list	*ft_lstmapparam(t_list *lst, void *param,
+			void *(*f)(void *content, void *param))
 {
-	ft_printf("%s\n", s);
-}
+	t_list	*res;
 
-void		del(void *s)
-{
-	free(s);
-}
-
-int			main(void)
-{
-	t_list		*head;
-
-	head = ft_lstnew(ft_strdup("coucou"));
-	ft_lstaddback(&head, ft_strdup("allo"));
-	ft_lstaddfront(&head, ft_strdup("ne nous regarde pas"));
-	ft_printf("size %d\n", ft_lstsize(head));
-	ft_lstiter(head, display);
-	ft_lstfreeall(&head, del);
-	ft_printf("size %d\n", ft_lstsize(head));
-	return (0);
+	res = 0;
+	if (lst != 0)
+	{
+		res = ft_lstnew(f(lst->content, param));
+		res->next = ft_lstmapparam(lst->next, param, f);
+	}
+	return (res);
 }

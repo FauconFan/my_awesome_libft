@@ -6,12 +6,13 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/04 14:12:45 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/04 15:02:59 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-NAME_SO = libft.so
+NAME = libft
+NAME_A = $(NAME).a
+NAME_SO = $(NAME).so
 
 VERSION_GCC_DOCKER = latest
 TEST_CMD = make
@@ -23,8 +24,8 @@ INCLUDES_FOLDER = includes/
 CC = gcc
 COMPILATION_FLAGS = -Wall -Wextra -Werror
 INCLUDES_FLAGS = -I ./
-ADDITIONAL_FLGAS =
-FLAGS = $(COMPILATION_FLAGS) $(INCLUDES_FLAGS) $(ADDITIONAL_FLGAS)
+ADDITIONAL_FLAGS =
+FLAGS = $(COMPILATION_FLAGS) $(INCLUDES_FLAGS) $(ADDITIONAL_FLAGS)
 
 SRC =
 
@@ -40,20 +41,24 @@ include $(INCLUDES_MK_FOLDER)libft_wchar.mk
 
 OBJ = $(SRC:%.c=%.o)
 
-all : $(NAME)
+all : compile_static_library
 
-so : $(NAME_SO)
+so : compile_dynamic_library
 
-$(NAME) :
+compile_static_library :
 	@! test -f $(NAME_SO) || make fclean
-	@make -C . $(OBJ)
+	@make -C . $(NAME_A)
+
+compile_dynamic_library :
+	@! test -f $(NAME_A) || make fclean
+	@make -C . $(NAME_SO) ADDITIONAL_FLAGS="-fPIC"
+
+$(NAME_A): $(OBJ)
 	@ar -rc $@ $(OBJ)
 	@ranlib $@
 	@echo "libft.a built successfully"
 
-$(NAME_SO) :
-	@! test -f $(NAME) || make fclean
-	@make -C . $(OBJ) ADDITIONAL_FLGAS="-fPIC"
+$(NAME_SO): $(OBJ)
 	@$(CC) -shared -Wl,-soname,$(NAME_SO) -o $(NAME_SO) $(OBJ)
 	@echo "libft.so built successfully"
 
@@ -68,7 +73,7 @@ clean :
 
 fclean :
 	@rm -rf $(OBJ)
-	@rm -rf $(NAME)
+	@rm -rf $(NAME_A)
 	@rm -rf $(NAME_SO)
 	@echo "libft fcleaned"
 
@@ -101,7 +106,7 @@ test_docker_compile_clang: fclean
 	docker stop build_libft_clang
 	docker rm build_libft_clang
 
-test : $(NAME)
+test : $(NAME_A)
 	@gcc $(SRC_FOLDER)main.c -L ./ -l ft -o test_libft $(INCLUDES_FLAGS)
 	@./test_libft
 	@rm -f test_libft

@@ -4,7 +4,7 @@ verify_single_file_build_custom()
 {
 	path="../build_custom/$1"
 	make -C ${path}libft
-	gcc ${path}main.c -I ${path}libft/ -o ${path}a.out -L ${path}libft -l ft
+	gcc -Wall -Werror -Wextra ${path}main.c -I ${path}libft/ -o ${path}a.out -L ${path}libft -l ft
 	${path}a.out
 	if [ ! $? = 0 ]; then
 		exit 1
@@ -22,7 +22,7 @@ test_ok()
 {
 	path="../build_custom/$1"
 	make -C ${path}libft
-	gcc ${path}main.c -I ${path}libft/ -o ${path}a.out -L ${path}libft -l ft
+	gcc -Wall -Werror -Wextra ${path}main.c -I ${path}libft/ -o ${path}a.out -L ${path}libft -l ft
 	${path}a.out
 	if [ ! $? = 0 ]; then
 		exit 1

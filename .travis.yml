@@ -6,13 +6,13 @@ after_script: make fclean
 stage:
 - Verify .travis.yml
 - Build
-- Build Custom Unit
-- Final
+- Build custom
+- All
 matrix:
     include:
     -   stage: Verify .travis.yml
         script:
-        - python scripts/gen_travis_file.py > test.out
+        - python3 scripts/gen_travis_file.py test.out
         - diff test.out .travis.yml
         - rm -f test.out
         after_script: make fclean
@@ -87,120 +87,14 @@ matrix:
         after_script: make fclean
         env:
             NAME: Build build_custom
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 11
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 11
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 12
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 12
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 13
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 13
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 14
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 14
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 15
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 15
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 16
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 16
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 21
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 21
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 22
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 22
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 23
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 23
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 24
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 24
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 31
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 31
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 32
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 32
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 33
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 33
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 34
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 34
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 35
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 35
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 41
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 41
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 42
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 42
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 43
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 43
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 44
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 44
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 45
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 45
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 51
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 51
-    -   stage: Build Custom Unit
-        script: make -C tests/build_custom/ 52
-        after_script: make fclean
-        env:
-            NAME: Build_Custom Test 52
-    -   stage: Final
+    -   stage: Build custom
         script: make -C tests/build_custom/ all
         after_script: make fclean
         env:
-            NAME: Full Build Custom All
+            NAME: Build Custom All
+    -   stage: All
+        script: make testall
+        after_script: make fclean
+        env:
+            NAME: All script
 ...
-

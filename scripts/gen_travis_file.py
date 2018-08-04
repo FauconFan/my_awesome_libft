@@ -1,7 +1,12 @@
 import os
+import sys
 import re
 import yaml
 from collections import OrderedDict
+
+OUTPUT_FILE = ".travis.yml"
+ALL_TEST_FILE = "scripts/test_all.sh"
+ALL_CMDS = []
 
 def represent_ordereddict(self, data):
 	return self.represent_mapping('tag:yaml.org,2002:map', data.items())
@@ -24,17 +29,23 @@ class TravisTest(object):
 	CURRENT_STAGE = ""
 
 	def __init__(self, name, script, after_script = "make fclean"):
+		global ALL_CMDS
 		self.name = name
 		self.stage = self.CURRENT_STAGE
 		self.script = script
 		self.after_script = after_script
+		if isinstance(script, type([])):
+			for command in script:
+				ALL_CMDS.append(command)
+		else:
+			ALL_CMDS.append(script)
 
 def buildTravisData():
 	ret = []
 	# Verify travis yaml
 	TravisTest.CURRENT_STAGE = "Verify .travis.yml"
 	ret.append(TravisTest("Use python script to verify", [
-		"python scripts/gen_travis_file.py > test.out",
+		"python3 scripts/gen_travis_file.py test.out",
 		"diff test.out .travis.yml",
 		"rm -f test.out"
 		]))
@@ -59,18 +70,20 @@ def buildTravisData():
 		ret.append(TravisTest(name1, cmd1))
 		ret.append(TravisTest(name2, cmd2))
 	ret.append(TravisTest("Build build_custom", "make build_custom"))
-	# Build Custom Unit
-	TravisTest.CURRENT_STAGE = "Build Custom Unit"
-	list_tests = os.listdir('./tests/build_custom')
-	list_tests.sort()
-	for file in list_tests:
-		if re.match('^\d\d.*', file):
-			nu = file[:2]
-			ret.append(TravisTest("Build_Custom Test " + str(nu),
-						"make -C tests/build_custom/ " + str(nu)))
 
-	TravisTest.CURRENT_STAGE = "Final"
-	ret.append(TravisTest("Full Build Custom All", "make -C tests/build_custom/ all"))
+	TravisTest.CURRENT_STAGE = "Build custom"
+	ret.append(TravisTest("Build Custom All", "make -C tests/build_custom/ all"))
+
+	TravisTest.CURRENT_STAGE = "All"
+	with open(ALL_TEST_FILE, 'w') as f:
+		f.write("#!/bin/sh\n")
+		f.write("\n")
+		f.write("set -eux\n")
+		f.write("\n")
+		for cmd in ALL_CMDS:
+			f.write(cmd + "\n")
+	os.chmod(ALL_TEST_FILE, 0o755)
+	ret.append(TravisTest("All script", "make testall"))
 	return ret
 
 def getStages(list_tests):
@@ -101,7 +114,7 @@ def buildBody(output, list):
 	for test in list:
 		testsingle = OrderedDict()
 		testsingle['stage'] = test.stage
-		if isinstance(test.script, type(list)):
+		if isinstance(test.script, type([])):
 			testsingle['script'] = []
 			for command in test.script:
 				testsingle['script'].append(command)
@@ -114,20 +127,24 @@ def buildBody(output, list):
 	return output
 
 def main():
-	output = OrderedDict()
+	if len(sys.argv) == 2:
+		global OUTPUT_FILE
+		OUTPUT_FILE = sys.argv[1]
+	odict = OrderedDict()
 	list = buildTravisData()
 	stages = getStages(list)
-	output = genererateHeader(output, stages)
-	output = buildBody(output, list)
+	outputContent = genererateHeader(odict, stages)
+	outputContent = buildBody(outputContent, list)
 
-	print(yaml.dump(output,
-			Dumper=SafeOrderedDumper,
-			explicit_start=True,
-			explicit_end=True,
-			indent=4,
-			width=2,
-			default_flow_style=False))
-
+	outputFileContent = yaml.dump(outputContent,
+								Dumper=SafeOrderedDumper,
+								explicit_start=True,
+								explicit_end=True,
+								indent=4,
+								width=2,
+								default_flow_style=False)
+	with open(OUTPUT_FILE, 'w') as f:
+		f.write(outputFileContent)
 
 if __name__ == "__main__":
 	main()

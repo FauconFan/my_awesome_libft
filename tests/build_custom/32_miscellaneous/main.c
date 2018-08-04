@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/29 18:53:00 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/29 18:59:50 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/04 15:23:09 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,13 @@ void		del(void *s)
 	free(s);
 }
 
-void		*mem(void *s)
-{
-	return ((void *)ft_strdup(s));
-}
-
 int			main(void)
 {
 	t_list		*head;
 
-	head = ft_lstnew("coucou", mem);
-	ft_lstaddback(&head, "allo", mem);
-	ft_lstaddfront(&head, "ne nous regarde pas", mem);
+	head = ft_lstnew(ft_strdup("coucou"));
+	ft_lstaddback(&head, ft_strdup("allo"));
+	ft_lstaddfront(&head, ft_strdup("ne nous regarde pas"));
 	ft_printf("size %d\n", ft_lstsize(head));
 	ft_lstiter(head, display);
 	ft_lstfreeall(&head, del);
