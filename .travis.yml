@@ -49,6 +49,40 @@ matrix:
         env:
             NAME: Build libft with clang (latest on Debian)
     -   stage: Build
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=5 TEST_CMD="make
+            so"
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 5
+    -   stage: Build
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=6 TEST_CMD="make
+            so"
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 6
+    -   stage: Build
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=7 TEST_CMD="make
+            so"
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 7
+    -   stage: Build
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=8 TEST_CMD="make
+            so"
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 8
+    -   stage: Build
+        script: make -C libft test_docker_compile_gcc TEST_CMD="make so"
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc latest
+    -   stage: Build
+        script: make -C libft test_docker_compile_clang
+        after_script: make fclean
+        env:
+            NAME: Build libft with clang (latest on Debian)
+    -   stage: Build
         script: make build_custom
         after_script: make fclean
         env:
