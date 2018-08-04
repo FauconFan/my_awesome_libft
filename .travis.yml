@@ -53,25 +53,25 @@ matrix:
             so"
         after_script: make fclean
         env:
-            NAME: Build libft with gcc 5
+            NAME: Build libft with gcc 5 (make so)
     -   stage: Build
         script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=6 TEST_CMD="make
             so"
         after_script: make fclean
         env:
-            NAME: Build libft with gcc 6
+            NAME: Build libft with gcc 6 (make so)
     -   stage: Build
         script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=7 TEST_CMD="make
             so"
         after_script: make fclean
         env:
-            NAME: Build libft with gcc 7
+            NAME: Build libft with gcc 7 (make so)
     -   stage: Build
         script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=8 TEST_CMD="make
             so"
         after_script: make fclean
         env:
-            NAME: Build libft with gcc 8
+            NAME: Build libft with gcc 8 (make so)
     -   stage: Build
         script: make -C libft test_docker_compile_gcc TEST_CMD="make so"
         after_script: make fclean

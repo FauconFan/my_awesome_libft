@@ -48,7 +48,7 @@ def buildTravisData():
 			suffix_name = " (" + cmd + ")"
 		version_gcc = 5
 		while version_gcc <= 8:
-			name_test = "Build libft with gcc " + str(version_gcc)
+			name_test = "Build libft with gcc " + str(version_gcc) + suffix_name
 			cmd_test = "make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=" + str(version_gcc) + suffix_cmd
 			ret.append(TravisTest(name_test, cmd_test))
 			version_gcc = version_gcc + 1
