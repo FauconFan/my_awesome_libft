@@ -42,18 +42,20 @@ def buildTravisData():
 	TravisTest.CURRENT_STAGE = "Build"
 	for cmd in ['', 'make so']:
 		suffix_cmd = ''
+		suffix_name = ''
 		if cmd != '':
 			suffix_cmd = " TEST_CMD=\"" + cmd + "\""
+			suffix_name = " (" + cmd + ")"
 		version_gcc = 5
 		while version_gcc <= 8:
 			name_test = "Build libft with gcc " + str(version_gcc)
 			cmd_test = "make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=" + str(version_gcc) + suffix_cmd
 			ret.append(TravisTest(name_test, cmd_test))
 			version_gcc = version_gcc + 1
-		name1 = "Build libft with gcc latest"
+		name1 = "Build libft with gcc latest" + suffix_name
 		cmd1 = "make -C libft test_docker_compile_gcc" + suffix_cmd
-		name2 = "Build libft with clang (latest on Debian)"
-		cmd2 = "make -C libft test_docker_compile_clang"
+		name2 = "Build libft with clang (latest on Debian)" + suffix_name
+		cmd2 = "make -C libft test_docker_compile_clang" + suffix_cmd
 		ret.append(TravisTest(name1, cmd1))
 		ret.append(TravisTest(name2, cmd2))
 	ret.append(TravisTest("Build build_custom", "make build_custom"))

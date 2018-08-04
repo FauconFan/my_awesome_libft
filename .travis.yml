@@ -76,12 +76,12 @@ matrix:
         script: make -C libft test_docker_compile_gcc TEST_CMD="make so"
         after_script: make fclean
         env:
-            NAME: Build libft with gcc latest
+            NAME: Build libft with gcc latest (make so)
     -   stage: Build
-        script: make -C libft test_docker_compile_clang
+        script: make -C libft test_docker_compile_clang TEST_CMD="make so"
         after_script: make fclean
         env:
-            NAME: Build libft with clang (latest on Debian)
+            NAME: Build libft with clang (latest on Debian) (make so)
     -   stage: Build
         script: make build_custom
         after_script: make fclean
