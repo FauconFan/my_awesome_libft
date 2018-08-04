@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstfree.c                                       :+:      :+:    :+:   */
+/*   ft_llist_size.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 15:02:44 by fauconfan         #+#    #+#             */
-/*   Updated: 2017/12/10 15:07:47 by fauconfan        ###   ########.fr       */
+/*   Created: 2017/11/11 15:45:20 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/04 18:09:24 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstfreeall(t_list **head, void (*free_elem)(void *content))
+size_t		ft_llist_size(t_llist const *alst)
 {
-	t_list	*tmp;
-	t_list	*actu;
+	size_t			res;
+	t_llist_elem	*actu;
 
-	if (head == 0)
-		return ;
-	tmp = *head;
-	while (tmp)
+	res = 1;
+	if (alst == 0)
+		return (0);
+	actu = alst->datas;
+	if (actu == NULL)
+		return 0;
+	while (actu->next)
 	{
-		actu = tmp;
-		free_elem(tmp->content);
-		tmp = tmp->next;
-		free(actu);
+		actu = actu->next;
+		res++;
 	}
-	*head = 0;
+	return (res);
 }

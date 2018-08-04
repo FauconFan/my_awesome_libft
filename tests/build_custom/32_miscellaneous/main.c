@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/29 18:53:00 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/04 15:23:09 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/04 18:06:09 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		display(void *s)
 {
-	ft_printf("%s\n", s);
+	ft_printf("%s ", s);
 }
 
 void		del(void *s)
@@ -24,14 +24,16 @@ void		del(void *s)
 
 int			main(void)
 {
-	t_list		*head;
+	t_llist		*head;
 
-	head = ft_lstnew(ft_strdup("coucou"));
-	ft_lstaddback(&head, ft_strdup("allo"));
-	ft_lstaddfront(&head, ft_strdup("ne nous regarde pas"));
-	ft_printf("size %d\n", ft_lstsize(head));
-	ft_lstiter(head, display);
-	ft_lstfreeall(&head, del);
-	ft_printf("size %d\n", ft_lstsize(head));
+	head = ft_llist_new(del, NULL);
+	ft_llist_addfront(head, ft_strdup("2"));
+	ft_llist_addback(head, ft_strdup("3"));
+	ft_llist_addfront(head, ft_strdup("1"));
+	ft_printf("size %d\n", ft_llist_size(head));
+	ft_llist_iter(head, display);
+	ft_putchar('\n');
+	ft_llist_free(&head);
+	ft_printf("size %d\n", ft_llist_size(head));
 	return (0);
 }

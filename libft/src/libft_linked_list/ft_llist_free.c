@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiterparam.c                                  :+:      :+:    :+:   */
+/*   ft_llist_free.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/11 23:26:21 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/04 14:46:19 by jpriou           ###   ########.fr       */
+/*   Created: 2017/12/10 15:02:44 by fauconfa          #+#    #+#             */
+/*   Updated: 2018/08/04 16:53:01 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiterparam(t_list *lst, void *param,
-			void (*f)(void *content, void *param))
+void	ft_llist_free(t_llist **head)
 {
-	if (lst != NULL)
+	t_llist_elem	*tmp;
+	t_llist_elem	*actu;
+
+	if (head == NULL)
+		return ;
+	tmp = (*head)->datas;
+	while (tmp)
 	{
-		f(lst->content, param);
-		ft_lstiterparam(lst->next, param, f);
+		actu = tmp;
+		((*head)->free)(tmp->content);
+		tmp = tmp->next;
+		free(actu);
 	}
+	*head = NULL;
 }

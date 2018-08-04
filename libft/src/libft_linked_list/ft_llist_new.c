@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddback.c                                    :+:      :+:    :+:   */
+/*   ft_llist_new.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 14:39:35 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/04 15:11:27 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/04 16:35:52 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/04 16:41:46 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstaddback(t_list **head, void *content)
+t_llist						*ft_llist_new(
+										void (*free_f)(void *elem),
+										int (*cmp_f)(void *d1, void *d2))
 {
-	t_list	*tmp;
-	t_list	*actu;
+	t_llist		*res;
 
-	if (head == 0)
-		return ;
-	tmp = ft_lstnew(content);
-	if (*head == 0)
-		*head = tmp;
-	else
-	{
-		actu = *head;
-		while (actu->next)
-			actu = actu->next;
-		actu->next = tmp;
-	}
+	if (free_f == NULL)
+		return NULL;
+	ft_memcheck((res = (t_llist *)malloc(sizeof(t_llist))));
+	res->datas = NULL;
+	res->free = free_f;
+	res->cmp = cmp_f;
+	return res;
 }

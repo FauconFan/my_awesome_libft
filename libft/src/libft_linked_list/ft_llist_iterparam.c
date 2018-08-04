@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   _ft_lstiterparam.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/11 23:29:35 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/04 15:17:06 by jpriou           ###   ########.fr       */
+/*   Created: 2017/09/11 23:26:21 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/04 17:32:14 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *content))
+void	ft_llist_iterparam(t_llist *lst, void *param,
+							void (*f)(void *content, void *param))
 {
-	t_list	*res;
+	t_llist_elem	*actu;
 
-	res = 0;
-	if (lst != 0)
+	actu = lst->datas;
+	while (actu)
 	{
-		res = ft_lstnew(f(lst->content));
-		res->next = ft_lstmap(lst->next, f);
+		f(actu->content, param);
+		actu = actu->next;
 	}
-	return (res);
 }

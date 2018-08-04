@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmapparam.c                                   :+:      :+:    :+:   */
+/*   _ft_lstmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 23:29:35 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/04 15:17:12 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/04 17:48:59 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmapparam(t_list *lst, void *param,
-			void *(*f)(void *content, void *param))
+t_llist					*ft_llist_map(t_llist *lst,
+										void *(*f)(void *content),
+										void (*free_f)(void *elem),
+										int (*cmp_f)(void *d1, void *d2))
 {
-	t_list	*res;
+	t_llist			*res;
+	t_llist_elem	**actu;
+	t_llist_elem	*actu_lst;
 
-	res = 0;
-	if (lst != 0)
+	if (lst == NULL)
+		return NULL;
+	res = ft_llist_new(free_f, cmp_f);
+	if (res == NULL)
+		return NULL;
+	actu = &(res->datas);
+	actu_lst = lst->datas;
+	while (actu_lst)
 	{
-		res = ft_lstnew(f(lst->content, param));
-		res->next = ft_lstmapparam(lst->next, param, f);
+		*actu = f(actu_lst);
+		actu_lst = actu_lst->next;
+		actu = &((*actu)->next);
 	}
-	return (res);
+	return res;
 }

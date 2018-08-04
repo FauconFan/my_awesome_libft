@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_llist_elem_new.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/11 15:45:20 by jpriou            #+#    #+#             */
-/*   Updated: 2017/11/11 15:51:23 by jpriou           ###   ########.fr       */
+/*   Created: 2017/09/11 23:19:44 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/04 16:47:27 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lstsize(t_list *alst)
+t_llist_elem				*ft_llist_elem_new(void *content)
 {
-	int		res;
+	t_llist_elem	*res;
 
-	res = 1;
-	if (alst == 0)
-		return (0);
-	while (alst->next != 0)
-	{
-		alst = alst->next;
-		res++;
-	}
+	ft_memcheck((res = (t_llist_elem *)malloc(sizeof(t_llist_elem))));
+	res->content = content;
+	res->next = NULL;
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:22:57 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/04 15:16:55 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/04 17:58:58 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,39 @@
 
 #include "libft.h"
 
-typedef struct	s_list
+typedef struct			s_llist_elem
 {
 	void				*content;
-	struct s_list		*next;
-}				t_list;
+	struct s_llist_elem	*next;
+}						t_llist_elem;
 
-t_list			*ft_lstnew(void *content);
+typedef struct			s_llist
+{
+	t_llist_elem		*datas;
+	void				(*free)(void *content);
+	int					(*cmp)(void *d1, void *d2);
+}						t_llist;
 
-void			ft_lstfreeall(t_list **head,
-							void (*free_elem)(void *content));
-void			ft_lstaddfront(t_list **head, void *content);
-void			ft_lstaddback(t_list **head, void *content);
+t_llist					*ft_llist_new(
+									void (*free_f)(void *elem),
+									int (*cmp_f)(void *d1, void *d2));
+void					ft_llist_free(t_llist **head);
 
-int				ft_lstsize(t_list *alst);
-void			ft_lstiter(t_list *lst, void (*f)(void *content));
-void			ft_lstiterparam(t_list *lst, void *param,
-					void (*f)(void *content, void *param));
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *content));
-t_list			*ft_lstmapparam(t_list *lst, void *param,
-					void *(*f)(void *content, void *param));
+t_llist_elem			*ft_llist_elem_new(void *content);
 
-void			ft_lstmerge(
-						t_list **head,
-						void *data,
-						int (*cmp)(void *d1, void *d2));
+void					ft_llist_addfront(t_llist *head, void *content);
+void					ft_llist_addback(t_llist *head, void *content);
+
+size_t					ft_llist_size(t_llist const *alst);
+
+void					ft_llist_iter(t_llist *lst, void (*f)(void *content));
+void					ft_llist_iterparam(t_llist *lst, void *param,
+										void (*f)(void *content, void *param));
+t_llist					*ft_llist_map(t_llist *lst,
+										void *(*f)(void *content),
+										void (*free_f)(void *elem),
+										int (*cmp_f)(void *d1, void *d2));
+
+void					ft_llist_merge(t_llist *lst, void *data);
 
 #endif
