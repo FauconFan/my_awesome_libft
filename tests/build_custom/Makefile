@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/27 13:14:13 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/04 18:30:54 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/04 19:39:11 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,61 +16,63 @@ RELATIVE_PATH_FROM_BC = ../tests/build_custom/
 
 FOLDER_NAME = ""
 
-all : 10 20 30 40 50
+all: 10 20 30 40 50 60
 
-10 : 11 12 13 14 15 16
+10: 11 12 13 14 15 16
 
-20 : 21 22 23 24
+20: 21 22 23 24
 
-30 : 31 32 33 34 35
+30: 31 32 33 34 35
 
-40 : 41 42 43 44 45
+40: 41 42 43 44 45
 
-50 : 51 52
+50: 51 52
 
-11 :
+60: 61
+
+11:
 	make singlefile_buildcustom FOLDER_NAME=11_simpletest_putstr/
 
-12 :
+12:
 	make singlefile_buildcustom FOLDER_NAME=12_simpletest_putchar/
 
-13 :
+13:
 	make singlefile_buildcustom FOLDER_NAME=13_simpletest_isalnum/
 
-14 :
+14:
 	make singlefile_buildcustom FOLDER_NAME=14_simpletest_toupper/
 
-15 :
+15:
 	make singlefile_buildcustom FOLDER_NAME=15_simpletest_logb/
 
-16 :
+16:
 	make singlefile_buildcustom FOLDER_NAME=16_simpletest_memdel/
 
-21 :
+21:
 	make test_ok_buildcustom FOLDER_NAME=21_simple_compilable_printf/
 
-22 :
+22:
 	make test_ok_buildcustom FOLDER_NAME=22_simple_compilable_str_is_alnum/
 
-23 :
+23:
 	make test_ok_buildcustom FOLDER_NAME=23_simple_compilable_strsplit/
 
-24 :
+24:
 	make test_ok_buildcustom FOLDER_NAME=24_simple_compilable_convertbase/
 
-31 :
+31:
 	make test_ok_buildcustom FOLDER_NAME=31_miscellaneous/
 
-32 :
+32:
 	make test_ok_buildcustom FOLDER_NAME=32_miscellaneous/
 
-33 :
+33:
 	make test_ok_buildcustom FOLDER_NAME=33_miscellaneous/
 
-34 :
+34:
 	make test_ok_buildcustom FOLDER_NAME=34_miscellaneous/
 
-35 :
+35:
 	make test_ok_buildcustom FOLDER_NAME=35_miscellaneous/
 
 41:
@@ -88,13 +90,16 @@ all : 10 20 30 40 50
 45:
 	make test_ok_on_file_buildcustom FOLDER_NAME=45_miscellaneous_on_file/
 
-51 :
+51:
 	make test_ok_buildcustom FOLDER_NAME=51_mathsimple/
 
-52 :
+52:
 	make test_ok_buildcustom FOLDER_NAME=52_mathsimple/
 
-test_ok_buildcustom :
+61:
+	make test_ok_buildcustom FOLDER_NAME=61_tab/
+
+test_ok_buildcustom:
 	make -C $(PATH_BC) run PARAM=$(RELATIVE_PATH_FROM_BC)$(FOLDER_NAME)
 	cp -r $(PATH_RENDU) $(FOLDER_NAME)libft
 	sh ./build_custom.sh test_ok $(FOLDER_NAME)
@@ -108,7 +113,7 @@ test_ok_on_file_buildcustom:
 	rm -rf $(PATH_RENDU)
 	rm -rf $(FOLDER_NAME)libft
 
-singlefile_buildcustom :
+singlefile_buildcustom:
 	make -C $(PATH_BC) run PARAM=$(RELATIVE_PATH_FROM_BC)$(FOLDER_NAME)
 	cp -r $(PATH_RENDU) $(FOLDER_NAME)libft
 	sh ./build_custom.sh simple_file_test $(FOLDER_NAME)

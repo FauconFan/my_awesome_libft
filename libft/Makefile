@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/04 15:02:59 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/04 19:08:40 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ include $(INCLUDES_MK_FOLDER)libft_math.mk
 include $(INCLUDES_MK_FOLDER)libft_memmory.mk
 include $(INCLUDES_MK_FOLDER)libft_put.mk
 include $(INCLUDES_MK_FOLDER)libft_str.mk
+include $(INCLUDES_MK_FOLDER)libft_tab.mk
 include $(INCLUDES_MK_FOLDER)libft_wchar.mk
 
 OBJ = $(SRC:%.c=%.o)
