@@ -6,11 +6,12 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/02 17:25:04 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/04 11:08:50 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+NAME_SO = libft.so
 
 VERSION_GCC_DOCKER = latest
 
@@ -21,7 +22,8 @@ INCLUDES_FOLDER = includes/
 CC = gcc
 COMPILATION_FLAGS = -Wall -Wextra -Werror
 INCLUDES_FLAGS = -I ./
-FLAGS = $(COMPILATION_FLAGS) $(INCLUDES_FLAGS)
+ADDITIONAL_FLGAS = ""
+FLAGS = $(COMPILATION_FLAGS) $(INCLUDES_FLAGS) $(ADDITIONAL_FLGAS)
 
 SRC =
 
@@ -38,6 +40,10 @@ include $(INCLUDES_MK_FOLDER)libft_wchar.mk
 OBJ = $(SRC:%.c=%.o)
 
 all : $(NAME)
+
+so :
+	@make -C . $(OBJ) ADDITIONAL_FLGAS="-fPIC"
+	@$(CC) -shared -Wl,-soname,$(NAME_SO) -o $(NAME_SO) $(OBJ)
 
 $(NAME) : $(OBJ)
 	@ar -rc $@ $(OBJ)
@@ -56,6 +62,7 @@ clean :
 fclean :
 	@rm -rf $(OBJ)
 	@rm -rf $(NAME)
+	@rm -rf $(NAME_SO)
 	@echo "libft fcleaned"
 
 re : fclean all
