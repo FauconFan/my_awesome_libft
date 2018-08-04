@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/29 19:07:29 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/29 19:11:42 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/04 18:30:17 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ int			main(void)
 	free_env_gnl(env_gnl);
 	env_gnl = init_env_gnl();
 	free_env_gnl(env_gnl);
+	return (0);
 }

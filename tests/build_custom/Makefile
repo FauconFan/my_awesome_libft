@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/27 13:14:13 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/02 20:44:23 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/04 18:30:54 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ all : 10 20 30 40 50
 
 40 : 41 42 43 44 45
 
-50 : 51
+50 : 51 52
 
 11 :
 	make singlefile_buildcustom FOLDER_NAME=11_simpletest_putstr/
