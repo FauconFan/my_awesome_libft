@@ -12,7 +12,7 @@ matrix:
     include:
     -   stage: Verify .travis.yml
         script:
-        - apt-get install -y python3-yaml
+        - sudo apt-get install -y python3-yaml
         - python3 scripts/gen_travis_file.py test.out
         - diff test.out .travis.yml
         - rm -f test.out

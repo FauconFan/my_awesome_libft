@@ -45,7 +45,7 @@ def buildTravisData():
 	# Verify travis yaml
 	TravisTest.CURRENT_STAGE = "Verify .travis.yml"
 	ret.append(TravisTest("Use python script to verify", [
-		"apt-get install -y python3-yaml",
+		"sudo apt-get install -y python3-yaml",
 		"python3 scripts/gen_travis_file.py test.out",
 		"diff test.out .travis.yml",
 		"rm -f test.out"
