@@ -45,6 +45,7 @@ def buildTravisData():
 	# Verify travis yaml
 	TravisTest.CURRENT_STAGE = "Verify .travis.yml"
 	ret.append(TravisTest("Use python script to verify", [
+		"apt-get install -y python3-yaml",
 		"python3 scripts/gen_travis_file.py test.out",
 		"diff test.out .travis.yml",
 		"rm -f test.out"
@@ -81,7 +82,8 @@ def buildTravisData():
 		f.write("set -eux\n")
 		f.write("\n")
 		for cmd in ALL_CMDS:
-			f.write(cmd + "\n")
+			if re.search("apt", cmd) == None:
+				f.write(cmd + "\n")
 	os.chmod(ALL_TEST_FILE, 0o755)
 	ret.append(TravisTest("All script", "make testall"))
 	return ret
