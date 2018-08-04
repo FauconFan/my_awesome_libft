@@ -7,7 +7,6 @@ stage:
 - Verify .travis.yml
 - Build
 - Build custom
-- All
 matrix:
     include:
     -   stage: Verify .travis.yml
@@ -93,9 +92,4 @@ matrix:
         after_script: make fclean
         env:
             NAME: Build Custom All
-    -   stage: All
-        script: make testall
-        after_script: make fclean
-        env:
-            NAME: All script
 ...

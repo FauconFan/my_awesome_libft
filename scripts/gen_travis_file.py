@@ -85,7 +85,6 @@ def buildTravisData():
 			if re.search("apt", cmd) == None:
 				f.write(cmd + "\n")
 	os.chmod(ALL_TEST_FILE, 0o755)
-	ret.append(TravisTest("All script", "make testall"))
 	return ret
 
 def getStages(list_tests):
