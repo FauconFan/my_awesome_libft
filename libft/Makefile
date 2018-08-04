@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/04 11:08:50 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/04 14:03:12 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ INCLUDES_FOLDER = includes/
 CC = gcc
 COMPILATION_FLAGS = -Wall -Wextra -Werror
 INCLUDES_FLAGS = -I ./
-ADDITIONAL_FLGAS = ""
+ADDITIONAL_FLGAS =
 FLAGS = $(COMPILATION_FLAGS) $(INCLUDES_FLAGS) $(ADDITIONAL_FLGAS)
 
 SRC =
@@ -41,14 +41,20 @@ OBJ = $(SRC:%.c=%.o)
 
 all : $(NAME)
 
-so :
-	@make -C . $(OBJ) ADDITIONAL_FLGAS="-fPIC"
-	@$(CC) -shared -Wl,-soname,$(NAME_SO) -o $(NAME_SO) $(OBJ)
+so : $(NAME_SO)
 
-$(NAME) : $(OBJ)
+$(NAME) :
+	@! test -f $(NAME_SO) || make fclean
+	@make -C . $(OBJ)
 	@ar -rc $@ $(OBJ)
 	@ranlib $@
-	@echo "libft built successfully"
+	@echo "libft.a built successfully"
+
+$(NAME_SO) :
+	@! test -f $(NAME) || make fclean
+	@make -C . $(OBJ) ADDITIONAL_FLGAS="-fPIC"
+	@$(CC) -shared -Wl,-soname,$(NAME_SO) -o $(NAME_SO) $(OBJ)
+	@echo "libft.so built successfully"
 
 %.o : %.c
 	@printf "Compiling $?... "
