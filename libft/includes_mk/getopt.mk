@@ -13,9 +13,18 @@
 GETOPT_FOLDER = $(SRC_FOLDER)getopt/
 
 SRC_GETOPT = \
+				arg/cli_arg.c \
+				arg/cli_res_array.c \
+				arg/cli_res_bool.c \
+				arg/cli_res_string.c \
+				opt/cli_opt.c \
+				parsing/res_parser_finish.c \
+				getters/ft_cli_getb.c \
+				getters/ft_cli_gets.c \
+				getters/ft_cli_geta.c \
 				add_bool.c \
-				cli_arg.c \
-				cli_opt.c \
 				cli_parser.c \
+				cli_res_parser.c \
+				cli_utils.c \
 
 SRC += $(addprefix $(GETOPT_FOLDER), $(SRC_GETOPT))

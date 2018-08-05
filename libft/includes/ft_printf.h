@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:27:04 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/01 16:48:22 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/05 17:14:04 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define FT_PRINTF_H
 
 #include "libft.h"
-#include "includes/utils/ft_printf_utils.h"
+#include "includes/ft_printf_utils/ft_printf_utils.h"
 
 int	ft_center_printf(const char *format, va_list va, char **answer, int *len);
 

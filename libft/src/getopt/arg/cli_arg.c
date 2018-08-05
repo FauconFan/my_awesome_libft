@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 09:56:45 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/05 10:48:28 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/05 18:35:40 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,10 @@
 t_cli_arg		*ft_create_bool_arg(char *target, t_bool def)
 {
 	t_cli_arg	*res;
-	t_bool		*ptr;
 
 	ft_memcheck((res = (t_cli_arg *)malloc(sizeof(t_cli_arg))));
 	res->id_action = (def) ? STORE_FALSE : STORE_TRUE;
-	res->target = ft_strdup(target);
-	ft_memcheck((ptr = (t_bool *)malloc(sizeof(t_bool))));
-	*ptr = def;
-	res->value = (void *)ptr;
+	res->content = ft_create_res_bool(target, def);
 	return res;
 }
 
@@ -32,8 +28,7 @@ t_cli_arg		*ft_create_string_arg(char *target, char *def)
 
 	ft_memcheck((res = (t_cli_arg *)malloc(sizeof(t_cli_arg))));
 	res->id_action = REPLACE;
-	res->target = ft_strdup(target);
-	res->value = (char *)ft_strdup(def);
+	res->content = ft_create_res_string(target, def);
 	return res;
 }
 
@@ -43,26 +38,28 @@ t_cli_arg		*ft_create_array_arg(char *target)
 
 	ft_memcheck((res = (t_cli_arg *)malloc(sizeof(t_cli_arg))));
 	res->id_action = APPEND;
-	res->target = ft_strdup(target);
-	res->value = (void *)ft_stab_new(0, NULL);
+	res->content = ft_create_res_array(target);
 	return res;
 }
 
-void			ft_free_cli_arg(t_cli_arg *arg)
+void			ft_free_cli_arg(void *arg_void)
 {
-	char	**tab;
+	t_cli_arg	*arg;
 
+	arg = (t_cli_arg *)arg_void;
 	if (arg == NULL)
 		return ;
-	free(arg->target);
-	if (arg->id_action == APPEND)
+	if (ft_cli_is_bool(arg))
 	{
-		tab = (char **)arg->value;
-		ft_stab_free(&tab);
+		ft_free_res_bool(arg->content);
 	}
-	else
+	else if (ft_cli_is_string(arg))
 	{
-		free(arg->value);
+		ft_free_res_string(arg->content);
+	}
+	else if (ft_cli_is_array(arg))
+	{
+		ft_free_res_array(arg->content);
 	}
 	free(arg);
 }

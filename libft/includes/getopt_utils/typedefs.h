@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_llist_iterparam.c                               :+:      :+:    :+:   */
+/*   typedefs.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/11 23:26:21 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/05 20:49:13 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/05 19:44:02 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/05 19:44:23 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GETOPT_TYPEDEFS_H
+#define GETOPT_TYPEDEFS_H
 
-void	ft_llist_iterparam(t_llist *lst, void *param,
-							void (*f)(void *content, void *param))
+typedef struct		s_cli_parser
 {
-	t_llist_elem	*actu;
+	t_llist			*bool_opts;
+	t_llist			*string_opts;
+	t_llist			*args;
+}					t_cli_parser;
 
-	actu = lst->datas;
-	while (actu)
-	{
-		f(actu->content, param);
-		actu = actu->next;
-	}
-}
+typedef struct		s_res_cli_parser
+{
+	int				argc;
+	char			**argv;
+	t_llist			*list_bool;
+	t_llist			*list_string;
+	t_llist			*list_array;
+}					t_res_cli_parser;
+
+typedef enum		e_opt_error
+{
+	OK,
+	NOT_USED_WELL
+}					t_opt_error;
+
+#endif

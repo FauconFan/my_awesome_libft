@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 09:39:06 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/05 10:37:13 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/05 14:00:15 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,11 @@ t_cli_opt	*ft_create_long_opt_cli(char *s, char *target)
 	return res;
 }
 
-void		ft_free_opt_cli(t_cli_opt *opt)
+void		ft_free_opt_cli(void *opt_void)
 {
+	t_cli_opt	*opt;
+
+	opt = (t_cli_opt *)opt_void;
 	if (opt == NULL)
 		return ;
 	free(opt->opt);
