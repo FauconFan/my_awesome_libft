@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/04 19:08:40 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/05 13:14:32 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ INCLUDES_MK_FOLDER = includes_mk/
 INCLUDES_FOLDER = includes/
 
 CC = gcc
-COMPILATION_FLAGS = -Wall -Wextra -Werror
+COMPILATION_FLAGS = -g -Wall -Wextra -Werror
 INCLUDES_FLAGS = -I ./
 ADDITIONAL_FLAGS =
 FLAGS = $(COMPILATION_FLAGS) $(INCLUDES_FLAGS) $(ADDITIONAL_FLAGS)
@@ -31,6 +31,7 @@ SRC =
 
 include $(INCLUDES_MK_FOLDER)ft_printf.mk
 include $(INCLUDES_MK_FOLDER)get_next_line.mk
+include $(INCLUDES_MK_FOLDER)getopt.mk
 include $(INCLUDES_MK_FOLDER)libft_char.mk
 include $(INCLUDES_MK_FOLDER)libft_linked_list.mk
 include $(INCLUDES_MK_FOLDER)libft_math.mk
@@ -108,6 +109,6 @@ test_docker_compile_clang: fclean
 	docker rm build_libft_clang
 
 test : $(NAME_A)
-	@gcc $(SRC_FOLDER)main.c -L ./ -l ft -o test_libft $(INCLUDES_FLAGS)
-	@./test_libft
+	@gcc -g $(SRC_FOLDER)main.c -L ./ -l ft -o test_libft $(INCLUDES_FLAGS)
+	@valgrind --leak-check=full ./test_libft
 	@rm -f test_libft

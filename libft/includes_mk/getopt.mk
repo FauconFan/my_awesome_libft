@@ -3,27 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+         #
+#    By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/06/25 16:27:58 by jpriou            #+#    #+#              #
-#    Updated: 2018/08/05 13:09:52 by jpriou           ###   ########.fr        #
+#    Created: 2017/12/03 15:58:37 by fauconfan         #+#    #+#              #
+#    Updated: 2017/12/03 16:02:20 by fauconfan        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY: all libft ctestcom fclean
+GETOPT_FOLDER = $(SRC_FOLDER)getopt/
 
-all:
-	@echo "No default rules is provided"
-	@echo ""
-	@echo "make libft_library"
+SRC_GETOPT = \
+				add_bool.c \
+				cli_arg.c \
+				cli_opt.c \
+				cli_parser.c \
 
-libft :
-	@make -C libft
-	@echo "the library is in libft folder."
-
-fclean:
-	@make -C libft fclean
-	@rm -rf rendu
-
-testall:
-	./scripts/test_all.sh
+SRC += $(addprefix $(GETOPT_FOLDER), $(SRC_GETOPT))

@@ -6,7 +6,6 @@ after_script: make fclean
 stage:
 - Verify .travis.yml
 - Build
-- Build custom
 matrix:
     include:
     -   stage: Verify .travis.yml
@@ -82,14 +81,4 @@ matrix:
         after_script: make fclean
         env:
             NAME: Build libft with clang (latest on Debian) (make so)
-    -   stage: Build
-        script: make build_custom
-        after_script: make fclean
-        env:
-            NAME: Build build_custom
-    -   stage: Build custom
-        script: make -C tests/build_custom/ all
-        after_script: make fclean
-        env:
-            NAME: Build Custom All
 ...

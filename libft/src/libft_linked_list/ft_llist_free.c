@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 15:02:44 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/04 16:53:01 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/05 13:17:12 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void	ft_llist_free(t_llist **head)
 		tmp = tmp->next;
 		free(actu);
 	}
+	free(*head);
 	*head = NULL;
 }

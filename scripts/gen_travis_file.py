@@ -70,10 +70,6 @@ def buildTravisData():
 		cmd2 = "make -C libft test_docker_compile_clang" + suffix_cmd
 		ret.append(TravisTest(name1, cmd1))
 		ret.append(TravisTest(name2, cmd2))
-	ret.append(TravisTest("Build build_custom", "make build_custom"))
-
-	TravisTest.CURRENT_STAGE = "Build custom"
-	ret.append(TravisTest("Build Custom All", "make -C tests/build_custom/ all"))
 
 	TravisTest.CURRENT_STAGE = "All"
 	with open(ALL_TEST_FILE, 'w') as f:

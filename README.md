@@ -12,12 +12,6 @@ The idea is to create a minimal library that contains the minimum libc as possib
  - malloc
  - free
 
-# Organisation
-
-The repository is divided in 2 sub modules.
- - libft : The library itself.
- - build_custom : A program that builds the minimal libft that you need on a given project.
-
 ## How to test it
 
 You can edit the file main.c in the src directory,

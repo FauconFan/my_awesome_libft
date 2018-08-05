@@ -17,5 +17,3 @@ make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=7 TEST_CMD="make so"
 make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=8 TEST_CMD="make so"
 make -C libft test_docker_compile_gcc TEST_CMD="make so"
 make -C libft test_docker_compile_clang TEST_CMD="make so"
-make build_custom
-make -C tests/build_custom/ all
