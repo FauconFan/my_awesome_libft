@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stab_append.c                                   :+:      :+:    :+:   */
+/*   ft_vtab_free.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 20:06:19 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/05 08:42:12 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/04 19:01:32 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/05 08:24:01 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_stab_append(char ***tab_ptr, char *s)
+void			ft_vtab_free(void ***tab_ptr)
 {
-	ft_vtab_append((void ***)tab_ptr, (void *)s, ft_strlen(s));
+	void	**tab;
+	size_t	i;
+
+	tab = *tab_ptr;
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+	*tab_ptr = NULL;
 }

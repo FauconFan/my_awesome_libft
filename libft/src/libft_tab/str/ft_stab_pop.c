@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 20:22:37 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/04 20:23:40 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/05 08:52:48 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void			ft_stab_pop(char ***tab_ptr)
 {
-	ft_stab_delete(tab_ptr, 0);
+	ft_vtab_pop((void ***) tab_ptr);
 }

@@ -13,6 +13,15 @@
 LIBFT_TAB_FOLDER = $(SRC_FOLDER)libft_tab/
 
 SRC_LIBFT_TAB = \
+					void/ft_vtab_new.c \
+					void/ft_vtab_len.c \
+					void/ft_vtab_free.c \
+					void/ft_vtab_insert.c \
+					void/ft_vtab_push.c \
+					void/ft_vtab_append.c \
+					void/ft_vtab_delete.c \
+					void/ft_vtab_pop.c \
+					void/ft_vtab_iter.c \
 					str/ft_stab_new.c \
 					str/ft_stab_len.c \
 					str/ft_stab_free.c \

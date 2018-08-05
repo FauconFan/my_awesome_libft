@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 20:02:05 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/04 20:03:12 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/05 08:50:06 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,5 @@
 
 void		ft_stab_iter(char **tab, void (*f)(char *))
 {
-	size_t	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		f(tab[i]);
-		i++;
-	}
+	ft_vtab_iter((void **)tab, (void (*)(void *))f);
 }

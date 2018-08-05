@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stab_append.c                                   :+:      :+:    :+:   */
+/*   ft_vtab_new.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 20:06:19 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/05 08:42:12 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/04 18:56:30 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/05 08:19:04 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_stab_append(char ***tab_ptr, char *s)
+void		**ft_vtab_new(size_t len, void *def, size_t len_def)
 {
-	ft_vtab_append((void ***)tab_ptr, (void *)s, ft_strlen(s));
+	void	**res;
+	size_t	i;
+
+	ft_memcheck((res = (void **)malloc(sizeof(void *) * (len + 1))));
+	i = 0;
+	while (i < len)
+	{
+		ft_memcheck((res[i] = ft_memalloc(len_def + 1)));
+		ft_memcpy(res[i], def, len_def);
+		i++;
+	}
+	res[len] = NULL;
+	return res;
 }

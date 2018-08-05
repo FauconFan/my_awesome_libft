@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stab_append.c                                   :+:      :+:    :+:   */
+/*   ft_stab_pop.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 20:06:19 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/05 08:42:12 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/04 20:22:37 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/05 08:46:31 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_stab_append(char ***tab_ptr, char *s)
+void			ft_vtab_pop(void ***tab_ptr)
 {
-	ft_vtab_append((void ***)tab_ptr, (void *)s, ft_strlen(s));
+	ft_vtab_delete(tab_ptr, 0);
 }

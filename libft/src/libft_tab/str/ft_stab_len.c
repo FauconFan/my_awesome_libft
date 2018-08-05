@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 19:03:19 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/04 19:32:42 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/05 08:28:06 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,5 @@
 
 size_t			ft_stab_len(char **tab)
 {
-	size_t	i;
-
-	i = 0;
-	while (tab[i])
-		i++;
-	return (i);
+	return ft_vtab_len((void **)tab);
 }
