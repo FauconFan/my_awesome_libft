@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/05 13:14:32 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/06 13:53:07 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,15 @@ NAME_SO = $(NAME).so
 VERSION_GCC_DOCKER = latest
 TEST_CMD = make
 
+_RED=$(shell tput setaf 1)
+_GREEN=$(shell tput setaf 2)
+_YELLOW=$(shell tput setaf 3)
+_BLUE=$(shell tput setaf 4)
+_PURPLE=$(shell tput setaf 5)
+_CYAN=$(shell tput setaf 6)
+_WHITE=$(shell tput setaf 7)
+_END=$(shell tput sgr0)
+
 SRC_FOLDER = src/
 INCLUDES_MK_FOLDER = includes_mk/
 INCLUDES_FOLDER = includes/
@@ -26,6 +35,8 @@ COMPILATION_FLAGS = -g -Wall -Wextra -Werror
 INCLUDES_FLAGS = -I ./
 ADDITIONAL_FLAGS =
 FLAGS = $(COMPILATION_FLAGS) $(INCLUDES_FLAGS) $(ADDITIONAL_FLAGS)
+
+TOT_C = $(shell find src -mindepth 2 -name "*.c" | wc -l)
 
 SRC =
 
@@ -43,15 +54,17 @@ include $(INCLUDES_MK_FOLDER)libft_wchar.mk
 
 OBJ = $(SRC:%.c=%.o)
 
-all : compile_static_library
+### Compilation ###
 
-so : compile_dynamic_library
+all: compile_static_library
 
-compile_static_library :
+so: compile_dynamic_library
+
+compile_static_library:
 	@! test -f $(NAME_SO) || make fclean
 	@make -C . $(NAME_A)
 
-compile_dynamic_library :
+compile_dynamic_library:
 	@! test -f $(NAME_A) || make fclean
 	@make -C . $(NAME_SO) ADDITIONAL_FLAGS="-fPIC"
 
@@ -64,22 +77,31 @@ $(NAME_SO): $(OBJ)
 	@$(CC) -shared -Wl,-soname,$(NAME_SO) -o $(NAME_SO) $(OBJ)
 	@echo "libft.so built successfully"
 
-%.o : %.c
-	@printf "Compiling $?... "
+%.o: %.c
+	@printf "%s[----] Compiling%s   %-55s" "$(_PURPLE)" "$(_END)" "$?"
 	@$(CC) $(FLAGS) -c $? -o $@
-	@printf "compiled\\n"
+	@printf "\\r"
+	@printf "%s[%3d%%]%s %sCompiled%s    %-55s\\n" \
+		"$(_CYAN)" \
+		"$(shell echo $$(( 100 * $$(find src -name "*.o" | wc -l) / $(TOT_C) )))" \
+		"$(_END)" \
+		"$(_GREEN)" \
+		"$(_END)" \
+		"$?"
 
-clean :
+clean:
 	@rm -rf $(OBJ)
 	@echo "libft cleaned"
 
-fclean :
+fclean:
 	@rm -rf $(OBJ)
 	@rm -rf $(NAME_A)
 	@rm -rf $(NAME_SO)
 	@echo "libft fcleaned"
 
-re : fclean all
+re: fclean all
+
+### Test stuff ###
 
 test_docker_compile_gcc: fclean
 	docker run -d \
@@ -108,7 +130,7 @@ test_docker_compile_clang: fclean
 	docker stop build_libft_clang
 	docker rm build_libft_clang
 
-test : $(NAME_A)
+test: $(NAME_A)
 	@gcc -g $(SRC_FOLDER)main.c -L ./ -l ft -o test_libft $(INCLUDES_FLAGS)
 	@valgrind --leak-check=full ./test_libft
 	@rm -f test_libft
