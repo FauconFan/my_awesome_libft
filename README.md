@@ -5,12 +5,11 @@
 Contains the awesome libft.
 
 The idea is to create a minimal library that contains the minimum libc as possible, just using 6 systems functions:
- - open
- - close
  - read
  - write
  - malloc
  - free
+ - exit
 
 ## How to test it
 
