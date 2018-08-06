@@ -6,15 +6,15 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 09:51:18 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 11:37:34 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/06 14:06:32 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static t_opt_error 		handling_long_options(
-							t_res_cli_parser *res_parser,
-							t_cli_parser *parser)
+							t_cli_parser *res_parser,
+							t_cli_builder_parser *parser)
 {
 	char		*ptr;
 	char		*target;
@@ -31,8 +31,8 @@ static t_opt_error 		handling_long_options(
 }
 
 static t_opt_error		handling_short_options(
-							t_res_cli_parser *res_parser,
-							t_cli_parser *parser)
+							t_cli_parser *res_parser,
+							t_cli_builder_parser *parser)
 {
 	char		*ptr;
 	char		*target;
@@ -61,8 +61,8 @@ static t_opt_error		handling_short_options(
 }
 
 t_opt_error				ft_cli_parse(
-							t_res_cli_parser *res_parser,
-							t_cli_parser *parser)
+							t_cli_parser *res_parser,
+							t_cli_builder_parser *parser)
 {
 	t_opt_error		actu;
 

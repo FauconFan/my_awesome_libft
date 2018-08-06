@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 20:47:16 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/05 21:07:07 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/06 14:07:47 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void		f(void *res_bool_void, void *target_void, void *res_void)
 	}
 }
 
-t_bool			ft_cli_getb(t_res_cli_parser *parser, char *target)
+t_bool			ft_cli_getb(t_cli_parser *parser, char *target)
 {
 	t_bool	res;
 

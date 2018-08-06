@@ -6,13 +6,13 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 09:39:06 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 10:42:20 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/06 14:47:21 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_cli_l_opt	*ft_create_long_opt_cli(char *s, char *target)
+t_cli_l_opt		*ft_create_long_opt_cli(char *s, char *target)
 {
 	t_cli_l_opt	*res;
 
@@ -22,7 +22,7 @@ t_cli_l_opt	*ft_create_long_opt_cli(char *s, char *target)
 	return res;
 }
 
-void		ft_free_opt_l_cli(void *opt_void)
+void			ft_free_opt_l_cli(void *opt_void)
 {
 	t_cli_l_opt	*opt;
 

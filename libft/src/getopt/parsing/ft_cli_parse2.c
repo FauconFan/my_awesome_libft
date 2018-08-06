@@ -6,14 +6,14 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 11:12:22 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 11:46:40 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/06 14:06:40 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static void		handle_next_arg(
-					t_res_cli_parser *res_parser,
+					t_cli_parser *res_parser,
 					t_cli_arg *arg)
 {
 	char			*next_arg;
@@ -36,7 +36,7 @@ static void		handle_next_arg(
 }
 
 t_opt_error		ft_treat_arg(
-					t_res_cli_parser *res_parser,
+					t_cli_parser *res_parser,
 					t_cli_arg *arg,
 					t_bool allow_next)
 {
