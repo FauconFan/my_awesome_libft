@@ -22,6 +22,8 @@ SRC_LIBFT_LINKED_LIST = \
 							ft_llist_iter.c \
 							ft_llist_iterparam.c \
 							ft_llist_iterparam2.c \
+							ft_llist_find.c \
+							ft_llist_findparam.c \
 							ft_llist_map.c \
 							ft_llist_merge.c \
 

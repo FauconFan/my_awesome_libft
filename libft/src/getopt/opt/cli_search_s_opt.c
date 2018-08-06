@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vtab_free.c                                     :+:      :+:    :+:   */
+/*   cli_search_s_opt.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 19:01:32 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 10:46:14 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/06 10:34:06 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/06 11:21:53 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			ft_vtab_free(void ***tab_ptr)
+static void		f(void *short_cli_void, void *c_void, void *res_void)
 {
-	void	**tab;
-	size_t	i;
+	t_cli_s_opt	*opt;
+	char		c;
+	char		**res;
 
-	if (tab_ptr == NULL || *tab_ptr == NULL)
-		return ;
-	tab = *tab_ptr;
-	i = 0;
-	while (tab[i])
+	opt = (t_cli_s_opt *)short_cli_void;
+	c = *((char *)c_void);
+	res = (char **)res_void;
+	if (c == opt->opt)
 	{
-		free(tab[i]);
-		i++;
+		*res = opt->target;
 	}
-	free(tab);
-	*tab_ptr = NULL;
+}
+
+char			*ft_search_target_s_opt(t_cli_parser *parser, char c)
+{
+	char	*res;
+
+	res = NULL;
+	ft_llist_iterparam2(parser->short_opts, &c, &res, f);
+	return res;
 }

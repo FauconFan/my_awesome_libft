@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 17:19:05 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/05 20:16:32 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/06 11:32:18 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,17 @@
 **	Options typdefs
 */
 
-typedef enum		e_id_opt
+typedef struct		s_cli_s_opt
 {
-	SHORT,
-	LONG
-}					t_id_opt;
+	char			opt;
+	char			*target;
+}					t_cli_s_opt;
 
-typedef struct		s_cli_opt
+typedef struct		s_cli_l_opt
 {
-	t_id_opt		id_opt;
 	char			*opt;
 	char			*target;
-}					t_cli_opt;
+}					t_cli_l_opt;
 
 /*
 **	Arguments typdefs
@@ -74,9 +73,15 @@ typedef struct		s_res_array
 **	Functions Opt
 */
 
-t_cli_opt			*ft_create_short_opt_cli(char c, char *target);
-t_cli_opt			*ft_create_long_opt_cli(char *s, char *target);
-void				ft_free_opt_cli(void *opt);
+t_cli_s_opt			*ft_create_short_opt_cli(char c, char *target);
+void				ft_free_opt_s_cli(void *opt);
+
+char				*ft_search_target_s_opt(t_cli_parser *parser, char c);
+
+t_cli_l_opt			*ft_create_long_opt_cli(char *s, char *target);
+void				ft_free_opt_l_cli(void *opt_void);
+
+char				*ft_search_target_l_opt(t_cli_parser *parser, char *s);
 
 /*
 **	Functions Arg
@@ -86,6 +91,8 @@ t_cli_arg			*ft_create_bool_arg(char *target, t_bool def);
 t_cli_arg			*ft_create_string_arg(char *target, char *def);
 t_cli_arg			*ft_create_array_arg(char *target);
 void				ft_free_cli_arg(void *arg);
+
+t_cli_arg			*get_arg_w_target(t_cli_parser *parser, char *target);
 
 /*
 **	Functions res_bool
@@ -119,7 +126,17 @@ void				ft_cli_array_append(t_res_array *a, char *s);
 */
 
 void				ft_finish_res_cli_parser(
-						t_res_cli_parser *res_parser, t_cli_parser *parser);
+							t_res_cli_parser *res_parser,
+							t_cli_parser *parser);
+
+t_opt_error			ft_cli_parse(
+							t_res_cli_parser *res_parser,
+							t_cli_parser *parser);
+
+t_opt_error			ft_treat_arg(
+							t_res_cli_parser *res_parser,
+							t_cli_arg *arg,
+							t_bool allow_next);
 
 /*
 **	Functions Utils

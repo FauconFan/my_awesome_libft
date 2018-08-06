@@ -17,11 +17,18 @@ SRC_GETOPT = \
 				arg/cli_res_array.c \
 				arg/cli_res_bool.c \
 				arg/cli_res_string.c \
-				opt/cli_opt.c \
+				arg/cli_get_arg_w_target.c \
+				opt/cli_s_opt.c \
+				opt/cli_l_opt.c \
+				opt/cli_search_s_opt.c \
+				opt/cli_search_l_opt.c \
 				parsing/res_parser_finish.c \
+				parsing/ft_cli_parse.c \
+				parsing/ft_cli_parse2.c \
 				getters/ft_cli_getb.c \
 				getters/ft_cli_gets.c \
 				getters/ft_cli_geta.c \
+				getters/ft_cli_getstr_rc.c \
 				add_bool.c \
 				cli_parser.c \
 				cli_res_parser.c \

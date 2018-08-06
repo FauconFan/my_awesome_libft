@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:22:57 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/05 21:03:35 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/06 10:58:16 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,21 @@ size_t					ft_llist_size(t_llist const *alst);
 
 void					ft_llist_iter(t_llist *lst, void (*f)(void *content));
 void					ft_llist_iterparam(t_llist *lst, void *param,
-										void (*f)(void *content, void *param));
+									void (*f)(void *content, void *param));
 void					ft_llist_iterparam2(t_llist *lst, void *param1, void *param2,
-										void (*f)(void *content, void *p1, void *p2));
+									void (*f)(void *content, void *p1, void *p2));
 t_llist					*ft_llist_map(t_llist *lst,
-										void *(*f)(void *content),
-										void (*free_f)(void *elem),
-										int (*cmp_f)(void *d1, void *d2));
+									void *(*f)(void *content),
+									void (*free_f)(void *elem),
+									int (*cmp_f)(void *d1, void *d2));
+
+void					*ft_llist_find(
+									t_llist *lst,
+									t_bool (*f)(void *content));
+void					*ft_llist_findparam(
+									t_llist *lst,
+									void *param,
+									t_bool (*f)(void *content, void *param));
 
 void					ft_llist_merge(t_llist *lst, void *data);
 

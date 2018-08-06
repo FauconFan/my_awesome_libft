@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_llist_free.c                                    :+:      :+:    :+:   */
+/*   ft_llist_find.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 15:02:44 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/06 10:45:30 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/06 10:53:07 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/06 11:07:08 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_llist_free(t_llist **head)
+void			*ft_llist_find(t_llist *lst, t_bool (*f)(void *content))
 {
-	t_llist_elem	*tmp;
 	t_llist_elem	*actu;
 
-	if (head == NULL || *head == NULL)
-		return ;
-	tmp = (*head)->datas;
-	while (tmp)
+	actu = lst->datas;
+	while (actu)
 	{
-		actu = tmp;
-		((*head)->free)(tmp->content);
-		tmp = tmp->next;
-		free(actu);
+		if (f(actu->content))
+			return (actu->content);
+		actu = actu->next;
 	}
-	free(*head);
-	*head = NULL;
+	return (NULL);
 }

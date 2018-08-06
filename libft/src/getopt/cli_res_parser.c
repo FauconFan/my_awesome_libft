@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 18:42:27 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/05 19:39:39 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/06 11:06:01 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,17 @@ t_res_cli_parser	*ft_create_res_cli_parser(
 		(res_parser = (t_res_cli_parser *)malloc(sizeof(t_res_cli_parser))));
 	res_parser->argc = argc;
 	res_parser->argv = argv;
-	res_parser->list_bool = ft_llist_new(ft_free_res_bool, NULL);
-	res_parser->list_string = ft_llist_new(ft_free_res_string, NULL);
-	res_parser->list_array = ft_llist_new(ft_free_res_array, NULL);
-	ft_finish_res_cli_parser(res_parser, parser);
+	res_parser->list_bool = NULL;
+	res_parser->list_string = NULL;
+	res_parser->list_array = NULL;
+	*error = ft_cli_parse(res_parser, parser);
+	if (*error == OK)
+	{
+		res_parser->list_bool = ft_llist_new(ft_free_res_bool, NULL);
+		res_parser->list_string = ft_llist_new(ft_free_res_string, NULL);
+		res_parser->list_array = ft_llist_new(ft_free_res_array, NULL);
+		ft_finish_res_cli_parser(res_parser, parser);
+	}
 	return res_parser;
 }
 

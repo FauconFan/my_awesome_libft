@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 09:04:34 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/05 21:19:06 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/06 11:52:10 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ void				ft_free_res_cli_parser(t_res_cli_parser *parser);
 t_bool				ft_cli_getb(t_res_cli_parser *parser, char *target);
 char				*ft_cli_gets(t_res_cli_parser *parser, char *target);
 char				**ft_cli_geta(t_res_cli_parser *parser, char *target);
+
+char				*ft_cli_getstr_rc(t_opt_error err);
 
 #endif
