@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/06 13:53:07 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/06 16:56:19 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,14 @@ NAME_SO = $(NAME).so
 VERSION_GCC_DOCKER = latest
 TEST_CMD = make
 
-_RED=$(shell tput setaf 1)
-_GREEN=$(shell tput setaf 2)
-_YELLOW=$(shell tput setaf 3)
-_BLUE=$(shell tput setaf 4)
-_PURPLE=$(shell tput setaf 5)
-_CYAN=$(shell tput setaf 6)
-_WHITE=$(shell tput setaf 7)
-_END=$(shell tput sgr0)
+_RED=$(shell tput setaf 1 2> /dev/null || echo "")
+_GREEN=$(shell tput setaf 2 2> /dev/null || echo "")
+_YELLOW=$(shell tput setaf 3 2> /dev/null || echo "")
+_BLUE=$(shell tput setaf 4 2> /dev/null || echo "")
+_PURPLE=$(shell tput setaf 5 2> /dev/null || echo "")
+_CYAN=$(shell tput setaf 6 2> /dev/null || echo "")
+_WHITE=$(shell tput setaf 7 2> /dev/null || echo "")
+_END=$(shell tput sgr0 2> /dev/null || echo "")
 
 SRC_FOLDER = src/
 INCLUDES_MK_FOLDER = includes_mk/
