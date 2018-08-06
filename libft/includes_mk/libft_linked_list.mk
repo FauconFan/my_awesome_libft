@@ -27,5 +27,8 @@ SRC_LIBFT_LINKED_LIST = \
 							ft_llist_findparam.c \
 							ft_llist_map.c \
 							ft_llist_merge.c \
+							ft_llist_mergeone.c \
+							ft_llist_sort.c \
+							ft_llist_rev.c \
 
 SRC += $(addprefix $(LIBFT_LINKED_LIST_FOLDER), $(SRC_LIBFT_LINKED_LIST))

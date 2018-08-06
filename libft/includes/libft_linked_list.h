@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:22:57 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 15:45:47 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/06 16:45:15 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,18 @@ void					*ft_llist_findparam(
 									void *param,
 									t_bool (*f)(void *content, void *param));
 
-void					ft_llist_merge(
+void					ft_llist_merge_one(
 									t_llist *lst,
 									void *data,
 									int (*cmp_f)(void *d1, void *d2));
+void					ft_llist_merge(
+									t_llist *lst,
+									t_llist	**lst2,
+									int (*cmp_f)(void *d1, void *d2));
+
+void					ft_llist_sort(
+									t_llist **lst,
+									int (*cmp_f)(void *d1, void *d2));
+t_llist					*ft_llist_rev(t_llist *lst);
 
 #endif
