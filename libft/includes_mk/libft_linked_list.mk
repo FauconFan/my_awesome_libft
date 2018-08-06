@@ -15,6 +15,7 @@ LIBFT_LINKED_LIST_FOLDER = $(SRC_FOLDER)libft_linked_list/
 SRC_LIBFT_LINKED_LIST = \
 							ft_llist_new.c \
 							ft_llist_elem_new.c \
+							ft_llist_cpy.c \
 							ft_llist_free.c \
 							ft_llist_addfront.c \
 							ft_llist_addback.c \
