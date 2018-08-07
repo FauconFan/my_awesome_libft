@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/07 16:47:57 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/07 17:18:00 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,7 +95,7 @@ $(NAME_SO): $(OBJ)
 	@printf "\\r"
 	@printf " %s[%3d%%]%s %sCompiled%s    %-55s\\n" \
 		"$(_CYAN)" \
-		"$(shell echo $$(( 100 * $$(find src -name "*.o" | wc -l) / $(TOT_C) )))" \
+		"$(shell echo $$(( 100 * $$(find src -mindepth 2 -name "*.o" | wc -l) / $(TOT_C) )))" \
 		"$(_END)" \
 		"$(_GREEN)" \
 		"$(_END)" \
