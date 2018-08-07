@@ -22,6 +22,7 @@ SRC_LIBFT_TAB = \
 					void/ft_vtab_delete.c \
 					void/ft_vtab_pop.c \
 					void/ft_vtab_iter.c \
+					void/ft_vtab_sort.c \
 					str/ft_stab_new.c \
 					str/ft_stab_len.c \
 					str/ft_stab_free.c \
@@ -31,5 +32,6 @@ SRC_LIBFT_TAB = \
 					str/ft_stab_iter.c \
 					str/ft_stab_delete.c \
 					str/ft_stab_pop.c \
+					str/ft_stab_sort.c \
 
 SRC += $(addprefix $(LIBFT_TAB_FOLDER), $(SRC_LIBFT_TAB))

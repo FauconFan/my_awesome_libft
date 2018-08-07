@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 19:06:18 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/05 08:48:29 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/07 16:39:29 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ void		ft_stab_pop(char ***tab_ptr);
 
 void		ft_vtab_iter(void **tab, void (*f)(void *));
 void		ft_stab_iter(char **tab, void (*f)(char *));
+
+void		ft_vtab_sort(void **tab, int (*f)(void *, void *));
+void		ft_stab_sort(char **tab, int (*f)(char *, char *));
 
 #endif

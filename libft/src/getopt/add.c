@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 10:28:09 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 08:31:42 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/07 10:48:58 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,11 @@ static void		ft_add_sl_opt(
 	ft_llist_addfront(builder->args, arg);
 }
 
-void		ft_cli_add(
+void		ft_cli_add_u(
 					t_cli_builder_parser *builder,
-					t_cli_opt **opt_ptr,
-					t_cli_arg **arg_ptr)
+					t_cli_opt *opt,
+					t_cli_arg *arg)
 {
-	t_cli_opt	*opt;
-	t_cli_arg	*arg;
-
-	opt = *opt_ptr;
-	arg = *arg_ptr;
 	if (opt->short_opt != NULL && opt->long_opt != NULL)
 	{
 		ft_add_sl_opt(builder, *(opt->short_opt), opt->long_opt, arg);
@@ -82,6 +77,14 @@ void		ft_cli_add(
 	}
 	opt->type = ft_cli_arg_get_type(arg);
 	ft_llist_addfront(builder->helps, opt);
+}
+
+void		ft_cli_add(
+					t_cli_builder_parser *builder,
+					t_cli_opt **opt_ptr,
+					t_cli_arg **arg_ptr)
+{
+	ft_cli_add_u(builder, *opt_ptr, *arg_ptr);
 	*opt_ptr = NULL;
 	*arg_ptr = NULL;
 }

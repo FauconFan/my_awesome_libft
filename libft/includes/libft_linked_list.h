@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:22:57 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 16:45:15 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/07 16:16:38 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ void					ft_llist_addfront(t_llist *head, void *content);
 void					ft_llist_addback(t_llist *head, void *content);
 
 size_t					ft_llist_size(t_llist const *alst);
+t_bool					ft_llist_isempty(t_llist *lst);
+
+void					*ft_llist_head(t_llist *lst);
+void					*ft_llist_last(t_llist *lst);
+void					*ft_llist_get(t_llist *lst, size_t i);
 
 void					ft_llist_iter(t_llist *lst, void (*f)(void *content));
 void					ft_llist_iterparam(t_llist *lst, void *param,

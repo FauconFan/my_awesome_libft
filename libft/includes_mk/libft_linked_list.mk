@@ -20,6 +20,10 @@ SRC_LIBFT_LINKED_LIST = \
 							ft_llist_addfront.c \
 							ft_llist_addback.c \
 							ft_llist_size.c \
+							ft_llist_isempty.c \
+							ft_llist_get.c \
+							ft_llist_head.c \
+							ft_llist_last.c \
 							ft_llist_iter.c \
 							ft_llist_iterparam.c \
 							ft_llist_iterparam2.c \

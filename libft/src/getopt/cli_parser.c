@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 18:42:27 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 20:36:53 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/07 14:23:21 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void		ft_run_cli2(
 	ft_cli_add(builder, &opt_help, &arg_help);
 	*error = ft_cli_parse(parser, builder);
 	if (is_user_fault(*error))
-		handle_help(builder, error);
+		handle_help_cli(builder, error);
 	else if (*error == OK)
 	{
 		parser->list_bool = ft_llist_new(ft_free_res_bool, NULL);
@@ -35,7 +35,7 @@ static void		ft_run_cli2(
 	}
 	if (*error == OK && ft_cli_getb(parser, "help_target"))
 	{
-		handle_help(builder, NULL);
+		handle_help_cli(builder, NULL);
 		*error = HELP_CALLED;
 	}
 }
@@ -67,12 +67,13 @@ t_cli_parser	*ft_run_cli(
 	return parser;
 }
 
-void			ft_free_cli_parser(t_cli_parser *parser)
+void			ft_free_cli_parser(t_cli_parser **parser)
 {
-	if (parser == NULL)
+	if (parser == NULL || *parser == NULL)
 		return ;
-	ft_llist_free(&(parser->list_bool));
-	ft_llist_free(&(parser->list_string));
-	ft_llist_free(&(parser->list_array));
-	free(parser);
+	ft_llist_free(&((*parser)->list_bool));
+	ft_llist_free(&((*parser)->list_string));
+	ft_llist_free(&((*parser)->list_array));
+	free(*parser);
+	*parser = NULL;
 }

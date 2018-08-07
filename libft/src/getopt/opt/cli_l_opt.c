@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 09:39:06 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 14:47:21 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/07 11:21:56 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,16 @@ t_cli_l_opt		*ft_create_long_opt_cli(char *s, char *target)
 	ft_memcheck((res = (t_cli_l_opt *)malloc(sizeof(t_cli_l_opt))));
 	res->opt = ft_strdup(s);
 	res->target = ft_strdup(target);
+	return res;
+}
+
+t_cli_l_opt		*ft_copy_long_opt_cli(t_cli_l_opt *opt)
+{
+	t_cli_l_opt	*res;
+
+	ft_memcheck((res = (t_cli_l_opt *)malloc(sizeof(t_cli_l_opt))));
+	res->opt = ft_strdup(opt->opt);
+	res->target = ft_strdup(opt->target);
 	return res;
 }
 

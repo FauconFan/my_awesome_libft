@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_user_fault.c                                    :+:      :+:    :+:   */
+/*   ft_llist_head.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/06 20:23:34 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 15:38:52 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/07 16:09:09 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/07 16:10:43 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_bool		is_user_fault(t_opt_error err)
+void			*ft_llist_head(t_llist *lst)
 {
-	return (err == DASH_EMPTY
-		|| err == UNKNOWN_OPTION
-		|| err == NO_NEXT_ARGUMENT_ALLOWED
-		|| err == NO_NEXT_ARGUMENT_GIVEN
-		|| err == COMMAND_NOT_FOUND);
-}
-
-t_bool		has_printed_help(t_opt_error err)
-{
-	return (is_user_fault(err) || err == HELP_CALLED);
+	if (lst->datas == NULL)
+		return NULL;
+	return lst->datas->content;
 }

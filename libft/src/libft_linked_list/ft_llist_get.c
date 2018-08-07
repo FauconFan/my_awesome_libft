@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_user_fault.c                                    :+:      :+:    :+:   */
+/*   ft_llist_get.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/06 20:23:34 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 15:38:52 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/07 16:12:52 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/07 16:17:27 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_bool		is_user_fault(t_opt_error err)
+static void		*get_i(t_llist_elem *elem, size_t i)
 {
-	return (err == DASH_EMPTY
-		|| err == UNKNOWN_OPTION
-		|| err == NO_NEXT_ARGUMENT_ALLOWED
-		|| err == NO_NEXT_ARGUMENT_GIVEN
-		|| err == COMMAND_NOT_FOUND);
+	if (elem == NULL)
+		return NULL;
+	if (i == 0)
+		return elem->content;
+	return get_i(elem->next, i - 1);
 }
 
-t_bool		has_printed_help(t_opt_error err)
+void			*ft_llist_get(t_llist *lst, size_t i)
 {
-	return (is_user_fault(err) || err == HELP_CALLED);
+	return get_i(lst->datas, i);
 }

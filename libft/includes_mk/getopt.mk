@@ -28,14 +28,19 @@ SRC_GETOPT = \
 				parsing/res_parser_finish.c \
 				parsing/ft_cli_parse.c \
 				parsing/ft_cli_parse2.c \
+				parsing/ft_cmd_parse.c \
 				getters/ft_cli_getb.c \
 				getters/ft_cli_gets.c \
 				getters/ft_cli_geta.c \
 				getters/ft_cli_getstr_rc.c \
-				help/handle_help.c \
+				help/handle_help_cli.c \
+				help/handle_help_cmd.c \
 				help/is_user_fault.c \
 				add.c \
 				cli_builder_parser.c \
 				cli_parser.c \
+				cmd_builder_parser.c \
+				cmd_builder_parser_node.c \
+				cmd_parser.c \
 
 SRC += $(addprefix $(GETOPT_FOLDER), $(SRC_GETOPT))

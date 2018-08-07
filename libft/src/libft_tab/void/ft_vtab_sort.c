@@ -1,27 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_user_fault.c                                    :+:      :+:    :+:   */
+/*   ft_vtab_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/06 20:23:34 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 15:38:52 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/07 16:33:12 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/07 17:04:22 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_bool		is_user_fault(t_opt_error err)
+void		ft_vtab_sort(void **tab, int (*f)(void *, void *))
 {
-	return (err == DASH_EMPTY
-		|| err == UNKNOWN_OPTION
-		|| err == NO_NEXT_ARGUMENT_ALLOWED
-		|| err == NO_NEXT_ARGUMENT_GIVEN
-		|| err == COMMAND_NOT_FOUND);
-}
+	size_t		len;
+	size_t		i;
+	size_t		j;
+	size_t		rank;
+	void		*min;
 
-t_bool		has_printed_help(t_opt_error err)
-{
-	return (is_user_fault(err) || err == HELP_CALLED);
+	len = ft_vtab_len(tab);
+	i = 0;
+	min = NULL;
+	while (i < len - 1)
+	{
+		rank = i;
+		min = tab[rank];
+		j = i + 1;
+		while (j < len)
+		{
+			if (f(min, tab[j]) > 0)
+			{
+				rank = j;
+				min = tab[rank];
+			}
+			j++;
+		}
+		tab[rank] = tab[i];
+		tab[i] = min;
+		i++;
+	}
 }

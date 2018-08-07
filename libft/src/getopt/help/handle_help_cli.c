@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_help.c                                      :+:      :+:    :+:   */
+/*   handle_help_cli.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 17:10:20 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 09:08:32 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/07 14:24:09 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@ static void		display_f(void *elem)
 	else
 		sh = ft_strsetnew(2, ' ');
 	if (opt->long_opt && opt->type)
-		ft_sprintf(&lo, "%s %s", opt->long_opt, opt->type);
-	else if (opt->long_opt == NULL && opt->short_opt == NULL)
+		ft_sprintf(&lo, "--%s %s", opt->long_opt, opt->type);
+	else if (opt->long_opt == NULL && opt->type == NULL)
 		lo = ft_strnew(0);
+	else if (opt->long_opt)
+		ft_sprintf(&lo, "--%s", opt->long_opt);
 	else
-		lo = ft_strdup((opt->long_opt) ? opt->long_opt : opt->short_opt);
+		lo = ft_strdup(opt->type);
 	ft_printf("  %s%s%-34s", sh, delim, lo);
 	if (opt->help)
 		ft_putstr(opt->help);
@@ -52,18 +54,23 @@ static int		cmp_f(void *d1, void *d2)
 	}
 	else if (opt1->long_opt != NULL)
 	{
+		if (*(opt1->long_opt) == *(opt2->short_opt))
+			return (1);
 		return (*(opt1->long_opt) - *(opt2->short_opt));
 	}
 	else if (opt2->long_opt != NULL)
 	{
+		if (*(opt1->short_opt) == *(opt2->long_opt))
+			return (-1);
 		return (*(opt1->short_opt) - *(opt2->long_opt));
 	}
 	return (*(opt1->short_opt) - *(opt2->short_opt));
 }
 
-void			handle_help(t_cli_builder_parser *builder, t_opt_error *err)
+void			handle_help_cli(t_cli_builder_parser *builder, t_opt_error *err)
 {
 	ft_llist_sort(&(builder->helps), cmp_f);
+	ft_printf("Usage: %s [OPTIONS...] [ARGS...]\n\n", builder->argv0);
 	ft_printf("%s\n\n", builder->helper);
 	if (err != NULL && is_user_fault(*err))
 		ft_printf("%s\n\n", ft_cli_getstr_rc(*err));

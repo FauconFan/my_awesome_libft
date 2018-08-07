@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 23:29:35 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 15:40:48 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/07 12:00:15 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ t_llist					*ft_llist_map(t_llist *lst,
 	actu_lst = lst->datas;
 	while (actu_lst)
 	{
-		*actu = f(actu_lst);
-		actu_lst = actu_lst->next;
+		*actu = ft_llist_elem_new(f(actu_lst->content));
 		actu = &((*actu)->next);
+		actu_lst = actu_lst->next;
 	}
 	return res;
 }

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_user_fault.c                                    :+:      :+:    :+:   */
+/*   ft_llist_last.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/06 20:23:34 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 15:38:52 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/07 16:10:03 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/07 16:12:39 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_bool		is_user_fault(t_opt_error err)
+void			*ft_llist_last(t_llist *lst)
 {
-	return (err == DASH_EMPTY
-		|| err == UNKNOWN_OPTION
-		|| err == NO_NEXT_ARGUMENT_ALLOWED
-		|| err == NO_NEXT_ARGUMENT_GIVEN
-		|| err == COMMAND_NOT_FOUND);
-}
+	t_llist_elem	*actu;
 
-t_bool		has_printed_help(t_opt_error err)
-{
-	return (is_user_fault(err) || err == HELP_CALLED);
+	actu = lst->datas;
+	if (actu == NULL)
+		return NULL;
+	while (actu->next)
+	{
+		actu = actu->next;
+	}
+	return actu->content;
 }

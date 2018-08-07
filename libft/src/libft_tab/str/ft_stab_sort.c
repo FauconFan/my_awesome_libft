@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_user_fault.c                                    :+:      :+:    :+:   */
+/*   ft_stab_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/06 20:23:34 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 15:38:52 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/07 16:38:15 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/07 16:39:02 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_bool		is_user_fault(t_opt_error err)
+void		ft_stab_sort(char **tab, int (*f)(char *, char *))
 {
-	return (err == DASH_EMPTY
-		|| err == UNKNOWN_OPTION
-		|| err == NO_NEXT_ARGUMENT_ALLOWED
-		|| err == NO_NEXT_ARGUMENT_GIVEN
-		|| err == COMMAND_NOT_FOUND);
-}
-
-t_bool		has_printed_help(t_opt_error err)
-{
-	return (is_user_fault(err) || err == HELP_CALLED);
+	ft_vtab_sort((void **)tab, (int (*)(void *, void *))f);
 }
