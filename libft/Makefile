@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/06 16:56:19 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/06 20:31:13 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,19 +69,31 @@ compile_dynamic_library:
 	@make -C . $(NAME_SO) ADDITIONAL_FLAGS="-fPIC"
 
 $(NAME_A): $(OBJ)
+	@printf " %s[-OK-]%s %sCompiled%s    %-70s\\n" \
+		"$(_CYAN)" \
+		"$(_END)" \
+		"$(_GREEN)" \
+		"$(_END)" \
+		""
 	@ar -rc $@ $(OBJ)
 	@ranlib $@
 	@echo "libft.a built successfully"
 
 $(NAME_SO): $(OBJ)
+	@printf " %s[-OK-]%s %sCompiled%s    %-70s\\n" \
+		"$(_CYAN)" \
+		"$(_END)" \
+		"$(_GREEN)" \
+		"$(_END)" \
+		""
 	@$(CC) -shared -Wl,-soname,$(NAME_SO) -o $(NAME_SO) $(OBJ)
 	@echo "libft.so built successfully"
 
 %.o: %.c
-	@printf "%s[----] Compiling%s   %-55s" "$(_PURPLE)" "$(_END)" "$?"
+	@printf " %s[----] Compiling%s   %-70s" "$(_PURPLE)" "$(_END)" "$?"
 	@$(CC) $(FLAGS) -c $? -o $@
 	@printf "\\r"
-	@printf "%s[%3d%%]%s %sCompiled%s    %-55s\\n" \
+	@printf " %s[%3d%%]%s %sCompiled%s    %-55s\\n" \
 		"$(_CYAN)" \
 		"$(shell echo $$(( 100 * $$(find src -name "*.o" | wc -l) / $(TOT_C) )))" \
 		"$(_END)" \
@@ -91,13 +103,13 @@ $(NAME_SO): $(OBJ)
 
 clean:
 	@rm -rf $(OBJ)
-	@echo "libft cleaned"
+	@printf " %s[INFO]%s libft cleaned\\n" "$(_CYAN)" "$(_END)"
 
 fclean:
 	@rm -rf $(OBJ)
 	@rm -rf $(NAME_A)
 	@rm -rf $(NAME_SO)
-	@echo "libft fcleaned"
+	@printf " %s[INFO]%s libft full cleaned\\n" "$(_CYAN)" "$(_END)"
 
 re: fclean all
 
@@ -132,5 +144,5 @@ test_docker_compile_clang: fclean
 
 test: $(NAME_A)
 	@gcc -g $(SRC_FOLDER)main.c -L ./ -l ft -o test_libft $(INCLUDES_FLAGS)
-	@valgrind --leak-check=full ./test_libft
+	@./test_libft
 	@rm -f test_libft

@@ -6,14 +6,14 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 10:28:09 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 15:29:31 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/07 08:31:42 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static void		ft_add_s_opt(
-					t_cli_builder_parser *parser,
+					t_cli_builder_parser *builder,
 					char c,
 					t_cli_arg *arg)
 {
@@ -22,12 +22,12 @@ static void		ft_add_s_opt(
 
 	target = ft_cli_get_target(arg);
 	opt = ft_create_short_opt_cli(c, target);
-	ft_llist_addfront(parser->short_opts, opt);
-	ft_llist_addfront(parser->args, arg);
+	ft_llist_addfront(builder->short_opts, opt);
+	ft_llist_addfront(builder->args, arg);
 }
 
 static void		ft_add_l_opt(
-					t_cli_builder_parser *parser,
+					t_cli_builder_parser *builder,
 					char *s,
 					t_cli_arg *arg)
 {
@@ -36,12 +36,12 @@ static void		ft_add_l_opt(
 
 	target = ft_cli_get_target(arg);
 	opt = ft_create_long_opt_cli(s, target);
-	ft_llist_addfront(parser->long_opts, opt);
-	ft_llist_addfront(parser->args, arg);
+	ft_llist_addfront(builder->long_opts, opt);
+	ft_llist_addfront(builder->args, arg);
 }
 
 static void		ft_add_sl_opt(
-					t_cli_builder_parser *parser,
+					t_cli_builder_parser *builder,
 					char c,
 					char *s,
 					t_cli_arg *arg)
@@ -53,9 +53,9 @@ static void		ft_add_sl_opt(
 	target = ft_cli_get_target(arg);
 	opt_s = ft_create_short_opt_cli(c, target);
 	opt_l = ft_create_long_opt_cli(s, target);
-	ft_llist_addfront(parser->short_opts, opt_s);
-	ft_llist_addfront(parser->long_opts, opt_l);
-	ft_llist_addfront(parser->args, arg);
+	ft_llist_addfront(builder->short_opts, opt_s);
+	ft_llist_addfront(builder->long_opts, opt_l);
+	ft_llist_addfront(builder->args, arg);
 }
 
 void		ft_cli_add(
@@ -80,6 +80,8 @@ void		ft_cli_add(
 	{
 		ft_add_l_opt(builder, opt->long_opt, arg);
 	}
-	ft_free_cli_opt(opt_ptr);
+	opt->type = ft_cli_arg_get_type(arg);
+	ft_llist_addfront(builder->helps, opt);
+	*opt_ptr = NULL;
 	*arg_ptr = NULL;
 }

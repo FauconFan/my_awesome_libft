@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 09:04:34 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 15:34:42 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/06 20:46:51 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 **		- ft_cli_add
 */
 
-t_cli_builder_parser	*ft_create_cli_builder();
+t_cli_builder_parser	*ft_create_cli_builder(char *helper);
 void					ft_free_cli_builder(
 								t_cli_builder_parser *parser);
 

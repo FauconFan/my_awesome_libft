@@ -18,6 +18,8 @@ SRC_GETOPT = \
 				arg/cli_res_bool.c \
 				arg/cli_res_string.c \
 				arg/cli_get_arg_w_target.c \
+				arg/cli_arg_utils.c \
+				arg/cli_arg_gettype.c \
 				opt/cli_opt.c \
 				opt/cli_s_opt.c \
 				opt/cli_l_opt.c \
@@ -30,9 +32,10 @@ SRC_GETOPT = \
 				getters/ft_cli_gets.c \
 				getters/ft_cli_geta.c \
 				getters/ft_cli_getstr_rc.c \
+				help/handle_help.c \
+				help/is_user_fault.c \
 				add.c \
 				cli_builder_parser.c \
 				cli_parser.c \
-				cli_utils.c \
 
 SRC += $(addprefix $(GETOPT_FOLDER), $(SRC_GETOPT))

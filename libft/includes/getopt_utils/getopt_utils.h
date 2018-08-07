@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 17:19:05 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 15:14:53 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/07 08:29:04 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct		s_cli_opt
 	char			*short_opt;
 	char			*long_opt;
 	char			*help;
+	char			*type;
 }					t_cli_opt;
 
 /*
@@ -80,7 +81,7 @@ typedef struct		s_res_array
 **	Functions Opt
 */
 
-void				ft_free_cli_opt(t_cli_opt **opt_ptr);
+void				ft_free_cli_opt(void *opt_ptr);
 
 t_cli_s_opt			*ft_create_short_opt_cli(char c, char *target);
 void				ft_free_opt_s_cli(void *opt);
@@ -99,6 +100,7 @@ char				*ft_search_target_l_opt(t_cli_builder_parser *parser, char *s);
 void				ft_free_cli_arg(void *arg);
 
 t_cli_arg			*get_arg_w_target(t_cli_builder_parser *parser, char *target);
+char				*ft_cli_arg_get_type(t_cli_arg *arg);
 
 /*
 **	Functions res_bool
@@ -152,5 +154,13 @@ char				*ft_cli_get_target(t_cli_arg *arg);
 t_bool				ft_cli_is_bool(t_cli_arg *arg);
 t_bool				ft_cli_is_string(t_cli_arg *arg);
 t_bool				ft_cli_is_array(t_cli_arg *arg);
+
+/*
+**	Helps
+*/
+
+void				handle_help(t_cli_builder_parser *builder, t_opt_error *e);
+t_bool				is_user_fault(t_opt_error err);
+t_bool				has_printed_help(t_opt_error err);
 
 #endif
