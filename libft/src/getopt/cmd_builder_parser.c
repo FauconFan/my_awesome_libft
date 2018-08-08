@@ -6,13 +6,16 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 10:59:54 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 14:27:38 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/08 14:56:08 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_cmd_builder_parser	*ft_create_cmd_builder_parser(int *argc, char ***argv)
+t_cmd_builder_parser	*ft_create_cmd_builder_parser(
+								int *argc,
+								char ***argv,
+								char *helper)
 {
 	t_cmd_builder_parser	*res;
 
@@ -20,11 +23,15 @@ t_cmd_builder_parser	*ft_create_cmd_builder_parser(int *argc, char ***argv)
 		return NULL;
 	ft_memcheck(
 		(res = (t_cmd_builder_parser *)malloc(sizeof(t_cmd_builder_parser))));
-	res->cmd_nodes = ft_llist_new(ft_free_cmd_builder_parser_node, NULL);
+	res->cmd_nodes = ft_llist_new(
+					(void (*)(void *))ft_free_cmd_builder_parser_node, NULL);
+	res->helper = ft_strdup(helper);
 	res->argc = *argc;
 	res->argv = *argv;
+	res->argv0 = NULL;
 	*argc = -1;
 	*argv = NULL;
+	ft_llist_addfront(res->cmd_nodes, ft_create_help_sub_cmd());
 	return res;
 }
 
@@ -33,15 +40,24 @@ void					ft_free_cmd_builder_parser(t_cmd_builder_parser **pa)
 	t_cmd_builder_parser	*p;
 
 	p = *pa;
+	ft_strdel(&(p->helper));
 	ft_llist_free(&(p->cmd_nodes));
+	ft_strdel(&(p->argv0));
 	free(p);
 	*pa = NULL;
+}
+
+void					ft_add_cmd_u(
+							t_cmd_builder_parser *p,
+							t_cmd_builder_parser_n *n)
+{
+	ft_llist_addfront(p->cmd_nodes, n);
 }
 
 void					ft_add_cmd(
 							t_cmd_builder_parser *p,
 							t_cmd_builder_parser_n **n)
 {
-	ft_llist_addfront(p->cmd_nodes, *n);
+	ft_add_cmd_u(p, *n);
 	*n = NULL;
 }

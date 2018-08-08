@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 23:44:16 by jpriou            #+#    #+#             */
-/*   Updated: 2017/11/11 14:52:50 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/08 14:03:00 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_strdel(char **as)
 {
-	if (as == 0)
+	if (as == NULL)
 		return ;
 	free(*as);
 	*as = NULL;

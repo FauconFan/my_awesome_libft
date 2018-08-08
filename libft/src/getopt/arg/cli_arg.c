@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 09:56:45 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 11:29:56 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/08 13:42:57 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,8 @@ t_cli_arg		*ft_copy_cli_arg(t_cli_arg *arg)
 	return res;
 }
 
-void			ft_free_cli_arg(void *arg_void)
+void			ft_free_cli_arg(t_cli_arg *arg)
 {
-	t_cli_arg	*arg;
-
-	arg = (t_cli_arg *)arg_void;
-	if (arg == NULL)
-		return ;
 	if (ft_cli_is_bool(arg))
 	{
 		ft_free_res_bool(arg->content);

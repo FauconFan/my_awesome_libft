@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 14:58:13 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 14:03:21 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/08 13:41:08 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,8 @@ t_cli_opt		*ft_copy_cli_opt(t_cli_opt *opt)
 	return res;
 }
 
-void			ft_free_cli_opt(void *opt_ptr)
+void			ft_free_cli_opt(t_cli_opt *opt)
 {
-	t_cli_opt	*opt;
-
-	opt = (t_cli_opt *)opt_ptr;
 	if (opt->short_opt)
 		free(opt->short_opt);
 	if (opt->long_opt)

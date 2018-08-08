@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 09:04:34 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 16:18:13 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/08 14:57:13 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,34 @@
 **	Cmd builder functions
 */
 
-t_cmd_builder_parser	*ft_create_cmd_builder_parser(int *argc, char ***argv);
+t_cmd_builder_parser	*ft_create_cmd_builder_parser(
+								int *argc,
+								char ***argv,
+								char *helper);
 void					ft_free_cmd_builder_parser(t_cmd_builder_parser **pa);
 
-t_cmd_builder_parser_n	*ft_create_cmd_builder_parser_node_cmd(char *cmd);
+t_cmd_builder_parser_n	*ft_create_cmd_builder_parser_node_cmd(
+								char *cmd,
+								char *helper);
 t_cmd_builder_parser_n	*ft_create_cmd_builder_parser_node_cli(
 								char *cmd,
+								char *helper,
 								t_cli_builder_parser **builder_cli);
-void					ft_free_cmd_builder_parser_node(void *n);
+t_cmd_builder_parser_n	*ft_create_help_sub_cmd();
+void					ft_free_cmd_builder_parser_node(
+	 							t_cmd_builder_parser_n *n);
+
+void					ft_add_cmd_u(
+							t_cmd_builder_parser *p,
+							t_cmd_builder_parser_n *n);
 
 void					ft_add_cmd(
 							t_cmd_builder_parser *p,
 							t_cmd_builder_parser_n **n);
+
+void					ft_add_sub_cmd_u(
+							t_cmd_builder_parser_n *p,
+							t_cmd_builder_parser_n *n);
 
 void					ft_add_sub_cmd(
 							t_cmd_builder_parser_n *p,
@@ -45,7 +61,7 @@ void					ft_add_sub_cmd(
 */
 
 t_cmd_parser			*ft_run_cmd(
-							t_cmd_builder_parser *builder,
+							t_cmd_builder_parser **builder,
 							t_opt_error *opt);
 
 void					ft_free_cmd_parser(t_cmd_parser **pa);
@@ -58,10 +74,10 @@ void					ft_free_cmd_parser(t_cmd_parser **pa);
 **		- ft_cli_add
 */
 
-t_cli_builder_parser	*ft_create_cli_builder(char *argv0, char *helper);
+t_cli_builder_parser	*ft_create_cli_builder(
+								char *helper);
 t_cli_builder_parser	*ft_copy_cli_builder(
 								t_cli_builder_parser *p,
-								char *argv0,
 								char *help);
 void					ft_free_cli_builder(
 								t_cli_builder_parser *parser);
@@ -92,8 +108,14 @@ void					ft_cli_add(
 **		- ft_cli_getstr_rc
 */
 
+t_cli_parser			*ft_run_cli_u(
+								t_cli_builder_parser *builder,
+								int argc,
+								char **argv,
+								t_opt_error *error);
+
 t_cli_parser			*ft_run_cli(
-								t_cli_builder_parser **parser,
+								t_cli_builder_parser **builder,
 								int argc,
 								char **argv,
 								t_opt_error *error);

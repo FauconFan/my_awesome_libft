@@ -6,11 +6,54 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 17:10:20 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 14:24:09 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/08 16:40:33 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void		print_helper_properly2(char **tab, int l, int r)
+{
+	int		len;
+	int		rank;
+	int		actu;
+
+	len = 0;
+	rank = 0;
+	while (tab[rank] && (len + (int)ft_strlen(tab[rank]) < r - 1))
+	{
+		len += ft_strlen(tab[rank]) + (len != 0);
+		rank++;
+	}
+	actu = 0;
+	while (actu < rank)
+	{
+		if (actu != 0)
+			ft_putchar(' ');
+		ft_putstr(tab[actu]);
+		actu ++;
+	}
+	if (tab[rank])
+	{
+		ft_putchar('\n');
+		actu = 0;
+		while (actu < l)
+		{
+			ft_putchar(' ');
+			actu++;
+		}
+		print_helper_properly2(tab + rank, l, r);
+	}
+}
+
+static void		print_helper_properly(char *helper, int l, int r)
+{
+	char	**tab;
+
+	tab = ft_strsplit(helper, ' ');
+	print_helper_properly2(tab, l, r);
+	ft_stab_free(&tab);
+}
 
 static void		display_f(void *elem)
 {
@@ -35,7 +78,7 @@ static void		display_f(void *elem)
 		lo = ft_strdup(opt->type);
 	ft_printf("  %s%s%-34s", sh, delim, lo);
 	if (opt->help)
-		ft_putstr(opt->help);
+		print_helper_properly(opt->help, 40, 50);
 	ft_putchar('\n');
 	ft_strdel(&sh);
 	ft_strdel(&lo);
@@ -67,10 +110,13 @@ static int		cmp_f(void *d1, void *d2)
 	return (*(opt1->short_opt) - *(opt2->short_opt));
 }
 
-void			handle_help_cli(t_cli_builder_parser *builder, t_opt_error *err)
+void			handle_help_cli(
+						char *argv0,
+						t_cli_builder_parser *builder,
+						t_opt_error *err)
 {
 	ft_llist_sort(&(builder->helps), cmp_f);
-	ft_printf("Usage: %s [OPTIONS...] [ARGS...]\n\n", builder->argv0);
+	ft_printf("Usage: %s [OPTIONS...] [ARGS...]\n\n", argv0);
 	ft_printf("%s\n\n", builder->helper);
 	if (err != NULL && is_user_fault(*err))
 		ft_printf("%s\n\n", ft_cli_getstr_rc(*err));

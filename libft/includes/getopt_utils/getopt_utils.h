@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 17:19:05 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 17:10:19 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/08 14:45:29 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,17 @@ typedef struct		s_res_array
 */
 
 t_cli_opt			*ft_copy_cli_opt(t_cli_opt *opt);
-void				ft_free_cli_opt(void *opt_ptr);
+void				ft_free_cli_opt(t_cli_opt *opt);
 
 t_cli_s_opt			*ft_create_short_opt_cli(char c, char *target);
 t_cli_s_opt			*ft_copy_short_opt_cli(t_cli_s_opt *opt);
-void				ft_free_opt_s_cli(void *opt);
+void				ft_free_opt_s_cli(t_cli_s_opt *opt);
 
 char				*ft_search_target_s_opt(t_cli_builder_parser *parser, char c);
 
 t_cli_l_opt			*ft_create_long_opt_cli(char *s, char *target);
 t_cli_l_opt			*ft_copy_long_opt_cli(t_cli_l_opt *opt);
-void				ft_free_opt_l_cli(void *opt_void);
+void				ft_free_opt_l_cli(t_cli_l_opt *opt);
 
 char				*ft_search_target_l_opt(t_cli_builder_parser *parser, char *s);
 
@@ -101,7 +101,7 @@ char				*ft_search_target_l_opt(t_cli_builder_parser *parser, char *s);
 */
 
 t_cli_arg			*ft_copy_cli_arg(t_cli_arg *arg);
-void				ft_free_cli_arg(void *arg);
+void				ft_free_cli_arg(t_cli_arg *arg);
 
 t_cli_arg			*get_arg_w_target(t_cli_builder_parser *parser, char *target);
 char				*ft_cli_arg_get_type(t_cli_arg *arg);
@@ -111,16 +111,16 @@ char				*ft_cli_arg_get_type(t_cli_arg *arg);
 */
 
 t_res_bool			*ft_create_res_bool(char *target, t_bool value);
-void				*ft_copy_res_bool(void *v);
-void				ft_free_res_bool(void *v);
+void				*ft_copy_res_bool(t_res_bool *actu);
+void				ft_free_res_bool(t_res_bool *b);
 
 /*
 **	Functions res_string
 */
 
 t_res_string		*ft_create_res_string(char *target, char *def);
-void				*ft_copy_res_string(void *v);
-void				ft_free_res_string(void *v);
+void				*ft_copy_res_string(t_res_string *actu);
+void				ft_free_res_string(t_res_string *s);
 void				ft_res_string_replace(t_res_string *r, char *s);
 
 /*
@@ -129,8 +129,8 @@ void				ft_res_string_replace(t_res_string *r, char *s);
 
 
 t_res_array			*ft_create_res_array(char *target);
-void				*ft_copy_res_array(void *v);
-void				ft_free_res_array(void *v);
+void				*ft_copy_res_array(t_res_array *actu);
+void				ft_free_res_array(t_res_array *a);
 void				ft_cli_array_append(t_res_array *a, char *s);
 
 /*
@@ -169,8 +169,15 @@ t_bool				ft_cli_is_array(t_cli_arg *arg);
 **	Helps
 */
 
-void				handle_help_cli(t_cli_builder_parser *builder, t_opt_error *e);
-void				handle_help_cmd(t_llist **lst_node, t_opt_error *e);
+void				handle_help_cli(
+							char *argv0,
+							t_cli_builder_parser *builder,
+							t_opt_error *e);
+void				handle_help_cmd(
+							char *argv0,
+							t_llist **lst_node,
+							t_opt_error *e,
+							char *helper);
 
 t_bool				is_user_fault(t_opt_error err);
 t_bool				has_printed_help(t_opt_error err);

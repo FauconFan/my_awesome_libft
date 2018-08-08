@@ -6,19 +6,21 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 19:44:02 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 16:18:11 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/08 14:40:09 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GETOPT_TYPEDEFS_H
 #define GETOPT_TYPEDEFS_H
 
+#define HELP_CMD			"help"
+#define HELP_MSG			"Print this message and exit"
+
 typedef struct				s_cli_builder_parser
 {
 	t_llist					*short_opts;
 	t_llist					*long_opts;
 	t_llist					*args;
-	char					*argv0;
 	char					*helper;
 	t_llist					*helps;
 }							t_cli_builder_parser;
@@ -35,13 +37,16 @@ typedef struct				s_cli_parser
 typedef struct				s_cmd_builder_parser
 {
 	t_llist					*cmd_nodes;
+	char					*helper;
 	int						argc;
 	char					**argv;
+	char					*argv0;
 }							t_cmd_builder_parser;
 
 typedef struct				s_cmd_builder_parser_n
 {
 	char					*cmd;
+	char					*helper;
 	t_cli_builder_parser	*cli_parser;
 	t_llist					*sub_cmds;
 }							t_cmd_builder_parser_n;

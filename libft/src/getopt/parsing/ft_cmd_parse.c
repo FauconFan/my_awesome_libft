@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 15:03:14 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 16:30:14 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/08 16:05:04 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,20 @@ int								ft_cmd_parse(
 	next_cand = NULL;
 	while (li_cand != NULL)
 	{
-		if (builder->argc <= rank_actu ||
+		if (rank_actu >= builder->argc ||
 			(next_cand =
 				ft_llist_findparam(li_cand, builder->argv[rank_actu], f_search)) == NULL)
 		{
 			*opt = COMMAND_NOT_FOUND;
 			return rank_actu;
 		}
+		if (ft_strcmp(next_cand->cmd, HELP_CMD) == 0)
+		{
+			*opt = HELP_CALLED;
+			return rank_actu;
+		}
 		rank_actu++;
-		ft_vtab_append(list_tmp_way, next_cand, sizeof(void *));
+		ft_vtab_append(list_tmp_way, next_cand, sizeof(t_cmd_builder_parser_n));
 		li_cand = next_cand->sub_cmds;
 	}
 	*builder_cli = next_cand->cli_parser;

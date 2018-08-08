@@ -6,37 +6,52 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 16:17:57 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 17:10:08 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/08 15:49:57 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	display_f(void *elem)
+static void	add_properly(void *elem, void *param)
 {
-	t_cmd_builder_parser_n	*n1;
+	t_cmd_builder_parser_n	*n;
+	t_llist					*lst;
+	char					*rep;
 
-	n1 = (t_cmd_builder_parser_n *)elem;
-	ft_printf("   %s\n", n1->cmd);
+	n = (t_cmd_builder_parser_n *)elem;
+	lst = (t_llist *)param;
+	ft_sprintf(&rep, "   %-27s  %s", n->cmd, n->helper);
+	ft_llist_addfront(lst, rep);
 }
 
-static int	cmp_f(void *d1, void *d2)
+t_llist		*build_help_command(t_llist *cmds)
 {
-	t_cmd_builder_parser_n	*n1;
-	t_cmd_builder_parser_n	*n2;
+	t_llist		*res;
 
-	n1 = (t_cmd_builder_parser_n *)d1;
-	n2 = (t_cmd_builder_parser_n *)d2;
-	return ft_strcmp(n1->cmd, n2->cmd);
+	res = ft_llist_new(free, NULL);
+	ft_llist_iterparam(cmds, res, add_properly);
+	ft_llist_sort(&res, (int (*)(void *, void *))ft_strcmp);
+	return res;
 }
 
-void		handle_help_cmd(t_llist **lst_node, t_opt_error *e)
+void		handle_help_cmd(
+					char *argv0,
+					t_llist **lst_node,
+					t_opt_error *e,
+					char *helper)
 {
-	(void)e;
-	ft_llist_sort(lst_node, cmp_f);
-	ft_printf("Usage: Some Header Stuff\n\n");
-	ft_printf("Some helper\n\n");
-	ft_printf("Some error stuff if there is.\n\n");
+	char	*error_mean;
+	t_llist	*cmds;
+
+	cmds = build_help_command(*lst_node);
+	error_mean = NULL;
+	if (e)
+		error_mean = ft_cli_getstr_rc(*e);
+	ft_printf("Usage: %s [CMDS...] [OPTIONS...] [ARGS...]\n\n", argv0);
+	ft_printf("%s\n\n", helper);
+	if (error_mean)
+		ft_printf("%s\n\n", error_mean);
 	ft_putendl("Commands:");
-	ft_llist_iter(*lst_node, display_f);
+	ft_llist_iter(cmds, (void (*)(void *))ft_putendl);
+	ft_llist_free(&cmds);
 }

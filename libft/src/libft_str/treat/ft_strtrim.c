@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 12:28:25 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/05 11:52:37 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/08 16:15:02 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char			*ft_strtrim(const char *s)
 	if (s == 0)
 		return (0);
 	if (check_only_blank((char *)s) == 0)
-		return (ft_strnew(1));
+		return (ft_strnew(0));
 	while (is_blank(*tmp))
 		tmp++;
 	real_size = true_size(tmp);
