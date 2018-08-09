@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_llist_get.c                                     :+:      :+:    :+:   */
+/*   ft_llist_addback.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/07 16:12:52 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 16:17:27 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/04 14:39:35 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/09 13:45:39 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		*get_i(t_llist_elem *elem, size_t i)
+void	ft_llist_addback(t_llist *head, void *content)
 {
-	if (elem == NULL)
-		return NULL;
-	if (i == 0)
-		return elem->content;
-	return get_i(elem->next, i - 1);
-}
+	t_llist_elem	*tmp;
+	t_llist_elem	*actu;
 
-void			*ft_llist_get(t_llist *lst, size_t i)
-{
-	return get_i(lst->datas, i);
+	if (head == 0)
+		return ;
+	head->len = head->len + 1;
+	if (head->copy_on_add)
+		tmp = ft_llist_elem_new((head->cpy)(content));
+	else
+		tmp = ft_llist_elem_new(content);
+	if (head->datas == NULL)
+		head->datas = tmp;
+	else
+	{
+		actu = head->datas;
+		while (actu->next)
+			actu = actu->next;
+		actu->next = tmp;
+	}
 }

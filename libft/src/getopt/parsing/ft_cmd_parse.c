@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 15:03:14 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/08 16:05:04 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/09 16:41:06 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int								ft_cmd_parse(
 	{
 		if (rank_actu >= builder->argc ||
 			(next_cand =
-				ft_llist_findparam(li_cand, builder->argv[rank_actu], f_search)) == NULL)
+				ft_llist_findparam(li_cand, NULL, builder->argv[rank_actu], f_search)) == NULL)
 		{
 			*opt = COMMAND_NOT_FOUND;
 			return rank_actu;

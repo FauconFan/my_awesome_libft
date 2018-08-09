@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 17:02:01 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/07 16:47:43 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/09 16:51:21 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,17 +87,28 @@
 // 	return 0;
 // }
 
+static int		reverser_strcmp(char *s1, char *s2)
+{
+	return ft_strcmp(s2, s1);
+}
+
 int		main(void) {
 	t_llist		*l;
-	t_llist		*l2;
 
-	l = ft_llist_new(free, (void *(*)(void *))ft_strdup);
+	l = ft_llist_new(free);
+	ft_llist_add_cpy(l, MAKE_COPY_PTR(ft_strdup), TRUE);
 	ft_llist_addback(l, "1");
 	ft_llist_addback(l, "2");
 	ft_llist_addback(l, "3");
+	ft_llist_addfront(l, "0");
 	ft_llist_iter(l, (void (*)(void *))ft_putendl);
-	l2 = ft_llist_cpy(l);
-	ft_printf("size %d\n", ft_llist_size(l2));
-	ft_llist_iter(l2, (void (*)(void *))ft_putendl);
+	ft_printf("size %d\n", ft_llist_size(l));
+	ft_llist_rev(l);
+	ft_llist_iter(l, (void (*)(void *))ft_putendl);
+	ft_printf("size %d\n", ft_llist_size(l));
+	ft_llist_remove(l, 1);
+	ft_llist_iter(l, (void (*)(void *))ft_putendl);
+	ft_printf("size %d\n", ft_llist_size(l));
+	ft_llist_free(&l);
 	return 0;
 }

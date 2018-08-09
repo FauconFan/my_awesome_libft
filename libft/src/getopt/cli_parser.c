@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 18:42:27 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/08 14:46:26 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/09 16:07:40 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static void		ft_run_cli2(
 		handle_help_cli(argv0, builder, error);
 	else if (*error == OK)
 	{
-		parser->list_bool = ft_llist_new((void (*)(void *))ft_free_res_bool, NULL);
-		parser->list_string = ft_llist_new((void (*)(void *))ft_free_res_string, NULL);
-		parser->list_array = ft_llist_new((void (*)(void *))ft_free_res_array, NULL);
+		parser->list_bool = ft_llist_new(MAKE_FREE_PTR(ft_free_res_bool));
+		parser->list_string = ft_llist_new(MAKE_FREE_PTR(ft_free_res_string));
+		parser->list_array = ft_llist_new(MAKE_FREE_PTR(ft_free_res_array));
 		ft_finish_res_cli_parser(parser, builder);
 	}
 	if (*error == OK && ft_cli_getb(parser, "help_target"))

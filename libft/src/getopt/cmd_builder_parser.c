@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 10:59:54 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/08 14:56:08 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/09 16:08:00 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ t_cmd_builder_parser	*ft_create_cmd_builder_parser(
 		return NULL;
 	ft_memcheck(
 		(res = (t_cmd_builder_parser *)malloc(sizeof(t_cmd_builder_parser))));
-	res->cmd_nodes = ft_llist_new(
-					(void (*)(void *))ft_free_cmd_builder_parser_node, NULL);
+	res->cmd_nodes = ft_llist_new(MAKE_FREE_PTR(ft_free_cmd_builder_parser_node));
 	res->helper = ft_strdup(helper);
 	res->argc = *argc;
 	res->argv = *argv;

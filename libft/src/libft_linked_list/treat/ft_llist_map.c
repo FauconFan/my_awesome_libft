@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 23:29:35 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 12:00:15 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/09 15:57:42 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 t_llist					*ft_llist_map(t_llist *lst,
 										void *(*f)(void *content),
-										void (*free_f)(void *elem),
-										void *(*cpy_f)(void *content))
+										void (*free_f)(void *elem))
 {
 	t_llist			*res;
 	t_llist_elem	**actu;
@@ -23,7 +22,7 @@ t_llist					*ft_llist_map(t_llist *lst,
 
 	if (lst == NULL)
 		return NULL;
-	res = ft_llist_new(free_f, cpy_f);
+	res = ft_llist_new(free_f);
 	if (res == NULL)
 		return NULL;
 	actu = &(res->datas);
@@ -34,5 +33,5 @@ t_llist					*ft_llist_map(t_llist *lst,
 		actu = &((*actu)->next);
 		actu_lst = actu_lst->next;
 	}
-	return res;
+	return (res);
 }

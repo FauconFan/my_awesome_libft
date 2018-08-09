@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 15:12:04 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 16:14:42 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/09 15:39:45 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,18 @@ static void		merge_next(
 	}
 }
 
-void			ft_llist_merge_one(t_llist *lst, void *data,
-					int (*cmp_f)(void *d1, void *d2))
+void			ft_llist_merge_one(t_llist *lst, void *data)
 {
 	t_llist_elem	*tmp;
 
 	if (lst == NULL)
 		return ;
+	lst->len = lst->len + 1;
 	if (lst->datas == NULL)
 		lst->datas = ft_llist_elem_new(data);
 	else
 	{
-		if (cmp_f(lst->datas->content, data) > 0)
+		if ((lst->cmp)(lst->datas->content, data) > 0)
 		{
 			tmp = lst->datas;
 			lst->datas = ft_llist_elem_new(data);
@@ -53,7 +53,7 @@ void			ft_llist_merge_one(t_llist *lst, void *data,
 		}
 		else
 		{
-			merge_next(lst->datas, data, cmp_f);
+			merge_next(lst->datas, data, lst->cmp);
 		}
 	}
 }

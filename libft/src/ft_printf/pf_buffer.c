@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 17:23:46 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/09 10:56:06 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/09 16:00:23 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ t_pf_buffer					*ft_create_pf_buffer()
 {
 	t_llist		*res;
 
-	res = ft_llist_new(
-			(void (*)(void *))ft_free_pf_content,
-			NULL);
+	res = ft_llist_new(MAKE_FREE_PTR(ft_free_pf_content));
 	return res;
 }
 

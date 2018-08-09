@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 17:10:20 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/08 16:40:33 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/09 16:04:14 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,8 @@ void			handle_help_cli(
 						t_cli_builder_parser *builder,
 						t_opt_error *err)
 {
-	ft_llist_sort(&(builder->helps), cmp_f);
+	ft_llist_add_cmp(builder->helps, cmp_f);
+	ft_llist_sort(builder->helps);
 	ft_printf("Usage: %s [OPTIONS...] [ARGS...]\n\n", argv0);
 	ft_printf("%s\n\n", builder->helper);
 	if (err != NULL && is_user_fault(*err))

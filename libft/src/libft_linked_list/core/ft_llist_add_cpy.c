@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stab_sort.c                                     :+:      :+:    :+:   */
+/*   ft_llist_add_cpy.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/07 16:38:15 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/09 11:55:25 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/09 13:36:48 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/09 13:38:15 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_stab_sort(char **tab, int (*f)(char *, char *))
+void					ft_llist_add_cpy(
+									t_llist *lst,
+									void *(*cpy_f)(void *),
+									t_bool copy_on_add)
 {
-	ft_vtab_sort((void **)tab, MAKE_CMP_PTR(f));
+	lst->cpy = cpy_f;
+	lst->copy_on_add = copy_on_add;
 }

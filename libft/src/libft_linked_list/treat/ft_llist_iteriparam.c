@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_llist_findparam.c                               :+:      :+:    :+:   */
+/*   ft_llist_iteriparam.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/06 10:53:07 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 11:07:12 by jpriou           ###   ########.fr       */
+/*   Created: 2017/09/11 23:26:21 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/09 16:31:01 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			*ft_llist_findparam(
-						t_llist *lst,
-						void *param,
-						t_bool (*f)(void *content, void *param))
+void	ft_llist_iteriparam(
+					t_llist *lst,
+					void *param,
+					void (*f)(void *, void *, size_t))
 {
 	t_llist_elem	*actu;
+	size_t			i;
 
 	actu = lst->datas;
+	i = 0;
 	while (actu)
 	{
-		if (f(actu->content, param))
-			return (actu->content);
+		f(actu->content, param, i);
 		actu = actu->next;
+		i++;
 	}
-	return (NULL);
 }

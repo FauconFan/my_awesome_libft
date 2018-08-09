@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stab_sort.c                                     :+:      :+:    :+:   */
+/*   ft_llist_isempty.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/07 16:38:15 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/09 11:55:25 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/07 16:15:10 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/09 15:48:49 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_stab_sort(char **tab, int (*f)(char *, char *))
+t_bool		ft_llist_isempty(t_llist *lst)
 {
-	ft_vtab_sort((void **)tab, MAKE_CMP_PTR(f));
+	return lst->len == 0;
 }

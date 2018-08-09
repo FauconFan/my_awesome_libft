@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_llist_head.c                                    :+:      :+:    :+:   */
+/*   ft_llist_iterparam2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/07 16:09:09 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 16:10:43 by jpriou           ###   ########.fr       */
+/*   Created: 2017/09/11 23:26:21 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/09 16:32:22 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			*ft_llist_head(t_llist *lst)
+void	ft_llist_iterparam2(
+								t_llist *lst,
+								void *param1,
+								void *param2,
+								void (*f)(void *, void *, void *))
 {
-	if (lst->datas == NULL)
-		return NULL;
-	return lst->datas->content;
+	t_llist_elem	*actu;
+
+	actu = lst->datas;
+	while (actu)
+	{
+		f(actu->content, param1, param2);
+		actu = actu->next;
+	}
 }
