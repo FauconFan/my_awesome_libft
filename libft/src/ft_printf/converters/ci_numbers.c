@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 18:17:02 by jpriou            #+#    #+#             */
-/*   Updated: 2018/06/26 14:25:23 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/09 09:21:41 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static char			*adaptgabarit(char *prefix, char *str, t_treat_data *data)
 }
 
 void				process_numbers(va_list va, t_treat_data *data,
-						t_string_buffer *sb)
+						t_pf_buffer *pf)
 {
 	char	*str;
 	char	*ans;
@@ -72,6 +72,6 @@ void				process_numbers(va_list va, t_treat_data *data,
 	str = get_rep_with_prec(va, data);
 	prefix = get_prefix(&str, data);
 	ans = adaptgabarit(prefix, str, data);
-	sb_append_normal(sb, ans);
+	pf_append(pf, ans);
 	free(ans);
 }

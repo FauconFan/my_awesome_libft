@@ -6,15 +6,11 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 08:49:36 by jpriou            #+#    #+#             */
-/*   Updated: 2018/06/26 14:24:51 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/09 09:20:18 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-**	Init the struct
-*/
 
 static int		init_treat_data(t_treat_data **data)
 {
@@ -31,10 +27,6 @@ static int		init_treat_data(t_treat_data **data)
 	(*data)->converter_id = -1;
 	return (1);
 }
-
-/*
-**	init the struct and fill it
-*/
 
 static char		*init_and_set_values_treat_data(char *str,
 			t_treat_data **data, va_list va)
@@ -60,29 +52,25 @@ static char		*init_and_set_values_treat_data(char *str,
 	return (str);
 }
 
-/*
-** treat_data
-*/
-
-static int		treat_data(t_treat_data *data, va_list va, t_string_buffer *sb)
+static int		treat_data(t_treat_data *data, va_list va, t_pf_buffer *pf)
 {
 	if (data->converter_id == -1 ||
 		(data->converter_id >= 24 && data->converter_id <= 32))
 		return (0);
 	if (data->converter_id == CI_CMIN)
-		process_normal_char(va, data, sb);
+		process_normal_char(va, data, pf);
 	else if (data->converter_id == CI_SMIN)
-		process_normal_string(va, data, sb);
+		process_normal_string(va, data, pf);
 	else if (data->converter_id == CI_CMAJ)
-		return (process_special_char(va, data, sb));
+		return (process_special_char(va, data, pf));
 	else if (data->converter_id == CI_SMAJ)
-		return (process_special_string(va, data, sb));
+		return (process_special_string(va, data, pf));
 	else if (data->converter_id == CI_SEP)
-		process_sep(data, sb);
+		process_sep(data, pf);
 	else if (data->converter_id == CI_Z || data->converter_id == CI_R)
-		process_unused_flag(data, sb);
+		process_unused_flag(data, pf);
 	else if (data->converter_id >= 12 && data->converter_id <= 21)
-		process_numbers(va, data, sb);
+		process_numbers(va, data, pf);
 	else
 	{
 		ft_putstr_fd("should never happen", 2);
@@ -91,17 +79,13 @@ static int		treat_data(t_treat_data *data, va_list va, t_string_buffer *sb)
 	return (0);
 }
 
-/*
-**	treat the data when a '%' is found
-*/
-
-static int		treat_sep(char **str, va_list va, t_string_buffer *sb)
+static int		treat_sep(char **str, va_list va, t_pf_buffer *pf)
 {
 	t_treat_data	*data;
 
 	if ((*str = init_and_set_values_treat_data(++(*str), &data, va)) == 0)
 		return (-1);
-	if (treat_data(data, va, sb) == -2)
+	if (treat_data(data, va, pf) == -2)
 	{
 		free(data);
 		return (-2);
@@ -110,11 +94,7 @@ static int		treat_sep(char **str, va_list va, t_string_buffer *sb)
 	return (0);
 }
 
-/*
-**	parse the data properly.
-*/
-
-int				process(char *str, va_list va, t_string_buffer *sb)
+int				process(char *str, va_list va, t_pf_buffer *pf)
 {
 	char				*tmp;
 	int					pos_first_percent;
@@ -124,14 +104,14 @@ int				process(char *str, va_list va, t_string_buffer *sb)
 	{
 		if ((tmp = ft_strsub(str, 0, pos_first_percent)) == 0)
 			return (-1);
-		sb_append_normal(sb, tmp);
+		pf_append(pf, tmp);
 		str += pos_first_percent;
 		free(tmp);
-		if ((ret = treat_sep(&str, va, sb)) == -1)
+		if ((ret = treat_sep(&str, va, pf)) == -1)
 			return (-1);
 		if (ret == -2)
 			return (-2);
 	}
-	sb_append_normal(sb, str);
+	pf_append(pf, str);
 	return (0);
 }

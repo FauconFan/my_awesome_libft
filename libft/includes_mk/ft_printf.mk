@@ -18,8 +18,8 @@ SRC_FT_PRINTF = ft_printf_family.c \
 				treat_data_utils.c \
 				set_values_treat_data.c \
 				set_values_treat_data2.c \
-				string_buffer.c \
-				string_buffer_utils.c \
+				pf_buffer.c \
+				pf_buffer_utils.c \
 
 SRC_FT_PRINTF_CONVERTERS = ci_sep.c \
 							ci_numbers.c \

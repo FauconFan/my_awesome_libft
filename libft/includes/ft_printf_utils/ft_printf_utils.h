@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 14:06:02 by jpriou            #+#    #+#             */
-/*   Updated: 2018/06/27 08:27:18 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/09 10:54:50 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define FT_PRINTF_UTILS_H
 
 # include "libft.h"
+# include "includes/libft_linked_list.h"
 
 # define PREFIX_XMIN	"0x"
 # define PREFIX_XMAJ	"0X"
@@ -78,12 +79,13 @@
 # define CI_Z			33
 # define CI_R			34
 
-typedef struct				s_string_buffer
+typedef struct				s_pf_buffer_content
 {
 	char					*str;
 	int						byte_stored;
-	struct s_string_buffer	*next;
-}							t_string_buffer;
+}							t_pf_buffer_content;
+
+typedef t_llist				t_pf_buffer;
 
 typedef struct	s_treat_data
 {
@@ -114,29 +116,29 @@ char	*handle_hashtag_flag(char **str, t_treat_data *data);
 **  ci_numbers.c
 */
 void	process_numbers(va_list va, t_treat_data *data,
-						t_string_buffer *sb);
+						t_pf_buffer *pf);
 
 /*
 **	ci_sep.c
 */
-void	process_sep(t_treat_data *data, t_string_buffer *sb);
+void	process_sep(t_treat_data *data, t_pf_buffer *pf);
 
 /*
 **	ci_string_ascii.c
 */
 void	process_normal_string(va_list va, t_treat_data *data,
-				t_string_buffer *sb);
+				t_pf_buffer *pf);
 void	process_normal_char(va_list va, t_treat_data *res,
-				t_string_buffer *sb);
+				t_pf_buffer *pf);
 
 /*
 **	ci_string_unicode.c
 */
 
 int		process_special_char(va_list va, t_treat_data *data,
-					t_string_buffer *sb);
+					t_pf_buffer *pf);
 int		process_special_string(va_list va, t_treat_data *data,
-					t_string_buffer *sb);
+					t_pf_buffer *pf);
 
 int		get_byte_size(wchar_t *wstr, t_treat_data *data);
 char	*fill_full_string(int max, wchar_t *wstr);
@@ -144,7 +146,7 @@ char	*fill_full_string(int max, wchar_t *wstr);
 /*
 **	ci_unused_flags.c
 */
-void	process_unused_flag(t_treat_data *data, t_string_buffer *sb);
+void	process_unused_flag(t_treat_data *data, t_pf_buffer *pf);
 
 /*
 **	set_values_treat_data.c
@@ -162,37 +164,25 @@ int		set_converter_treat_data2(char cpy);
 void	update_uppercase_for_l_lm(char letter, t_treat_data *data);
 
 /*
-**	string_buffer_utils.c
+**	pf_buffer_utils.c
 */
-void	free_string_buffer(t_string_buffer *res);
-void	free_last(t_string_buffer *res);
+int							to_string_n_free(
+								t_pf_buffer **head,
+								char **res,
+								t_bool delete_last);
 
 /*
-**	string_buffer.c
+**	pf_buffer.c
 */
-t_string_buffer				*new_string_buffer_special(
-		char *str,
-		int byte_stored);
+t_pf_buffer					*ft_create_pf_buffer();
 
-t_string_buffer				*new_string_buffer_normal(
-		char *str);
+void						pf_append(t_pf_buffer *bf, char *str);
 
-void						sb_append_normal(
-		t_string_buffer *head,
-		char *str);
-
-void						sb_append_special(
-		t_string_buffer *head,
-		char *str,
-		int byte_stored);
-
-int							build_str(
-		t_string_buffer *head,
-		char **res);
+void						pf_append_special(t_pf_buffer *bf, char *str, int size);
 
 /*
 **	treat_data_utils.c
 */
-int		process(char *str, va_list va, t_string_buffer *sb);
+int		process(char *str, va_list va, t_pf_buffer *pf);
 
 #endif

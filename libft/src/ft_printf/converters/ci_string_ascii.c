@@ -6,14 +6,14 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 23:28:12 by jpriou            #+#    #+#             */
-/*   Updated: 2018/06/26 14:25:39 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/09 09:26:17 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 void	process_normal_string(va_list va, t_treat_data *data,
-			t_string_buffer *sb)
+			t_pf_buffer *pf)
 {
 	char	*res;
 	char	*tmp;
@@ -33,14 +33,14 @@ void	process_normal_string(va_list va, t_treat_data *data,
 		else
 			ft_strncpy(tmp + data->gabarit - ft_strlen(res),
 				res, ft_strlen(res));
-		sb_append_special(sb, tmp, data->gabarit);
+		pf_append_special(pf, tmp, data->gabarit);
 		free(tmp);
 	}
 	else
-		sb_append_normal(sb, res);
+		pf_append(pf, res);
 }
 
-void	process_normal_char(va_list va, t_treat_data *data, t_string_buffer *sb)
+void	process_normal_char(va_list va, t_treat_data *data, t_pf_buffer *pf)
 {
 	char	*str;
 	char	c;
@@ -53,6 +53,6 @@ void	process_normal_char(va_list va, t_treat_data *data, t_string_buffer *sb)
 		*str = c;
 	else
 		str[len - 1] = c;
-	sb_append_special(sb, str, len);
+	pf_append_special(pf, str, len);
 	free(str);
 }

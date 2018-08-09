@@ -6,13 +6,13 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 14:56:49 by jpriou            #+#    #+#             */
-/*   Updated: 2018/06/26 14:25:32 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/09 09:28:50 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	process_sep(t_treat_data *data, t_string_buffer *sb)
+void	process_sep(t_treat_data *data, t_pf_buffer *pf)
 {
 	char	*res;
 	char	*tmp;
@@ -26,11 +26,11 @@ void	process_sep(t_treat_data *data, t_string_buffer *sb)
 			ft_strncpy(tmp, res, 1);
 		else
 			ft_strncpy(tmp + data->gabarit - 1, res, 1);
-		sb_append_special(sb, tmp, data->gabarit);
+		pf_append_special(pf, tmp, data->gabarit);
 		free(tmp);
 	}
 	else
 	{
-		sb_append_special(sb, res, 1);
+		pf_append_special(pf, res, 1);
 	}
 }

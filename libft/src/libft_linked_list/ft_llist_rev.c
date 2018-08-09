@@ -6,25 +6,24 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 16:08:48 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 16:36:07 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/09 10:57:41 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		f(void *content, void *param)
+static t_llist_elem		*rec_tail(t_llist_elem *e1, t_llist_elem *e2)
 {
-	t_llist		*res;
+	t_llist_elem	*next;
 
-	res = (t_llist *)param;
-	ft_llist_addfront(res, res->cpy(content));
+	if (e1 == NULL)
+		return e2;
+	next = e1->next;
+	e1->next = e2;
+	return rec_tail(next, e1);
 }
 
-t_llist			*ft_llist_rev(t_llist *lst)
+void					ft_llist_rev(t_llist *lst)
 {
-	t_llist		*res;
-
-	res = ft_llist_new(lst->free, lst->cpy);
-	ft_llist_iterparam(lst, res, f);
-	return res;
+	lst->datas = rec_tail(lst->datas, NULL);
 }

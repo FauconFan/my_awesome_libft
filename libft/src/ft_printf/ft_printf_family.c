@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_family.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfan <fauconfan@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/29 14:34:29 by fauconfan         #+#    #+#             */
-/*   Updated: 2017/12/15 14:32:05 by fauconfan        ###   ########.fr       */
+/*   Created: 2017/11/29 14:34:29 by fauconfa          #+#    #+#             */
+/*   Updated: 2018/08/09 09:46:02 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,22 @@
 int				ft_center_printf(const char *format, va_list va,
 					char **answer, int *len_to_print)
 {
-	t_string_buffer		*sb;
+	t_pf_buffer			*pf;
 	int					res;
 	int					tampon;
 	int					ret;
 
-	if ((sb = new_string_buffer_normal("")) == 0)
-		return (-1);
-	if ((ret = process((char *)format, va, sb)) == -1)
+	pf = ft_create_pf_buffer();
+	if ((ret = process((char *)format, va, pf)) == -1)
 		return (-1);
 	if (ret == -2)
 	{
-		free_last(sb);
-		tampon = build_str(sb, answer);
-		free_string_buffer(sb);
+		tampon = to_string_n_free(&pf, answer, TRUE);
 		if (len_to_print != 0)
 			*len_to_print = tampon;
 		return (-2);
 	}
-	res = build_str(sb, answer);
-	free_string_buffer(sb);
+	res = to_string_n_free(&pf, answer, FALSE);
 	if (len_to_print != 0)
 		*len_to_print = res;
 	return (res);

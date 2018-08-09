@@ -6,14 +6,14 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 19:36:56 by jpriou            #+#    #+#             */
-/*   Updated: 2018/06/27 08:15:26 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/09 09:27:29 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 int				process_special_char(va_list va, t_treat_data *data,
-						t_string_buffer *sb)
+						t_pf_buffer *pf)
 {
 	wchar_t		wchar;
 	char		*str;
@@ -34,7 +34,7 @@ int				process_special_char(va_list va, t_treat_data *data,
 		ft_fill_wstring_len(wchar, str, size);
 	else
 		ft_fill_wstring_len(wchar, str + len - 1, size);
-	sb_append_special(sb, str, size + len - 1);
+	pf_append_special(pf, str, size + len - 1);
 	free(str);
 	return (0);
 }
@@ -60,7 +60,7 @@ static char		*get_first_rep(va_list va, t_treat_data *data, int *len)
 }
 
 int				process_special_string(va_list va, t_treat_data *data,
-					t_string_buffer *sb)
+					t_pf_buffer *pf)
 {
 	char		*str;
 	char		*tmp;
@@ -84,7 +84,7 @@ int				process_special_string(va_list va, t_treat_data *data,
 		str = tmp;
 		size_tot = data->gabarit;
 	}
-	sb_append_special(sb, str, size_tot);
+	pf_append_special(pf, str, size_tot);
 	free(str);
 	return (0);
 }

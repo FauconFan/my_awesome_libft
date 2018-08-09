@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_buffer_utils.c                              :+:      :+:    :+:   */
+/*   ft_llist_pop.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/28 11:41:22 by jpriou            #+#    #+#             */
-/*   Updated: 2018/06/26 14:24:42 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/09 10:51:30 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/09 10:53:30 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-**	free_string_buffer, assez explicit.
-*/
-
-void		free_string_buffer(
-		t_string_buffer *res)
+void			ft_llist_pop(t_llist *lst)
 {
-	if (res)
-	{
-		if (res->next)
-			free_string_buffer(res->next);
-		free(res->str);
-		free(res);
-	}
-}
+	t_llist_elem	*head;
 
-void		free_last(t_string_buffer *res)
-{
-	if (res == 0)
+	if (lst->datas == NULL)
 		return ;
-	while (res->next->next)
-		res = res->next;
-	free_string_buffer(res->next);
-	res->next = 0;
+	head = lst->datas->next;
+	(lst->free)(lst->datas->content);
+	free(lst->datas);
+	lst->datas = head;
 }
