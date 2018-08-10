@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/10 14:38:22 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 15:56:38 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 16:44:37 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "libft.h"
 
-t_bool				ft_match(char *s1, char *s2);
+t_bool				ft_rg_match(char *s1, char *s2);
 
 /*
 **	Utils
