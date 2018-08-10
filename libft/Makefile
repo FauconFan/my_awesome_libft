@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/09 16:14:20 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/10 08:13:02 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ _WHITE=$(shell tput setaf 7 2> /dev/null || echo "")
 _END=$(shell tput sgr0 2> /dev/null || echo "")
 
 SRC_FOLDER = src/
-INCLUDES_MK_FOLDER = includes_mk/
+INCLUDES_MK_FOLDER = inc_mk/
 INCLUDES_FOLDER = includes/
 
 CC = gcc
@@ -40,17 +40,17 @@ TOT_C = $(shell find src -mindepth 2 -name "*.c" | wc -l)
 
 SRC =
 
-include $(INCLUDES_MK_FOLDER)ft_printf.mk
-include $(INCLUDES_MK_FOLDER)get_next_line.mk
-include $(INCLUDES_MK_FOLDER)getopt.mk
-include $(INCLUDES_MK_FOLDER)libft_char.mk
-include $(INCLUDES_MK_FOLDER)libft_linked_list.mk
-include $(INCLUDES_MK_FOLDER)libft_math.mk
-include $(INCLUDES_MK_FOLDER)libft_memmory.mk
-include $(INCLUDES_MK_FOLDER)libft_put.mk
-include $(INCLUDES_MK_FOLDER)libft_str.mk
-include $(INCLUDES_MK_FOLDER)libft_tab.mk
-include $(INCLUDES_MK_FOLDER)libft_wchar.mk
+include $(INCLUDES_MK_FOLDER)f_char.mk
+include $(INCLUDES_MK_FOLDER)f_math.mk
+include $(INCLUDES_MK_FOLDER)f_memmory.mk
+include $(INCLUDES_MK_FOLDER)f_put.mk
+include $(INCLUDES_MK_FOLDER)f_str.mk
+include $(INCLUDES_MK_FOLDER)f_tab.mk
+include $(INCLUDES_MK_FOLDER)f_wchar.mk
+include $(INCLUDES_MK_FOLDER)m_ft_printf.mk
+include $(INCLUDES_MK_FOLDER)m_get_next_line.mk
+include $(INCLUDES_MK_FOLDER)m_getopt.mk
+include $(INCLUDES_MK_FOLDER)t_simple_list.mk
 
 OBJ = $(SRC:%.c=%.o)
 

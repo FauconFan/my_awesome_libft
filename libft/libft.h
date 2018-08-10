@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:15:24 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/09 11:52:36 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 08:12:49 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,16 @@ typedef short					t_bool;
 **	Includes
 */
 
-# include "includes/ft_printf.h"
-# include "includes/get_next_line.h"
-# include "includes/getopt.h"
-# include "includes/libft_char.h"
-# include "includes/libft_linked_list.h"
-# include "includes/libft_math.h"
-# include "includes/libft_memmory.h"
-# include "includes/libft_put.h"
-# include "includes/libft_str.h"
-# include "includes/libft_tab.h"
-# include "includes/libft_wchar.h"
+# include "inc/f_char.h"
+# include "inc/f_math.h"
+# include "inc/f_memmory.h"
+# include "inc/f_put.h"
+# include "inc/f_str.h"
+# include "inc/f_tab.h"
+# include "inc/f_wchar.h"
+# include "inc/m_ft_printf.h"
+# include "inc/m_get_next_line.h"
+# include "inc/m_getopt.h"
+# include "inc/t_simple_list.h"
 
 #endif

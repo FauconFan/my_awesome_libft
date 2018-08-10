@@ -93,22 +93,22 @@ static int		reverser_strcmp(char *s1, char *s2)
 }
 
 int		main(void) {
-	t_llist		*l;
+	t_slist		*l;
 
-	l = ft_llist_new(free);
-	ft_llist_add_cpy(l, MAKE_COPY_PTR(ft_strdup), TRUE);
-	ft_llist_addback(l, "1");
-	ft_llist_addback(l, "2");
-	ft_llist_addback(l, "3");
-	ft_llist_addfront(l, "0");
-	ft_llist_iter(l, (void (*)(void *))ft_putendl);
-	ft_printf("size %d\n", ft_llist_size(l));
-	ft_llist_rev(l);
-	ft_llist_iter(l, (void (*)(void *))ft_putendl);
-	ft_printf("size %d\n", ft_llist_size(l));
-	ft_llist_remove(l, 1);
-	ft_llist_iter(l, (void (*)(void *))ft_putendl);
-	ft_printf("size %d\n", ft_llist_size(l));
-	ft_llist_free(&l);
+	l = ft_slist_new(free);
+	ft_slist_add_cpy(l, MAKE_COPY_PTR(ft_strdup), TRUE);
+	ft_slist_addback(l, "1");
+	ft_slist_addback(l, "2");
+	ft_slist_addback(l, "3");
+	ft_slist_addfront(l, "0");
+	ft_slist_iter(l, (void (*)(void *))ft_putendl);
+	ft_printf("size %d\n", ft_slist_size(l));
+	ft_slist_rev(l);
+	ft_slist_iter(l, (void (*)(void *))ft_putendl);
+	ft_printf("size %d\n", ft_slist_size(l));
+	ft_slist_remove(l, 1);
+	ft_slist_iter(l, (void (*)(void *))ft_putendl);
+	ft_printf("size %d\n", ft_slist_size(l));
+	ft_slist_free(&l);
 	return 0;
 }
