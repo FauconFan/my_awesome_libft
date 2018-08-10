@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-LIBFT_LINKED_LIST_FOLDER = $(SRC_FOLDER)t_slist/
+LIBFT_SIMPLE_LIST_FOLDER = $(SRC_FOLDER)t_slist/
 
-SRC_LIBFT_LINKED_LIST = \
+SRC_LIBFT_SIMPLE_LIST = \
 							core/ft_slist_free.c \
 							core/ft_slist_elem_new.c \
 							core/ft_slist_add_cmp.c \
@@ -42,4 +42,4 @@ SRC_LIBFT_LINKED_LIST = \
 							treat/ft_slist_findparam.c \
 							treat/ft_slist_map.c \
 
-SRC += $(addprefix $(LIBFT_LINKED_LIST_FOLDER), $(SRC_LIBFT_LINKED_LIST))
+SRC += $(addprefix $(LIBFT_SIMPLE_LIST_FOLDER), $(SRC_LIBFT_SIMPLE_LIST))

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 09:04:34 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 08:13:28 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 11:14:05 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "libft.h"
 #include "inc/f_tab.h"
-#include "inc/t_simple_list.h"
+#include "inc/t_slist.h"
 #include "inc/getopt_utils/typedefs.h"
 #include "inc/getopt_utils/getopt_utils.h"
 

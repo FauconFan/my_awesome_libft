@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:15:24 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/10 08:12:49 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 11:13:37 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef short					t_bool;
 # include "inc/m_ft_printf.h"
 # include "inc/m_get_next_line.h"
 # include "inc/m_getopt.h"
-# include "inc/t_simple_list.h"
+# include "inc/t_sb.h"
+# include "inc/t_slist.h"
 
 #endif

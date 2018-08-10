@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 14:06:02 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 08:13:43 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 11:13:57 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define FT_PRINTF_UTILS_H
 
 # include "libft.h"
-# include "inc/t_simple_list.h"
+# include "inc/t_slist.h"
 
 # define PREFIX_XMIN	"0x"
 # define PREFIX_XMAJ	"0X"
