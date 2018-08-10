@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sb_append.c                                     :+:      :+:    :+:   */
+/*   ft_slist_append_cp.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/10 10:59:39 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 11:43:28 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/10 11:22:57 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/10 11:33:09 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_sb_append(t_sb *sb, char *str)
+void	ft_slist_append_cp(t_slist *lst, void *content)
 {
-	ft_slist_push_cp(sb, str);
+	ft_slist_addback(lst, content, TRUE);
 }

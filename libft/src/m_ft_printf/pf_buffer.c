@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 17:23:46 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/09 16:00:23 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 11:37:05 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ void						pf_append(t_pf_buffer *pf, char *str)
 
 void						pf_append_special(t_pf_buffer *pf, char *str, int size)
 {
-	ft_slist_addfront(pf, ft_create_pf_content(str, size));
+	ft_slist_push(pf, ft_create_pf_content(str, size));
 }

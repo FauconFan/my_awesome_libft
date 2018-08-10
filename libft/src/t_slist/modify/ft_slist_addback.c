@@ -6,13 +6,13 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 14:39:35 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 07:43:34 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 11:30:15 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_slist_addback(t_slist *head, void *content)
+void	ft_slist_addback(t_slist *head, void *content, t_bool do_cpy)
 {
 	t_slist_elem	*tmp;
 	t_slist_elem	*actu;
@@ -20,7 +20,7 @@ void	ft_slist_addback(t_slist *head, void *content)
 	if (head == 0)
 		return ;
 	head->len = head->len + 1;
-	if (head->copy_on_add)
+	if (do_cpy)
 		tmp = ft_slist_elem_new((head->cpy)(content));
 	else
 		tmp = ft_slist_elem_new(content);

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 10:28:09 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/07 10:48:58 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 11:41:49 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static void		ft_add_s_opt(
 
 	target = ft_cli_get_target(arg);
 	opt = ft_create_short_opt_cli(c, target);
-	ft_slist_addfront(builder->short_opts, opt);
-	ft_slist_addfront(builder->args, arg);
+	ft_slist_push(builder->short_opts, opt);
+	ft_slist_push(builder->args, arg);
 }
 
 static void		ft_add_l_opt(
@@ -36,8 +36,8 @@ static void		ft_add_l_opt(
 
 	target = ft_cli_get_target(arg);
 	opt = ft_create_long_opt_cli(s, target);
-	ft_slist_addfront(builder->long_opts, opt);
-	ft_slist_addfront(builder->args, arg);
+	ft_slist_push(builder->long_opts, opt);
+	ft_slist_push(builder->args, arg);
 }
 
 static void		ft_add_sl_opt(
@@ -53,9 +53,9 @@ static void		ft_add_sl_opt(
 	target = ft_cli_get_target(arg);
 	opt_s = ft_create_short_opt_cli(c, target);
 	opt_l = ft_create_long_opt_cli(s, target);
-	ft_slist_addfront(builder->short_opts, opt_s);
-	ft_slist_addfront(builder->long_opts, opt_l);
-	ft_slist_addfront(builder->args, arg);
+	ft_slist_push(builder->short_opts, opt_s);
+	ft_slist_push(builder->long_opts, opt_l);
+	ft_slist_push(builder->args, arg);
 }
 
 void		ft_cli_add_u(
@@ -76,7 +76,7 @@ void		ft_cli_add_u(
 		ft_add_l_opt(builder, opt->long_opt, arg);
 	}
 	opt->type = ft_cli_arg_get_type(arg);
-	ft_slist_addfront(builder->helps, opt);
+	ft_slist_push(builder->helps, opt);
 }
 
 void		ft_cli_add(

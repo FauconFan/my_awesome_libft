@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 15:35:43 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/09 16:10:26 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 11:43:40 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ t_slist			*ft_slist_cpy(t_slist *lst)
 	t_slist		*res;
 
 	res = ft_slist_map(lst, lst->cpy, lst->free);
-	res->copy_on_add = lst->copy_on_add;
 	res->len = lst->len;
 	res->free = lst->free;
 	res->cpy = lst->cpy;

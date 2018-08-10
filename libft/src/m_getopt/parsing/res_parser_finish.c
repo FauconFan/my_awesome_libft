@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 19:27:31 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 14:07:14 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 11:40:08 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		apply_arg_in_res_parser(void *arg_void, void *res_parser_void)
 {
-	t_cli_parser	*res_parser;
+	t_cli_parser		*res_parser;
 	t_cli_arg			*arg;
 	void				*content_arg;
 
@@ -23,15 +23,15 @@ static void		apply_arg_in_res_parser(void *arg_void, void *res_parser_void)
 	content_arg = arg->content;
 	if (ft_cli_is_bool(arg))
 	{
-		ft_slist_addfront(res_parser->list_bool, ft_copy_res_bool(content_arg));
+		ft_slist_push(res_parser->list_bool, ft_copy_res_bool(content_arg));
 	}
 	else if (ft_cli_is_string(arg))
 	{
-		ft_slist_addfront(res_parser->list_string, ft_copy_res_string(content_arg));
+		ft_slist_push(res_parser->list_string, ft_copy_res_string(content_arg));
 	}
 	else if (ft_cli_is_array(arg))
 	{
-		ft_slist_addfront(res_parser->list_array, ft_copy_res_array(content_arg));
+		ft_slist_push(res_parser->list_array, ft_copy_res_array(content_arg));
 	}
 }
 

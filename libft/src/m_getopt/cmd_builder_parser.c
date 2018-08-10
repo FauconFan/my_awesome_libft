@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 10:59:54 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/09 16:08:00 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 11:42:45 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_cmd_builder_parser	*ft_create_cmd_builder_parser(
 	res->argv0 = NULL;
 	*argc = -1;
 	*argv = NULL;
-	ft_slist_addfront(res->cmd_nodes, ft_create_help_sub_cmd());
+	ft_slist_push(res->cmd_nodes, ft_create_help_sub_cmd());
 	return res;
 }
 
@@ -50,7 +50,7 @@ void					ft_add_cmd_u(
 							t_cmd_builder_parser *p,
 							t_cmd_builder_parser_n *n)
 {
-	ft_slist_addfront(p->cmd_nodes, n);
+	ft_slist_push(p->cmd_nodes, n);
 }
 
 void					ft_add_cmd(

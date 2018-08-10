@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:22:57 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 11:13:31 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 11:45:13 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,42 +23,49 @@ typedef struct			s_slist_elem
 
 typedef struct			s_slist
 {
-	t_slist_elem		*head;
-	t_bool				copy_on_add;
-	size_t				len;
 	void				(*free)(void *);
 	void				*(*cpy)(void *);
 	int					(*cmp)(void *, void *);
+	size_t				len;
+	t_slist_elem		*head;
 }						t_slist;
 
 /*
 **	Core
 */
 
-t_slist					*ft_slist_new(
-									void (*free_f)(void *));
+t_slist					*ft_slist_new(void (*free_f)(void *));
+t_slist					*ft_slist_cpy(t_slist *lst);
+void					ft_slist_free(t_slist **head);
+
+t_slist_elem			*ft_slist_elem_new(void *content);
 
 void					ft_slist_add_cpy(
 									t_slist *lst,
-									void *(*cpy_f)(void *),
-									t_bool copy_on_add);
+									void *(*cpy_f)(void *));
 
 void					ft_slist_add_cmp(
 									t_slist *lst,
 									int (*cmp_f)(void *, void *));
 
-void					ft_slist_free(t_slist **head);
-
-t_slist_elem			*ft_slist_elem_new(void *content);
-
-t_slist					*ft_slist_cpy(t_slist *lst);
-
 /*
 **	Modify
 */
 
-void					ft_slist_addfront(t_slist *head, void *content);
-void					ft_slist_addback(t_slist *head, void *content);
+void					ft_slist_addfront(
+									t_slist *head,
+									void *content,
+									t_bool do_cpy);
+void					ft_slist_addback(
+									t_slist *head,
+									void *content,
+									t_bool do_cpy);
+
+void					ft_slist_push(t_slist *lst, void *content);
+void					ft_slist_push_cp(t_slist *head, void *content);
+
+void					ft_slist_append(t_slist *lst, void *content);
+void					ft_slist_append_cp(t_slist *lst, void *content);
 
 void					ft_slist_pop(t_slist *lst);
 void					ft_slist_remove(t_slist *lst, size_t i);
