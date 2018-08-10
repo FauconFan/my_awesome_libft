@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:37:45 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/08 16:29:46 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 13:10:23 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_cmd_builder_parser_n	*build_run_cmd()
 		ft_create_string_arg("cgroup-parent-target", NULL));
 	return ft_create_cmd_builder_parser_node_cli(
 						"run",
-						"Sample of Docker Helper for run command",
+						"Sample of Docker Helper for run command, blablablabla",
 						&bd_cli);
 }
 

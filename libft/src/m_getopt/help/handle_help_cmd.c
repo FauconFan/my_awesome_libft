@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 16:17:57 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 11:40:42 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 13:09:21 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ static void	add_properly(void *elem, void *param)
 	t_cmd_builder_parser_n	*n;
 	t_slist					*lst;
 	char					*rep;
+	char					*helper;
 
 	n = (t_cmd_builder_parser_n *)elem;
 	lst = (t_slist *)param;
-	ft_sprintf(&rep, "   %-27s  %s", n->cmd, n->helper);
+	helper = build_helper_properly(n->helper, 32, 50);
+	ft_sprintf(&rep, "   %-27s  %s", n->cmd, helper);
 	ft_slist_push(lst, rep);
+	ft_strdel(&helper);
 }
 
 t_slist		*build_help_command(t_slist *cmds)

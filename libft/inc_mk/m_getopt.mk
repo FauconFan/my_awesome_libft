@@ -35,6 +35,7 @@ SRC_GETOPT = \
 				getters/ft_cli_getstr_rc.c \
 				help/handle_help_cli.c \
 				help/handle_help_cmd.c \
+				help/build_helper_properly.c \
 				help/is_user_fault.c \
 				add.c \
 				cli_builder_parser.c \

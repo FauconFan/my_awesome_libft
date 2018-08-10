@@ -6,54 +6,11 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 17:10:20 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/09 16:04:14 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 12:58:18 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static void		print_helper_properly2(char **tab, int l, int r)
-{
-	int		len;
-	int		rank;
-	int		actu;
-
-	len = 0;
-	rank = 0;
-	while (tab[rank] && (len + (int)ft_strlen(tab[rank]) < r - 1))
-	{
-		len += ft_strlen(tab[rank]) + (len != 0);
-		rank++;
-	}
-	actu = 0;
-	while (actu < rank)
-	{
-		if (actu != 0)
-			ft_putchar(' ');
-		ft_putstr(tab[actu]);
-		actu ++;
-	}
-	if (tab[rank])
-	{
-		ft_putchar('\n');
-		actu = 0;
-		while (actu < l)
-		{
-			ft_putchar(' ');
-			actu++;
-		}
-		print_helper_properly2(tab + rank, l, r);
-	}
-}
-
-static void		print_helper_properly(char *helper, int l, int r)
-{
-	char	**tab;
-
-	tab = ft_strsplit(helper, ' ');
-	print_helper_properly2(tab, l, r);
-	ft_stab_free(&tab);
-}
 
 static void		display_f(void *elem)
 {
@@ -61,6 +18,7 @@ static void		display_f(void *elem)
 	char		*delim;
 	char		*sh;
 	char		*lo;
+	char		*help;
 
 	opt = (t_cli_opt *)elem;
 	delim = (opt->short_opt && opt->long_opt) ? ", " : "  ";
@@ -78,7 +36,11 @@ static void		display_f(void *elem)
 		lo = ft_strdup(opt->type);
 	ft_printf("  %s%s%-34s", sh, delim, lo);
 	if (opt->help)
-		print_helper_properly(opt->help, 40, 50);
+	{
+		help = build_helper_properly(opt->help, 40, 50);
+		ft_putstr(help);
+		ft_strdel(&help);
+	}
 	ft_putchar('\n');
 	ft_strdel(&sh);
 	ft_strdel(&lo);

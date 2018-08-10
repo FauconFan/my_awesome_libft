@@ -16,6 +16,7 @@ SRC_LIBFT_STRING_BUFFER = \
 							ft_sb_new.c \
 							ft_sb_free.c \
 							ft_sb_append.c \
+							ft_sb_append_char.c \
 							ft_sb_tostring.c \
 
 SRC += $(addprefix $(LIBFT_STRING_BUFFER_FOLDER), $(SRC_LIBFT_STRING_BUFFER))

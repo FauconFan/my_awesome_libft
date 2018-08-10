@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 17:19:05 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/08 14:45:29 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 12:55:36 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,6 +178,8 @@ void				handle_help_cmd(
 							t_slist **lst_node,
 							t_opt_error *e,
 							char *helper);
+
+char				*build_helper_properly(char *helper, int l, int r);
 
 t_bool				is_user_fault(t_opt_error err);
 t_bool				has_printed_help(t_opt_error err);
