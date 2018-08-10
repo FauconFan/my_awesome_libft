@@ -43,5 +43,6 @@ SRC_GETOPT = \
 				cmd_builder_parser.c \
 				cmd_builder_parser_node.c \
 				cmd_parser.c \
+				getopt.c
 
 SRC += $(addprefix $(GETOPT_FOLDER), $(SRC_GETOPT))

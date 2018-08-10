@@ -12,7 +12,7 @@
 
 LIBFT_STR_FOLDER = $(SRC_FOLDER)f_str/
 SIMPLE_LIBFT_STR_FOLDER = $(LIBFT_STR_FOLDER)simple/
-INTEGER_LIBFT_STR_FOLDER = $(LIBFT_STR_FOLDER)integer/
+CONVERSION_LIBFT_STR_FOLDER = $(LIBFT_STR_FOLDER)conversion/
 ALLOC_LIBFT_STR_FOLDER = $(LIBFT_STR_FOLDER)alloc/
 TREAT_LIBFT_STR_FOLDER = $(LIBFT_STR_FOLDER)treat/
 
@@ -43,6 +43,7 @@ SRC_LIBFT_TREAT_STR = \
 					ft_strstr.c \
 					ft_strsub.c \
 					ft_strtrim.c \
+					ft_strrev.c \
 
 SRC_LIBFT_SIMPLE_STR = \
 					ft_str_all.c \
@@ -56,13 +57,14 @@ SRC_LIBFT_SIMPLE_STR = \
 					ft_str_is_printable.c \
 					ft_str_is_uppercase.c \
 
-SRC_LIBFT_INTEGER_STR = \
+SRC_LIBFT_CONVERSION_STR = \
 					ft_atoi_base.c \
 					ft_atoi.c \
 					ft_convert_base.c \
 					ft_itoa_base.c \
 					ft_itoa.c \
 					ft_lltoa.c \
+					ft_escapedtochar.c \
 
 SRC_LIBFT_ALLOC_STR = \
 					ft_strdel.c \
@@ -75,5 +77,5 @@ SRC_LIBFT_ALLOC_STR = \
 
 SRC += $(addprefix $(TREAT_LIBFT_STR_FOLDER), $(SRC_LIBFT_TREAT_STR)) \
 		$(addprefix $(SIMPLE_LIBFT_STR_FOLDER), $(SRC_LIBFT_SIMPLE_STR)) \
-		$(addprefix $(INTEGER_LIBFT_STR_FOLDER), $(SRC_LIBFT_INTEGER_STR)) \
+		$(addprefix $(CONVERSION_LIBFT_STR_FOLDER), $(SRC_LIBFT_CONVERSION_STR)) \
 		$(addprefix $(ALLOC_LIBFT_STR_FOLDER), $(SRC_LIBFT_ALLOC_STR))

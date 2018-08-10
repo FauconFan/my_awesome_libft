@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_getopt_validate.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/03 17:02:01 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/10 16:00:36 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/10 13:46:45 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/10 14:01:40 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int main()
+static t_bool		ft_validate_base_comp(char **config_ptr)
 {
-	ft_match("aaab", "aab?a?[ab]?");
-	return 0;
+
+}
+
+t_bool				ft_validate_config(char *config)
+{
+	
 }

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 12:12:00 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 12:48:10 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 13:27:06 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ t_cmd_builder_parser_n	*build_cmd(char *cmd)
 
 	res = ft_create_cmd_builder_parser_node_cmd(cmd, "Totouette");
 	cli_p = build_static_cli_parser();
-	n1 = ft_create_cmd_builder_parser_node_cli("Abracadra", "AAAAAAAH", &cli_p);
+	n1 = ft_create_cmd_builder_parser_node_cli("Abracadra", &cli_p);
 	cli_p = build_static_cli_parser();
-	n2 = ft_create_cmd_builder_parser_node_cli("Baba", "BBBBBBB", &cli_p);
+	n2 = ft_create_cmd_builder_parser_node_cli("Baba", &cli_p);
 	cli_p = build_static_cli_parser();
-	n3 = ft_create_cmd_builder_parser_node_cli("Casse", "Krack", &cli_p);
+	n3 = ft_create_cmd_builder_parser_node_cli("Casse", &cli_p);
 	ft_add_sub_cmd(res, &n1);
 	ft_add_sub_cmd(res, &n2);
 	ft_add_sub_cmd(res, &n3);

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:20:28 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 08:10:11 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/10 14:20:28 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ char			*ft_convert_base(char *nbr, char *base_from, char *base_to);
 
 char			*ft_lltoa_base(long long n, char *base);
 char			*ft_ulltoa_base(unsigned long long n, char *base);
+
+char			ft_escapedtochar(char *str);
+
+void			ft_strrev(char *str);
 
 int				ft_strcmp(char const *s1, char const *s2);
 int				ft_strncmp(char const *s1, char const *s2, size_t size);

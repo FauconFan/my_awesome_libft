@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/03 17:02:01 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/10 16:00:36 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/10 14:18:22 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/10 14:19:56 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int main()
+void		ft_strrev(char *str)
 {
-	ft_match("aaab", "aab?a?[ab]?");
-	return 0;
+	size_t	len;
+	size_t	i;
+	char	c;
+
+	len = ft_strlen(str);
+	i = 0;
+	while (i < len / 2)
+	{
+		c = str[i];
+		str[i] = str[len - 1 - i];
+		str[len - 1 - i] = c;
+		i++;
+	}
 }
