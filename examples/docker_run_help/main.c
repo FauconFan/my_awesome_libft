@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:37:45 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 13:46:15 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/12 15:24:00 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,13 @@ void	do_main(int *argc, char ***argv)
 }
 
 int main(int argc, char **argv) {
-	// do_main(&argc, &argv);
-	t_cmd_parser	*cmd;
-	t_opt_error		err;
-
-	cmd = ft_getopt(CONFIG_OPT, &argc, &argv, &err);
-	(void)cmd;
-	(void)err;
+	do_main(&argc, &argv);
+	// t_cmd_parser	*cmd;
+	// t_opt_error		err;
+	//
+	// cmd = ft_getopt(CONFIG_OPT, &argc, &argv, &err);
+	// (void)cmd;
+	// (void)err;
 	// ft_free_cmd_parser(&cmd);
 	return 0;
 }

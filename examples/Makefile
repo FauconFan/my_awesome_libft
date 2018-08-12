@@ -6,7 +6,7 @@
 #    By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/01 16:51:26 by jpriou            #+#    #+#              #
-#    Updated: 2018/08/01 17:32:33 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/12 15:25:23 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,5 +33,7 @@ bin/%: %
 clean:
 	rm -rf $(BIN)
 	rm -rf bin
+
+fclean: clean
 
 re: clean all
