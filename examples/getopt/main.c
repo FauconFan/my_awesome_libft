@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 12:12:00 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 13:27:06 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/12 15:41:19 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int						main(int argc, char **argv)
 	cmd_p = ft_run_cmd(&cmd_bd_p, &err);
 	if (has_printed_help(err) == FALSE)
 	{
-		ft_putendl("You successfully called the folloing commands");
+		ft_putendl("You successfully called the following commands");
 		ft_stab_iter(cmd_p->list_commands, (void (*)(char *))ft_putendl);
 		ft_printf("short %d\n", ft_cli_getb(cmd_p->parser, "Short called"));
 		ft_printf("long %d\n", ft_cli_getb(cmd_p->parser, "Long called"));
