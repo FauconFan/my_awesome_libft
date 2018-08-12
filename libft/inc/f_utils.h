@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   f_utils.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/06 09:49:11 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/12 16:24:13 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/12 19:27:06 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/12 22:40:49 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef F_UTILS_H
+#define F_UTILS_H
+
 #include "libft.h"
 
-int			ft_atoi(char const *nptr)
-{
-	return ft_atoi_base(nptr, "0123456789");
-}
+void		ft_for(int min, int max, void (*f)());
+void		ft_forparam(int min, int max, void (*f)(void *), void *p);
+
+void		ft_fori(int min, int max, void (*f)(int));
+void		ft_foriparam(int min, int max, void (*f)(void *, int i), void *p);
+
+#endif

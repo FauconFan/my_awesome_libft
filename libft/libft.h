@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:15:24 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/10 14:58:17 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/12 19:28:05 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,13 @@ typedef short					t_bool;
 */
 
 # include "inc/f_char.h"
+# include "inc/f_encrypt.h"
 # include "inc/f_math.h"
 # include "inc/f_memmory.h"
 # include "inc/f_put.h"
 # include "inc/f_str.h"
 # include "inc/f_tab.h"
+# include "inc/f_utils.h"
 # include "inc/f_wchar.h"
 # include "inc/m_ft_printf.h"
 # include "inc/m_get_next_line.h"

@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/12 11:06:35 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/12 20:38:08 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,11 +41,13 @@ TOT_C = $(shell find src -mindepth 2 -name "*.c" | wc -l)
 SRC =
 
 include $(INCLUDES_MK_FOLDER)f_char.mk
+include $(INCLUDES_MK_FOLDER)f_encrypt.mk
 include $(INCLUDES_MK_FOLDER)f_math.mk
 include $(INCLUDES_MK_FOLDER)f_memmory.mk
 include $(INCLUDES_MK_FOLDER)f_put.mk
 include $(INCLUDES_MK_FOLDER)f_str.mk
 include $(INCLUDES_MK_FOLDER)f_tab.mk
+include $(INCLUDES_MK_FOLDER)f_utils.mk
 include $(INCLUDES_MK_FOLDER)f_wchar.mk
 include $(INCLUDES_MK_FOLDER)m_ft_printf.mk
 include $(INCLUDES_MK_FOLDER)m_get_next_line.mk

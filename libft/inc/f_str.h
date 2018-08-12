@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:20:28 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 14:20:28 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/12 19:48:23 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char			*ft_strsetnew(int len, char c);
 size_t			ft_strlen(char const *str);
 
 int				ft_atoi(char const *nptr);
-int				ft_atoi_base(char *str, char *base);
+int				ft_atoi_base(char const *str, char *base);
 char			*ft_itoa(int n);
 char			*ft_itoa_base(int n, char *base);
 char			*ft_convert_base(char *nbr, char *base_from, char *base_to);
@@ -33,6 +33,9 @@ char			*ft_lltoa_base(long long n, char *base);
 char			*ft_ulltoa_base(unsigned long long n, char *base);
 
 char			ft_escapedtochar(char *str);
+
+void			ft_switch_endian(char *str);
+void			ft_switch_endian_fixed(char *str, size_t len);
 
 void			ft_strrev(char *str);
 

@@ -10,27 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-LIBFT_MATH_FOLDER = $(SRC_FOLDER)f_math/
+LIBFT_UTILS_FOLDER = $(SRC_FOLDER)f_utils/
 
-SRC_LIBFT_MATH = \
-					trigo/ft_sin.c \
-					trigo/ft_cos.c \
-					trigo/ft_tan.c \
-					trigo/ft_arcsin.c \
-					trigo/ft_arccos.c \
-					trigo/ft_arctan.c \
-					ft_abs.c \
-					ft_log10.c \
-					ft_logb.c \
-					ft_logi10.c \
-					ft_logib.c \
-					ft_max.c \
-					ft_min.c \
-					ft_pow.c \
-					ft_sqrt.c \
-					ft_curt.c \
-					ft_nrt.c \
-					ft_remquo.c \
-					ft_fact.c \
+SRC_LIBFT_UTILS = \
+					ft_for.c \
+					ft_fori.c \
+					ft_forparam.c \
+					ft_foriparam.c \
 
-SRC += $(addprefix $(LIBFT_MATH_FOLDER), $(SRC_LIBFT_MATH))
+SRC += $(addprefix $(LIBFT_UTILS_FOLDER), $(SRC_LIBFT_UTILS))

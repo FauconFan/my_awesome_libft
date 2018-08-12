@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 13:24:46 by jpriou            #+#    #+#             */
-/*   Updated: 2017/11/11 16:39:07 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/12 16:26:28 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,17 +87,19 @@ static int		atoi_real(char *str, char *base, int length_base)
 	return (res * -sign);
 }
 
-int				ft_atoi_base(char *str, char *base)
+int				ft_atoi_base(char const *str, char *base)
 {
 	int		length_base;
+	char	*cpy;
 
 	length_base = 0;
+	cpy = (char *)str;
 	while (base[length_base])
 		length_base++;
 	if (length_base <= 1)
 		return (0);
 	if (validate_base(base) == 0)
 		return (0);
-	str = update_str(str);
-	return (atoi_real(str, base, length_base));
+	cpy = update_str(cpy);
+	return (atoi_real(cpy, base, length_base));
 }

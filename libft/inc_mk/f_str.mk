@@ -65,6 +65,8 @@ SRC_LIBFT_CONVERSION_STR = \
 					ft_itoa.c \
 					ft_lltoa.c \
 					ft_escapedtochar.c \
+					ft_switch_endian.c \
+					ft_switch_endian_fixed.c \
 
 SRC_LIBFT_ALLOC_STR = \
 					ft_strdel.c \

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_switch_endian.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/06 09:49:11 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/12 16:24:13 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/12 19:34:17 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/12 19:46:20 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_atoi(char const *nptr)
+void				ft_switch_endian(char *str)
 {
-	return ft_atoi_base(nptr, "0123456789");
+	ft_switch_endian_fixed(str, ft_strlen(str));
 }

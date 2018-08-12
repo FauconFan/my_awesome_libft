@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 07:55:17 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/05 11:56:53 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/12 16:32:50 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static int		my_log(int n, int len)
 {
 	if (n < 0)
-		return (1 + ft_logb(-n, len));
-	return (ft_logb(n, len));
+		return (1 + ft_logib(-n, len));
+	return (ft_logib(n, len));
 }
 
 static char		*returnzero(char *res)

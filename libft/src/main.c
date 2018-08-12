@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 17:02:01 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/12 11:56:16 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/12 20:38:00 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 int main()
 {
-	ft_rg_match("123a", "[\\w]*");
+	char	*s;
+
+	s = ft_md5("N importe quoi ! Je t aime ! \n");
+	ft_printf("%s\n", s);
+	ft_strdel(&s);
+	ft_putendl("39a347d0cbf89957e3a28c5007dd3032");
 	return 0;
 }
