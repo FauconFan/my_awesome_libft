@@ -14,10 +14,9 @@ REGEX_FOLDER = $(SRC_FOLDER)m_regex/
 
 SRC_REGEX = \
 						utils/rv_match.c \
-						utils/rv_match_star.c \
-						utils/rv_match_plus.c \
 						utils/rv_match_group.c \
-						utils/rv_match_questionmark.c \
+						utils/rv_match_more.c \
+						utils/rv_match_character.c \
 						ft_rg_match.c \
 
 SRC += $(addprefix $(REGEX_FOLDER), $(SRC_REGEX))

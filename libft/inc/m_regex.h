@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/10 14:38:22 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 16:44:37 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/12 11:04:48 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ t_bool				ft_rg_match(char *s1, char *s2);
 */
 
 t_bool				rv_match(char *str, char *pattern);
-t_bool				rv_match_star(char *str, char *pattern);
-t_bool				rv_match_plus(char *str, char *pattern);
-t_bool				rv_match_questionmark(char *str, char *pattern);
+
+t_bool				rv_match_more(char *str, char *pattern, int min, int max);
+
+int					rv_match_character_rank(char *str, char *pattern);
+t_bool				rv_match_character(char *str, char *pattern);
 
 int					rv_match_group(char *str, char *pattern);
 char				*rv_get_after_group(char *pattern);
