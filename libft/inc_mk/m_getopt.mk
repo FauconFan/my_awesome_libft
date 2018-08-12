@@ -11,32 +11,47 @@
 # **************************************************************************** #
 
 GETOPT_FOLDER = $(SRC_FOLDER)m_getopt/
+GETOPT_ARG_FOLDER = $(GETOPT_FOLDER)arg/
+GETOPT_OPT_FOLDER = $(GETOPT_FOLDER)opt/
+GETOPT_PARSING_FOLDER = $(GETOPT_FOLDER)parsing/
+GETOPT_GETTERS_FOLDER = $(GETOPT_FOLDER)getters/
+GETOPT_HELP_FOLDER = $(GETOPT_FOLDER)help/
+
+SRC_ARG_GETOPT = \
+				cli_arg.c \
+				cli_res_array.c \
+				cli_res_bool.c \
+				cli_res_string.c \
+				cli_get_arg_w_target.c \
+				cli_arg_utils.c \
+				cli_arg_gettype.c \
+
+SRC_OPT_GETOPT = \
+				cli_opt.c \
+				cli_s_opt.c \
+				cli_l_opt.c \
+				cli_search_s_opt.c \
+				cli_search_l_opt.c \
+
+SRC_PARSING_GETOPT = \
+				res_parser_finish.c \
+				ft_cli_parse.c \
+				ft_cli_parse2.c \
+				ft_cmd_parse.c \
+
+SRC_GETTERS_GETOPT = \
+				ft_cli_getb.c \
+				ft_cli_gets.c \
+				ft_cli_geta.c \
+				ft_cli_getstr_rc.c \
+
+SRC_HELP_GETOPT = \
+				handle_help_cli.c \
+				handle_help_cmd.c \
+				build_helper_properly.c \
+				is_user_fault.c \
 
 SRC_GETOPT = \
-				arg/cli_arg.c \
-				arg/cli_res_array.c \
-				arg/cli_res_bool.c \
-				arg/cli_res_string.c \
-				arg/cli_get_arg_w_target.c \
-				arg/cli_arg_utils.c \
-				arg/cli_arg_gettype.c \
-				opt/cli_opt.c \
-				opt/cli_s_opt.c \
-				opt/cli_l_opt.c \
-				opt/cli_search_s_opt.c \
-				opt/cli_search_l_opt.c \
-				parsing/res_parser_finish.c \
-				parsing/ft_cli_parse.c \
-				parsing/ft_cli_parse2.c \
-				parsing/ft_cmd_parse.c \
-				getters/ft_cli_getb.c \
-				getters/ft_cli_gets.c \
-				getters/ft_cli_geta.c \
-				getters/ft_cli_getstr_rc.c \
-				help/handle_help_cli.c \
-				help/handle_help_cmd.c \
-				help/build_helper_properly.c \
-				help/is_user_fault.c \
 				add.c \
 				cli_builder_parser.c \
 				cli_parser.c \
@@ -46,3 +61,8 @@ SRC_GETOPT = \
 				getopt.c
 
 SRC += $(addprefix $(GETOPT_FOLDER), $(SRC_GETOPT))
+SRC += $(addprefix $(GETOPT_ARG_FOLDER), $(SRC_ARG_GETOPT))
+SRC += $(addprefix $(GETOPT_OPT_FOLDER), $(SRC_OPT_GETOPT))
+SRC += $(addprefix $(GETOPT_PARSING_FOLDER), $(SRC_PARSING_GETOPT))
+SRC += $(addprefix $(GETOPT_GETTERS_FOLDER), $(SRC_GETTERS_GETOPT))
+SRC += $(addprefix $(GETOPT_HELP_FOLDER), $(SRC_HELP_GETOPT))
