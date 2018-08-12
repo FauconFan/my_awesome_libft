@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/10 14:25:34 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/12 10:13:44 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/12 15:19:23 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_bool				ft_rg_match(char *s1, char *s2)
 
 	str = ft_strdup(s1);
 	pattern = ft_strdup(s2);
+	res = FALSE;
 	if (reverse_esc(pattern))
 	{
 		ft_strrev(str);
