@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 11:36:00 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/13 11:45:04 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/13 13:11:35 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void			process_word(t_mdx *mdx, uint32_t *w)
 	{
 		f = mdx->f[i / 16](mdx->b, mdx->c, mdx->d);
 		cand = mdx->a + f + w[mdx->k[i]] + mdx->t[i];
-		cand = LEFTROTATE(cand, mdx->s[i]);
+		cand = ft_rotleft_uint32(cand, mdx->s[i]);
 		if (mdx->add_b)
 			cand += mdx->b;
 		tmp = mdx->d;
