@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 13:10:17 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/13 13:10:52 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/13 13:20:02 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ t_mdx						*ft_md5_init(char *str);
 t_mdx						*ft_md4_init(char *str);
 void						ft_mdx_free(t_mdx **mdx);
 
-uint32_t					ft_md5_f(uint32_t b, uint32_t c, uint32_t d);
-uint32_t					ft_md5_g(uint32_t b, uint32_t c, uint32_t d);
-uint32_t					ft_md5_h(uint32_t b, uint32_t c, uint32_t d);
-uint32_t					ft_md5_i(uint32_t b, uint32_t c, uint32_t d);
+uint32_t					ft_md5_f(uint32_t x, uint32_t y, uint32_t z);
+uint32_t					ft_md5_g(uint32_t x, uint32_t y, uint32_t z);
+uint32_t					ft_md5_h(uint32_t x, uint32_t y, uint32_t z);
+uint32_t					ft_md5_i(uint32_t x, uint32_t y, uint32_t z);
 
-uint32_t					ft_md4_f(uint32_t b, uint32_t c, uint32_t d);
-uint32_t					ft_md4_g(uint32_t b, uint32_t c, uint32_t d);
-uint32_t					ft_md4_h(uint32_t b, uint32_t c, uint32_t d);
+uint32_t					ft_md4_f(uint32_t x, uint32_t y, uint32_t z);
+uint32_t					ft_md4_g(uint32_t x, uint32_t y, uint32_t z);
+uint32_t					ft_md4_h(uint32_t x, uint32_t y, uint32_t z);
 
 uint8_t						*ft_merkle_damgard(char *msg, size_t *new_len);
 
