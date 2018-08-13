@@ -19,10 +19,13 @@ SRC_LIBFT_ENCRYPT = \
 					utils/mdx/md5/ft_md5_utils.c \
 					utils/mdx/md4/ft_md4_func_utils.c \
 					utils/mdx/md4/ft_md4_utils.c \
-					utils/ft_rotleft_uint32.c \
-					utils/ft_rotright_uint32.c \
 					ft_md5.c \
 					ft_md4.c \
-					ft_merkle_damgard.c \
+					ft_merkle_damgard_32.c \
+					ft_merkle_damgard_64.c \
+					ft_rotleft_uint32.c \
+					ft_rotright_uint32.c \
+					ft_rotleft_uint64.c \
+					ft_rotright_uint64.c \
 
 SRC += $(addprefix $(LIBFT_ENCRYPT_FOLDER), $(SRC_LIBFT_ENCRYPT))

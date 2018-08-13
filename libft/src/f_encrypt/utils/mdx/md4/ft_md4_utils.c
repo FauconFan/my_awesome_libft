@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 20:38:29 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/13 12:12:12 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/13 13:28:23 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_mdx			*ft_md4_init(char *str)
 	t_mdx		*md4;
 
 	ft_memcheck((md4 = (t_mdx *)malloc(sizeof(t_mdx))));
-	md4->msg = ft_merkle_damgard(str, &(md4->new_len));
+	md4->msg = ft_merkle_damgard_64(str, &(md4->new_len));
 	md4->h[0] = 0x67452301;
 	md4->h[1] = 0xefcdab89;
     md4->h[2] = 0x98badcfe;

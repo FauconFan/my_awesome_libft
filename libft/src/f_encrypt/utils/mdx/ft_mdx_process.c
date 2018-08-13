@@ -6,16 +6,11 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 11:36:00 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/13 13:11:35 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/13 13:38:58 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-**	MD4		http://www.faqs.org/rfcs/rfc1320.html
-**	MD5		http://www.faqs.org/rfcs/rfc1321.html
-*/
 
 static void			process_word(t_mdx *mdx, uint32_t *w)
 {

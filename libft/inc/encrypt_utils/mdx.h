@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 13:10:17 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/13 13:20:02 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/13 13:26:03 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ typedef	struct				s_mdx
 	t_bool					add_b;
 }							t_mdx;
 
-char						*ft_md5(char *str);
-char						*ft_md4(char *str);
-
 void						process_mdx(t_mdx *mdx);
 char						*build_final_hash_after_process(t_mdx *mdx);
 
@@ -50,8 +47,6 @@ uint32_t					ft_md5_i(uint32_t x, uint32_t y, uint32_t z);
 uint32_t					ft_md4_f(uint32_t x, uint32_t y, uint32_t z);
 uint32_t					ft_md4_g(uint32_t x, uint32_t y, uint32_t z);
 uint32_t					ft_md4_h(uint32_t x, uint32_t y, uint32_t z);
-
-uint8_t						*ft_merkle_damgard(char *msg, size_t *new_len);
 
 extern uint32_t				g_md5_kk[];
 extern uint32_t				g_md5_ss[];

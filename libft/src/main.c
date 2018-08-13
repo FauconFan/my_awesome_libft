@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 17:02:01 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/13 12:12:48 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/13 13:33:38 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ int main()
 {
 	char	*s;
 
-	s = ft_md5("N importe quoi ! Je t aime ! \n");
+	s = ft_md5("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n");
 	ft_printf("%s\n", s);
 	ft_strdel(&s);
-	ft_putendl("39a347d0cbf89957e3a28c5007dd3032");
+	ft_putendl("a2004b1b994a6ac24bc9fa00b91e68bc");
 	ft_putendl("================================");
 	char	*p;
 
