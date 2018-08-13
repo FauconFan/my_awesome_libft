@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_mdx_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/12 15:48:49 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/13 11:52:13 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/13 11:39:41 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/13 11:42:14 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char				*ft_md5(char *str)
+char		*build_final_hash_after_process(t_mdx *mdx)
 {
-	t_mdx		*md5;
-	char		*res;
+	char	*res;
 
-	md5 = ft_md5_init(str);
-	process_mdx(md5);
-	res = build_final_hash_after_process(md5);
-	ft_mdx_free(&md5);
+	ft_sprintf(&res, "%08x%08x%08x%08x", mdx->h[0], mdx->h[1], mdx->h[2], mdx->h[3]);
+	ft_switch_endian_fixed(res, 8);
+	ft_switch_endian_fixed(res + 8, 8);
+	ft_switch_endian_fixed(res + 16, 8);
+	ft_switch_endian_fixed(res + 24, 8);
 	return res;
+}
+
+void			ft_mdx_free(t_mdx **mdx)
+{
+	free((*mdx)->msg);
+	free(*mdx);
+	*mdx = NULL;
 }

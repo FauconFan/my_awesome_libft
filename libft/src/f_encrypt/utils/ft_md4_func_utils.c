@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_md4_func_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/12 15:48:49 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/13 11:52:13 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/13 11:07:59 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/13 12:08:41 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char				*ft_md5(char *str)
+uint32_t	ft_md4_f(uint32_t b, uint32_t c, uint32_t d)
 {
-	t_mdx		*md5;
-	char		*res;
+	return (b & c) | (~b & d);
+}
 
-	md5 = ft_md5_init(str);
-	process_mdx(md5);
-	res = build_final_hash_after_process(md5);
-	ft_mdx_free(&md5);
-	return res;
+uint32_t	ft_md4_g(uint32_t b, uint32_t c, uint32_t d)
+{
+	return (b & c) | (b & d) | (c & d);
+}
+
+uint32_t	ft_md4_h(uint32_t b, uint32_t c, uint32_t d)
+{
+	return (b ^ c ^ d);
 }

@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5.c                                           :+:      :+:    :+:   */
+/*   ft_merkle_damgard.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/12 15:48:49 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/13 11:52:13 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/13 11:19:07 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/13 11:27:09 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char				*ft_md5(char *str)
+uint8_t		*ft_merkle_damgard(char *msg, size_t *new_len)
 {
-	t_mdx		*md5;
-	char		*res;
+	size_t		len;
+	uint32_t	len_bits;
+	uint8_t		*res;
 
-	md5 = ft_md5_init(str);
-	process_mdx(md5);
-	res = build_final_hash_after_process(md5);
-	ft_mdx_free(&md5);
+	len = ft_strlen(msg);
+	*new_len = len * 8 + 1;
+	if (*new_len % 512 > 448)
+		*new_len += 512 - 448;
+	*new_len += 448 - (*new_len % 512);
+	*new_len /= 8;
+	res = (uint8_t *)ft_strndup(msg, *new_len + 64);
+	res[len] = 128;
+	len_bits = 8 * len;
+	ft_memcpy(res + *new_len, &len_bits, 4);
 	return res;
 }

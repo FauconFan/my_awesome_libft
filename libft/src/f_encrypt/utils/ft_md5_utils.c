@@ -6,19 +6,49 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 20:38:29 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/12 22:34:58 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/13 11:52:16 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-uint32_t		g_md5_r[] =
-				   {7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22,
-					5,  9, 14, 20, 5,  9, 14, 20, 5,  9, 14, 20, 5,  9, 14, 20,
-					4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23,
-					6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21};
+uint32_t		g_md5_kk[] =
+					{0,  1,  2,  3,
+					 4,  5,  6,  7,
+					 8,  9, 10, 11,
+					12, 13, 14, 15,
+					 1,  6, 11,  0,
+					 5, 10, 15,  4,
+					 9, 14,  3,  8,
+					13,  2,  7, 12,
+					 5,  8, 11, 14,
+					 1,  4,  7, 10,
+					13,  0,  3,  6,
+					 9, 12, 15,  2,
+					 0,  7, 14,  5,
+					12,  3, 10,  1,
+					 8, 15,  6, 13,
+					 4, 11,  2,  9};
 
-uint32_t		g_md5_k[] =
+uint32_t		g_md5_ss[] =
+				   {7, 12, 17, 22,
+					7, 12, 17, 22,
+					7, 12, 17, 22,
+					7, 12, 17, 22,
+					5,  9, 14, 20,
+					5,  9, 14, 20,
+					5,  9, 14, 20,
+					5,  9, 14, 20,
+					4, 11, 16, 23,
+					4, 11, 16, 23,
+					4, 11, 16, 23,
+					4, 11, 16, 23,
+					6, 10, 15, 21,
+					6, 10, 15, 21,
+					6, 10, 15, 21,
+					6, 10, 15, 21};
+
+uint32_t		g_md5_tt[] =
 				   {0xd76aa478, 0xe8c7b756, 0x242070db, 0xc1bdceee,
 					0xf57c0faf, 0x4787c62a, 0xa8304613, 0xfd469501,
 					0x698098d8, 0x8b44f7af, 0xffff5bb1, 0x895cd7be,
@@ -36,34 +66,24 @@ uint32_t		g_md5_k[] =
 					0x6fa87e4f, 0xfe2ce6e0, 0xa3014314, 0x4e0811a1,
 					0xf7537e82, 0xbd3af235, 0x2ad7d2bb, 0xeb86d391};
 
-t_md5			*ft_md5_init(char *str)
+t_mdx			*ft_md5_init(char *str)
 {
-	t_md5		*md5;
-	size_t		len;
-	size_t		new_len;
-	uint32_t	len_bits;
+	t_mdx		*md5;
 
-	ft_memcheck((md5 = (t_md5 *)malloc(sizeof(t_md5))));
-	len = ft_strlen(str);
-	new_len = len * 8 + 1;
-	while (new_len % 512 != 448)
-		new_len++;
-	new_len /= 8;
-	md5->msg = (uint8_t *)ft_strndup(str, new_len + 64);
-	md5->msg[len] = 128;
-	len_bits = 8 * len;
-	ft_memcpy(md5->msg + new_len, &len_bits, 4);
+	ft_memcheck((md5 = (t_mdx *)malloc(sizeof(t_mdx))));
+	md5->msg = ft_merkle_damgard(str, &(md5->new_len));
 	md5->h[0] = 0x67452301;
 	md5->h[1] = 0xefcdab89;
     md5->h[2] = 0x98badcfe;
 	md5->h[3] = 0x10325476;
-	md5->new_len = new_len;
+	md5->k = g_md5_kk;
+	md5->s = g_md5_ss;
+	md5->t = g_md5_tt;
+	md5->f[0] = &ft_md5_f;
+	md5->f[1] = &ft_md5_g;
+	md5->f[2] = &ft_md5_h;
+	md5->f[3] = &ft_md5_i;
+	md5->nb_rounds = 4;
+	md5->add_b = TRUE;
 	return md5;
-}
-
-void			ft_md5_free(t_md5 **md5)
-{
-	free((*md5)->msg);
-	free(*md5);
-	*md5 = NULL;
 }
