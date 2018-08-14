@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sha_utils.c                                     :+:      :+:    :+:   */
+/*   ft_sha_sig_maj_512_1.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/13 14:30:18 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/13 14:30:32 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/14 14:58:51 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/14 15:29:18 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			ft_sha_free(t_sha **sha)
+uint64_t	ft_sha_sig_maj_512_1(uint64_t x)
 {
-	free((*sha)->msg);
-	free(*sha);
-	*sha = NULL;
+	return ((ft_rotright_uint64(x, 14))
+			^ (ft_rotright_uint64(x, 18))
+			^ (ft_rotright_uint64(x, 41)));
 }

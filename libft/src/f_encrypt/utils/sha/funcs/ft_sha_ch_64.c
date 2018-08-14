@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sha1.c                                          :+:      :+:    :+:   */
+/*   ft_sha_ch_64.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/13 13:52:48 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/14 14:54:42 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/13 13:59:25 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/14 15:27:36 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_sha1(char *msg)
+uint64_t		ft_sha_ch_64(uint64_t x, uint64_t y, uint64_t z)
 {
-	t_sha1	*sha1;
-	char	*res;
-
-	sha1 = ft_sha1_init(msg);
-	ft_sha1_process(sha1);
-	res = ft_sha1_buildfinal_n_free(&sha1);
-	return res;
+	return (z ^ (x & (y ^ z)));
 }

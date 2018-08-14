@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_merkle_damgard_512_32.c                         :+:      :+:    :+:   */
+/*   ft_merkle_damgard_1024_64.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 11:19:07 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/14 17:18:59 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/14 17:17:31 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,32 +28,34 @@ static void		to_little_endian(uint8_t *res, size_t max)
 	index = 0;
 	while (index < max)
 	{
-		custom_swap(res + index, res + index + 3);
-		custom_swap(res + index + 1, res + index + 2);
-		index += 4;
+		custom_swap(res + index, res + index + 7);
+		custom_swap(res + index + 1, res + index + 6);
+		custom_swap(res + index + 2, res + index + 5);
+		custom_swap(res + index + 3, res + index + 4);
+		index += 8;
 	}
 }
 
-uint8_t			*ft_merkle_damgard_512_32(
+uint8_t			*ft_merkle_damgard_1024_64(
 						char *msg,
 						size_t *new_len,
 						t_bool little_endian)
 {
 	size_t		len;
-	uint32_t	len_bits;
+	uint64_t	len_bits;
 	uint8_t		*res;
 
 	len = ft_strlen(msg);
 	*new_len = len * 8 + 1;
-	if (*new_len % 512 > 480)
-		*new_len += 512 - 480;
-	*new_len += 480 - (*new_len % 512);
+	if (*new_len % 1024 > 960)
+		*new_len += 1024 - 960;
+	*new_len += 960 - (*new_len % 1024);
 	*new_len /= 8;
-	res = (uint8_t *)ft_strndup(msg, *new_len + 4);
+	res = (uint8_t *)ft_strndup(msg, *new_len + 8);
 	res[len] = 128;
 	len_bits = 8 * len;
 	if (little_endian)
 		to_little_endian(res, *new_len);
-	ft_memcpy(res + *new_len, &len_bits, 4);
+	ft_memcpy(res + *new_len, &len_bits, 8);
 	return res;
 }

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 15:50:41 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/14 13:12:39 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/14 17:36:01 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ char		*ft_md5(char *str);
 char		*ft_md4(char *str);
 
 char		*ft_sha1(char *msg);
+char		*ft_sha224(char *msg);
+char		*ft_sha256(char *msg);
+char		*ft_sha384(char *msg);
+char		*ft_sha512(char *msg);
+char		*ft_sha512_256(char *msg);
+char		*ft_sha512_224(char *msg);
 
 uint8_t		*ft_merkle_damgard_512_32(
 						char *msg,
@@ -36,6 +42,11 @@ uint8_t		*ft_merkle_damgard_512_32(
 						t_bool little_endian);
 
 uint8_t		*ft_merkle_damgard_512_64(
+						char *msg,
+						size_t *new_len,
+						t_bool little_endian);
+
+uint8_t		*ft_merkle_damgard_1024_64(
 						char *msg,
 						size_t *new_len,
 						t_bool little_endian);

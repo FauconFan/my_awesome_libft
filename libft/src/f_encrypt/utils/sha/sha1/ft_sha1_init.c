@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 14:16:23 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/14 13:12:58 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/14 14:56:26 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 uint32_t	g_sha1_kk[] = {0x5a827999, 0x6ed9eba1, 0x8f1bbcdc, 0xca62c1d6};
 
-t_sha		*ft_sha1_init(char *msg)
+t_sha1		*ft_sha1_init(char *msg)
 {
-	t_sha	*sha1;
+	t_sha1	*sha1;
 
-	ft_memcheck((sha1 = (t_sha *)malloc(sizeof(t_sha))));
+	ft_memcheck((sha1 = (t_sha1 *)malloc(sizeof(t_sha1))));
 	sha1->msg = ft_merkle_damgard_512_32(msg, &(sha1->new_len), TRUE);
 	sha1->hash[0] = 0x67452301;
 	sha1->hash[1] = 0xefcdab89;
@@ -33,7 +33,7 @@ t_sha		*ft_sha1_init(char *msg)
 	return sha1;
 }
 
-char		*ft_sha1_buildfinal_n_free(t_sha **sha)
+char		*ft_sha1_buildfinal_n_free(t_sha1 **sha)
 {
 	char	*res;
 
@@ -43,6 +43,8 @@ char		*ft_sha1_buildfinal_n_free(t_sha **sha)
 				(*sha)->hash[2],
 				(*sha)->hash[3],
 				(*sha)->hash[4]);
-	ft_sha_free(sha);
+	free((*sha)->msg);
+	free(*sha);
+	*sha = NULL;
 	return res;
 }
