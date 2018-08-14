@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_md5_utils.c                                     :+:      :+:    :+:   */
+/*   ft_md5_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 20:38:29 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/13 13:28:19 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/14 13:10:28 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,11 @@ t_mdx			*ft_md5_init(char *str)
 	t_mdx		*md5;
 
 	ft_memcheck((md5 = (t_mdx *)malloc(sizeof(t_mdx))));
-	md5->msg = ft_merkle_damgard_64(str, &(md5->new_len));
-	md5->h[0] = 0x67452301;
-	md5->h[1] = 0xefcdab89;
-    md5->h[2] = 0x98badcfe;
-	md5->h[3] = 0x10325476;
+	md5->msg = ft_merkle_damgard_512_64(str, &(md5->new_len), FALSE);
+	md5->hash[0] = 0x67452301;
+	md5->hash[1] = 0xefcdab89;
+    md5->hash[2] = 0x98badcfe;
+	md5->hash[3] = 0x10325476;
 	md5->k = g_md5_kk;
 	md5->s = g_md5_ss;
 	md5->t = g_md5_tt;

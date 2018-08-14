@@ -16,13 +16,19 @@ SRC_LIBFT_ENCRYPT = \
 					utils/mdx/ft_mdx_process.c \
 					utils/mdx/ft_mdx_utils.c \
 					utils/mdx/md5/ft_md5_func_utils.c \
-					utils/mdx/md5/ft_md5_utils.c \
+					utils/mdx/md5/ft_md5_init.c \
 					utils/mdx/md4/ft_md4_func_utils.c \
-					utils/mdx/md4/ft_md4_utils.c \
+					utils/mdx/md4/ft_md4_init.c \
+					utils/sha/funcs/ft_sha_ch_32.c \
+					utils/sha/funcs/ft_sha_maj_32.c \
+					utils/sha/funcs/ft_sha_parity_32.c \
+					utils/sha/sha1/ft_sha1_init.c \
+					utils/sha/ft_sha_utils.c \
 					ft_md5.c \
 					ft_md4.c \
-					ft_merkle_damgard_32.c \
-					ft_merkle_damgard_64.c \
+					ft_sha1.c \
+					ft_merkle_damgard_512_32.c \
+					ft_merkle_damgard_512_64.c \
 					ft_rotleft_uint32.c \
 					ft_rotright_uint32.c \
 					ft_rotleft_uint64.c \

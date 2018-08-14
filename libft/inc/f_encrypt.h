@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 15:50:41 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/13 13:39:13 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/14 13:12:39 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "libft.h"
 #include "inc/encrypt_utils/mdx.h"
+#include "inc/encrypt_utils/sha.h"
 
 /*
 **	Source:
@@ -27,8 +28,17 @@
 char		*ft_md5(char *str);
 char		*ft_md4(char *str);
 
-uint8_t		*ft_merkle_damgard_32(char *msg, size_t *new_len);
-uint8_t		*ft_merkle_damgard_64(char *msg, size_t *new_len);
+char		*ft_sha1(char *msg);
+
+uint8_t		*ft_merkle_damgard_512_32(
+						char *msg,
+						size_t *new_len,
+						t_bool little_endian);
+
+uint8_t		*ft_merkle_damgard_512_64(
+						char *msg,
+						size_t *new_len,
+						t_bool little_endian);
 
 uint32_t	ft_rotleft_uint32(uint32_t x, int c);
 uint32_t	ft_rotright_uint32(uint32_t x, int c);

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 13:10:17 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/13 13:26:03 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/13 14:35:43 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef	struct				s_mdx
 {
 	uint8_t					*msg;
-	uint32_t				h[4];
+	uint32_t				hash[4];
 	uint32_t				a;
 	uint32_t				b;
 	uint32_t				c;
@@ -37,7 +37,7 @@ char						*build_final_hash_after_process(t_mdx *mdx);
 
 t_mdx						*ft_md5_init(char *str);
 t_mdx						*ft_md4_init(char *str);
-void						ft_mdx_free(t_mdx **mdx);
+char						*ft_mdx_buildfinal_n_free(t_mdx **mdx);
 
 uint32_t					ft_md5_f(uint32_t x, uint32_t y, uint32_t z);
 uint32_t					ft_md5_g(uint32_t x, uint32_t y, uint32_t z);

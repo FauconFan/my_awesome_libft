@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 11:36:00 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/13 13:38:58 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/13 14:14:44 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,15 @@ void				process_mdx(t_mdx *mdx)
 	while (offset < mdx->new_len)
 	{
 		w = (uint32_t *) (mdx->msg + offset);
-		mdx->a = mdx->h[0];
-		mdx->b = mdx->h[1];
-		mdx->c = mdx->h[2];
-		mdx->d = mdx->h[3];
+		mdx->a = mdx->hash[0];
+		mdx->b = mdx->hash[1];
+		mdx->c = mdx->hash[2];
+		mdx->d = mdx->hash[3];
 		process_word(mdx, w);
-		mdx->h[0] += mdx->a;
-		mdx->h[1] += mdx->b;
-		mdx->h[2] += mdx->c;
-		mdx->h[3] += mdx->d;
+		mdx->hash[0] += mdx->a;
+		mdx->hash[1] += mdx->b;
+		mdx->hash[2] += mdx->c;
+		mdx->hash[3] += mdx->d;
 		offset += 64;
 	}
 }
