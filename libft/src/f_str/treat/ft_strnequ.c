@@ -1,41 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vtab_new.c                                      :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 18:56:30 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/15 13:45:21 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/14 18:05:43 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/14 18:06:16 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		**ft_vtab_new(size_t len, void *def, size_t len_def)
+t_bool		ft_strnequ(char *s1, char *s2)
 {
-	void	**res;
-	size_t	i;
-
-	ft_memcheck((res = (void **)malloc(sizeof(void *) * (len + 1))));
-	i = 0;
-	if (def == NULL)
-	{
-		while (i < len)
-		{
-			res[i] = NULL;
-			i++;
-		}
-	}
-	else
-	{
-		while (i < len)
-		{
-			ft_memcheck((res[i] = ft_memalloc(len_def + 1)));
-			ft_memcpy(res[i], def, len_def);
-			i++;
-		}
-	}
-	res[len] = NULL;
-	return (res);
+	return (ft_strcmp(s1, s2) != 0);
 }

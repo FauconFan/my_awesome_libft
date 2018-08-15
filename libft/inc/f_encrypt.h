@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 15:50:41 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/14 17:36:01 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/14 17:47:24 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 **	SHA		https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
 */
 
-char		*ft_md5(char *str);
 char		*ft_md4(char *str);
+char		*ft_md5(char *str);
 
 char		*ft_sha1(char *msg);
 char		*ft_sha224(char *msg);

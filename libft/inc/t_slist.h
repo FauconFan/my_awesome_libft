@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:22:57 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 11:45:13 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/15 13:29:17 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void					ft_slist_merge_one(t_slist *lst, void *data);
 void					ft_slist_sort(t_slist *lst);
 
 void					ft_slist_rev(t_slist *lst);
+
+void					**ft_slist_tovtab(t_slist **lst);
 
 /*
 **	Static

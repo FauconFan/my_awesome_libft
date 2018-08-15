@@ -24,6 +24,7 @@ SRC_LIBFT_TREAT_STR = \
 					ft_strcpos.c \
 					ft_strcpy.c \
 					ft_strcrpos.c \
+					ft_strequ.c \
 					ft_striter.c \
 					ft_striteri.c \
 					ft_strlcat.c \
@@ -33,6 +34,7 @@ SRC_LIBFT_TREAT_STR = \
 					ft_strncat.c \
 					ft_strncmp.c \
 					ft_strncpy.c \
+					ft_strnequ.c \
 					ft_strnstr.c \
 					ft_strparse.c \
 					ft_strparse_n_free.c \

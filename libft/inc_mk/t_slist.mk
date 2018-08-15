@@ -31,6 +31,7 @@ SRC_LIBFT_SIMPLE_LIST = \
 							modify/ft_slist_mergeone.c \
 							modify/ft_slist_rev.c \
 							modify/ft_slist_sort.c \
+							modify/ft_slist_tovtab.c \
 							static/ft_slist_size.c \
 							static/ft_slist_isempty.c \
 							static/ft_slist_get.c \

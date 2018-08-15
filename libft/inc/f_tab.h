@@ -6,12 +6,14 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 19:06:18 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 08:10:16 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/15 15:43:15 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef F_TAB_H
 #define F_TAB_H
+
+char		*ft_stab_join(char **tab, char *joiner);
 
 void		**ft_vtab_new(size_t len, void *def, size_t len_def);
 char		**ft_stab_new(size_t len, char *def);

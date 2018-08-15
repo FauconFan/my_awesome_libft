@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 13:42:36 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/01 17:38:40 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/15 15:28:15 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@
 **	I did this to remove the static variable.
 */
 
-static void		fill_line(char **line, char **buff_prog)
+static void		fill_line(
+							char **line,
+							char **buff_prog)
 {
 	char	*tmp;
 	int		i;
@@ -43,7 +45,10 @@ static void		fill_line(char **line, char **buff_prog)
 	*buff_prog = tmp;
 }
 
-static int		loop(const int fd, char **buff_prog, size_t buff_size_gnl)
+static int		loop(
+							const int fd,
+							char **buff_prog,
+							size_t buff_size_gnl)
 {
 	char	*tmp;
 	char	*buff;
@@ -72,13 +77,20 @@ static int		loop(const int fd, char **buff_prog, size_t buff_size_gnl)
 	return ((ret == -1) ? -1 : 0);
 }
 
-int				get_next_line(const int fd, char **line, t_env_gnl *env_gnl)
+int				get_next_line(
+							const int fd,
+							char **line,
+							t_env_gnl *env_gnl)
 {
-	return get_next_line_c(fd, line, env_gnl, BUFF_SIZE_GNL);
+	return (get_next_line_c(fd, line, env_gnl, BUFF_SIZE_GNL));
 }
 
-int				get_next_line_c(const int fd, char **line,
-					t_env_gnl *env_gnl, size_t buff_size_gnl) {
+int				get_next_line_c(
+							const int fd,
+							char **line,
+							t_env_gnl *env_gnl,
+							size_t buff_size_gnl)
+{
 	char		**buff_prog;
 
 	if (line == 0 || read(fd, 0, 0) < 0 || env_gnl == 0 || buff_size_gnl == 0)
@@ -92,7 +104,8 @@ int				get_next_line_c(const int fd, char **line,
 	return (1);
 }
 
-int				get_next_line_stdin(char **line) {
+int				get_next_line_stdin(char **line)
+{
 	size_t len;
 
 	if (line == 0 || read(0, 0, 0) < 0) {
