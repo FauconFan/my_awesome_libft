@@ -55,6 +55,7 @@ SRC_LIBFT_SIMPLE_STR = \
 					ft_str_is_numeric.c \
 					ft_str_is_printable.c \
 					ft_str_is_uppercase.c \
+					ft_str_contains_c.c \
 
 SRC_LIBFT_CONVERSION_STR = \
 					ft_atoi_base.c \

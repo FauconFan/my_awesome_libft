@@ -13,6 +13,8 @@
 LIBFT_ENCRYPT_FOLDER = $(SRC_FOLDER)f_encrypt/
 
 SRC_LIBFT_ENCRYPT = \
+					utils/base64/ft_base64_process.c \
+					utils/base64/ft_unbase64_process.c \
 					utils/mdx/ft_mdx_process.c \
 					utils/mdx/ft_mdx_utils.c \
 					utils/mdx/md5/ft_md5_func_utils.c \
@@ -53,6 +55,10 @@ SRC_LIBFT_ENCRYPT = \
 					ft_sha512_256.c \
 					ft_sha512_224.c \
 					ft_sha512.c \
+					ft_base64.c \
+					ft_base64_url.c \
+					ft_unbase64.c \
+					ft_unbase64_url.c \
 					ft_merkle_damgard_512_32.c \
 					ft_merkle_damgard_512_64.c \
 					ft_merkle_damgard_1024_64.c \

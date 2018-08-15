@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 17:02:01 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/15 15:47:01 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/15 20:53:50 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	test(char *s, char *(*f)(char *))
 	ft_strdel(&str);
 }
 
-int		main()
+void	test_hash_funcs()
 {
 	test("MD4", &ft_md4);
 	test("MD5", &ft_md5);
@@ -55,6 +55,14 @@ int		main()
 	test("SHA384", &ft_sha384);
 	test("SHA512_256", &ft_sha512_256);
 	test("SHA512_224", &ft_sha512_224);
+}
 
+int		main()
+{
+	char	*s;
+
+	s = ft_unbase64("SGE=");
+	ft_putendl(s);
+	ft_strdel(&s);
 	return 0;
 }
