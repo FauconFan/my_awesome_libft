@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/10 12:54:02 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 13:05:57 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/15 16:28:54 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*build_helper_properly(char *helper, int l, int r)
 	char	*res;
 
 	sb = ft_sb_new();
-	tab = ft_strsplit(helper, ' ');
+	tab = ft_stab_strsplit(helper, ' ');
 	build_helper_properly2(sb, tab, l, r);
 	res = ft_sb_tostring(sb);
 	ft_sb_free(&sb);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_stab_strsplit.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 12:24:48 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/05 11:55:04 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/15 16:26:24 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int		len_word(char *s, char c, int *num)
 	return (length);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char			**ft_stab_strsplit(char const *s, char c)
 {
 	int		length_tot;
 	int		length_word;

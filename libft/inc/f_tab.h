@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 19:06:18 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/15 15:43:15 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/15 16:27:17 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define F_TAB_H
 
 char		*ft_stab_join(char **tab, char *joiner);
+char		**ft_stab_strsplit(char const *s, char c);
+int			ft_stab_strparse(char ***res, char *str, char c);
+int			ft_stab_strparse_n_free(char ***res, char *str, char c);
 
 void		**ft_vtab_new(size_t len, void *def, size_t len_def);
 char		**ft_stab_new(size_t len, char *def);

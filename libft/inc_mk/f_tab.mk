@@ -34,5 +34,8 @@ SRC_LIBFT_TAB = \
 					str/ft_stab_pop.c \
 					str/ft_stab_sort.c \
 					str/ft_stab_join.c \
+					str/ft_stab_strparse.c \
+					str/ft_stab_strparse_n_free.c \
+					str/ft_stab_strsplit.c \
 
 SRC += $(addprefix $(LIBFT_TAB_FOLDER), $(SRC_LIBFT_TAB))

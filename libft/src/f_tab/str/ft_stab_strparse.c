@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strparse.c                                      :+:      :+:    :+:   */
+/*   ft_stab_strparse.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 21:44:41 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/05 11:56:37 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/15 16:26:18 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	ft_getnb_words(char *str, char c)
 	return (nb_words);
 }
 
-int			ft_strparse(char ***res, char *str, char c)
+int			ft_stab_strparse(char ***res, char *str, char c)
 {
 	int		nb_words;
 	int		index;

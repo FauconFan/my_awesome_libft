@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:20:28 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/14 18:06:32 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/15 16:26:56 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,11 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
-char			**ft_strsplit(char const *s, char c);
 
 int				ft_strcpos(char *s, int c);
 int				ft_strcrpos(char *s, int c);
 int				ft_strpos(char *big, char *little);
 int				ft_strrpos(char *big, char *little);
-
-int				ft_strparse(char ***res, char *str, char c);
-int				ft_strparse_n_free(char ***res, char *str, char c);
 
 t_bool			ft_str_all(char *s, t_bool (*f)(int c));
 t_bool			ft_str_any(char *s, t_bool (*f)(int c));
