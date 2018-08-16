@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:15:24 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/12 19:28:05 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/16 09:01:25 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 # include <string.h>
 # include <stdarg.h>
 # include <stdint.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <errno.h>
+# include <fcntl.h>
+
 
 /*
 **	Own defines
@@ -38,6 +43,7 @@ typedef short					t_bool;
 
 # include "inc/f_char.h"
 # include "inc/f_encrypt.h"
+# include "inc/f_filesystem.h"
 # include "inc/f_math.h"
 # include "inc/f_memmory.h"
 # include "inc/f_put.h"
@@ -46,7 +52,6 @@ typedef short					t_bool;
 # include "inc/f_utils.h"
 # include "inc/f_wchar.h"
 # include "inc/m_ft_printf.h"
-# include "inc/m_get_next_line.h"
 # include "inc/m_getopt.h"
 # include "inc/m_regex.h"
 # include "inc/t_sb.h"

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   ft_gnl.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 13:42:36 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/15 15:28:15 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/16 08:22:37 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,15 @@ static int		loop(
 	return ((ret == -1) ? -1 : 0);
 }
 
-int				get_next_line(
+int				ft_gnl(
 							const int fd,
 							char **line,
 							t_env_gnl *env_gnl)
 {
-	return (get_next_line_c(fd, line, env_gnl, BUFF_SIZE_GNL));
+	return (ft_gnl_c(fd, line, env_gnl, BUFF_SIZE_GNL));
 }
 
-int				get_next_line_c(
+int				ft_gnl_c(
 							const int fd,
 							char **line,
 							t_env_gnl *env_gnl,
@@ -104,7 +104,7 @@ int				get_next_line_c(
 	return (1);
 }
 
-int				get_next_line_stdin(char **line)
+int				ft_gnl_stdin(char **line)
 {
 	size_t len;
 

@@ -10,9 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-GET_NEXT_LINE_FOLDER = $(SRC_FOLDER)m_get_next_line/
+FILESYSTEM_FOLDER = $(SRC_FOLDER)f_filesystem/
 
-SRC_GET_NEXT_LINE = get_next_line.c \
-						env_gnl.c \
+SRC_FILESYSTEM = \
+					utils/env_gnl.c \
+					ft_get_all_content_fd_nostat.c \
+					ft_get_all_content_fd.c \
+					ft_get_all_content.c \
+					ft_gnl.c \
 
-SRC += $(addprefix $(GET_NEXT_LINE_FOLDER), $(SRC_GET_NEXT_LINE))
+SRC += $(addprefix $(FILESYSTEM_FOLDER), $(SRC_FILESYSTEM))

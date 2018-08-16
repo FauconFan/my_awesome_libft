@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/08/15 19:12:42 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/16 08:17:03 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRC =
 
 include $(INCLUDES_MK_FOLDER)f_char.mk
 include $(INCLUDES_MK_FOLDER)f_encrypt.mk
+include $(INCLUDES_MK_FOLDER)f_filesystem.mk
 include $(INCLUDES_MK_FOLDER)f_math.mk
 include $(INCLUDES_MK_FOLDER)f_memmory.mk
 include $(INCLUDES_MK_FOLDER)f_put.mk
@@ -50,7 +51,6 @@ include $(INCLUDES_MK_FOLDER)f_tab.mk
 include $(INCLUDES_MK_FOLDER)f_utils.mk
 include $(INCLUDES_MK_FOLDER)f_wchar.mk
 include $(INCLUDES_MK_FOLDER)m_ft_printf.mk
-include $(INCLUDES_MK_FOLDER)m_get_next_line.mk
 include $(INCLUDES_MK_FOLDER)m_getopt.mk
 include $(INCLUDES_MK_FOLDER)m_regex.mk
 include $(INCLUDES_MK_FOLDER)t_sb.mk

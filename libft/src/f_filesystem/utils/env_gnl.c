@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 08:50:25 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/05 11:59:26 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/16 08:21:04 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static t_env_gnl	*init_next(t_env_gnl *last, int new_fd)
 	return (last->next);
 }
 
-t_env_gnl			*init_env_gnl(void)
+t_env_gnl			*ft_init_env_gnl(void)
 {
 	t_env_gnl	*res;
 
@@ -33,12 +33,12 @@ t_env_gnl			*init_env_gnl(void)
 	return (res);
 }
 
-void				free_env_gnl(t_env_gnl *head)
+void				ft_free_env_gnl(t_env_gnl *head)
 {
 	if (head != 0)
 	{
 		if (head->next != 0)
-			free_env_gnl(head->next);
+			ft_free_env_gnl(head->next);
 		if (head->buff_prog != 0)
 		{
 			free(*(head->buff_prog));
