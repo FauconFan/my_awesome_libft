@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 14:06:02 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 11:13:57 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/16 16:11:16 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@
 # define CI_N			32
 # define CI_Z			33
 # define CI_R			34
+# define CI_BMIN		35
+# define CI_BMAJ		36
 
 typedef struct				s_pf_buffer_content
 {
@@ -147,6 +149,14 @@ char	*fill_full_string(int max, wchar_t *wstr);
 **	ci_unused_flags.c
 */
 void	process_unused_flag(t_treat_data *data, t_pf_buffer *pf);
+
+/*
+**	ci_bits.c
+*/
+void	process_bits(
+			va_list va,
+			t_treat_data *data,
+			t_pf_buffer *pf);
 
 /*
 **	set_values_treat_data.c

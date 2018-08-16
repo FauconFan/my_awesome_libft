@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 08:49:36 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/09 09:20:18 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/16 16:08:26 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ static int		treat_data(t_treat_data *data, va_list va, t_pf_buffer *pf)
 		process_unused_flag(data, pf);
 	else if (data->converter_id >= 12 && data->converter_id <= 21)
 		process_numbers(va, data, pf);
+	else if (data->converter_id == CI_BMAJ || data->converter_id == CI_BMIN)
+		process_bits(va, data, pf);
 	else
 	{
 		ft_putstr_fd("should never happen", 2);

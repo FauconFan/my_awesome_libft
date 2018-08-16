@@ -22,6 +22,7 @@ SRC_FT_PRINTF = ft_printf_family.c \
 				pf_buffer_utils.c \
 
 SRC_FT_PRINTF_CONVERTERS = ci_sep.c \
+							ci_bits.c \
 							ci_numbers.c \
 							ci_string_ascii.c \
 							ci_string_unicode.c \

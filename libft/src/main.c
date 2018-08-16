@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 17:02:01 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/15 20:53:50 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/16 16:38:27 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,11 @@ void	test_hash_funcs()
 
 int		main()
 {
-	char	*s;
-
-	s = ft_unbase64("SGE=");
-	ft_putendl(s);
-	ft_strdel(&s);
+	// char	*s;
+	//
+	// s = ft_unbase64("SGE=");
+	// ft_putendl(s);
+	// ft_strdel(&s);
+	ft_printf("%8b\n", 338670);
 	return 0;
 }

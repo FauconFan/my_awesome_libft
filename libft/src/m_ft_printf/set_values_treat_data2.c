@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 16:16:19 by jpriou            #+#    #+#             */
-/*   Updated: 2018/06/26 14:23:53 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/16 16:02:07 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int		set_converter_treat_data2(char cpy)
 		return (CI_GMAJ);
 	else if (cpy == 'A')
 		return (CI_AMAJ);
+	else if (cpy == 'B')
+		return (CI_BMAJ);
 	return (-1);
 }
 
