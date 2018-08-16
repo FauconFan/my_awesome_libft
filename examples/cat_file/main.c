@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 17:40:39 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/01 17:44:54 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/16 09:13:16 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ static int cat(char *filepath) {
 	int			ret;
 
 	ret = 0;
-	head = init_env_gnl();
+	head = ft_init_env_gnl();
 	fd = open(filepath, O_RDONLY);
 	if (fd >= 0) {
-		while (get_next_line(fd, &buff, head) != 0)
+		while (ft_gnl(fd, &buff, head) != 0)
 		{
 			ft_putendl(buff);
 			free(buff);
@@ -35,7 +35,7 @@ static int cat(char *filepath) {
 		ft_printf("%s is not a correct path file\n", filepath);
 		ret = 2;
 	}
-	free_env_gnl(head);
+	ft_free_env_gnl(head);
 	return ret;
 }
 

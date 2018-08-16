@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 17:25:13 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/01 17:26:45 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/16 09:13:28 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main() {
 	char *line;
 
-	get_next_line_stdin(&line);
+	ft_gnl_stdin(&line);
 	ft_printf("%s\n", line);
 	ft_memdel(((void **)&line));
 	return 0;
