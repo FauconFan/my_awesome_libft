@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 17:32:26 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/15 20:53:25 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/19 17:05:06 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char			get_rep6bits(char c, char base[64])
 	return (-1);
 }
 
-void			num2(char *str, char *res, char base[64])
+void			num2(char *str, uint8_t *res, char base[64])
 {
 	char	d[2];
 
@@ -68,7 +68,7 @@ void			num2(char *str, char *res, char base[64])
 	res[0] = (d[0] << 2) | (d[1] >> 4);
 }
 
-void			num3(char *str, char *res, char base[64])
+void			num3(char *str, uint8_t *res, char base[64])
 {
 	char	d[4];
 
@@ -79,7 +79,7 @@ void			num3(char *str, char *res, char base[64])
 	res[1] = (d[1] << 4) | (d[2] >> 2);
 }
 
-void			num4(char *str, char *res, char base[64])
+void			num4(char *str, uint8_t *res, char base[64])
 {
 	char	d[4];
 
@@ -92,20 +92,21 @@ void			num4(char *str, char *res, char base[64])
 	res[2] = (d[2] << 6) | d[3];
 }
 
-char			*ft_unbase64_process(char *str, char base[64], char comp)
+uint8_t			*ft_unbase64_process(char *str, size_t *len, char base[64], char comp)
 {
-	char	*res;
+	uint8_t	*res;
 	int		real_size;
 	size_t	i;
 	size_t	j;
 
 	real_size = validate_string(str, base, comp);
+	*len = 0;
 	if (real_size == -1)
 		return (NULL);
-	if (real_size % 4 == 0)
-		res = ft_strnew((real_size / 4) * 3);
-	else
-		res = ft_strnew((real_size / 4) * 3 + ((real_size % 4) - 1));
+	*len = (real_size / 4) * 3;
+	if (real_size % 4 != 0)
+		*len += ((real_size % 4) - 1);
+	res = (uint8_t *)ft_strnew(*len);
 	i = 0;
 	j = 0;
 	while (i + 3 < (size_t)real_size)

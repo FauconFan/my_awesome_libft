@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 17:26:32 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/15 20:10:53 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/17 15:15:51 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 #define B64_COMP	'='
 
-char				*ft_base64_process(char *str, char base[64], char comp);
-char				*ft_unbase64_process(char *str, char base[64], char comp);
+char				*ft_base64_process(uint8_t *str, size_t len, char base[64], char comp);
+uint8_t				*ft_unbase64_process(char *str, size_t *len, char base[64], char comp);
 
 #endif

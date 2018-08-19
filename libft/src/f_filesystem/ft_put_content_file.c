@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_base64.c                                        :+:      :+:    :+:   */
+/*   ft_put_content_file.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/15 17:21:39 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/17 15:15:22 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/19 16:09:48 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/19 16:21:11 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_base64(uint8_t *str, size_t len)
+void	ft_put_content_file(char *file_path, char *content, char **errno_str)
 {
-	return ft_base64_process(str, len, B64_BASIC, B64_COMP);
+	int		fd;
+
+	if ((fd = open(file_path, O_WRONLY)) < 0)
+	{
+		*errno_str = strerror(errno);
+	}
+	else
+	{
+		ft_putstr_fd(content, fd);
+		if (close(fd) < 0)
+			*errno_str = strerror(errno);
+	}
 }

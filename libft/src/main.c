@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 17:02:01 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/16 16:38:27 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/19 14:24:26 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,22 @@ void	test_hash_funcs()
 
 int		main()
 {
-	// char	*s;
-	//
-	// s = ft_unbase64("SGE=");
-	// ft_putendl(s);
-	// ft_strdel(&s);
-	ft_printf("%8b\n", 338670);
+	// test_hash_funcs();
+	uint64_t key = 0x6162636461626364;
+	uint64_t iv = 0x0011223344556677;
+	char *msg = "oui je m'appelle Jean";
+	char *msg2;
+	t_des 	*des = ft_des_new(key, iv, ENCRYPT, OFB);
+	uint8_t *res;
+	size_t	in;
+	size_t	out;
+
+	in = ft_strlen(msg);
+	res = ft_des_process(des, msg, in, &out);
+	// write(1, res, out);
+	ft_des_change_action(des, DECRYPT);
+	msg2 = ft_des_process(des, res, out, &in);
+	write(1, msg2, in);
+	ft_des_free(&des);
 	return 0;
 }

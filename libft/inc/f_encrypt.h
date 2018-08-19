@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 15:50:41 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/15 21:09:27 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/17 15:18:16 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "inc/encrypt_utils/mdx.h"
 #include "inc/encrypt_utils/sha.h"
 #include "inc/encrypt_utils/base64.h"
+#include "inc/encrypt_utils/des.h"
 
 /*
 **	Source:
@@ -37,11 +38,11 @@ char		*ft_sha512(char *msg);
 char		*ft_sha512_256(char *msg);
 char		*ft_sha512_224(char *msg);
 
-char		*ft_base64(char *str);
-char		*ft_base64_url(char *str);
+char		*ft_base64(uint8_t *str, size_t len);
+char		*ft_base64_url(uint8_t *str, size_t len);
 
-char		*ft_unbase64(char *str);
-char		*ft_unbase64_url(char *str);
+uint8_t		*ft_unbase64(char *str, size_t *len);
+uint8_t		*ft_unbase64_url(char *str, size_t *len);
 
 uint8_t		*ft_merkle_damgard_512_32(
 						char *msg,

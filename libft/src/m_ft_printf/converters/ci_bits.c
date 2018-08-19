@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 18:17:02 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/16 16:39:39 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/17 13:24:00 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char			*build_str(uint64_t nu, size_t len)
 		index_rank_actu = 0;
 		while (index_rank_actu < 8)
 		{
-			*cpy = (nu & (1 << (len - 1 - index_nu))) ? '1' : '0';
+			*cpy = ((nu >> (len - 1 - index_nu)) & 1) ? '1' : '0';
 			cpy++;
 			index_nu++;
 			if (index_rank_actu == 3)
