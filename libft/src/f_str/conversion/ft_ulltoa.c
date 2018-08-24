@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_ulltoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/11 22:35:37 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/24 22:44:52 by jpriou           ###   ########.fr       */
+/*   Created: 2017/11/14 17:07:09 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/24 22:39:46 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_itoa(int n)
+char		*ft_ulltoa(unsigned long long n)
 {
-	return ft_itoa_base(n, BASE_DECA);
+	return ft_ulltoa_base(n, BASE_DECA);
 }

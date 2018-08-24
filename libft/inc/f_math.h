@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:24:00 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/12 16:31:45 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/24 22:27:38 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,14 @@ double 							ft_min(double a, double b);
 double 							ft_max(double a, double b);
 
 double 							ft_abs(double c);
-double 							ft_log10(double n);
-double 							ft_logb(double n, int lengthbase);
+int 							ft_log10(double n);
+int 							ft_logb(double n, int lengthbase);
 int								ft_logi10(int n);
 int								ft_logib(int n, int lengthbase);
+int								ft_logll10(long long n);
+int								ft_logllb(long long n, int lengthbase);
+int								ft_logull10(unsigned long long n);
+int								ft_logullb(unsigned long long n, int lengthbase);
 
 double							ft_nrt(double, size_t n, short *rc);
 double							ft_sqrt(double, short *rc);

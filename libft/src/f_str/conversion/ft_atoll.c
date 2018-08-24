@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/11 22:35:37 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/24 22:44:52 by jpriou           ###   ########.fr       */
+/*   Created: 2017/11/06 09:49:11 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/24 22:39:57 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_itoa(int n)
+long long		ft_atoll(char const *nptr)
 {
-	return ft_itoa_base(n, BASE_DECA);
+	return ft_atoll_base(nptr, BASE_DECA);
 }

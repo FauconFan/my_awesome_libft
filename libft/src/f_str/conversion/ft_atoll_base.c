@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*   ft_atoll_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 13:24:46 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/24 22:04:33 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/24 22:09:35 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		*update_str(char *str)
+static char			*update_str(char *str)
 {
 	int		index;
 	char	c;
@@ -28,7 +28,7 @@ static char		*update_str(char *str)
 	return (str + index);
 }
 
-static int		validate_base(char *base)
+static int			validate_base(char *base)
 {
 	int		index[2];
 
@@ -49,7 +49,7 @@ static int		validate_base(char *base)
 	return (1);
 }
 
-static int		get_place_in_base(char c, char *base)
+static int			get_place_in_base(char c, char *base)
 {
 	int		index;
 
@@ -63,10 +63,10 @@ static int		get_place_in_base(char c, char *base)
 	return (-1);
 }
 
-static int		atoi_real(char *str, char *base, int length_base)
+static long long	atoll_real(char *str, char *base, int length_base)
 {
 	int		sign;
-	int		res;
+	long	res;
 	int		tmp;
 
 	sign = 1;
@@ -87,7 +87,7 @@ static int		atoi_real(char *str, char *base, int length_base)
 	return (res * -sign);
 }
 
-int				ft_atoi_base(char const *str, char *base)
+long long			ft_atoll_base(char const *str, char *base)
 {
 	int		length_base;
 	char	*cpy;
@@ -99,5 +99,5 @@ int				ft_atoi_base(char const *str, char *base)
 	if (validate_base(base) == 0)
 		return (0);
 	cpy = update_str(cpy);
-	return (atoi_real(cpy, base, length_base));
+	return (atoll_real(cpy, base, length_base));
 }

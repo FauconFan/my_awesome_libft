@@ -6,16 +6,16 @@
 #    By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/25 16:27:58 by jpriou            #+#    #+#              #
-#    Updated: 2018/08/05 13:09:52 by jpriou           ###   ########.fr        #
+#    Updated: 2018/08/24 22:03:34 by fauconfan        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all libft ctestcom fclean
 
 all:
-	@echo "No default rules is provided"
+	@echo "Summary"
 	@echo ""
-	@echo "make libft_library"
+	@echo "make libft"
 
 libft :
 	@make -C libft

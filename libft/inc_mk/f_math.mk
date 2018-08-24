@@ -24,6 +24,10 @@ SRC_LIBFT_MATH = \
 					ft_logb.c \
 					ft_logi10.c \
 					ft_logib.c \
+					ft_logll10.c \
+					ft_logllb.c \
+					ft_logull10.c \
+					ft_logullb.c \
 					ft_max.c \
 					ft_min.c \
 					ft_pow.c \

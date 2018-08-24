@@ -60,10 +60,15 @@ SRC_LIBFT_SIMPLE_STR = \
 SRC_LIBFT_CONVERSION_STR = \
 					ft_atoi_base.c \
 					ft_atoi.c \
+					ft_atoll_base.c \
+					ft_atoll.c \
 					ft_convert_base.c \
 					ft_itoa_base.c \
 					ft_itoa.c \
+					ft_lltoa_base.c \
 					ft_lltoa.c \
+					ft_ulltoa_base.c \
+					ft_ulltoa.c \
 					ft_escapedtochar.c \
 					ft_switch_endian.c \
 					ft_switch_endian_fixed.c \

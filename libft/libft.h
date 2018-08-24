@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:15:24 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/16 09:01:25 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/24 22:45:45 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@
 
 # define TRUE					1
 # define FALSE					0
+
+# define BASE_OCTO				"01234567"
+# define BASE_DECA				"0123456789"
+# define BASE_HEXAMIN			"0123456789abcdef"
+# define BASE_HEXAMAJ			"0123456789ABCDEF"
+# define BASE_HEXA				BASE_HEXAMAJ
 
 typedef short					t_bool;
 

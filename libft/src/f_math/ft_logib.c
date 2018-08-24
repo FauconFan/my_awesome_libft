@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 07:47:18 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/12 16:33:33 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/24 22:23:47 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int				ft_logib(int n, int lengthbase)
 {
 	if (lengthbase <= 1)
 		return (-1);
-	if (n == 0)
+	else if (n == 0)
 		return (1);
 	else if (n < 0)
 		return (-1);

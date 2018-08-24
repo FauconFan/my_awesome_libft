@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 17:02:01 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/19 14:24:26 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/24 22:46:58 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,8 @@ void	test_hash_funcs()
 	test("SHA512_224", &ft_sha512_224);
 }
 
-int		main()
+void	test_des_func()
 {
-	// test_hash_funcs();
 	uint64_t key = 0x6162636461626364;
 	uint64_t iv = 0x0011223344556677;
 	char *msg = "oui je m'appelle Jean";
@@ -76,5 +75,15 @@ int		main()
 	msg2 = ft_des_process(des, res, out, &in);
 	write(1, msg2, in);
 	ft_des_free(&des);
+}
+
+int		main()
+{
+	// test_hash_funcs();
+	// test_des_func();
+
+	ft_putendl(ft_lltoa_base(-23, BASE_OCTO));
+	ft_putendl(ft_lltoa_base(-23, BASE_DECA));
+	ft_putendl(ft_lltoa_base(-23, BASE_HEXA));
 	return 0;
 }

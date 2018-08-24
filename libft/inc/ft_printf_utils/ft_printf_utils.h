@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 14:06:02 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/16 16:11:16 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/24 22:39:00 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@
 # define MINUS_SOLO		"-"
 # define PLUS_SOLO		"+"
 # define SPACE_SOLO		" "
-
-# define BASE_DECA		"0123456789"
-# define BASE_OCTO		"01234567"
-# define BASE_HEXAMIN	"0123456789abcdef"
-# define BASE_HEXAMAJ	"0123456789ABCDEF"
 
 # define SEPERATOR		'%'
 

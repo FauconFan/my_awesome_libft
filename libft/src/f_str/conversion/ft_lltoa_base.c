@@ -1,52 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_lltoa_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/12 07:55:17 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/24 22:39:36 by jpriou           ###   ########.fr       */
+/*   Created: 2017/11/14 17:07:09 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/24 22:31:06 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		my_log(int n, int len)
-{
-	if (n < 0)
-		return (1 + ft_logib(-n, len));
-	return (ft_logib(n, len));
-}
-
-static char		*returnzero(char *res)
-{
-	res[0] = '0';
-	res[1] = 0;
-	return (res);
-}
-
-char			*ft_itoa_base(int n, char *base)
+char		*ft_lltoa_base(long long n, char *base)
 {
 	char	*res;
 	int		index;
 	int		len;
-	int		lenbase;
+	int		baselen;
+	int		b;
 
-	lenbase = ft_strlen(base);
-	len = my_log(n, lenbase);
-	index = 0;
-	ft_memcheck((res = (char *)malloc(sizeof(char) * (len + 1))));
 	if (n == 0)
-		return (returnzero(res));
-	else if (n < 0)
+		return (ft_strdup("0"));
+	baselen = ft_strlen(base);
+	len = (n < 0) ? 1 + ft_logllb(-n, baselen) : ft_logllb(n, baselen);
+	if ((res = (char *)malloc(sizeof(char) * (len + 1))) == NULL)
+		return (NULL);
+	if (n < 0)
 		res[0] = '-';
-	index = (int)len - 1;
+	index = len - 1;
+	b = ((n < 0) ? -1 : 1);
 	while (n)
 	{
-		res[index] = base[(n % lenbase) * ((n < 0) ? -1 : 1)];
+		res[index] = base[(n % baselen) * b];
 		index--;
-		n /= lenbase;
+		n /= baselen;
 	}
 	res[len] = 0;
 	return (res);
