@@ -6,18 +6,18 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 14:16:23 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/14 17:36:55 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/30 10:02:07 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_sha512		*ft_sha512_224_init(char *msg)
+t_sha512		*ft_sha512_224_init(uint8_t *msg, size_t len)
 {
 	t_sha512	*sha512;
 
 	ft_memcheck((sha512 = (t_sha512 *)malloc(sizeof(t_sha512))));
-	sha512->msg = ft_merkle_damgard_1024_64(msg, &(sha512->new_len), TRUE);
+	sha512->msg = ft_merkle_damgard_1024_64(msg, len, &(sha512->new_len), TRUE);
 	sha512->hash[0] = 0x8c3d37c819544da2;
 	sha512->hash[1] = 0x73e1996689dcd4d6;
 	sha512->hash[2] = 0x1dfab7ae32ff9c82;

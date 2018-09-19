@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 14:39:23 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/14 17:31:00 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/30 10:01:05 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ typedef struct		s_sha256
 
 typedef t_sha256	t_sha224;
 
-t_sha256			*ft_sha256_init(char *msg);
+t_sha256			*ft_sha256_init(uint8_t *msg, size_t len);
 void				ft_sha256_process(t_sha256 *sh);
 char				*ft_sha256_buildfinal_n_free(t_sha256 **sha);
 
 
-t_sha224			*ft_sha224_init(char *msg);
+t_sha224			*ft_sha224_init(uint8_t *msg, size_t len);
 char				*ft_sha224_buildfinal_n_free(t_sha224 **sha);
 
 void				ft_sha256_free(t_sha256 **sha);

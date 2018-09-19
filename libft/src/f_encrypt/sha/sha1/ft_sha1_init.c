@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 14:16:23 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/14 14:56:26 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/30 09:59:38 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 uint32_t	g_sha1_kk[] = {0x5a827999, 0x6ed9eba1, 0x8f1bbcdc, 0xca62c1d6};
 
-t_sha1		*ft_sha1_init(char *msg)
+t_sha1		*ft_sha1_init(uint8_t *msg, size_t len)
 {
 	t_sha1	*sha1;
 
 	ft_memcheck((sha1 = (t_sha1 *)malloc(sizeof(t_sha1))));
-	sha1->msg = ft_merkle_damgard_512_32(msg, &(sha1->new_len), TRUE);
+	sha1->msg = ft_merkle_damgard_512_32(msg, len, &(sha1->new_len), TRUE);
 	sha1->hash[0] = 0x67452301;
 	sha1->hash[1] = 0xefcdab89;
 	sha1->hash[2] = 0x98badcfe;

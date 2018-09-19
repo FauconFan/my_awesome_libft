@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 20:38:29 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/14 16:11:52 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/30 09:57:44 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ uint32_t		g_md4_tt[] =
 					0x6ED9EBA1, 0x6ED9EBA1, 0x6ED9EBA1, 0x6ED9EBA1,
 					0x6ED9EBA1, 0x6ED9EBA1, 0x6ED9EBA1, 0x6ED9EBA1};
 
-t_mdx			*ft_md4_init(char *str)
+t_mdx			*ft_md4_init(uint8_t *str, size_t len)
 {
 	t_mdx		*md4;
 
 	ft_memcheck((md4 = (t_mdx *)malloc(sizeof(t_mdx))));
-	md4->msg = ft_merkle_damgard_512_64(str, &(md4->new_len), FALSE);
+	md4->msg = ft_merkle_damgard_512_64(str, len, &(md4->new_len), FALSE);
 	md4->hash[0] = 0x67452301;
 	md4->hash[1] = 0xefcdab89;
     md4->hash[2] = 0x98badcfe;

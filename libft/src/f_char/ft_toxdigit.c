@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sha1.c                                          :+:      :+:    :+:   */
+/*   ft_toxdigit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/13 13:52:48 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/30 09:58:16 by jpriou           ###   ########.fr       */
+/*   Created: 2018/09/19 18:46:24 by jpriou            #+#    #+#             */
+/*   Updated: 2018/09/19 18:58:30 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_sha1(uint8_t *msg, size_t len)
+char		ft_toxdigit(char c)
 {
-	t_sha1	*sha1;
-	char	*res;
-
-	sha1 = ft_sha1_init(msg, len);
-	ft_sha1_process(sha1);
-	res = ft_sha1_buildfinal_n_free(&sha1);
-	return res;
+	if (ft_isxdigit(c) == FALSE)
+		return (-1);
+	if (ft_isdigit(c))
+		return (c - '0');
+	return (10 + c - 'a');
 }

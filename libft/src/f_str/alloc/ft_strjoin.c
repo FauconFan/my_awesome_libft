@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/09 15:22:47 by jpriou            #+#    #+#             */
-/*   Updated: 2017/12/05 11:54:40 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/27 10:28:09 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ char					*ft_strjoin(const char *s1, const char *s2)
 
 	if (s1 == 0 || s2 == 0)
 		return (0);
-	len_tot = ft_strlen(s1) + ft_strlen(s2) + 1;
-	ft_memcheck((res = (char *)malloc(sizeof(char) * len_tot)));
+	len_tot = ft_strlen(s1) + ft_strlen(s2);
+	ft_memcheck((res = (char *)malloc(sizeof(char) * (len_tot + 1))));
 	len1 = 0;
 	len2 = 0;
 	while (s1[len1])

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:21:35 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 08:10:00 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/30 10:11:37 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memchr(const void *s, int c, size_t n);
+void			*ft_memdup(void *d, size_t len);
+void			*ft_memndup(void *d, size_t len, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 
 #endif

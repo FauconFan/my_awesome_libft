@@ -72,6 +72,7 @@ SRC_LIBFT_CONVERSION_STR = \
 					ft_escapedtochar.c \
 					ft_switch_endian.c \
 					ft_switch_endian_fixed.c \
+					ft_from_str_hex_to_array_num.c \
 
 SRC_LIBFT_ALLOC_STR = \
 					ft_strdel.c \

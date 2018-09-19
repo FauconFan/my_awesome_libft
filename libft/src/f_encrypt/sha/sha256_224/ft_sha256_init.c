@@ -6,18 +6,18 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 14:16:23 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/14 16:14:11 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/30 10:00:03 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_sha256		*ft_sha256_init(char *msg)
+t_sha256		*ft_sha256_init(uint8_t *msg, size_t len)
 {
 	t_sha256	*sha256;
 
 	ft_memcheck((sha256 = (t_sha256 *)malloc(sizeof(t_sha256))));
-	sha256->msg = ft_merkle_damgard_512_32(msg, &(sha256->new_len), TRUE);
+	sha256->msg = ft_merkle_damgard_512_32(msg, len, &(sha256->new_len), TRUE);
 	sha256->hash[0] = 0x6a09e667;
 	sha256->hash[1] = 0xbb67ae85;
 	sha256->hash[2] = 0x3c6ef372;

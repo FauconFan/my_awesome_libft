@@ -80,6 +80,8 @@ SRC_LIBFT_ENCRYPT = \
 					ft_sha512_256.c \
 					ft_sha512_224.c \
 					ft_sha512.c \
+					ft_hmac_init_free.c \
+					ft_hmac_process.c \
 					ft_base64.c \
 					ft_base64_url.c \
 					ft_unbase64.c \

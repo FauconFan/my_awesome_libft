@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sha1.c                                          :+:      :+:    :+:   */
+/*   ft_from_str_hex_to_array_num.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/13 13:52:48 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/30 09:58:16 by jpriou           ###   ########.fr       */
+/*   Created: 2018/09/19 19:29:47 by jpriou            #+#    #+#             */
+/*   Updated: 2018/09/19 19:30:41 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_sha1(uint8_t *msg, size_t len)
+uint8_t		*ft_from_str_hex_to_array_num(char *str, size_t *len_res)
 {
-	t_sha1	*sha1;
-	char	*res;
+   uint8_t		*res;
+   size_t		len;
+   size_t		i;
 
-	sha1 = ft_sha1_init(msg, len);
-	ft_sha1_process(sha1);
-	res = ft_sha1_buildfinal_n_free(&sha1);
-	return res;
+   len = ft_strlen(str);
+   res = (uint8_t *)ft_strnew(len / 2);
+   i = 0;
+   while (i < len)
+   {
+	   if (i % 2 == 0)
+		   res[i / 2] |= ((int)ft_toxdigit(str[i])) << 4;
+	   else
+		   res[i / 2] |= ((int)ft_toxdigit(str[i]));
+	   i++;
+   }
+   *len_res = len / 2;
+   return res;
 }

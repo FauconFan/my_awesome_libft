@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 11:19:07 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/14 17:18:59 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/08/30 10:12:22 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,20 @@ static void		to_little_endian(uint8_t *res, size_t max)
 }
 
 uint8_t			*ft_merkle_damgard_512_32(
-						char *msg,
+						uint8_t *msg,
+						size_t len,
 						size_t *new_len,
 						t_bool little_endian)
 {
-	size_t		len;
 	uint32_t	len_bits;
 	uint8_t		*res;
 
-	len = ft_strlen(msg);
 	*new_len = len * 8 + 1;
 	if (*new_len % 512 > 480)
 		*new_len += 512 - 480;
 	*new_len += 480 - (*new_len % 512);
 	*new_len /= 8;
-	res = (uint8_t *)ft_strndup(msg, *new_len + 4);
+	res = (uint8_t *)ft_memndup(msg, len, *new_len + 4);
 	res[len] = 128;
 	len_bits = 8 * len;
 	if (little_endian)

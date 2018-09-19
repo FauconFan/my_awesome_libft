@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:17:44 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 08:09:47 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/09/19 18:49:19 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ t_bool			ft_isxdigit(int c);
 
 int				ft_toupper(int c);
 int				ft_tolower(int c);
+
+char			ft_toxdigit(char c);
 
 #endif

@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sha1.c                                          :+:      :+:    :+:   */
+/*   hmac.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/13 13:52:48 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/30 09:58:16 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/27 10:42:37 by jpriou            #+#    #+#             */
+/*   Updated: 2018/09/19 17:51:58 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_HMAC_H
+#define FT_HMAC_H
 
-char			*ft_sha1(uint8_t *msg, size_t len)
+#define IPAD_CHAR	0x36
+#define OPAD_CHAR	0x5c
+
+typedef struct		s_hmac
 {
-	t_sha1	*sha1;
-	char	*res;
+	uint8_t		*key;
+	char		*(*hash_f)(uint8_t *, size_t);
+	size_t		size_block;
+}					t_hmac;
 
-	sha1 = ft_sha1_init(msg, len);
-	ft_sha1_process(sha1);
-	res = ft_sha1_buildfinal_n_free(&sha1);
-	return res;
-}
+#endif

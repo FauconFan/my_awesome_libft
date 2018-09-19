@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sha1.c                                          :+:      :+:    :+:   */
+/*   ft_memdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/13 13:52:48 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/30 09:58:16 by jpriou           ###   ########.fr       */
+/*   Created: 2018/08/30 10:04:11 by jpriou            #+#    #+#             */
+/*   Updated: 2018/08/30 10:05:58 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_sha1(uint8_t *msg, size_t len)
+void		*ft_memdup(void *data, size_t len)
 {
-	t_sha1	*sha1;
-	char	*res;
+	void	*res;
 
-	sha1 = ft_sha1_init(msg, len);
-	ft_sha1_process(sha1);
-	res = ft_sha1_buildfinal_n_free(&sha1);
-	return res;
+	ft_memcheck((res = malloc(sizeof(void *) * len)));
+	return ft_memcpy(res, data, len);
 }

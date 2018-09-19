@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 17:02:01 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/24 22:46:58 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/09/19 19:39:47 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,28 @@
 #define S5 S3 S3
 #define S6 S5 S4
 
-void	test(char *s, char *(*f)(char *))
+void	test(char *s, char *(*f)(uint8_t *, size_t))
 {
 	char	*str;
 
 	ft_printf("============= %s =============\n", s);
-	str = f(S1);
-	ft_putendl(str);
+	str = f(S1, ft_strlen(S1));
+	ft_printf("%s => %s\n", "S1", str);
 	ft_strdel(&str);
-	str = f(S2);
-	ft_putendl(str);
+	str = f(S2, ft_strlen(S2));
+	ft_printf("%s => %s\n", "S2", str);
 	ft_strdel(&str);
-	str = f(S3);
-	ft_putendl(str);
+	str = f(S3, ft_strlen(S3));
+	ft_printf("%s => %s\n", "S3", str);
 	ft_strdel(&str);
-	str = f(S4);
-	ft_putendl(str);
+	str = f(S4, ft_strlen(S4));
+	ft_printf("%s => %s\n", "S4", str);
 	ft_strdel(&str);
-	str = f(S5);
-	ft_putendl(str);
+	str = f(S5, ft_strlen(S5));
+	ft_printf("%s => %s\n", "S5", str);
 	ft_strdel(&str);
-	str = f(S6);
-	ft_putendl(str);
+	str = f(S6, ft_strlen(S6));
+	ft_printf("%s => %s\n", "S6", str);
 	ft_strdel(&str);
 }
 
@@ -77,13 +77,59 @@ void	test_des_func()
 	ft_des_free(&des);
 }
 
+void	test_hmac_func() {
+	char	*msg1 = "Sample #1";
+	uint8_t	key1[64];
+	char	*msg2 = "Sample #2";
+	uint8_t	key2[20];
+	char	*msg3 = "Sample #3";
+	uint8_t	key3[100];
+	char	*msg4 = "Sample #4";
+	uint8_t key4[49];
+
+	for (size_t i = 0; i < 64; i++) {
+		key1[i] = i;
+	}
+	for (size_t i = 0; i < 20; i++) {
+		key2[i] = 0x30 + i;
+	}
+	for (size_t i = 0; i < 100; i++) {
+		key3[i] = 0x50 + i;
+	}
+	for (size_t i = 0; i < 49; i++) {
+		key4[i] = 0x70 + i;
+	}
+	t_hmac		*hmac;
+
+	hmac = ft_hmac_init(key1, 64, ft_sha1, 64);
+	char *str1 = ft_hmac_process(hmac, msg1, 9);
+	ft_printf("%s\n", str1);
+	ft_strdel(&str1);
+	ft_hmac_free(&hmac);
+
+	hmac = ft_hmac_init(key2, 20, ft_sha1, 64);
+	char *str2 = ft_hmac_process(hmac, msg2, 9);
+	ft_printf("%s\n", str2);
+	ft_strdel(&str2);
+	ft_hmac_free(&hmac);
+
+	hmac = ft_hmac_init(key3, 100, ft_sha1, 64);
+	char *str3 = ft_hmac_process(hmac, msg3, 9);
+	ft_printf("%s\n", str3);
+	ft_strdel(&str3);
+	ft_hmac_free(&hmac);
+
+	hmac = ft_hmac_init(key4, 49, ft_sha1, 64);
+	char *str4 = ft_hmac_process(hmac, msg4, 9);
+	ft_printf("%s\n", str4);
+	ft_strdel(&str4);
+	ft_hmac_free(&hmac);
+}
+
 int		main()
 {
 	// test_hash_funcs();
 	// test_des_func();
-
-	ft_putendl(ft_lltoa_base(-23, BASE_OCTO));
-	ft_putendl(ft_lltoa_base(-23, BASE_DECA));
-	ft_putendl(ft_lltoa_base(-23, BASE_HEXA));
+	test_hmac_func();
 	return 0;
 }

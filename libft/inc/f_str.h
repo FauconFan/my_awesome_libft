@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:20:28 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/24 22:10:47 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/09/19 19:30:47 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ char			ft_escapedtochar(char *str);
 
 void			ft_switch_endian(char *str);
 void			ft_switch_endian_fixed(char *str, size_t len);
+
+uint8_t			*ft_from_str_hex_to_array_num(char *str, size_t *len_res);
 
 void			ft_strrev(char *str);
 
