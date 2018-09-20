@@ -4,11 +4,14 @@ language: c
 os: linux
 after_script: make fclean
 stage:
-- Verify .travis.yml
-- Build
+- Checks
+- Build c90
+- Build c99
+- Build c11
+- Build c18
 matrix:
     include:
-    -   stage: Verify .travis.yml
+    -   stage: Checks
         script:
         - sudo apt-get install -y python3-yaml
         - python3 scripts/gen_travis_file.py test.out
@@ -16,69 +19,241 @@ matrix:
         - rm -f test.out
         after_script: make fclean
         env:
-            NAME: Use python script to verify
-    -   stage: Build
-        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=5
+            NAME: Verify .travis.yml file
+    -   stage: Checks
+        script:
+        - make -C libft
+        - find libft/src -name "*.c" | sed 's/\.c//g' | grep -v main | sort > c_files
+        - find libft/src -name "*.o" | sed 's/\.o//g' | sort > o_files
+        - diff c_files o_files
+        - rm -f c_files o_files
+        after_script: make fclean
+        env:
+            NAME: Verify unused file
+    -   stage: Build c90
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=5 TEST_CMD="make
+            ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
         env:
             NAME: Build libft with gcc 5
-    -   stage: Build
-        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=6
+    -   stage: Build c90
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=6 TEST_CMD="make
+            ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
         env:
             NAME: Build libft with gcc 6
-    -   stage: Build
-        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=7
+    -   stage: Build c90
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=7 TEST_CMD="make
+            ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
         env:
             NAME: Build libft with gcc 7
-    -   stage: Build
-        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=8
+    -   stage: Build c90
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=8 TEST_CMD="make
+            ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
         env:
             NAME: Build libft with gcc 8
-    -   stage: Build
-        script: make -C libft test_docker_compile_gcc
+    -   stage: Build c90
+        script: make -C libft test_docker_compile_gcc TEST_CMD="make ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
         env:
             NAME: Build libft with gcc latest
-    -   stage: Build
-        script: make -C libft test_docker_compile_clang
+    -   stage: Build c90
+        script: make -C libft test_docker_compile_clang TEST_CMD="make ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
         env:
             NAME: Build libft with clang (latest on Debian)
-    -   stage: Build
+    -   stage: Build c90
         script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=5 TEST_CMD="make
-            so"
+            so ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
         env:
             NAME: Build libft with gcc 5 (make so)
-    -   stage: Build
+    -   stage: Build c90
         script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=6 TEST_CMD="make
-            so"
+            so ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
         env:
             NAME: Build libft with gcc 6 (make so)
-    -   stage: Build
+    -   stage: Build c90
         script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=7 TEST_CMD="make
-            so"
+            so ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
         env:
             NAME: Build libft with gcc 7 (make so)
-    -   stage: Build
+    -   stage: Build c90
         script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=8 TEST_CMD="make
-            so"
+            so ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
         env:
             NAME: Build libft with gcc 8 (make so)
-    -   stage: Build
-        script: make -C libft test_docker_compile_gcc TEST_CMD="make so"
+    -   stage: Build c90
+        script: make -C libft test_docker_compile_gcc TEST_CMD="make so ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
         env:
             NAME: Build libft with gcc latest (make so)
-    -   stage: Build
-        script: make -C libft test_docker_compile_clang TEST_CMD="make so"
+    -   stage: Build c90
+        script: make -C libft test_docker_compile_clang TEST_CMD="make so ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
         env:
             NAME: Build libft with clang (latest on Debian) (make so)
+    -   stage: Build c99
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=5 TEST_CMD="make
+            ADDITIONAL_FLAGS=\"-std=c99\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 5
+    -   stage: Build c99
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=6 TEST_CMD="make
+            ADDITIONAL_FLAGS=\"-std=c99\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 6
+    -   stage: Build c99
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=7 TEST_CMD="make
+            ADDITIONAL_FLAGS=\"-std=c99\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 7
+    -   stage: Build c99
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=8 TEST_CMD="make
+            ADDITIONAL_FLAGS=\"-std=c99\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 8
+    -   stage: Build c99
+        script: make -C libft test_docker_compile_gcc TEST_CMD="make ADDITIONAL_FLAGS=\"-std=c99\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc latest
+    -   stage: Build c99
+        script: make -C libft test_docker_compile_clang TEST_CMD="make ADDITIONAL_FLAGS=\"-std=c99\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with clang (latest on Debian)
+    -   stage: Build c99
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=5 TEST_CMD="make
+            so ADDITIONAL_FLAGS=\"-std=c99\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 5 (make so)
+    -   stage: Build c99
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=6 TEST_CMD="make
+            so ADDITIONAL_FLAGS=\"-std=c99\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 6 (make so)
+    -   stage: Build c99
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=7 TEST_CMD="make
+            so ADDITIONAL_FLAGS=\"-std=c99\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 7 (make so)
+    -   stage: Build c99
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=8 TEST_CMD="make
+            so ADDITIONAL_FLAGS=\"-std=c99\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 8 (make so)
+    -   stage: Build c99
+        script: make -C libft test_docker_compile_gcc TEST_CMD="make so ADDITIONAL_FLAGS=\"-std=c99\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc latest (make so)
+    -   stage: Build c99
+        script: make -C libft test_docker_compile_clang TEST_CMD="make so ADDITIONAL_FLAGS=\"-std=c99\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with clang (latest on Debian) (make so)
+    -   stage: Build c11
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=5 TEST_CMD="make
+            ADDITIONAL_FLAGS=\"-std=c11\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 5
+    -   stage: Build c11
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=6 TEST_CMD="make
+            ADDITIONAL_FLAGS=\"-std=c11\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 6
+    -   stage: Build c11
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=7 TEST_CMD="make
+            ADDITIONAL_FLAGS=\"-std=c11\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 7
+    -   stage: Build c11
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=8 TEST_CMD="make
+            ADDITIONAL_FLAGS=\"-std=c11\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 8
+    -   stage: Build c11
+        script: make -C libft test_docker_compile_gcc TEST_CMD="make ADDITIONAL_FLAGS=\"-std=c11\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc latest
+    -   stage: Build c11
+        script: make -C libft test_docker_compile_clang TEST_CMD="make ADDITIONAL_FLAGS=\"-std=c11\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with clang (latest on Debian)
+    -   stage: Build c11
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=5 TEST_CMD="make
+            so ADDITIONAL_FLAGS=\"-std=c11\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 5 (make so)
+    -   stage: Build c11
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=6 TEST_CMD="make
+            so ADDITIONAL_FLAGS=\"-std=c11\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 6 (make so)
+    -   stage: Build c11
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=7 TEST_CMD="make
+            so ADDITIONAL_FLAGS=\"-std=c11\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 7 (make so)
+    -   stage: Build c11
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=8 TEST_CMD="make
+            so ADDITIONAL_FLAGS=\"-std=c11\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 8 (make so)
+    -   stage: Build c11
+        script: make -C libft test_docker_compile_gcc TEST_CMD="make so ADDITIONAL_FLAGS=\"-std=c11\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc latest (make so)
+    -   stage: Build c11
+        script: make -C libft test_docker_compile_clang TEST_CMD="make so ADDITIONAL_FLAGS=\"-std=c11\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with clang (latest on Debian) (make so)
+    -   stage: Build c18
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=8 TEST_CMD="make
+            ADDITIONAL_FLAGS=\"-std=c18\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 8
+    -   stage: Build c18
+        script: make -C libft test_docker_compile_gcc TEST_CMD="make ADDITIONAL_FLAGS=\"-std=c18\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc latest
+    -   stage: Build c18
+        script: make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER=8 TEST_CMD="make
+            so ADDITIONAL_FLAGS=\"-std=c18\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc 8 (make so)
+    -   stage: Build c18
+        script: make -C libft test_docker_compile_gcc TEST_CMD="make so ADDITIONAL_FLAGS=\"-std=c18\""
+        after_script: make fclean
+        env:
+            NAME: Build libft with gcc latest (make so)
 ...

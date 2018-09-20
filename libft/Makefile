@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/09/19 19:12:45 by jpriou           ###   ########.fr        #
+#    Updated: 2018/09/20 10:50:41 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,10 +66,12 @@ so: compile_dynamic_library
 
 compile_static_library:
 	@! test -f $(NAME_SO) || make fclean
+	@printf "FLAGS := %s\n" "$(FLAGS)"
 	@make -C . $(NAME_A) -j8
 
 compile_dynamic_library:
 	@! test -f $(NAME_A) || make fclean
+	@printf "FLAGS := %s\n" "$(FLAGS)"
 	@make -C . $(NAME_SO) ADDITIONAL_FLAGS="-fPIC" -j8
 
 $(NAME_A): $(OBJ)
