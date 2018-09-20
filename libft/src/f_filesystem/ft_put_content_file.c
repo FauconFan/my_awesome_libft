@@ -6,13 +6,17 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 16:09:48 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/19 16:21:11 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/09/20 09:28:24 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_put_content_file(char *file_path, char *content, char **errno_str)
+void	ft_put_content_file(
+				char *file_path,
+				char *content,
+				size_t len,
+				char **errno_str)
 {
 	int		fd;
 
@@ -22,7 +26,7 @@ void	ft_put_content_file(char *file_path, char *content, char **errno_str)
 	}
 	else
 	{
-		ft_putstr_fd(content, fd);
+		write(fd, content, len);
 		if (close(fd) < 0)
 			*errno_str = strerror(errno);
 	}
