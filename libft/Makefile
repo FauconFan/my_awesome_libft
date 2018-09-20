@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/09/20 10:50:41 by jpriou           ###   ########.fr        #
+#    Updated: 2018/09/20 11:55:39 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -140,7 +140,9 @@ test_docker_compile_clang: fclean
 			debian \
 			tail -f /dev/null
 	docker exec build_libft_clang apt-get update
-	docker exec build_libft_clang apt-get install -y clang make
+	docker exec build_libft_clang apt-get install -y --no-install-recommends clang make
+	docker exec build_libft_clang apt-get clean
+	docker exec build_libft_clang rm -rf /var/lib/apt/lists/*
 	docker exec build_libft_clang $(TEST_CMD) CC=clang
 	docker exec build_libft_clang make fclean
 	docker stop build_libft_clang
