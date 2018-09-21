@@ -62,8 +62,6 @@ SRC_LIBFT_DES = \
 					modes/ft_des_cfb.c \
 					modes/ft_des_ofb.c \
 					des_globals.c \
-					ft_des_new.c \
-					ft_des_process.c \
 					ft_des_process_block.c \
 					ft_des_padding.c \
 					ft_des_funcs.c \
@@ -93,6 +91,8 @@ SRC_LIBFT_ENCRYPT = \
 					ft_rotright_uint32.c \
 					ft_rotleft_uint64.c \
 					ft_rotright_uint64.c \
+					ft_des_new.c \
+					ft_des_process.c \
 
 SRC += $(addprefix $(LIBFT_MDX_FOLDER), $(SRC_LIBFT_MDX))
 SRC += $(addprefix $(LIBFT_SHA_FOLDER), $(SRC_LIBFT_SHA))

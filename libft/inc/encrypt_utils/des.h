@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 16:46:05 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/19 14:24:10 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/09/21 12:18:57 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,25 +37,9 @@ typedef struct			s_des
 	t_enc_mode			mode;
 }						t_des;
 
-t_des					*ft_des_new(
-							uint64_t original_key,
-							uint64_t iv,
-							t_enc_action action,
-							t_enc_mode mode);
-void					ft_des_change_action(
-							t_des *des,
-							t_enc_action action);
-void					ft_des_free();
-
 uint64_t				ft_des_process_block(
 							uint64_t msg,
 							uint64_t keys[16]);
-
-uint8_t					*ft_des_process(
-							t_des *des,
-							uint8_t *msg,
-							size_t size_in,
-							size_t *size_out);
 
 uint8_t					*ft_des_ecb_enc(
 							t_des *des,
