@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/09/20 11:55:39 by jpriou           ###   ########.fr        #
+#    Updated: 2018/09/21 12:46:00 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,10 +72,10 @@ compile_static_library:
 compile_dynamic_library:
 	@! test -f $(NAME_A) || make fclean
 	@printf "FLAGS := %s\n" "$(FLAGS)"
-	@make -C . $(NAME_SO) ADDITIONAL_FLAGS="-fPIC" -j8
+	@make -C . $(NAME_SO) ADDITIONAL_FLAGS="$(ADDITIONAL_FLAGS) -fPIC" -j8
 
 $(NAME_A): $(OBJ)
-	@printf " %s[-OK-]%s %sCompiled%s    %-70s\\n" \
+	@printf " %s[100%%]%s %sCompiled%s    %-70s\\n" \
 		"$(_CYAN)" \
 		"$(_END)" \
 		"$(_GREEN)" \
@@ -86,7 +86,7 @@ $(NAME_A): $(OBJ)
 	@echo "libft.a built successfully"
 
 $(NAME_SO): $(OBJ)
-	@printf " %s[-OK-]%s %sCompiled%s    %-70s\\n" \
+	@printf " %s[100%%]%s %sCompiled%s    %-70s\\n" \
 		"$(_CYAN)" \
 		"$(_END)" \
 		"$(_GREEN)" \
