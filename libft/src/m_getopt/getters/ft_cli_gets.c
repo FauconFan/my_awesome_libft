@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 20:47:16 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 14:07:50 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 15:29:43 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ char			*ft_cli_gets(t_cli_parser *parser, char *target)
 
 	res = NULL;
 	ft_slist_iterparam2(parser->list_string, target, &res, f);
-	return res;
+	return (res);
 }

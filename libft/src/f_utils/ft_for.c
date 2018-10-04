@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 19:25:26 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/12 22:40:23 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 14:56:51 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 static int	incr(int i)
 {
-	return i + 1;
+	return (i + 1);
 }
 
 static int	decr(int i)
 {
-	return i - 1;
+	return (i - 1);
 }
 
 void		ft_for(int min, int max, void (*f)())

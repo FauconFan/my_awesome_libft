@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 16:57:35 by jpriou            #+#    #+#             */
-/*   Updated: 2018/09/19 19:38:17 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 13:57:37 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static uint8_t	*prepare_key(
 		free(res);
 		res = tmp2;
 	}
-	return res;
+	return (res);
 }
 
 t_hmac			*ft_hmac_init(

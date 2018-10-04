@@ -6,17 +6,17 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 13:53:45 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/14 16:17:11 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 11:49:00 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHA_H
-#define SHA_H
+# define SHA_H
 
-#include "libft.h"
-#include "inc/encrypt_utils/sha1.h"
-#include "inc/encrypt_utils/sha256_224.h"
-#include "inc/encrypt_utils/sha512_384.h"
+# include "libft.h"
+# include "inc/encrypt_utils/sha1.h"
+# include "inc/encrypt_utils/sha256_224.h"
+# include "inc/encrypt_utils/sha512_384.h"
 
 uint32_t			ft_sha_ch_32(uint32_t x, uint32_t y, uint32_t z);
 uint32_t			ft_sha_maj_32(uint32_t x, uint32_t y, uint32_t z);

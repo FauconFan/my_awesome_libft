@@ -6,14 +6,14 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:24:56 by jpriou            #+#    #+#             */
-/*   Updated: 2018/09/20 09:28:40 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 11:44:57 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef F_FILESYSTEM_H
-#define F_FILESYSTEM_H
+# define F_FILESYSTEM_H
 
-#include "libft.h"
+# include "libft.h"
 
 # define BUFF_SIZE_GNL			25
 

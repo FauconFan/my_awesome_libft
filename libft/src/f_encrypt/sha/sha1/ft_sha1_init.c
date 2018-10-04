@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 14:16:23 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/30 09:59:38 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 12:19:26 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_sha1		*ft_sha1_init(uint8_t *msg, size_t len)
 	sha1->func_sha1[1] = &ft_sha_parity_32;
 	sha1->func_sha1[2] = &ft_sha_maj_32;
 	sha1->func_sha1[3] = &ft_sha_parity_32;
-	return sha1;
+	return (sha1);
 }
 
 char		*ft_sha1_buildfinal_n_free(t_sha1 **sha)
@@ -46,5 +46,5 @@ char		*ft_sha1_buildfinal_n_free(t_sha1 **sha)
 	free((*sha)->msg);
 	free(*sha);
 	*sha = NULL;
-	return res;
+	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 11:19:07 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/30 10:12:39 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 13:58:02 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ uint8_t			*ft_merkle_damgard_512_64(
 		to_little_endian(res, *new_len);
 	res[len] = 128;
 	ft_memcpy(res + *new_len, &len_bits, 8);
-	return res;
+	return (res);
 }

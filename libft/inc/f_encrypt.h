@@ -6,19 +6,19 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 15:50:41 by jpriou            #+#    #+#             */
-/*   Updated: 2018/09/21 12:19:06 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 11:58:43 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef F_ENCRYPT_H
-#define F_ENCRYPT_H
+# define F_ENCRYPT_H
 
-#include "libft.h"
-#include "inc/encrypt_utils/mdx.h"
-#include "inc/encrypt_utils/sha.h"
-#include "inc/encrypt_utils/base64.h"
-#include "inc/encrypt_utils/des.h"
-#include "inc/encrypt_utils/hmac.h"
+# include "libft.h"
+# include "inc/encrypt_utils/mdx.h"
+# include "inc/encrypt_utils/sha.h"
+# include "inc/encrypt_utils/base64.h"
+# include "inc/encrypt_utils/des.h"
+# include "inc/encrypt_utils/hmac.h"
 
 /*
 **	Source:
@@ -28,7 +28,7 @@
 **	SHA		https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
 **	HMAC	https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.198-1.pdf
 **			https://csrc.nist.gov/csrc/media/publications/fips/198/archive/
-* 				2002-03-06/documents/fips-198a.pdf
+**				2002-03-06/documents/fips-198a.pdf
 */
 
 /*
@@ -98,20 +98,20 @@ uint8_t		*ft_merkle_damgard_1024_64(
 **	Des encryption
 */
 
-t_des					*ft_des_new(
-							uint64_t original_key,
-							uint64_t iv,
-							t_enc_action action,
-							t_enc_mode mode);
-void					ft_des_change_action(
-							t_des *des,
-							t_enc_action action);
-void					ft_des_free();
+t_des		*ft_des_new(
+						uint64_t original_key,
+						uint64_t iv,
+						t_enc_action action,
+						t_enc_mode mode);
+void		ft_des_change_action(
+						t_des *des,
+						t_enc_action action);
+void		ft_des_free();
 
-uint8_t					*ft_des_process(
-							t_des *des,
-							uint8_t *msg,
-							size_t size_in,
-							size_t *size_out);
+uint8_t		*ft_des_process(
+						t_des *des,
+						uint8_t *msg,
+						size_t size_in,
+						size_t *size_out);
 
 #endif

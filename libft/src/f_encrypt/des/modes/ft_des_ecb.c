@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 12:55:13 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/19 13:38:53 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 12:30:55 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static uint8_t		*ft_des_ecb(
 		ft_des_save_msg(res + i, out);
 		i += 8;
 	}
-	return res;
+	return (res);
 }
 
 uint8_t				*ft_des_ecb_enc(

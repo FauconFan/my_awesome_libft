@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 09:15:31 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/19 09:30:44 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 13:38:51 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ uint64_t		ft_des_apply_e(uint32_t u)
 		res |= ((uint64_t)(u >> ((32 - g_des_e[i])) & 1)) << (47 - i);
 		i++;
 	}
-	return res;
+	return (res);
 }
 
 uint32_t		ft_des_apply_p(uint32_t u)
@@ -39,7 +39,7 @@ uint32_t		ft_des_apply_p(uint32_t u)
 		res |= (u >> ((32 - g_des_p[i])) & 1) << (31 - i);
 		i++;
 	}
-	return res;
+	return (res);
 }
 
 uint32_t		ft_des_apply_s_tables(uint64_t u)
@@ -59,5 +59,5 @@ uint32_t		ft_des_apply_s_tables(uint64_t u)
 		res |= g_des_s_tables[i][rk] << (28 - 4 * i);
 		i++;
 	}
-	return res;
+	return (res);
 }

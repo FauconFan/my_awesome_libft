@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 14:53:13 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/14 14:54:22 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 12:22:41 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,14 @@ static void		process_block(t_sha1 *sha1, size_t offset)
 	uint32_t	w[80];
 	size_t		i;
 
-	m = (uint32_t *) (sha1->msg + offset);
+	m = (uint32_t *)(sha1->msg + offset);
 	i = -1;
 	while (++i < 16)
 		w[i] = m[i];
 	i--;
 	while (++i < 80)
-		w[i] = ft_rotleft_uint32((w[i - 3] ^ w[i - 8] ^ w[i - 14] ^ w[i - 16]), 1);
+		w[i] = ft_rotleft_uint32(
+							(w[i - 3] ^ w[i - 8] ^ w[i - 14] ^ w[i - 16]), 1);
 	sha1->a = sha1->hash[0];
 	sha1->b = sha1->hash[1];
 	sha1->c = sha1->hash[2];

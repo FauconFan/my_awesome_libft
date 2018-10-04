@@ -6,13 +6,13 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 14:16:23 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/30 10:00:03 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 12:18:49 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_sha256		*ft_sha256_init(uint8_t *msg, size_t len)
+t_sha256	*ft_sha256_init(uint8_t *msg, size_t len)
 {
 	t_sha256	*sha256;
 
@@ -27,7 +27,7 @@ t_sha256		*ft_sha256_init(uint8_t *msg, size_t len)
 	sha256->hash[6] = 0x1f83d9ab;
 	sha256->hash[7] = 0x5be0cd19;
 	sha256->k = g_sha256_kk;
-	return sha256;
+	return (sha256);
 }
 
 char		*ft_sha256_buildfinal_n_free(t_sha256 **sha)
@@ -44,5 +44,5 @@ char		*ft_sha256_buildfinal_n_free(t_sha256 **sha)
 				(*sha)->hash[6],
 				(*sha)->hash[7]);
 	ft_sha256_free(sha);
-	return res;
+	return (res);
 }

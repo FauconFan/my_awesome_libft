@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 09:15:31 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/19 10:29:37 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 13:38:54 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static uint64_t		ft_des_apply_ip_c(uint64_t u, uint8_t data[64])
 		res |= ((u >> (64 - data[i])) & 1) << (63 - i);
 		i++;
 	}
-	return res;
+	return (res);
 }
 
 uint64_t			ft_des_apply_ip(uint64_t u)

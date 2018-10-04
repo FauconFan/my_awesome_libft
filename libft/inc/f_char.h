@@ -6,14 +6,14 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:17:44 by jpriou            #+#    #+#             */
-/*   Updated: 2018/09/19 18:49:19 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 11:44:44 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef F_CHAR_H
-#define F_CHAR_H
+# define F_CHAR_H
 
-#include "libft.h"
+# include "libft.h"
 
 t_bool			ft_isalnum(int c);
 t_bool			ft_isalpha(int c);

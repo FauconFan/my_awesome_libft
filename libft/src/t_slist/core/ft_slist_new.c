@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 16:35:52 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 11:28:29 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 18:03:57 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ t_slist					*ft_slist_new(void (*free_f)(void *elem))
 	res->free = free_f;
 	res->cpy = NULL;
 	res->cmp = NULL;
-	return res;
+	return (res);
 }

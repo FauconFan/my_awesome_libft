@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 10:28:09 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 11:41:49 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 17:54:35 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void		ft_add_sl_opt(
 	ft_slist_push(builder->args, arg);
 }
 
-void		ft_cli_add_u(
+void			ft_cli_add_u(
 					t_cli_builder_parser *builder,
 					t_cli_opt *opt,
 					t_cli_arg *arg)
@@ -79,7 +79,7 @@ void		ft_cli_add_u(
 	ft_slist_push(builder->helps, opt);
 }
 
-void		ft_cli_add(
+void			ft_cli_add(
 					t_cli_builder_parser *builder,
 					t_cli_opt **opt_ptr,
 					t_cli_arg **arg_ptr)

@@ -6,15 +6,15 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/27 10:42:37 by jpriou            #+#    #+#             */
-/*   Updated: 2018/09/19 17:51:58 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 11:48:52 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_HMAC_H
-#define FT_HMAC_H
+# define FT_HMAC_H
 
-#define IPAD_CHAR	0x36
-#define OPAD_CHAR	0x5c
+# define IPAD_CHAR	0x36
+# define OPAD_CHAR	0x5c
 
 typedef struct		s_hmac
 {

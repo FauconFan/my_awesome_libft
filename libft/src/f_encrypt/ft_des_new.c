@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 13:38:21 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/19 13:17:56 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 13:57:23 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_des			*ft_des_new(
 	ft_build_sub_keys(res, original_key);
 	res->iv = iv;
 	res->mode = mode;
-	return res;
+	return (res);
 }
 
 void			ft_des_change_action(t_des *des, t_enc_action action)

@@ -6,11 +6,23 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 17:10:20 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 12:58:18 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 17:47:23 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void		print_help(t_cli_opt *opt)
+{
+	char		*help;
+
+	if (opt->help)
+	{
+		help = build_helper_properly(opt->help, 40, 50);
+		ft_putstr(help);
+		ft_strdel(&help);
+	}
+}
 
 static void		display_f(void *elem)
 {
@@ -18,7 +30,6 @@ static void		display_f(void *elem)
 	char		*delim;
 	char		*sh;
 	char		*lo;
-	char		*help;
 
 	opt = (t_cli_opt *)elem;
 	delim = (opt->short_opt && opt->long_opt) ? ", " : "  ";
@@ -36,11 +47,7 @@ static void		display_f(void *elem)
 		lo = ft_strdup(opt->type);
 	ft_printf("  %s%s%-34s", sh, delim, lo);
 	if (opt->help)
-	{
-		help = build_helper_properly(opt->help, 40, 50);
-		ft_putstr(help);
-		ft_strdel(&help);
-	}
+		print_help(opt);
 	ft_putchar('\n');
 	ft_strdel(&sh);
 	ft_strdel(&lo);
@@ -55,7 +62,7 @@ static int		cmp_f(void *d1, void *d2)
 	opt2 = (t_cli_opt *)d2;
 	if (opt1->long_opt != NULL && opt2->long_opt != NULL)
 	{
-		return ft_strcmp(opt1->long_opt, opt2->long_opt);
+		return (ft_strcmp(opt1->long_opt, opt2->long_opt));
 	}
 	else if (opt1->long_opt != NULL)
 	{

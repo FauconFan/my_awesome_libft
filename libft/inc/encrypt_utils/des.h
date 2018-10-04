@@ -6,12 +6,12 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 16:46:05 by jpriou            #+#    #+#             */
-/*   Updated: 2018/09/21 12:18:57 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 11:48:41 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DES_H
-#define DES_H
+# define DES_H
 
 typedef enum			e_enc_action
 {

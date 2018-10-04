@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 20:57:56 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/02 22:10:13 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 14:21:27 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 double	ft_remquo(double x, double y)
 {
-	double yR;
+	double yr;
 	double tmp;
 
-	yR = ft_abs(y);
+	yr = ft_abs(y);
 	tmp = x;
-	while (tmp < 0) {
-		tmp += yR;
-	}
-	while (tmp > yR) {
-		tmp -= yR;
-	}
+	while (tmp < 0)
+		tmp += yr;
+	while (tmp > yr)
+		tmp -= yr;
 	return (tmp);
 }

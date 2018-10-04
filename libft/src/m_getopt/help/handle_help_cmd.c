@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 16:17:57 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 13:09:21 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 15:31:11 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_slist		*build_help_command(t_slist *cmds)
 	ft_slist_add_cmp(res, MAKE_CMP_PTR(ft_strcmp));
 	ft_slist_iterparam(cmds, res, add_properly);
 	ft_slist_sort(res);
-	return res;
+	return (res);
 }
 
 void		handle_help_cmd(

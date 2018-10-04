@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 17:35:51 by jpriou            #+#    #+#             */
-/*   Updated: 2018/09/19 19:30:07 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 13:57:46 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static char		*ft_hmac_step(
 	ft_memcpy(tmp + hmac->size_block, text, len_text);
 	res = hmac->hash_f(tmp, len);
 	free(tmp);
-	return res;
+	return (res);
 }
 
 static uint8_t	*prepare_key_pad(t_hmac *hmac, char c)
@@ -43,7 +43,7 @@ static uint8_t	*prepare_key_pad(t_hmac *hmac, char c)
 		pad[i] = pad[i] ^ hmac->key[i];
 		i++;
 	}
-	return pad;
+	return (pad);
 }
 
 char			*ft_hmac_process(t_hmac *hmac, uint8_t *msg, size_t len_msg)

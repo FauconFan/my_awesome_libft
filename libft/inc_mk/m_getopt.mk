@@ -57,6 +57,7 @@ SRC_GETOPT = \
 				cli_parser.c \
 				cmd_builder_parser.c \
 				cmd_builder_parser_node.c \
+				cmd_builder_parser_node2.c \
 				cmd_parser.c \
 				getopt.c
 

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 10:53:07 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 07:44:43 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 18:06:04 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void			*ft_slist_findparam(
 						t_slist *lst,
-						size_t	*rank,
+						size_t *rank,
 						void *param,
 						t_bool (*f)(void *content, void *param))
 {

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 22:35:37 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/24 22:44:52 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 14:24:51 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 char			*ft_itoa(int n)
 {
-	return ft_itoa_base(n, BASE_DECA);
+	return (ft_itoa_base(n, BASE_DECA));
 }

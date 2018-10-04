@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/10 14:08:35 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 14:22:50 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 14:24:35 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ static char		escape(char c)
 		return ('\'');
 	else if (c == '\"')
 		return ('\"');
-	return c;
+	return (c);
 }
 
 char			ft_escapedtochar(char *str)
 {
 	if (*str != '\\')
 		return (*str);
-	return escape(str[1]);
+	return (escape(str[1]));
 }

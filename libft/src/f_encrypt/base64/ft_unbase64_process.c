@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 17:32:26 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/19 17:05:06 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 14:52:17 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,86 +18,36 @@ static int		validate_string(char *str, char base[64], char comp)
 	int		index;
 
 	len = ft_strlen(str);
+	index = -1;
 	if (len % 4 != 0)
 		return (-1);
 	if (len == 0)
 		return (0);
-	index = 0;
-	while (index < len - 2)
+	while (++index < len - 2)
 	{
 		if (ft_str_contains_c(base, str[index]) == FALSE)
 			return (-1);
-		index++;
 	}
 	if (str[index] == comp)
-	{
-		if (str[index + 1] != comp)
-			return (-1);
-		return index;
-	}
+		return ((str[index + 1] != comp) ? -1 : index);
 	if (ft_str_contains_c(base, str[index]) == FALSE)
 		return (-1);
-	index++;
-	if (str[index] == comp)
+	if (str[++index] == comp)
 		return (index);
 	else if (ft_str_contains_c(base, str[index]))
 		return (index + 1);
 	return (-1);
 }
 
-char			get_rep6bits(char c, char base[64])
-{
-	int		res;
-
-	res = 0;
-	while (res < 64)
-	{
-		if (base[res] == c)
-			return res;
-		res++;
-	}
-	return (-1);
-}
-
-void			num2(char *str, uint8_t *res, char base[64])
-{
-	char	d[2];
-
-	d[0] = get_rep6bits(str[0], base);
-	d[1] = get_rep6bits(str[1], base);
-	res[0] = (d[0] << 2) | (d[1] >> 4);
-}
-
-void			num3(char *str, uint8_t *res, char base[64])
-{
-	char	d[4];
-
-	d[0] = get_rep6bits(str[0], base);
-	d[1] = get_rep6bits(str[1], base);
-	d[2] = get_rep6bits(str[2], base);
-	res[0] = (d[0] << 2) | (d[1] >> 4);
-	res[1] = (d[1] << 4) | (d[2] >> 2);
-}
-
-void			num4(char *str, uint8_t *res, char base[64])
-{
-	char	d[4];
-
-	d[0] = get_rep6bits(str[0], base);
-	d[1] = get_rep6bits(str[1], base);
-	d[2] = get_rep6bits(str[2], base);
-	d[3] = get_rep6bits(str[3], base);
-	res[0] = (d[0] << 2) | (d[1] >> 4);
-	res[1] = (d[1] << 4) | (d[2] >> 2);
-	res[2] = (d[2] << 6) | d[3];
-}
-
-uint8_t			*ft_unbase64_process(char *str, size_t *len, char base[64], char comp)
+uint8_t			*ft_unbase64_process(
+							char *str,
+							size_t *len,
+							char base[64],
+							char comp)
 {
 	uint8_t	*res;
 	int		real_size;
-	size_t	i;
-	size_t	j;
+	size_t	index[2];
 
 	real_size = validate_string(str, base, comp);
 	*len = 0;
@@ -107,17 +57,17 @@ uint8_t			*ft_unbase64_process(char *str, size_t *len, char base[64], char comp)
 	if (real_size % 4 != 0)
 		*len += ((real_size % 4) - 1);
 	res = (uint8_t *)ft_strnew(*len);
-	i = 0;
-	j = 0;
-	while (i + 3 < (size_t)real_size)
+	index[0] = 0;
+	index[1] = 0;
+	while (index[0] + 3 < (size_t)real_size)
 	{
-		num4(str + i, res + j, base);
-		i += 4;
-		j += 3;
+		dnum4(str + index[0], res + index[1], base);
+		index[0] += 4;
+		index[1] += 3;
 	}
 	if (real_size % 4 == 2)
-		num2(str + i, res + j, base);
+		dnum2(str + index[0], res + index[1], base);
 	else if (real_size % 4 == 3)
-		num3(str + i, res + j, base);
+		dnum3(str + index[0], res + index[1], base);
 	return (res);
 }

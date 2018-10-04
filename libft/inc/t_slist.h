@@ -6,14 +6,14 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:22:57 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/15 13:29:17 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 12:05:29 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_SIMPLE_LIST_H
-#define T_SIMPLE_LIST_H
+#ifndef T_SLIST_H
+# define T_SLIST_H
 
-#include "libft.h"
+# include "libft.h"
 
 typedef struct			s_slist_elem
 {

@@ -6,13 +6,13 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 14:16:23 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/30 10:01:57 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 12:18:34 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_sha512		*ft_sha512_256_init(uint8_t *msg, size_t len)
+t_sha512	*ft_sha512_256_init(uint8_t *msg, size_t len)
 {
 	t_sha512	*sha512;
 
@@ -27,7 +27,7 @@ t_sha512		*ft_sha512_256_init(uint8_t *msg, size_t len)
 	sha512->hash[6] = 0x2b0199fc2c85b8aa;
 	sha512->hash[7] = 0x0eb72ddc81c52ca2;
 	sha512->k = g_sha512_kk;
-	return sha512;
+	return (sha512);
 }
 
 char		*ft_sha512_256_buildfinal_n_free(t_sha512 **sha)
@@ -40,5 +40,5 @@ char		*ft_sha512_256_buildfinal_n_free(t_sha512 **sha)
 				(*sha)->hash[2],
 				(*sha)->hash[3]);
 	ft_sha512_free(sha);
-	return res;
+	return (res);
 }

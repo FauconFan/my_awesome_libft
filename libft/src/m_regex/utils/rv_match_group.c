@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/10 14:43:02 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/12 11:50:58 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 17:59:59 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static int	rv_match_group_char(char *str, char *pattern)
 	if (*pattern == 0)
 		return (-1);
 	if ((pattern[-1] == '^' && !find) || (pattern[-1] != '^' && find))
-		return 1;
-	return 0;
+		return (1);
+	return (0);
 }
 
 static int	rv_match_group_string(char *str, char *pattern)
@@ -51,7 +51,7 @@ static int	rv_match_group_string(char *str, char *pattern)
 		if (ft_strncmp(str, pattern, rank) == 0)
 		{
 			pattern[ft_strlen(pattern)] = '(';
-			return rank;
+			return (rank);
 		}
 		pattern += rank + 1;
 	}
@@ -59,7 +59,7 @@ static int	rv_match_group_string(char *str, char *pattern)
 	if (ft_strncmp(str, pattern, rank) == 0)
 	{
 		pattern[rank] = '(';
-		return rank;
+		return (rank);
 	}
 	pattern[rank] = '(';
 	return (0);
@@ -68,7 +68,7 @@ static int	rv_match_group_string(char *str, char *pattern)
 int			rv_match_group(char *str, char *pattern)
 {
 	if (*str == '\0')
-		return 0;
+		return (0);
 	if (*pattern == ']')
 	{
 		pattern++;
@@ -79,7 +79,7 @@ int			rv_match_group(char *str, char *pattern)
 		pattern++;
 		return (rv_match_group_string(str, pattern));
 	}
-	return -1;
+	return (-1);
 }
 
 char		*rv_get_after_group(char *pattern)
@@ -89,21 +89,21 @@ char		*rv_get_after_group(char *pattern)
 		while (*pattern && *pattern != '[')
 			pattern++;
 		if (*pattern == 0)
-			return NULL;
-		return pattern + 1;
+			return (NULL);
+		return (pattern + 1);
 	}
 	else if (*pattern == ')')
 	{
 		while (*pattern && *pattern != '(')
 			pattern++;
 		if (*pattern == 0)
-			return NULL;
-		return pattern + 1;
+			return (NULL);
+		return (pattern + 1);
 	}
-	return pattern;
+	return (pattern);
 }
 
 t_bool		is_starting_group(char c)
 {
-	return c == ']' || c == ')';
+	return (c == ']' || c == ')');
 }

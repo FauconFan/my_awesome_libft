@@ -6,14 +6,14 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:22:26 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 08:10:05 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 11:45:16 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef F_PUT_H
-#define F_PUT_H
+# define F_PUT_H
 
-#include "libft.h"
+# include "libft.h"
 
 void			ft_putchar(char c);
 

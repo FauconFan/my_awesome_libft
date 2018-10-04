@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/10 13:11:25 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 13:45:33 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 17:53:47 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ t_cmd_parser	*ft_getopt(
 	(void)argc;
 	(void)argv;
 	(void)err;
-	return res;
+	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 17:54:57 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/08 13:47:02 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 15:29:12 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_res_array		*ft_create_res_array(char *target)
 	ft_memcheck((res = (t_res_array *)malloc(sizeof(t_res_array))));
 	res->target = ft_strdup(target);
 	res->value = ft_stab_new(0, NULL);
-	return res;
+	return (res);
 }
 
 void			*ft_copy_res_array(t_res_array *actu)
@@ -34,7 +34,7 @@ void			*ft_copy_res_array(t_res_array *actu)
 		ft_stab_append(&(res->value), actu->value[i]);
 		i++;
 	}
-	return res;
+	return (res);
 }
 
 void			ft_free_res_array(t_res_array *a)

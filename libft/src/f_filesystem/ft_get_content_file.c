@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 08:25:15 by jpriou            #+#    #+#             */
-/*   Updated: 2018/09/20 09:07:50 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 14:02:08 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,12 @@ char	*ft_get_content_file(
 			content_file = ft_strnew(stat_actu.st_size);
 			if (read(fd, content_file, stat_actu.st_size) < 0)
 				*errno_str = strerror(errno);
-			else
-			{
-				if (close(fd) < 0)
-					*errno_str = strerror(errno);
-			}
+			if (close(fd) < 0)
+				*errno_str = strerror(errno);
 		}
 		*size_file = stat_actu.st_size;
 	}
 	else
-	{
 		*errno_str = strerror(errno);
-	}
 	return (content_file);
 }

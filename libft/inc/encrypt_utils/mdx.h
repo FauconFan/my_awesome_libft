@@ -6,14 +6,14 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 13:10:17 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/30 09:56:03 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 11:48:55 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MDX_H
-#define MDX_H
+# define MDX_H
 
-#include "libft.h"
+# include "libft.h"
 
 typedef	struct				s_mdx
 {

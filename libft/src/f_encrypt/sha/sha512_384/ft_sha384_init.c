@@ -6,13 +6,13 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 14:16:23 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/30 10:00:15 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 12:18:15 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_sha384		*ft_sha384_init(uint8_t *msg, size_t len)
+t_sha384	*ft_sha384_init(uint8_t *msg, size_t len)
 {
 	t_sha384	*sha384;
 
@@ -27,7 +27,7 @@ t_sha384		*ft_sha384_init(uint8_t *msg, size_t len)
 	sha384->hash[6] = 0xdb0c2e0d64f98fa7;
 	sha384->hash[7] = 0x47b5481dbefa4fa4;
 	sha384->k = g_sha512_kk;
-	return sha384;
+	return (sha384);
 }
 
 char		*ft_sha384_buildfinal_n_free(t_sha384 **sha)
@@ -42,5 +42,5 @@ char		*ft_sha384_buildfinal_n_free(t_sha384 **sha)
 				(*sha)->hash[4],
 				(*sha)->hash[5]);
 	ft_sha512_free(sha);
-	return res;
+	return (res);
 }

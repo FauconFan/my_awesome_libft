@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 08:25:15 by jpriou            #+#    #+#             */
-/*   Updated: 2018/09/20 09:11:06 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 14:05:26 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char	*ft_get_content_file_fd_nostat(
 		*size_file += ret;
 		buffer[ret] = 0;
 		ft_sb_append(lst, buffer);
-		ft_bzero(buffer, 26);
 	}
 	if (ret < 0)
 		*errno_str = strerror(errno);

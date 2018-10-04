@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 14:58:13 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/08 13:41:08 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 15:31:36 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_cli_opt		*ft_create_s_opt(char c, char *help)
 	else
 		res->help = ft_strdup(help);
 	res->type = NULL;
-	return res;
+	return (res);
 }
 
 t_cli_opt		*ft_create_l_opt(char *s, char *help)
@@ -33,7 +33,7 @@ t_cli_opt		*ft_create_l_opt(char *s, char *help)
 	t_cli_opt	*res;
 
 	if (s == NULL)
-		return NULL;
+		return (NULL);
 	ft_memcheck((res = (t_cli_opt *)malloc(sizeof(t_cli_opt))));
 	res->short_opt = NULL;
 	res->long_opt = ft_strdup(s);
@@ -42,7 +42,7 @@ t_cli_opt		*ft_create_l_opt(char *s, char *help)
 	else
 		res->help = ft_strdup(help);
 	res->type = NULL;
-	return res;
+	return (res);
 }
 
 t_cli_opt		*ft_create_sl_opt(char c, char *s, char *help)
@@ -50,7 +50,7 @@ t_cli_opt		*ft_create_sl_opt(char c, char *s, char *help)
 	t_cli_opt	*res;
 
 	if (s == NULL)
-		return NULL;
+		return (NULL);
 	ft_memcheck((res = (t_cli_opt *)malloc(sizeof(t_cli_opt))));
 	res->short_opt = ft_strnew(1);
 	res->short_opt[0] = c;
@@ -60,7 +60,7 @@ t_cli_opt		*ft_create_sl_opt(char c, char *s, char *help)
 	else
 		res->help = ft_strdup(help);
 	res->type = NULL;
-	return res;
+	return (res);
 }
 
 t_cli_opt		*ft_copy_cli_opt(t_cli_opt *opt)
@@ -72,7 +72,7 @@ t_cli_opt		*ft_copy_cli_opt(t_cli_opt *opt)
 	res->long_opt = (opt->long_opt) ? ft_strdup(opt->long_opt) : NULL;
 	res->help = (opt->help) ? ft_strdup(opt->help) : NULL;
 	res->type = (opt->type) ? ft_strdup(opt->type) : NULL;
-	return res;
+	return (res);
 }
 
 void			ft_free_cli_opt(t_cli_opt *opt)

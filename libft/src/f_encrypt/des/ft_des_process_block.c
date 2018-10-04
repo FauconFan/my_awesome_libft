@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 14:25:20 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/19 13:08:28 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 13:39:17 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static uint32_t		f(uint32_t r, uint64_t key)
 
 	tmp1 = ft_des_apply_e(r) ^ key;
 	tmp2 = ft_des_apply_s_tables(tmp1);
-	return ft_des_apply_p(tmp2);
+	return (ft_des_apply_p(tmp2));
 }
 
 uint64_t			ft_des_process_block(

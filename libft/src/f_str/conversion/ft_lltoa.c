@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 17:07:09 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/24 22:39:51 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 14:24:59 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 char		*ft_lltoa(long long n)
 {
-	return ft_lltoa_base(n, BASE_DECA);
+	return (ft_lltoa_base(n, BASE_DECA));
 }

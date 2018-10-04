@@ -6,14 +6,14 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:21:35 by jpriou            #+#    #+#             */
-/*   Updated: 2018/09/20 09:59:33 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 11:45:13 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef F_MEMMORY_H
-#define F_MEMMORY_H
+# define F_MEMMORY_H
 
-#include "libft.h"
+# include "libft.h"
 
 void			ft_die(char *error_message);
 

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 09:56:45 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/08 13:42:57 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 15:29:03 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_cli_arg		*ft_create_bool_arg(char *target, t_bool def)
 	ft_memcheck((res = (t_cli_arg *)malloc(sizeof(t_cli_arg))));
 	res->id_action = (def) ? STORE_FALSE : STORE_TRUE;
 	res->content = ft_create_res_bool(target, def);
-	return res;
+	return (res);
 }
 
 t_cli_arg		*ft_create_string_arg(char *target, char *def)
@@ -29,7 +29,7 @@ t_cli_arg		*ft_create_string_arg(char *target, char *def)
 	ft_memcheck((res = (t_cli_arg *)malloc(sizeof(t_cli_arg))));
 	res->id_action = REPLACE;
 	res->content = ft_create_res_string(target, def);
-	return res;
+	return (res);
 }
 
 t_cli_arg		*ft_create_array_arg(char *target)
@@ -39,7 +39,7 @@ t_cli_arg		*ft_create_array_arg(char *target)
 	ft_memcheck((res = (t_cli_arg *)malloc(sizeof(t_cli_arg))));
 	res->id_action = APPEND;
 	res->content = ft_create_res_array(target);
-	return res;
+	return (res);
 }
 
 t_cli_arg		*ft_copy_cli_arg(t_cli_arg *arg)
@@ -60,7 +60,7 @@ t_cli_arg		*ft_copy_cli_arg(t_cli_arg *arg)
 	{
 		res->content = ft_copy_res_array(arg->content);
 	}
-	return res;
+	return (res);
 }
 
 void			ft_free_cli_arg(t_cli_arg *arg)

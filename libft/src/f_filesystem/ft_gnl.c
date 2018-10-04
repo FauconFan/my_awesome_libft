@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 13:42:36 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/16 08:22:37 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 14:03:10 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,14 +108,16 @@ int				ft_gnl_stdin(char **line)
 {
 	size_t len;
 
-	if (line == 0 || read(0, 0, 0) < 0) {
+	if (line == 0 || read(0, 0, 0) < 0)
+	{
 		return (-1);
 	}
 	*line = ft_strnew(0);
 	if (loop(0, line, 1) == -1)
 		return (0);
 	len = ft_strlen(*line);
-	if (len > 0 && (*line)[len - 1] == '\n') {
+	if (len > 0 && (*line)[len - 1] == '\n')
+	{
 		(*line)[len - 1] = '\0';
 	}
 	return (1);

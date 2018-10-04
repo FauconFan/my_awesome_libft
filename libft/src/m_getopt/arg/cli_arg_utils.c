@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cli_utils.c                                        :+:      :+:    :+:   */
+/*   cli_arg_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 17:34:46 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/05 18:31:39 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 15:28:53 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,17 @@ char				*ft_cli_get_target(t_cli_arg *arg)
 	if (ft_cli_is_bool(arg))
 	{
 		bo = (t_res_bool *)arg->content;
-		return bo->target;
+		return (bo->target);
 	}
 	else if (ft_cli_is_string(arg))
 	{
 		st = (t_res_string *)arg->content;
-		return st->target;
+		return (st->target);
 	}
 	else if (ft_cli_is_array(arg))
 	{
 		ar = (t_res_array *)arg->content;
-		return ar->target;
+		return (ar->target);
 	}
-	return NULL;
+	return (NULL);
 }

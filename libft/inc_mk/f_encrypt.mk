@@ -54,6 +54,7 @@ SRC_LIBFT_SHA = \
 SRC_LIBFT_B64 = \
 					ft_base64_process.c \
 					ft_unbase64_process.c \
+					ft_unbase64_process_utils.c \
 
 SRC_LIBFT_DES = \
 					modes/ft_des_ecb.c \

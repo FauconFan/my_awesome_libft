@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 17:21:39 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/17 15:16:07 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 13:58:48 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 uint8_t	*ft_unbase64_url(char *str, size_t *len)
 {
-	return ft_unbase64_process(str, len, B64_URL, B64_COMP);
+	return (ft_unbase64_process(str, len, B64_URL, B64_COMP));
 }

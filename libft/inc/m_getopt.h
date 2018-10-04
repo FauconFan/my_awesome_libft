@@ -6,24 +6,24 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 09:04:34 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 13:22:59 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 12:06:14 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef M_GET_OPT_H
-#define M_GET_OPT_H
+#ifndef M_GETOPT_H
+# define M_GETOPT_H
 
-#include "libft.h"
-#include "inc/f_tab.h"
-#include "inc/t_slist.h"
-#include "inc/getopt_utils/typedefs.h"
-#include "inc/getopt_utils/getopt_utils.h"
+# include "libft.h"
+# include "inc/f_tab.h"
+# include "inc/t_slist.h"
+# include "inc/getopt_utils/typedefs.h"
+# include "inc/getopt_utils/getopt_utils.h"
 
-t_cmd_parser	*ft_getopt(
-						char *config,
-						int *argc,
-						char ***argv,
-						t_opt_error *err);
+t_cmd_parser			*ft_getopt(
+								char *config,
+								int *argc,
+								char ***argv,
+								t_opt_error *err);
 
 /*
 **	Cmd builder functions
@@ -43,7 +43,7 @@ t_cmd_builder_parser_n	*ft_create_cmd_builder_parser_node_cli(
 								t_cli_builder_parser **builder_cli);
 t_cmd_builder_parser_n	*ft_create_help_sub_cmd();
 void					ft_free_cmd_builder_parser_node(
-	 							t_cmd_builder_parser_n *n);
+								t_cmd_builder_parser_n *n);
 
 void					ft_add_cmd_u(
 							t_cmd_builder_parser *p,

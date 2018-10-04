@@ -6,12 +6,12 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 17:19:05 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 12:55:36 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 12:05:07 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GETOPT_UTILS_H
-#define GETOPT_UTILS_H
+# define GETOPT_UTILS_H
 
 /*
 **	Options typdefs
@@ -88,13 +88,17 @@ t_cli_s_opt			*ft_create_short_opt_cli(char c, char *target);
 t_cli_s_opt			*ft_copy_short_opt_cli(t_cli_s_opt *opt);
 void				ft_free_opt_s_cli(t_cli_s_opt *opt);
 
-char				*ft_search_target_s_opt(t_cli_builder_parser *parser, char c);
+char				*ft_search_target_s_opt(
+							t_cli_builder_parser *parser,
+							char c);
 
 t_cli_l_opt			*ft_create_long_opt_cli(char *s, char *target);
 t_cli_l_opt			*ft_copy_long_opt_cli(t_cli_l_opt *opt);
 void				ft_free_opt_l_cli(t_cli_l_opt *opt);
 
-char				*ft_search_target_l_opt(t_cli_builder_parser *parser, char *s);
+char				*ft_search_target_l_opt(
+							t_cli_builder_parser *parser,
+							char *s);
 
 /*
 **	Functions Arg
@@ -103,7 +107,9 @@ char				*ft_search_target_l_opt(t_cli_builder_parser *parser, char *s);
 t_cli_arg			*ft_copy_cli_arg(t_cli_arg *arg);
 void				ft_free_cli_arg(t_cli_arg *arg);
 
-t_cli_arg			*get_arg_w_target(t_cli_builder_parser *parser, char *target);
+t_cli_arg			*get_arg_w_target(
+							t_cli_builder_parser *parser,
+							char *target);
 char				*ft_cli_arg_get_type(t_cli_arg *arg);
 
 /*
@@ -126,7 +132,6 @@ void				ft_res_string_replace(t_res_string *r, char *s);
 /*
 **	Functions res_array
 */
-
 
 t_res_array			*ft_create_res_array(char *target);
 void				*ft_copy_res_array(t_res_array *actu);

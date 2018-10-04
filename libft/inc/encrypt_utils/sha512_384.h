@@ -6,14 +6,14 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 14:39:23 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/30 10:01:17 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 11:55:59 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHA512_H
-#define SHA512_H
+#ifndef SHA512_384_H
+# define SHA512_384_H
 
-#include "libft.h"
+# include "libft.h"
 
 typedef struct		s_sha512
 {

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 14:53:13 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/14 16:49:29 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 12:09:46 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ static void		process_rounds(t_sha256 *sh, uint32_t w[64])
 	while (i < 64)
 	{
 		tmp1 = sh->h
-			 + ft_sha_sig_maj_256_1(sh->e)
-			 + ft_sha_ch_32(sh->e, sh->f, sh->g)
-			 + sh->k[i]
-			 + w[i];
+			+ ft_sha_sig_maj_256_1(sh->e)
+			+ ft_sha_ch_32(sh->e, sh->f, sh->g)
+			+ sh->k[i]
+			+ w[i];
 		tmp2 = ft_sha_sig_maj_256_0(sh->a)
-			 + ft_sha_maj_32(sh->a, sh->b, sh->c);
+			+ ft_sha_maj_32(sh->a, sh->b, sh->c);
 		sh->h = sh->g;
 		sh->g = sh->f;
 		sh->f = sh->e;
@@ -50,9 +50,9 @@ static void		build_msg_schedule(uint32_t *m, uint32_t w[64])
 	i--;
 	while (++i < 64)
 		w[i] = ft_sha_sig_min_256_1(w[i - 2])
-			 + w[i - 7]
-			 + ft_sha_sig_min_256_0(w[i - 15])
-			 + w[i - 16];
+			+ w[i - 7]
+			+ ft_sha_sig_min_256_0(w[i - 15])
+			+ w[i - 16];
 }
 
 static void		process_block(t_sha256 *sh, size_t offset)
@@ -60,7 +60,7 @@ static void		process_block(t_sha256 *sh, size_t offset)
 	uint32_t	*m;
 	uint32_t	w[64];
 
-	m = (uint32_t *) (sh->msg + offset);
+	m = (uint32_t *)(sh->msg + offset);
 	build_msg_schedule(m, w);
 	sh->a = sh->hash[0];
 	sh->b = sh->hash[1];

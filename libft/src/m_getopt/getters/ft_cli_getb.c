@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 20:47:16 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 14:07:47 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 15:29:40 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ t_bool			ft_cli_getb(t_cli_parser *parser, char *target)
 
 	res = FALSE;
 	ft_slist_iterparam2(parser->list_bool, target, &res, f);
-	return res;
+	return (res);
 }

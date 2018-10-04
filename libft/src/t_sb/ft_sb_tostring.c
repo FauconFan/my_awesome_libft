@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/10 11:01:08 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 11:14:24 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 18:03:21 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ char						*ft_sb_tostring(t_sb *sb)
 	ft_slist_iterparam(sb, &len_tot_stored, calculate_length);
 	res = ft_strnew(len_tot_stored);
 	ft_slist_iterparam2(sb, &len_tot_stored, &res, build_str);
-	return res;
+	return (res);
 }

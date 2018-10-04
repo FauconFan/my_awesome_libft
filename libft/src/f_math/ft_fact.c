@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 21:23:27 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/02 21:46:05 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 14:21:43 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 unsigned long long	ft_fact(unsigned long n)
 {
 	if (n <= 1)
-		return 1;
-	return n * (ft_fact (n - 1));
+		return (1);
+	return (n * (ft_fact(n - 1)));
 }

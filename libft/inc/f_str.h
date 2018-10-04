@@ -6,14 +6,14 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:20:28 by jpriou            #+#    #+#             */
-/*   Updated: 2018/09/19 19:30:47 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 11:45:19 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef F_STR_H
-#define F_STR_H
+# define F_STR_H
 
-#include "libft.h"
+# include "libft.h"
 
 char			*ft_strdup(const char *s);
 char			*ft_strndup(const char *s, size_t n);

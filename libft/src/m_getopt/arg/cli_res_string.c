@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 17:54:57 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/08 13:46:16 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 15:29:30 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ t_res_string	*ft_create_res_string(char *target, char *def)
 		res->value = NULL;
 	else
 		res->value = ft_strdup(def);
-	return res;
+	return (res);
 }
 
 void			*ft_copy_res_string(t_res_string *actu)
 {
-	return ft_create_res_string(actu->target, actu->value);
+	return (ft_create_res_string(actu->target, actu->value));
 }
 
 void			ft_free_res_string(t_res_string *s)

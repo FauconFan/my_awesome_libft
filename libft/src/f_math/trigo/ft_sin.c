@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 21:15:30 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/02 21:29:57 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 14:10:28 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,20 @@ static double	sin_compute(double x)
 		buffer *= x * x;
 		level++;
 	}
-	return res;
+	return (res);
 }
 
 double			ft_sin(double x)
 {
 	if (x < 0)
-		return - ft_sin(-x);
+		return (-ft_sin(-x));
 	else if (x > 2 * FT_PI)
-		return ft_sin(ft_remquo(x, 2 * FT_PI));
+		return (ft_sin(ft_remquo(x, 2 * FT_PI)));
 	else if (x > FT_PI)
-		return - ft_sin(x - FT_PI);
+		return (-ft_sin(x - FT_PI));
 	else if (x > 0.5 * FT_PI)
-		return ft_sin(FT_PI - x);
+		return (ft_sin(FT_PI - x));
 	else if (x > 0.25 * FT_PI)
-		return ft_cos(FT_PI / 2 - x);
-	return sin_compute(x);
+		return (ft_cos(FT_PI / 2 - x));
+	return (sin_compute(x));
 }

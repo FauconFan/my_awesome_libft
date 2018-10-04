@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 15:45:20 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/09 16:11:17 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 18:05:22 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 size_t		ft_slist_size(t_slist *lst)
 {
-	return lst->len;
+	return (lst->len);
 }

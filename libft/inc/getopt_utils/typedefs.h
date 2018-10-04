@@ -6,15 +6,19 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 19:44:02 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/08 14:40:09 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 17:51:09 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GETOPT_TYPEDEFS_H
-#define GETOPT_TYPEDEFS_H
+# define GETOPT_TYPEDEFS_H
 
-#define HELP_CMD			"help"
-#define HELP_MSG			"Print this message and exit"
+# define HELP_CMD			"help"
+# define HELP_MSG			"Print this message and exit"
+
+# define U_ERR	"User error: "
+# define I_ERR	"Internal error: "
+# define D_ERR	"Developper error: "
 
 typedef struct				s_cli_builder_parser
 {

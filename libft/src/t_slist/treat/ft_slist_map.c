@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/11 23:29:35 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 07:44:31 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 18:06:14 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ t_slist					*ft_slist_map(t_slist *lst,
 	t_slist_elem	*actu_lst;
 
 	if (lst == NULL)
-		return NULL;
+		return (NULL);
 	res = ft_slist_new(free_f);
 	if (res == NULL)
-		return NULL;
+		return (NULL);
 	actu = &(res->head);
 	actu_lst = lst->head;
 	while (actu_lst)

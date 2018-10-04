@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 11:12:22 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/06 14:06:40 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 15:32:35 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ t_opt_error		ft_treat_arg(
 	else
 	{
 		if (allow_next == FALSE)
-			return NO_NEXT_ARGUMENT_ALLOWED;
+			return (NO_NEXT_ARGUMENT_ALLOWED);
 		else if (res_parser->argc <= 1)
-			return NO_NEXT_ARGUMENT_GIVEN;
+			return (NO_NEXT_ARGUMENT_GIVEN);
 		handle_next_arg(res_parser, arg);
 	}
-	return OK;
+	return (OK);
 }

@@ -6,14 +6,14 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 14:39:23 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/30 10:00:55 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 11:49:03 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHA1_H
-#define SHA1_H
+# define SHA1_H
 
-#include "libft.h"
+# include "libft.h"
 
 typedef struct		s_sha1
 {

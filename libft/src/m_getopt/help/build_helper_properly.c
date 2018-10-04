@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/10 12:54:02 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/15 16:28:54 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 17:48:06 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,12 @@ static void		build_helper_properly2(t_sb *sb, char **tab, int l, int r)
 		len += ft_strlen(tab[rank]) + (len != 0);
 		rank++;
 	}
-	actu = 0;
-	while (actu < rank)
+	actu = -1;
+	while (++actu < rank)
 	{
 		if (actu != 0)
 			ft_sb_append(sb, " ");
 		ft_sb_append(sb, tab[actu]);
-		actu++;
 	}
 	if (tab[rank])
 	{
@@ -42,7 +41,7 @@ static void		build_helper_properly2(t_sb *sb, char **tab, int l, int r)
 	}
 }
 
-char	*build_helper_properly(char *helper, int l, int r)
+char			*build_helper_properly(char *helper, int l, int r)
 {
 	t_sb	*sb;
 	char	**tab;
@@ -54,5 +53,5 @@ char	*build_helper_properly(char *helper, int l, int r)
 	res = ft_sb_tostring(sb);
 	ft_sb_free(&sb);
 	ft_stab_free(&tab);
-	return res;
+	return (res);
 }

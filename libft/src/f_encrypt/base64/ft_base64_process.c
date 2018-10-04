@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 17:32:26 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/19 09:43:11 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 13:56:27 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,11 @@ static void		num3(uint8_t *str, char *res, char base[64])
 	res[3] = base[d[3]];
 }
 
-char			*ft_base64_process(uint8_t *str, size_t len, char base[64], char comp)
+char			*ft_base64_process(
+							uint8_t *str,
+							size_t len,
+							char base[64],
+							char comp)
 {
 	char	*res;
 	size_t	i;

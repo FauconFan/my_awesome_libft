@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/12 17:23:46 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 11:37:05 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 14:59:48 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ static t_pf_buffer_content	*ft_create_pf_content(char *str, int byte_stored)
 {
 	t_pf_buffer_content	*res;
 
-	ft_memcheck((res = (t_pf_buffer_content *)malloc(sizeof(t_pf_buffer_content))));
+	ft_memcheck((res =
+				(t_pf_buffer_content *)malloc(sizeof(t_pf_buffer_content))));
 	res->str = ft_strdup(str);
 	res->byte_stored = byte_stored;
-	return res;
+	return (res);
 }
 
 static void					ft_free_pf_content(t_pf_buffer_content *bf)
@@ -28,12 +29,12 @@ static void					ft_free_pf_content(t_pf_buffer_content *bf)
 	free(bf);
 }
 
-t_pf_buffer					*ft_create_pf_buffer()
+t_pf_buffer					*ft_create_pf_buffer(void)
 {
 	t_slist		*res;
 
 	res = ft_slist_new(MAKE_FREE_PTR(ft_free_pf_content));
-	return res;
+	return (res);
 }
 
 void						pf_append(t_pf_buffer *pf, char *str)
@@ -41,7 +42,10 @@ void						pf_append(t_pf_buffer *pf, char *str)
 	pf_append_special(pf, str, ft_strlen(str));
 }
 
-void						pf_append_special(t_pf_buffer *pf, char *str, int size)
+void						pf_append_special(
+								t_pf_buffer *pf,
+								char *str,
+								int size)
 {
 	ft_slist_push(pf, ft_create_pf_content(str, size));
 }

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 18:42:27 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/09 16:07:40 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 15:33:18 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_cli_parser	*ft_run_cli_u(
 	parser->list_string = NULL;
 	parser->list_array = NULL;
 	ft_run_cli2(builder, parser, error);
-	return parser;
+	return (parser);
 }
 
 t_cli_parser	*ft_run_cli(
@@ -75,12 +75,12 @@ t_cli_parser	*ft_run_cli(
 	{
 		if (error)
 			*error = NOT_USED_WELL;
-		return NULL;
+		return (NULL);
 	}
 	parser = ft_run_cli_u(*builder, argc, argv, error);
 	ft_free_cli_builder(*builder);
 	*builder = NULL;
-	return parser;
+	return (parser);
 }
 
 void			ft_free_cli_parser(t_cli_parser **parser)

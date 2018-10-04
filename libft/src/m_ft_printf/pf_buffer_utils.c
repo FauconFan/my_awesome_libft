@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 11:41:22 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/10 11:03:00 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 15:00:01 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ int							to_string_n_free(
 	*res = ft_strnew(len_tot_stored);
 	ft_slist_iterparam2(*head, &len_actu, res, build_str);
 	ft_slist_free(head);
-	return len_tot_stored;
+	return (len_tot_stored);
 }

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 10:04:11 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/30 10:09:31 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 14:23:11 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void		*ft_memndup(void *data, size_t len, size_t n)
 	ecart = ft_max(len, n) - min;
 	res = ft_memcpy(res, data, min);
 	ft_bzero(res + min, ecart);
-	return res;
+	return (res);
 }

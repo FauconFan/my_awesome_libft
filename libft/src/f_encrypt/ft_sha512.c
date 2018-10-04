@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 14:51:42 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/30 09:59:22 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 13:58:42 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ char			*ft_sha512(uint8_t *msg, size_t len)
 	sha512 = ft_sha512_init(msg, len);
 	ft_sha512_process(sha512);
 	res = ft_sha512_buildfinal_n_free(&sha512);
-	return res;
+	return (res);
 }

@@ -6,11 +6,34 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 18:17:02 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/17 13:24:00 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/04 15:27:39 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void			build_byte(
+						uint64_t nu,
+						size_t len,
+						size_t *index_nu,
+						char **cpy)
+{
+	size_t		index_rank_actu;
+
+	index_rank_actu = 0;
+	while (index_rank_actu < 8)
+	{
+		**cpy = ((nu >> (len - 1 - *index_nu)) & 1) ? '1' : '0';
+		*cpy = (*cpy)++;
+		(*index_nu)++;
+		if (index_rank_actu == 3)
+		{
+			**cpy = ' ';
+			*cpy = (*cpy)++;
+		}
+		index_rank_actu++;
+	}
+}
 
 static char			*build_str(uint64_t nu, size_t len)
 {
@@ -18,7 +41,6 @@ static char			*build_str(uint64_t nu, size_t len)
 	char		*cpy;
 	size_t		rank;
 	size_t		index_nu;
-	size_t		index_rank_actu;
 
 	res = ft_strnew(len + (len / 8 - 1) * 3 + 1);
 	cpy = res;
@@ -26,19 +48,7 @@ static char			*build_str(uint64_t nu, size_t len)
 	index_nu = 0;
 	while (rank < len / 8)
 	{
-		index_rank_actu = 0;
-		while (index_rank_actu < 8)
-		{
-			*cpy = ((nu >> (len - 1 - index_nu)) & 1) ? '1' : '0';
-			cpy++;
-			index_nu++;
-			if (index_rank_actu == 3)
-			{
-				*cpy = ' ';
-				cpy++;
-			}
-			index_rank_actu++;
-		}
+		build_byte(nu, len, &index_nu, &cpy);
 		rank++;
 		if (rank < len / 8)
 		{
