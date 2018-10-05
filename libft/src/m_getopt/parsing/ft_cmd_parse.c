@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 15:03:14 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 17:44:25 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/05 14:54:05 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int								ft_cmd_parse(
 		if ((next_cand =
 				check_argv(builder->argv[rank_actu], opt, li_cand)) == NULL)
 			return (rank_actu);
+		rank_actu++;
 		ft_vtab_append(list_tmp_way, next_cand, sizeof(t_cmd_builder_parser_n));
 		li_cand = next_cand->sub_cmds;
 	}
