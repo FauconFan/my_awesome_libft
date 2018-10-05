@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:15:24 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/08/24 22:45:45 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/05 13:43:14 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,11 @@
 # include <errno.h>
 # include <fcntl.h>
 
-
 /*
 **	Own defines
 */
 
-# define MAKE_FREE_PTR(f)		((void (*)(void *))f)
-# define MAKE_COPY_PTR(f)		((void *(*)(void *))f)
-# define MAKE_CMP_PTR(f)		((int (*)(void *, void *))f)
-
-# define TRUE					1
-# define FALSE					0
-
-# define BASE_OCTO				"01234567"
-# define BASE_DECA				"0123456789"
-# define BASE_HEXAMIN			"0123456789abcdef"
-# define BASE_HEXAMAJ			"0123456789ABCDEF"
-# define BASE_HEXA				BASE_HEXAMAJ
-
-typedef short					t_bool;
+# include "inc/a_globals.h"
 
 /*
 **	Includes

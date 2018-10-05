@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 17:26:32 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 13:44:25 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/05 13:10:22 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ uint8_t				*ft_unbase64_process(
 **	ft unbase process utils...
 */
 
-void			dnum2(char *str, uint8_t *res, char base[64]);
-void			dnum3(char *str, uint8_t *res, char base[64]);
-void			dnum4(char *str, uint8_t *res, char base[64]);
+void				dnum2(char *str, uint8_t *res, char base[64]);
+void				dnum3(char *str, uint8_t *res, char base[64]);
+void				dnum4(char *str, uint8_t *res, char base[64]);
 
 #endif
