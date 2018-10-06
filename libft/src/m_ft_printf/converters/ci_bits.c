@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 18:17:02 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 15:27:39 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/06 16:12:37 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ static void			build_byte(
 	while (index_rank_actu < 8)
 	{
 		**cpy = ((nu >> (len - 1 - *index_nu)) & 1) ? '1' : '0';
-		*cpy = (*cpy)++;
+		(*cpy)++;
 		(*index_nu)++;
 		if (index_rank_actu == 3)
 		{
 			**cpy = ' ';
-			*cpy = (*cpy)++;
+			(*cpy)++;
 		}
 		index_rank_actu++;
 	}
