@@ -16,6 +16,7 @@ SRC_FILESYSTEM = \
 					utils/env_gnl.c \
 					ft_get_content_file_fd_nostat.c \
 					ft_get_content_file_fd.c \
+					ft_get_content_file_nostat.c \
 					ft_get_content_file.c \
 					ft_put_content_file.c \
 					ft_gnl.c \

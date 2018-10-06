@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:24:56 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 11:44:57 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/06 09:14:08 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ char			*ft_get_content_file_fd(
 					char **errno_str);
 char			*ft_get_content_file_fd_nostat(
 					int fd,
+					size_t *size_file,
+					char **errno_str);
+char			*ft_get_content_file_nostat(
+					char *file_path,
 					size_t *size_file,
 					char **errno_str);
 

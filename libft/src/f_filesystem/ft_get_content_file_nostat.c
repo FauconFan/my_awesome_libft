@@ -1,45 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_content_file_fd_nostat.c                    :+:      :+:    :+:   */
+/*   ft_get_content_file_nostat.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/16 08:25:15 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/06 09:03:20 by jpriou           ###   ########.fr       */
+/*   Created: 2018/10/06 09:03:35 by jpriou            #+#    #+#             */
+/*   Updated: 2018/10/06 09:11:47 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_get_content_file_fd_nostat(
-			int fd,
+char	*ft_get_content_file_nostat(
+			char *file_path,
 			size_t *size_file,
 			char **errno_str)
 {
-	char			*content_file;
-	char			buffer[26];
-	t_sb			*lst;
-	int				ret;
+	char	*res;
+	int		fd;
 
-	*size_file = 0;
-	*errno_str = NULL;
-	if (read(fd, buffer, 0) < 0)
-	{
+	res = NULL;
+	if ((fd = open(file_path, O_RDONLY)) < 0)
 		*errno_str = strerror(errno);
-		return (NULL);
-	}
-	lst = ft_sb_new();
-	ft_bzero(buffer, 26);
-	while ((ret = read(fd, buffer, 25)))
+	else
 	{
-		*size_file += ret;
-		buffer[ret] = 0;
-		ft_sb_append(lst, buffer);
+		res = ft_get_content_file_fd_nostat(fd, size_file, errno_str);
+		if (res == NULL)
+			return (NULL);
+		if (close(fd) < 0)
+			*errno_str = strerror(errno);
 	}
-	if (ret < 0)
-		*errno_str = strerror(errno);
-	content_file = ft_sb_tostring(lst);
-	ft_sb_free(&lst);
-	return (content_file);
+	return (res);
 }
