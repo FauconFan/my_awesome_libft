@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/26 14:06:02 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 12:03:35 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/08 08:26:36 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,7 +216,7 @@ int						to_string_n_free(
 **	pf_buffer.c
 */
 
-t_pf_buffer				*ft_create_pf_buffer();
+t_pf_buffer				*ft_create_pf_buffer(void);
 
 void					pf_append(t_pf_buffer *bf, char *str);
 

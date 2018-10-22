@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 09:04:34 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 12:06:14 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/08 08:27:43 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_cmd_builder_parser_n	*ft_create_cmd_builder_parser_node_cmd(
 t_cmd_builder_parser_n	*ft_create_cmd_builder_parser_node_cli(
 								char *cmd,
 								t_cli_builder_parser **builder_cli);
-t_cmd_builder_parser_n	*ft_create_help_sub_cmd();
+t_cmd_builder_parser_n	*ft_create_help_sub_cmd(void);
 void					ft_free_cmd_builder_parser_node(
 								t_cmd_builder_parser_n *n);
 

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 15:50:41 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 11:58:43 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/08 08:38:33 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ t_des		*ft_des_new(
 void		ft_des_change_action(
 						t_des *des,
 						t_enc_action action);
-void		ft_des_free();
+void		ft_des_free(t_des **des);
 
 uint8_t		*ft_des_process(
 						t_des *des,
