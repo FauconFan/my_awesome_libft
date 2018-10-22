@@ -6,13 +6,13 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/04 13:41:51 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 13:56:38 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/22 12:54:07 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		get_rep6bits(char c, char base[64])
+static char		get_rep6bits(char c, char base[65])
 {
 	int		res;
 
@@ -26,7 +26,7 @@ static char		get_rep6bits(char c, char base[64])
 	return (-1);
 }
 
-void			dnum2(char *str, uint8_t *res, char base[64])
+void			dnum2(char *str, uint8_t *res, char base[65])
 {
 	char	d[2];
 
@@ -35,7 +35,7 @@ void			dnum2(char *str, uint8_t *res, char base[64])
 	res[0] = (d[0] << 2) | (d[1] >> 4);
 }
 
-void			dnum3(char *str, uint8_t *res, char base[64])
+void			dnum3(char *str, uint8_t *res, char base[65])
 {
 	char	d[4];
 
@@ -46,7 +46,7 @@ void			dnum3(char *str, uint8_t *res, char base[64])
 	res[1] = (d[1] << 4) | (d[2] >> 2);
 }
 
-void			dnum4(char *str, uint8_t *res, char base[64])
+void			dnum4(char *str, uint8_t *res, char base[65])
 {
 	char	d[4];
 

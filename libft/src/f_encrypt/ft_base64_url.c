@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 17:21:39 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 13:57:10 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/22 12:49:38 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 char	*ft_base64_url(uint8_t *str, size_t len)
 {
-	return (ft_base64_process(str, len, B64_URL, B64_COMP));
+	return (ft_base64_process(str, len, B64_URL));
 }

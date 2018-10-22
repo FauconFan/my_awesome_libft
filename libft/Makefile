@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/10/04 12:29:19 by jpriou           ###   ########.fr        #
+#    Updated: 2018/10/22 13:14:32 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ INCLUDES_MK_FOLDER = inc_mk/
 INCLUDES_FOLDER = includes/
 
 CC = gcc
-COMPILATION_FLAGS = -Wall -Wextra -Werror
+COMPILATION_FLAGS = -g -Wall -Wextra -Werror
 INCLUDES_FLAGS = -I ./
 ADDITIONAL_FLAGS =
 FLAGS = $(COMPILATION_FLAGS) $(INCLUDES_FLAGS) $(ADDITIONAL_FLAGS)

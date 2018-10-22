@@ -6,13 +6,13 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 17:32:26 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 13:56:27 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/22 12:48:45 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		num1(uint8_t *str, char *res, char base[64], char comp)
+static void		num1(uint8_t *str, char *res, char base[65])
 {
 	uint8_t	d[2];
 
@@ -20,11 +20,11 @@ static void		num1(uint8_t *str, char *res, char base[64], char comp)
 	d[1] = ((str[0] & 0b11) << 4);
 	res[0] = base[d[0]];
 	res[1] = base[d[1]];
-	res[2] = comp;
-	res[3] = comp;
+	res[2] = base[64];
+	res[3] = base[64];
 }
 
-static void		num2(uint8_t *str, char *res, char base[64], char comp)
+static void		num2(uint8_t *str, char *res, char base[65])
 {
 	uint8_t	d[3];
 
@@ -34,10 +34,10 @@ static void		num2(uint8_t *str, char *res, char base[64], char comp)
 	res[0] = base[d[0]];
 	res[1] = base[d[1]];
 	res[2] = base[d[2]];
-	res[3] = comp;
+	res[3] = base[64];
 }
 
-static void		num3(uint8_t *str, char *res, char base[64])
+static void		num3(uint8_t *str, char *res, char base[65])
 {
 	uint8_t	d[4];
 
@@ -54,8 +54,7 @@ static void		num3(uint8_t *str, char *res, char base[64])
 char			*ft_base64_process(
 							uint8_t *str,
 							size_t len,
-							char base[64],
-							char comp)
+							char base[65])
 {
 	char	*res;
 	size_t	i;
@@ -71,8 +70,8 @@ char			*ft_base64_process(
 		j += 4;
 	}
 	if (len % 3 == 2)
-		num2(str + i, res + j, base, comp);
+		num2(str + i, res + j, base);
 	else if (len % 3 == 1)
-		num1(str + i, res + j, base, comp);
+		num1(str + i, res + j, base);
 	return (res);
 }
