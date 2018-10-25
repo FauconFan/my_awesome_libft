@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:20:28 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 11:45:19 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/25 09:07:40 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ t_bool			ft_str_is_lowercase(char *s);
 t_bool			ft_str_is_uppercase(char *s);
 t_bool			ft_str_is_printable(char *s);
 t_bool			ft_str_is_blank(char *s);
+t_bool			ft_str_is_xdigit(char *s);
 
 t_bool			ft_str_contains_c(char *str, char c);
 

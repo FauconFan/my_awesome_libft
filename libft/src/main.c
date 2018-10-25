@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 17:02:01 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/09/19 19:39:47 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/25 09:01:29 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	test_des_func()
 {
 	uint64_t key = 0x6162636461626364;
 	uint64_t iv = 0x0011223344556677;
-	char *msg = "oui je m'appelle Jean";
+	char *msg = "oui je m'appelle Jean\n";
 	char *msg2;
 	t_des 	*des = ft_des_new(key, iv, ENCRYPT, OFB);
 	uint8_t *res;
@@ -74,6 +74,8 @@ void	test_des_func()
 	ft_des_change_action(des, DECRYPT);
 	msg2 = ft_des_process(des, res, out, &in);
 	write(1, msg2, in);
+	ft_strdel((char **)&res);
+	ft_strdel(&msg2);
 	ft_des_free(&des);
 }
 
@@ -129,7 +131,7 @@ void	test_hmac_func() {
 int		main()
 {
 	// test_hash_funcs();
-	// test_des_func();
-	test_hmac_func();
+	test_des_func();
+	// test_hmac_func();
 	return 0;
 }
