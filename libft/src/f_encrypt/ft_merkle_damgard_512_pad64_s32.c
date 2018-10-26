@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_merkle_damgard_512_64.c                         :+:      :+:    :+:   */
+/*   ft_merkle_damgard_512_pad64_s32.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 11:19:07 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 13:58:02 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/26 14:50:46 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void		to_little_endian(uint8_t *res, size_t max)
 	}
 }
 
-uint8_t			*ft_merkle_damgard_512_64(
+uint8_t			*ft_merkle_damgard_512_pad64_s32(
 						uint8_t *msg,
 						size_t len,
 						size_t *new_len,
@@ -48,11 +48,12 @@ uint8_t			*ft_merkle_damgard_512_64(
 		*new_len += 512 - 448;
 	*new_len += 448 - (*new_len % 512);
 	*new_len /= 8;
-	res = (uint8_t *)ft_memndup(msg, len, *new_len + 4);
+	res = (uint8_t *)ft_memndup(msg, len, *new_len + 8);
+	res[len] = 128;
 	len_bits = 8 * len;
 	if (little_endian)
 		to_little_endian(res, *new_len);
-	res[len] = 128;
-	ft_memcpy(res + *new_len, &len_bits, 8);
+	*new_len += 8;
+	ft_memcpy(res + *new_len - 4, &len_bits, 4);
 	return (res);
 }

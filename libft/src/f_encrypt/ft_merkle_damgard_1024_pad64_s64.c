@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_merkle_damgard_1024_64.c                        :+:      :+:    :+:   */
+/*   ft_merkle_damgard_1024_pad64_s64.c                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 11:19:07 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 13:58:06 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/26 14:51:14 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void		to_little_endian(uint8_t *res, size_t max)
 	}
 }
 
-uint8_t			*ft_merkle_damgard_1024_64(
+uint8_t			*ft_merkle_damgard_1024_pad64_s64(
 						uint8_t *msg,
 						size_t len,
 						size_t *new_len,
@@ -55,6 +55,7 @@ uint8_t			*ft_merkle_damgard_1024_64(
 	len_bits = 8 * len;
 	if (little_endian)
 		to_little_endian(res, *new_len);
-	ft_memcpy(res + *new_len, &len_bits, 8);
+	*new_len += 8;
+	ft_memcpy(res + *new_len - 8, &len_bits, 8);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 17:02:01 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/10/25 09:01:29 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/26 14:58:38 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	test_des_func()
 {
 	uint64_t key = 0x6162636461626364;
 	uint64_t iv = 0x0011223344556677;
-	char *msg = "oui je m'appelle Jean\n";
+	char *msg = "oui je m'appelle Jean";
 	char *msg2;
 	t_des 	*des = ft_des_new(key, iv, ENCRYPT, OFB);
 	uint8_t *res;
@@ -74,8 +74,6 @@ void	test_des_func()
 	ft_des_change_action(des, DECRYPT);
 	msg2 = ft_des_process(des, res, out, &in);
 	write(1, msg2, in);
-	ft_strdel((char **)&res);
-	ft_strdel(&msg2);
 	ft_des_free(&des);
 }
 
@@ -128,10 +126,56 @@ void	test_hmac_func() {
 	ft_hmac_free(&hmac);
 }
 
+void	test_f(char *str, char *wanted)
+{
+	ft_printf("len %d\n", ft_strlen(str));
+	ft_printf("WANTED= \"%s\"\n", wanted);
+	ft_printf("HAD=    \"%s\"\n", ft_sha256((uint8_t *)str, ft_strlen(str)));
+}
+
+void	test_oui(char *str, uint8_t *(*f)(uint8_t *, size_t, size_t *, t_bool))
+{
+	uint8_t		*res;
+	size_t		len;
+	size_t		len_str;
+
+	len_str = ft_strlen(str);
+	res = f((uint8_t *)str, len_str, &len, FALSE);
+	ft_printf("str %d\n", len_str);
+	for (size_t i = 0; i < len_str; i++) {
+		ft_printf("%2x ", str[i]);
+	}
+	ft_printf("\n");
+	ft_printf("\n");
+	ft_printf("res %u\n", len);
+	for (size_t i = 0; i < len; i++) {
+		ft_printf("%2x ", res[i]);
+	}
+	ft_printf("\n");
+	ft_printf("\n");
+}
+
+#define STR0 "Vivamus a enim mollis, imperdiet orci nec, porttitor velit"
+#define STR1 "Vivamus a enim mollis, imperdiet orci nec, porttitor velit "
+#define STR2 "Vivamus a enim mollis, imperdiet orci nec, porttitor velit   "
+#define STR3 "Vivamus a enim mollis, imperdiet orci nec"
+
 int		main()
 {
 	// test_hash_funcs();
-	test_des_func();
+	// test_des_func();
 	// test_hmac_func();
+	test_f(STR0, "1b4cc63be9db40cc86f2c289d8559db5785e7506ac771b2e3e0f9bd16343162f");
+	test_f(STR1, "a6e5d12d01c015fbe8fdf5c61a000e458c1940118fe3d7bd3c1851b79972185e");
+	test_f(STR2, "97bc0de07f278a933d58ba49be80ad63158872837668bdc8d430a957ab64080c");
+	test_f(STR3, "ea0f3215919b9f8309e48b790cd0c1e6df195696edd20db490d4b21e695d232f");
+
+	ft_printf(" damgard 32\n==========================\n");
+
+	test_oui(STR0, ft_merkle_damgard_512_pad32_s32);
+	test_oui(STR1, ft_merkle_damgard_512_pad32_s32);
+	test_oui(STR2, ft_merkle_damgard_512_pad32_s32);
+	test_oui(STR3, ft_merkle_damgard_512_pad32_s32);
+
 	return 0;
 }

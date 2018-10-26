@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/10/22 13:14:32 by jpriou           ###   ########.fr        #
+#    Updated: 2018/10/26 12:51:45 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -150,5 +150,5 @@ test_docker_compile_clang: fclean
 
 test: $(NAME_A)
 	@gcc -g $(SRC_FOLDER)main.c -L ./ -l ft -o test_libft $(INCLUDES_FLAGS)
-	@valgrind --leak-check=full ./test_libft
+	@./test_libft
 	@rm -f test_libft

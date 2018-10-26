@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 15:50:41 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/25 09:59:14 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/26 14:52:58 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,19 +76,25 @@ void		ft_hmac_free(t_hmac **hmac);
 **	Prepare message with padding
 */
 
-uint8_t		*ft_merkle_damgard_512_32(
+uint8_t		*ft_merkle_damgard_512_pad32_s32(
 						uint8_t *msg,
 						size_t len,
 						size_t *new_len,
 						t_bool little_endian);
 
-uint8_t		*ft_merkle_damgard_512_64(
+uint8_t		*ft_merkle_damgard_512_pad64_s32(
 						uint8_t *msg,
 						size_t len,
 						size_t *new_len,
 						t_bool little_endian);
 
-uint8_t		*ft_merkle_damgard_1024_64(
+uint8_t		*ft_merkle_damgard_512_pad64_s64(
+						uint8_t *msg,
+						size_t len,
+						size_t *new_len,
+						t_bool little_endian);
+
+uint8_t		*ft_merkle_damgard_1024_pad64_s64(
 						uint8_t *msg,
 						size_t len,
 						size_t *new_len,

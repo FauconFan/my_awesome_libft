@@ -85,9 +85,10 @@ SRC_LIBFT_ENCRYPT = \
 					ft_base64_url.c \
 					ft_unbase64.c \
 					ft_unbase64_url.c \
-					ft_merkle_damgard_512_32.c \
-					ft_merkle_damgard_512_64.c \
-					ft_merkle_damgard_1024_64.c \
+					ft_merkle_damgard_512_pad32_s32.c \
+					ft_merkle_damgard_512_pad64_s32.c \
+					ft_merkle_damgard_512_pad64_s64.c \
+					ft_merkle_damgard_1024_pad64_s64.c \
 					ft_rotleft_uint32.c \
 					ft_rotright_uint32.c \
 					ft_rotleft_uint64.c \
