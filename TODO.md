@@ -2,9 +2,7 @@
 
 ## Crypto
 
- - [x] Remplacer char, par uint8_t, avec un size_t in, pour chaque fonction de hashage
- - [x] Coder les utilitaires HMAC
- - [ ] Coder PBKDF2
+ - [ ] merkle damgard reworked
  - [ ] Transformer f_encrypt en m_ssl
 
 ## Release 1.0
