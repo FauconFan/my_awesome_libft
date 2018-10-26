@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 14:16:23 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/26 14:54:50 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/26 15:22:59 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_sha384	*ft_sha384_init(uint8_t *msg, size_t len)
 	t_sha384	*sha384;
 
 	ft_memcheck((sha384 = (t_sha384 *)malloc(sizeof(t_sha384))));
-	sha384->msg = ft_merkle_damgard_1024_pad64_s64(msg, len, &(sha384->new_len), TRUE);
+	sha384->msg = ft_merkle_damgard_1024_pad128_s64(msg, len, &(sha384->new_len), TRUE);
 	sha384->hash[0] = 0xcbbb9d5dc1059ed8;
 	sha384->hash[1] = 0x629a292a367cd507;
 	sha384->hash[2] = 0x9159015a3070dd17;
