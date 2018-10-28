@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 14:25:20 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/28 09:15:27 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/28 15:03:47 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void			delete_pad(uint8_t *res, size_t *size)
 		res[i] = 0;
 		i++;
 	}
-	*size -= i;
+	*size -= bit;
 }
 
 uint8_t				*ft_des_process(

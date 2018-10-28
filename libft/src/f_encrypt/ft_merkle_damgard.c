@@ -6,13 +6,13 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 11:19:07 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/28 11:21:22 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/28 18:56:45 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static inline void			custom_swap(uint8_t *t1, uint8_t *t2)
+static void				custom_swap(uint8_t *t1, uint8_t *t2)
 {
 	uint8_t	tmp;
 
@@ -21,7 +21,7 @@ static inline void			custom_swap(uint8_t *t1, uint8_t *t2)
 	*t2 = tmp;
 }
 
-static inline void			to_little_endian(
+static void				to_little_endian(
 								uint8_t *res,
 								size_t max,
 								size_t size_swap)
@@ -44,7 +44,7 @@ static inline void			to_little_endian(
 	}
 }
 
-static inline t_bool		check_consistency(t_merkle_damgard_config config)
+static t_bool			check_consistency(t_merkle_damgard_config config)
 {
 	if (config.size_blocks % 8 == 0
 		&& config.padding_end % 8 == 0

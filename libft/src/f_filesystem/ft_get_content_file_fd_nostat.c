@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 08:25:15 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/06 09:03:20 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/28 20:20:23 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_get_content_file_fd_nostat(
 	}
 	lst = ft_sb_new();
 	ft_bzero(buffer, 26);
-	while ((ret = read(fd, buffer, 25)))
+	while ((ret = read(fd, buffer, 25)) > 0)
 	{
 		*size_file += ret;
 		buffer[ret] = 0;
