@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 16:46:05 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 11:48:41 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/28 09:53:22 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,59 +37,31 @@ typedef struct			s_des
 	t_enc_mode			mode;
 }						t_des;
 
-uint64_t				ft_des_process_block(
-							uint64_t msg,
-							uint64_t keys[16]);
+typedef struct			s_ft_des_config
+{
+	t_enc_mode			mode;
+	t_bool				(*f_ptr_need_iv)(void);
+	uint8_t				*(*f_ptr_encrypt)(t_des *des, uint8_t *msg, size_t size);
+	uint8_t				*(*f_ptr_decrypt)(t_des *des, uint8_t *msg, size_t size);
+}						t_ft_des_config;
 
-uint8_t					*ft_des_ecb_enc(
-							t_des *des,
-							uint8_t *msg,
-							size_t size);
+uint64_t				ft_des_process_block(uint64_t msg, uint64_t keys[16]);
 
-uint8_t					*ft_des_ecb_dec(
-							t_des *des,
-							uint8_t *msg,
-							size_t size);
-
-uint8_t					*ft_des_cbc_enc(
-							t_des *des,
-							uint8_t *msg,
-							size_t size);
-
-uint8_t					*ft_des_cbc_dec(
-							t_des *des,
-							uint8_t *msg,
-							size_t size);
-
-uint8_t					*ft_des_pcbc_enc(
-							t_des *des,
-							uint8_t *msg,
-							size_t size);
-
-uint8_t					*ft_des_pcbc_dec(
-							t_des *des,
-							uint8_t *msg,
-							size_t size);
-
-uint8_t					*ft_des_cfb_enc(
-							t_des *des,
-							uint8_t *msg,
-							size_t size);
-
-uint8_t					*ft_des_cfb_dec(
-							t_des *des,
-							uint8_t *msg,
-							size_t size);
-
-uint8_t					*ft_des_ofb_enc(
-							t_des *des,
-							uint8_t *msg,
-							size_t size);
-
-uint8_t					*ft_des_ofb_dec(
-							t_des *des,
-							uint8_t *msg,
-							size_t size);
+t_bool					ft_des_ecb_need_iv(void);
+uint8_t					*ft_des_ecb_enc(t_des *des, uint8_t *msg, size_t size);
+uint8_t					*ft_des_ecb_dec(t_des *des, uint8_t *msg, size_t size);
+t_bool					ft_des_cbc_need_iv(void);
+uint8_t					*ft_des_cbc_enc(t_des *des, uint8_t *msg, size_t size);
+uint8_t					*ft_des_cbc_dec(t_des *des, uint8_t *msg, size_t size);
+t_bool					ft_des_pcbc_need_iv(void);
+uint8_t					*ft_des_pcbc_enc(t_des *des, uint8_t *msg, size_t size);
+uint8_t					*ft_des_pcbc_dec(t_des *des, uint8_t *msg, size_t size);
+t_bool					ft_des_cfb_need_iv(void);
+uint8_t					*ft_des_cfb_enc(t_des *des, uint8_t *msg, size_t size);
+uint8_t					*ft_des_cfb_dec(t_des *des, uint8_t *msg, size_t size);
+t_bool					ft_des_ofb_need_iv(void);
+uint8_t					*ft_des_ofb_enc(t_des *des, uint8_t *msg, size_t size);
+uint8_t					*ft_des_ofb_dec(t_des *des, uint8_t *msg, size_t size);
 
 uint32_t				ft_des_apply_pc1_left(uint64_t original_key);
 uint32_t				ft_des_apply_pc1_right(uint64_t original_key);
@@ -105,6 +77,15 @@ void					ft_des_append_padding(uint8_t *msg, size_t remain);
 uint64_t				ft_des_build_msg(uint8_t *msg);
 void					ft_des_save_msg(uint8_t *res, uint64_t out);
 
+/*
+**	Utils des
+*/
+
+uint8_t				*(*get_des_func(t_enc_mode mode, t_enc_action action))
+						(t_des *des, uint8_t *msg, size_t size);
+char				*ft_get_des_action_string(t_enc_mode mode);
+t_bool				ft_need_iv(t_enc_mode mode);
+
 extern uint8_t			g_des_pc1_left[28];
 extern uint8_t			g_des_pc1_right[28];
 extern uint8_t			g_des_shifts_subkeys[16];
@@ -114,5 +95,8 @@ extern uint8_t			g_des_ip_min1[64];
 extern uint8_t			g_des_e[48];
 extern uint8_t			g_des_p[32];
 extern uint8_t			*g_des_s_tables[8];
+
+extern size_t			g_size_des_config_tables;
+extern t_ft_des_config	g_des_config_tables[];
 
 #endif

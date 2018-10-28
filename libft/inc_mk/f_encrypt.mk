@@ -95,6 +95,7 @@ SRC_LIBFT_ENCRYPT = \
 					ft_rotright_uint64.c \
 					ft_des_new.c \
 					ft_des_process.c \
+					ft_des_utils.c \
 
 SRC += $(addprefix $(LIBFT_MDX_FOLDER), $(SRC_LIBFT_MDX))
 SRC += $(addprefix $(LIBFT_SHA_FOLDER), $(SRC_LIBFT_SHA))

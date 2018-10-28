@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 14:25:20 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/26 16:02:17 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/28 09:15:27 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,15 @@
 
 static uint8_t		*table_assoc(t_des *des, uint8_t *msg, size_t size)
 {
-	if (des->mode == ECB && des->action == ENCRYPT)
-		return (ft_des_ecb_enc(des, msg, size));
-	else if (des->mode == ECB && des->action == DECRYPT)
-		return (ft_des_ecb_dec(des, msg, size));
-	else if (des->mode == CBC && des->action == ENCRYPT)
-		return (ft_des_cbc_enc(des, msg, size));
-	else if (des->mode == CBC && des->action == DECRYPT)
-		return (ft_des_cbc_dec(des, msg, size));
-	else if (des->mode == PCBC && des->action == ENCRYPT)
-		return (ft_des_pcbc_enc(des, msg, size));
-	else if (des->mode == PCBC && des->action == DECRYPT)
-		return (ft_des_pcbc_dec(des, msg, size));
-	else if (des->mode == CFB && des->action == ENCRYPT)
-		return (ft_des_cfb_enc(des, msg, size));
-	else if (des->mode == CFB && des->action == DECRYPT)
-		return (ft_des_cfb_dec(des, msg, size));
-	else if (des->mode == OFB && des->action == ENCRYPT)
-		return (ft_des_ofb_enc(des, msg, size));
-	else if (des->mode == OFB && des->action == DECRYPT)
-		return (ft_des_ofb_dec(des, msg, size));
-	ft_dprintf(2, "Never should happened\n");
-	return (NULL);
+	uint8_t		*(*f_ptr)(t_des *des, uint8_t *msg, size_t size);
+
+	f_ptr = get_des_func(des->mode, des->action);
+	if (f_ptr == NULL)
+	{
+		ft_dprintf(2, "Never should happened\n");
+		return (NULL);
+	}
+	return (f_ptr(des, msg, size));
 }
 
 static void			delete_pad(uint8_t *res, size_t *size)
