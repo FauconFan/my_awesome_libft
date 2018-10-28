@@ -2,7 +2,6 @@
 
 ## Crypto
 
- - [ ] merkle damgard reworked
  - [ ] Transformer f_encrypt en m_ssl
 
 ## Release 1.0

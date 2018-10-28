@@ -89,6 +89,7 @@ SRC_LIBFT_ENCRYPT = \
 					ft_merkle_damgard_512_pad64_s32.c \
 					ft_merkle_damgard_512_pad64_s64.c \
 					ft_merkle_damgard_1024_pad128_s64.c \
+					ft_merkle_damgard.c \
 					ft_rotleft_uint32.c \
 					ft_rotright_uint32.c \
 					ft_rotleft_uint64.c \

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 15:50:41 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/26 15:22:45 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/10/28 11:17:56 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@
 # include "inc/encrypt_utils/base64.h"
 # include "inc/encrypt_utils/des.h"
 # include "inc/encrypt_utils/hmac.h"
+
+typedef struct		s_merkle_damgard_config
+{
+	size_t			size_blocks;
+	size_t			padding_end;
+	size_t			size_size_end;
+	size_t			size_swap;
+	t_bool			content_to_little_endian;
+}					t_merkle_damgard_config;
 
 /*
 **	Source:
@@ -99,6 +108,12 @@ uint8_t		*ft_merkle_damgard_1024_pad128_s64(
 						size_t len,
 						size_t *new_len,
 						t_bool little_endian);
+
+uint8_t		*ft_merkle_damgard(
+						t_merkle_damgard_config config,
+						uint8_t *msg,
+						size_t len,
+						size_t *new_len);
 
 /*
 **	Des encryption
