@@ -7,8 +7,7 @@ t_rbtree	*ft_rbt_init(
 {
 	t_rbtree	*rb;
 
-	if ((rb = (t_rbtree *)malloc(sizeof(t_rbtree))) == NULL)
-		exit (2); // FIXME
+	ft_memchck((rb = (t_rbtree *)malloc(sizeof(t_rbtree))));
 	rb->root = NULL;
 	rb->comp_f = comp_f;
 	rb->free_key = free_key;
