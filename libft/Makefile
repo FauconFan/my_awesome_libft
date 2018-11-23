@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2018/10/30 08:28:46 by jpriou           ###   ########.fr        #
+#    Updated: 2018/11/23 16:08:34 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ include $(INCLUDES_MK_FOLDER)f_wchar.mk
 include $(INCLUDES_MK_FOLDER)m_ft_printf.mk
 include $(INCLUDES_MK_FOLDER)m_getopt.mk
 include $(INCLUDES_MK_FOLDER)m_regex.mk
+include $(INCLUDES_MK_FOLDER)t_rbtree.mk
 include $(INCLUDES_MK_FOLDER)t_sb.mk
 include $(INCLUDES_MK_FOLDER)t_slist.mk
 include $(INCLUDES_MK_FOLDER)t_vb.mk

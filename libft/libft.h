@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:15:24 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/10/30 08:26:10 by jpriou           ###   ########.fr       */
+/*   Updated: 2018/11/23 15:59:55 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@
 # include "inc/t_sb.h"
 # include "inc/t_slist.h"
 # include "inc/t_vb.h"
+# include "inc/t_rbtree.h"
 
 #endif
