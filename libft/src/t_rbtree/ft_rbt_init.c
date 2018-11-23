@@ -7,7 +7,7 @@ t_rbtree	*ft_rbt_init(
 {
 	t_rbtree	*rb;
 
-	ft_memchck((rb = (t_rbtree *)malloc(sizeof(t_rbtree))));
+	ft_memcheck((rb = (t_rbtree *)malloc(sizeof(t_rbtree))));
 	rb->root = NULL;
 	rb->comp_f = comp_f;
 	rb->free_key = free_key;
