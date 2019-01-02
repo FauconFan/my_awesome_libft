@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 09:04:34 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/08 08:27:43 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/02 15:42:01 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,14 @@
 # include "inc/getopt_utils/typedefs.h"
 # include "inc/getopt_utils/getopt_utils.h"
 
-t_cmd_parser			*ft_getopt(
-								char *config,
+t_cmd_parser			*ft_getopt_cmd(
+								t_cmd_config *config,
+								int *argc,
+								char ***argv,
+								t_opt_error *err);
+
+t_cli_parser			*ft_getopt(
+								t_cli_config *config,
 								int *argc,
 								char ***argv,
 								t_opt_error *err);
@@ -40,6 +46,10 @@ t_cmd_builder_parser_n	*ft_create_cmd_builder_parser_node_cmd(
 								char *helper);
 t_cmd_builder_parser_n	*ft_create_cmd_builder_parser_node_cli(
 								char *cmd,
+								t_cli_builder_parser **builder_cli);
+t_cmd_builder_parser_n	*ft_create_cmd_builder_parser_node_cli_w_help(
+								char *cmd,
+								char *help,
 								t_cli_builder_parser **builder_cli);
 t_cmd_builder_parser_n	*ft_create_help_sub_cmd(void);
 void					ft_free_cmd_builder_parser_node(
@@ -121,8 +131,8 @@ t_cli_parser			*ft_run_cli_u(
 
 t_cli_parser			*ft_run_cli(
 								t_cli_builder_parser **builder,
-								int argc,
-								char **argv,
+								int *argc,
+								char ***argv,
 								t_opt_error *error);
 
 void					ft_free_cli_parser(t_cli_parser **parser);

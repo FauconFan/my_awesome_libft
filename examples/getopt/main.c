@@ -6,61 +6,42 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 12:12:00 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/12 15:41:19 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/02 15:41:22 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_cli_builder_parser	*build_static_cli_parser()
-{
-	t_cli_builder_parser	*pa;
+t_cli_config			g_config_cli = {
+	"Cli sample", 3,
+	{
+		{'s', NULL, "Short option", "Short called", CLI_BOOL, {FALSE}},
+		{0, "long", "Long option", "Long called", CLI_BOOL, {FALSE}},
+		{'m', "miscellaneous", "Short and Long option", "Short and Long called", CLI_BOOL, {FALSE}},
+	},
+};
 
-	pa = ft_create_cli_builder("Cli sample");
-	ft_cli_add_u(pa,
-				ft_create_s_opt('s', "Short option"),
-				ft_create_bool_arg("Short called", FALSE));
-	ft_cli_add_u(pa,
-				ft_create_l_opt("long", "Long option"),
-				ft_create_bool_arg("Long called", FALSE));
-	ft_cli_add_u(pa,
-				ft_create_sl_opt('m', "miscellaneous", "Short and Long option"),
-				ft_create_bool_arg("Short and Long called", FALSE));
-	return pa;
-}
+t_cmd_config_n			g_config_cmd_n[] = {
+	{"Abracadra", NULL, CMD_CLI, {&g_config_cli}},
+	{"Baba", NULL, CMD_CLI, {&g_config_cli}},
+	{"Casse", NULL, CMD_CLI, {&g_config_cli}},
+};
 
-t_cmd_builder_parser_n	*build_cmd(char *cmd)
-{
-	t_cmd_builder_parser_n	*res;
-	t_cmd_builder_parser_n	*n1;
-	t_cmd_builder_parser_n	*n2;
-	t_cmd_builder_parser_n	*n3;
-	t_cli_builder_parser	*cli_p;
-
-	res = ft_create_cmd_builder_parser_node_cmd(cmd, "Totouette");
-	cli_p = build_static_cli_parser();
-	n1 = ft_create_cmd_builder_parser_node_cli("Abracadra", &cli_p);
-	cli_p = build_static_cli_parser();
-	n2 = ft_create_cmd_builder_parser_node_cli("Baba", &cli_p);
-	cli_p = build_static_cli_parser();
-	n3 = ft_create_cmd_builder_parser_node_cli("Casse", &cli_p);
-	ft_add_sub_cmd(res, &n1);
-	ft_add_sub_cmd(res, &n2);
-	ft_add_sub_cmd(res, &n3);
-	return res;
-}
+t_cmd_config			g_config_cmd = {
+	"Sample", 3,
+	{
+		{"toto", "Totouette", CMD_NODE, { .cmds = {3, g_config_cmd_n}}},
+		{"tata", "Totouette", CMD_NODE, { .cmds = {3, g_config_cmd_n}}},
+		{"tutu", "Totouette", CMD_NODE, { .cmds = {3, g_config_cmd_n}}},
+	},
+};
 
 int						main(int argc, char **argv)
 {
 	t_cmd_parser				*cmd_p;
-	t_cmd_builder_parser		*cmd_bd_p;
 	t_opt_error					err;
 
-	cmd_bd_p = ft_create_cmd_builder_parser(&argc, &argv, "Sample");
-	ft_add_cmd_u(cmd_bd_p, build_cmd("toto"));
-	ft_add_cmd_u(cmd_bd_p, build_cmd("tata"));
-	ft_add_cmd_u(cmd_bd_p, build_cmd("tutu"));
-	cmd_p = ft_run_cmd(&cmd_bd_p, &err);
+	cmd_p = ft_getopt_cmd(&g_config_cmd, &argc, &argv, &err);
 	if (has_printed_help(err) == FALSE)
 	{
 		ft_putendl("You successfully called the following commands");

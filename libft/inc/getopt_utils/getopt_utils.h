@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 17:19:05 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 12:05:07 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/02 15:39:00 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,5 +188,12 @@ char				*build_helper_properly(char *helper, int l, int r);
 
 t_bool				is_user_fault(t_opt_error err);
 t_bool				has_printed_help(t_opt_error err);
+
+/*
+**	Getopt utils functions
+*/
+
+t_cli_builder_parser 	*build_cli_parser(t_cli_config *cli_config);
+t_cmd_builder_parser	*build_cmd_parser(t_cmd_config *config, int *argc, char ***argv);
 
 #endif

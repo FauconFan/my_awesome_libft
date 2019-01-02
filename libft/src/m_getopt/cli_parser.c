@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 18:42:27 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 15:33:18 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/02 16:07:24 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,23 @@ t_cli_parser	*ft_run_cli_u(
 
 t_cli_parser	*ft_run_cli(
 							t_cli_builder_parser **builder,
-							int argc,
-							char **argv,
+							int *argc,
+							char ***argv,
 							t_opt_error *error)
 {
 	t_cli_parser	*parser;
 
-	if (builder == NULL || *builder == NULL || argv == NULL || error == NULL)
+	if (builder == NULL || *builder == NULL || argc == NULL ||
+		argv == NULL || error == NULL)
 	{
 		if (error)
 			*error = NOT_USED_WELL;
 		return (NULL);
 	}
-	parser = ft_run_cli_u(*builder, argc, argv, error);
+	parser = ft_run_cli_u(*builder, *argc, *argv, error);
 	ft_free_cli_builder(*builder);
+	*argc = -1;
+	*argv = NULL;
 	*builder = NULL;
 	return (parser);
 }
