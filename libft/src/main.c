@@ -6,7 +6,7 @@
 /*   By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 17:02:01 by fauconfa          #+#    #+#             */
-/*   Updated: 2018/10/28 11:15:35 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/13 15:16:16 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ void	test_hash_funcs()
 
 void	test_des_func()
 {
-	uint64_t key = 0x6162636461626364;
+	uint64_t key = 0x0123456789ABCDEF;
 	uint64_t iv = 0x0011223344556677;
-	char *msg = "oui je m'appelle Jean";
+	char *msg = "just an extra test";
 	char *msg2;
 	t_des 	*des = ft_des_new(key, iv, ENCRYPT, OFB);
 	uint8_t *res;
@@ -159,14 +159,22 @@ int		main()
 	// test_des_func();
 	// test_hmac_func();
 
-	test_oui(STR0, ft_merkle_damgard_512_pad64_s32);
-	test_oui(STR0, ft_merkle_damgard_512_pad64_s64);
-	test_oui(STR1, ft_merkle_damgard_512_pad64_s32);
-	test_oui(STR1, ft_merkle_damgard_512_pad64_s64);
-	test_oui(STR2, ft_merkle_damgard_512_pad64_s32);
-	test_oui(STR2, ft_merkle_damgard_512_pad64_s64);
-	test_oui(STR3, ft_merkle_damgard_512_pad64_s32);
-	test_oui(STR3, ft_merkle_damgard_512_pad64_s64);
+	// test_oui(STR0, ft_merkle_damgard_512_pad64_s32);
+	// test_oui(STR0, ft_merkle_damgard_512_pad64_s64);
+	// test_oui(STR1, ft_merkle_damgard_512_pad64_s32);
+	// test_oui(STR1, ft_merkle_damgard_512_pad64_s64);
+	// test_oui(STR2, ft_merkle_damgard_512_pad64_s32);
+	// test_oui(STR2, ft_merkle_damgard_512_pad64_s64);
+	// test_oui(STR3, ft_merkle_damgard_512_pad64_s32);
+	// test_oui(STR3, ft_merkle_damgard_512_pad64_s64);
 
-	return 0;
+	t_vb		*vb = ft_vb_new();
+	ft_vb_append(vb, "oui", 3);
+	ft_vb_append(vb, "non", 3);
+	ft_vb_append(vb, "\0", 1);
+	void *v = ft_vb_tobuffer(vb);
+	ft_printf("%s\n", v);
+	ft_vb_free(&vb);
+	free(v);
+	return (0);
 }

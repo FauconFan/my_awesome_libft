@@ -17,5 +17,7 @@ SRC_LIBFT_VOID_BUFFER = \
 						ft_vb_elem_free.c \
 						ft_vb_new.c \
 						ft_vb_free.c \
+						ft_vb_append.c \
+						ft_vb_tobuffer.c \
 
 SRC += $(addprefix $(LIBFT_VOID_BUFFER_FOLDER), $(SRC_LIBFT_VOID_BUFFER))
