@@ -43,6 +43,7 @@ SRC_LIBFT_TREAT_STR = \
 					ft_strsub.c \
 					ft_strtrim.c \
 					ft_strrev.c \
+					ft_strdeleteif.c \
 
 SRC_LIBFT_SIMPLE_STR = \
 					ft_str_all.c \

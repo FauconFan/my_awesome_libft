@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 16:46:05 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/28 09:53:22 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/13 16:21:24 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef enum			e_enc_mode
 	CBC,
 	PCBC,
 	CFB,
-	OFB
+	OFB,
 }						t_enc_mode;
 
 typedef struct			s_des
@@ -81,10 +81,10 @@ void					ft_des_save_msg(uint8_t *res, uint64_t out);
 **	Utils des
 */
 
-uint8_t				*(*get_des_func(t_enc_mode mode, t_enc_action action))
-						(t_des *des, uint8_t *msg, size_t size);
-char				*ft_get_des_action_string(t_enc_mode mode);
-t_bool				ft_need_iv(t_enc_mode mode);
+uint8_t					*(*get_des_func(t_enc_mode mode, t_enc_action action))
+							(t_des *des, uint8_t *msg, size_t size);
+char					*ft_get_des_action_string(t_enc_mode mode);
+t_bool					ft_need_iv(t_enc_mode mode);
 
 extern uint8_t			g_des_pc1_left[28];
 extern uint8_t			g_des_pc1_right[28];
