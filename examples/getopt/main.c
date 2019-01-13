@@ -6,34 +6,40 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 12:12:00 by jpriou            #+#    #+#             */
-/*   Updated: 2019/01/02 15:41:22 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/13 10:28:23 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_cli_config			g_config_cli = {
-	"Cli sample", 3,
-	{
-		{'s', NULL, "Short option", "Short called", CLI_BOOL, {FALSE}},
-		{0, "long", "Long option", "Long called", CLI_BOOL, {FALSE}},
-		{'m', "miscellaneous", "Short and Long option", "Short and Long called", CLI_BOOL, {FALSE}},
-	},
+t_arg_config			g_config_args[] = {
+	{'s', NULL, "Short option", "Short called", CLI_BOOL, {FALSE}},
+	{0, "long", "Long option", "Long called", CLI_BOOL, {FALSE}},
+	{'m', "miscellaneous", "Short and Long option", "Short and Long called", CLI_BOOL, {FALSE}},
 };
 
-t_cmd_config_n			g_config_cmd_n[] = {
+t_cli_config			g_config_cli = {
+	"Cli sample",
+	sizeof(g_config_args) / sizeof(g_config_args[0]),
+	g_config_args,
+};
+
+t_cmd_config_n			g_config_cmd_n2[] = {
 	{"Abracadra", NULL, CMD_CLI, {&g_config_cli}},
 	{"Baba", NULL, CMD_CLI, {&g_config_cli}},
 	{"Casse", NULL, CMD_CLI, {&g_config_cli}},
 };
 
+t_cmd_config_n			g_config_cmd_n[] = {
+	{"toto", "Totouette", CMD_NODE, { .cmds = {3, g_config_cmd_n2}}},
+	{"tata", "Totouette", CMD_NODE, { .cmds = {3, g_config_cmd_n2}}},
+	{"tutu", "Totouette", CMD_NODE, { .cmds = {3, g_config_cmd_n2}}},
+};
+
 t_cmd_config			g_config_cmd = {
-	"Sample", 3,
-	{
-		{"toto", "Totouette", CMD_NODE, { .cmds = {3, g_config_cmd_n}}},
-		{"tata", "Totouette", CMD_NODE, { .cmds = {3, g_config_cmd_n}}},
-		{"tutu", "Totouette", CMD_NODE, { .cmds = {3, g_config_cmd_n}}},
-	},
+	"Sample",
+	sizeof(g_config_cmd_n) / sizeof(g_config_cmd_n[0]),
+	g_config_cmd_n,
 };
 
 int						main(int argc, char **argv)

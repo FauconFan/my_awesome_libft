@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 19:44:02 by jpriou            #+#    #+#             */
-/*   Updated: 2019/01/02 15:24:07 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/13 10:23:06 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ typedef struct				s_cli_config
 {
 	char					*help;
 	size_t					len;
-	t_arg_config			args[];
+	t_arg_config			*args;
 }							t_cli_config;
 
 typedef struct 				s_cmd_config_n t_cmd_config_n;
@@ -140,7 +140,7 @@ typedef struct				s_cmd_config
 {
 	char					*help;
 	size_t					nb_cmds;
-	t_cmd_config_n			cmds[];
+	t_cmd_config_n			*cmds;
 }							t_cmd_config;
 
 #endif
