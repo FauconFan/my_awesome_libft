@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 08:20:28 by jpriou            #+#    #+#             */
-/*   Updated: 2019/01/13 16:48:02 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/13 22:29:12 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,7 @@ t_bool			ft_str_is_xdigit(char *s);
 t_bool			ft_str_contains_c(char *str, char c);
 
 char			*ft_strdeleteif(char *str, t_bool (*f)(int c));
+char			*ft_str_toupper(char *str);
+char			*ft_str_tolower(char *str);
 
 #endif

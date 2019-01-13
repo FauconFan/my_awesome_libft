@@ -6,16 +6,11 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 12:55:13 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/28 09:46:29 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/13 22:37:01 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-t_bool				ft_des_cfb_need_iv(void)
-{
-	return (TRUE);
-}
 
 uint8_t				*ft_des_cfb_enc(
 						t_des *des,

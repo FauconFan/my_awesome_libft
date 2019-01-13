@@ -43,7 +43,6 @@ SRC_LIBFT_TREAT_STR = \
 					ft_strsub.c \
 					ft_strtrim.c \
 					ft_strrev.c \
-					ft_strdeleteif.c \
 
 SRC_LIBFT_SIMPLE_STR = \
 					ft_str_all.c \
@@ -75,6 +74,9 @@ SRC_LIBFT_CONVERSION_STR = \
 					ft_switch_endian.c \
 					ft_switch_endian_fixed.c \
 					ft_from_str_hex_to_array_num.c \
+					ft_strdeleteif.c \
+					ft_str_tolower.c \
+					ft_str_toupper.c \
 
 SRC_LIBFT_ALLOC_STR = \
 					ft_strdel.c \

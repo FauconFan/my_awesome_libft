@@ -6,22 +6,23 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/28 09:08:05 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/28 09:53:32 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/13 22:39:49 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t				g_size_des_config_tables = 5;
-
-t_ft_des_config		g_des_config_tables[5] =
+t_ft_des_config		g_des_config_tables[] =
 {
-	{ECB, ft_des_ecb_need_iv, ft_des_ecb_enc, ft_des_ecb_dec},
-	{CBC, ft_des_cbc_need_iv, ft_des_cbc_enc, ft_des_cbc_dec},
-	{PCBC, ft_des_pcbc_need_iv, ft_des_pcbc_enc, ft_des_pcbc_dec},
-	{CFB, ft_des_cfb_need_iv, ft_des_cfb_enc, ft_des_cfb_dec},
-	{OFB, ft_des_ofb_need_iv, ft_des_ofb_enc, ft_des_ofb_dec},
+	{ECB, FALSE, TRUE, ft_des_ecb_enc, ft_des_ecb_dec},
+	{CBC, TRUE, TRUE, ft_des_cbc_enc, ft_des_cbc_dec},
+	{PCBC, TRUE, TRUE, ft_des_pcbc_enc, ft_des_pcbc_dec},
+	{CFB, TRUE, FALSE, ft_des_cfb_enc, ft_des_cfb_dec},
+	{OFB, TRUE, FALSE, ft_des_ofb_enc, ft_des_ofb_dec},
 };
+
+size_t				g_size_des_config_tables =
+	sizeof(g_des_config_tables) / sizeof(*g_des_config_tables);
 
 uint8_t				*(*get_des_func(t_enc_mode mode, t_enc_action action))
 						(t_des *des, uint8_t *msg, size_t size)
@@ -66,7 +67,23 @@ t_bool				ft_need_iv(t_enc_mode mode)
 	{
 		if (g_des_config_tables[i].mode == mode)
 		{
-			return (g_des_config_tables[i].f_ptr_need_iv());
+			return (g_des_config_tables[i].need_iv);
+		}
+		i++;
+	}
+	return (FALSE);
+}
+
+t_bool				ft_des_do_pad(t_enc_mode mode)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < g_size_des_config_tables)
+	{
+		if (g_des_config_tables[i].mode == mode)
+		{
+			return (g_des_config_tables[i].do_pad);
 		}
 		i++;
 	}

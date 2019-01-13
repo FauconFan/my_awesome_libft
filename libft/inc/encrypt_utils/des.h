@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 16:46:05 by jpriou            #+#    #+#             */
-/*   Updated: 2019/01/13 16:21:24 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/13 22:40:02 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,31 +35,28 @@ typedef struct			s_des
 	uint64_t			iv;
 	t_enc_action		action;
 	t_enc_mode			mode;
+	t_bool				do_pad;
 }						t_des;
 
 typedef struct			s_ft_des_config
 {
 	t_enc_mode			mode;
-	t_bool				(*f_ptr_need_iv)(void);
+	t_bool				need_iv;
+	t_bool				do_pad;
 	uint8_t				*(*f_ptr_encrypt)(t_des *des, uint8_t *msg, size_t size);
 	uint8_t				*(*f_ptr_decrypt)(t_des *des, uint8_t *msg, size_t size);
 }						t_ft_des_config;
 
 uint64_t				ft_des_process_block(uint64_t msg, uint64_t keys[16]);
 
-t_bool					ft_des_ecb_need_iv(void);
 uint8_t					*ft_des_ecb_enc(t_des *des, uint8_t *msg, size_t size);
 uint8_t					*ft_des_ecb_dec(t_des *des, uint8_t *msg, size_t size);
-t_bool					ft_des_cbc_need_iv(void);
 uint8_t					*ft_des_cbc_enc(t_des *des, uint8_t *msg, size_t size);
 uint8_t					*ft_des_cbc_dec(t_des *des, uint8_t *msg, size_t size);
-t_bool					ft_des_pcbc_need_iv(void);
 uint8_t					*ft_des_pcbc_enc(t_des *des, uint8_t *msg, size_t size);
 uint8_t					*ft_des_pcbc_dec(t_des *des, uint8_t *msg, size_t size);
-t_bool					ft_des_cfb_need_iv(void);
 uint8_t					*ft_des_cfb_enc(t_des *des, uint8_t *msg, size_t size);
 uint8_t					*ft_des_cfb_dec(t_des *des, uint8_t *msg, size_t size);
-t_bool					ft_des_ofb_need_iv(void);
 uint8_t					*ft_des_ofb_enc(t_des *des, uint8_t *msg, size_t size);
 uint8_t					*ft_des_ofb_dec(t_des *des, uint8_t *msg, size_t size);
 
@@ -85,6 +82,7 @@ uint8_t					*(*get_des_func(t_enc_mode mode, t_enc_action action))
 							(t_des *des, uint8_t *msg, size_t size);
 char					*ft_get_des_action_string(t_enc_mode mode);
 t_bool					ft_need_iv(t_enc_mode mode);
+t_bool					ft_des_do_pad(t_enc_mode mode);
 
 extern uint8_t			g_des_pc1_left[28];
 extern uint8_t			g_des_pc1_right[28];

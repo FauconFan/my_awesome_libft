@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 14:25:20 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/28 15:03:47 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/13 22:43:35 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,10 @@ uint8_t				*ft_des_process(
 						size_t size_in,
 						size_t *size_out)
 {
-	t_bool		do_pad;
 	uint8_t		*res;
 	uint8_t		*new_msg;
 
-	do_pad = TRUE;
-	if (do_pad && des->action == ENCRYPT)
+	if (des->do_pad && des->action == ENCRYPT)
 	{
 		*size_out = ((size_in / 8) + 1) * 8;
 		new_msg = (uint8_t *)ft_strndup((char *)msg, *size_out);
@@ -63,7 +61,7 @@ uint8_t				*ft_des_process(
 		new_msg = msg;
 	}
 	res = table_assoc(des, new_msg, *size_out);
-	if (do_pad)
+	if (des->do_pad)
 	{
 		if (des->action == ENCRYPT)
 			ft_strdel((char **)&new_msg);
