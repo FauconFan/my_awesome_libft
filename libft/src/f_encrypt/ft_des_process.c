@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 14:25:20 by jpriou            #+#    #+#             */
-/*   Updated: 2019/01/13 22:43:35 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/15 13:37:38 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,18 @@ uint8_t				*ft_des_process(
 	}
 	else
 	{
-		*size_out = size_in;
-		new_msg = msg;
+		*size_out = (size_in % 8) ? (size_in + (8 - (size_in % 8))) : size_in;
+		new_msg = ft_memalloc(*size_out + 1);
+		ft_memcpy(new_msg, msg, size_in);
 	}
 	res = table_assoc(des, new_msg, *size_out);
 	if (des->do_pad)
 	{
-		if (des->action == ENCRYPT)
-			ft_strdel((char **)&new_msg);
-		else
+		if (des->action != ENCRYPT)
 			delete_pad(res, size_out);
 	}
+	else
+		*size_out = size_in;
+	free(new_msg);
 	return (res);
 }
