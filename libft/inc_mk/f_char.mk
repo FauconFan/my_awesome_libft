@@ -26,5 +26,6 @@ SRC_LIBFT_CHAR = ft_isalnum.c \
 				ft_tolower.c \
 				ft_toupper.c \
 				ft_toxdigit.c \
+				ft_gethexvalue.c \
 
 SRC += $(addprefix $(LIBFT_CHAR_FOLDER), $(SRC_LIBFT_CHAR))

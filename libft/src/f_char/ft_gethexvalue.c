@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toxdigit.c                                      :+:      :+:    :+:   */
+/*   ft_gethexvalue.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/19 18:46:24 by jpriou            #+#    #+#             */
-/*   Updated: 2019/01/15 14:23:50 by jpriou           ###   ########.fr       */
+/*   Created: 2019/01/15 16:04:01 by jpriou            #+#    #+#             */
+/*   Updated: 2019/01/15 16:16:43 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		ft_toxdigit(char c)
+char	ft_gethexvalue(char c)
 {
-	if (ft_isxdigit(c) == FALSE)
-		return (-1);
-	if (ft_isdigit(c))
-		return (c - '0');
-	if (c >= 'a' && c <= 'f')
-		return (10 + c - 'a');
-	return (10 + c - 'A');
+	c = c % 16;
+	if (c < 10)
+		return ('0' + c);
+	return ('A' + c - 10);
 }
