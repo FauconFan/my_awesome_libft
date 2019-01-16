@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 17:32:26 by jpriou            #+#    #+#             */
-/*   Updated: 2019/01/16 00:35:48 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/16 22:38:37 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,9 @@ static char		*pre_treatment(char *str, char base[65], int *real_size)
 {
 	char	*cpy;
 	char	*cpy_base;
-	size_t	len;
 
 	cpy_base = ft_strndup(base, 64);
-	len = ft_strlen(str);
-	while (len > 0 && ft_iswhitespace(str[len - 1]))
-		len--;
-	cpy = ft_strndup(str, len);
+	cpy = ft_strdeleteif(str, ft_isspace);
 	*real_size = validate_string(cpy, cpy_base, base[64]);
 	ft_strdel(&cpy_base);
 	return (cpy);

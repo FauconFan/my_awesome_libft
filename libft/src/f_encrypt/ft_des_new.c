@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 13:38:21 by jpriou            #+#    #+#             */
-/*   Updated: 2019/01/13 22:40:16 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/16 22:48:15 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ t_des			*ft_des_new(
 void			ft_des_change_action(t_des *des, t_enc_action action)
 {
 	des->action = action;
+}
+
+void			ft_des_set_pad(t_des *des, t_bool pad)
+{
+	des->do_pad = pad;
 }
 
 void			ft_des_free(t_des **des)
