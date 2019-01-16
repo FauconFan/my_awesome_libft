@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 14:25:20 by jpriou            #+#    #+#             */
-/*   Updated: 2019/01/16 23:05:44 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/16 23:44:00 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ uint8_t				*ft_des_process(
 		if (des->action != ENCRYPT)
 			delete_pad(res, size_out);
 	}
+	else
+		*size_out = size_in;
 	free(new_msg);
 	return (res);
 }
