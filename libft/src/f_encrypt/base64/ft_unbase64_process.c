@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 17:32:26 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/22 16:51:02 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/16 00:35:48 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,10 @@ uint8_t			*ft_unbase64_process(
 	cpy = pre_treatment(str, base, &real_size);
 	*len = 0;
 	if (real_size == -1)
+	{
+		free(cpy);
 		return (NULL);
+	}
 	*len = (real_size / 4) * 3;
 	if (real_size % 4 != 0)
 		*len += ((real_size % 4) - 1);

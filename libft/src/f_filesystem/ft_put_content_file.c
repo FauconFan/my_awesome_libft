@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 16:09:48 by jpriou            #+#    #+#             */
-/*   Updated: 2018/09/20 09:28:24 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/16 00:49:34 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	ft_put_content_file(
 {
 	int		fd;
 
-	if ((fd = open(file_path, O_WRONLY)) < 0)
+	if ((fd = open(file_path, O_WRONLY | O_CREAT,
+			S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)) < 0)
 	{
 		*errno_str = strerror(errno);
 	}
