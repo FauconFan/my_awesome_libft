@@ -6,7 +6,7 @@
 #    By: fauconfa <fauconfa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/01/13 15:15:34 by jpriou           ###   ########.fr        #
+#    Updated: 2019/01/18 11:31:08 by jpriou           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,15 +62,19 @@ OBJ = $(SRC:%.c=%.o)
 
 ### Compilation ###
 
+.PHONY: all
 all: compile_static_library
 
+.PHONY: so
 so: compile_dynamic_library
 
+.PHONY: compile_static_library
 compile_static_library:
 	@! test -f $(NAME_SO) || make fclean
 	@printf "FLAGS := %s\n" "$(FLAGS)"
 	@make -C . $(NAME_A) -j8
 
+.PHONY: compile_dynamic_library
 compile_dynamic_library:
 	@! test -f $(NAME_A) || make fclean
 	@printf "FLAGS := %s\n" "$(FLAGS)"
@@ -107,20 +111,24 @@ $(NAME_SO): $(OBJ)
 		"$(_END)" \
 		"$?"
 
+.PHONY: clean
 clean:
 	@rm -rf $(OBJ)
 	@printf " %s[INFO]%s libft cleaned\\n" "$(_CYAN)" "$(_END)"
 
+.PHONY: fclean
 fclean:
 	@rm -rf $(OBJ)
 	@rm -rf $(NAME_A)
 	@rm -rf $(NAME_SO)
 	@printf " %s[INFO]%s libft full cleaned\\n" "$(_CYAN)" "$(_END)"
 
+.PHONY: re
 re: fclean all
 
 ### Test stuff ###
 
+.PHONY: test_docker_compile_gcc
 test_docker_compile_gcc: fclean
 	docker run -d \
 			--name build_libft_gcc \
@@ -134,6 +142,7 @@ test_docker_compile_gcc: fclean
 	docker stop build_libft_gcc
 	docker rm build_libft_gcc
 
+.PHONY: test_docker_compile_clang
 test_docker_compile_clang: fclean
 	docker run -d \
 			--name build_libft_clang \
