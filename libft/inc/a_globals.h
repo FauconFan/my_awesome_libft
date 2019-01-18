@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/05 13:41:11 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/05 13:43:24 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/18 09:11:44 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # define MAKE_FREE_PTR(f)		((void (*)(void *))f)
 # define MAKE_COPY_PTR(f)		((void *(*)(void *))f)
 # define MAKE_CMP_PTR(f)		((int (*)(void *, void *))f)
+
+# define SIZE_TAB(t)			(sizeof(t) / sizeof(*t))
 
 # define TRUE					1
 # define FALSE					0

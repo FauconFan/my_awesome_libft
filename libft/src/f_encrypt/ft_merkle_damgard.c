@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 11:19:07 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/28 18:56:45 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/18 09:06:31 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ static t_bool			check_consistency(t_merkle_damgard_config config)
 	return (FALSE);
 }
 
-uint8_t						*ft_merkle_damgard(
-						t_merkle_damgard_config config,
-						uint8_t *msg,
-						size_t len,
-						size_t *new_len)
+uint8_t					*ft_merkle_damgard(
+							t_merkle_damgard_config config,
+							uint8_t *msg,
+							size_t len,
+							size_t *new_len)
 {
 	uint64_t	len_bits;
 	uint8_t		*res;

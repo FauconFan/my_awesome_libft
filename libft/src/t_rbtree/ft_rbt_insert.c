@@ -1,10 +1,94 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_rbt_insert.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/18 09:18:19 by jpriou            #+#    #+#             */
+/*   Updated: 2019/01/18 09:50:23 by jpriou           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static void		insert_case1(t_rbtree *t, t_rbtree_node *n);
-static void		insert_case2(t_rbtree *t, t_rbtree_node *n);
-static void		insert_case3(t_rbtree *t, t_rbtree_node *n);
-static void		insert_case4(t_rbtree *t, t_rbtree_node *n);
-static void		insert_case5(t_rbtree *t, t_rbtree_node *n);
+static void		ft_rbt_build_in_place(
+					t_rbtree *t,
+					t_rbtree_node *n,
+					void *key,
+					void *value)
+{
+	if (t->free_key)
+		(t->free_key)(key);
+	if (t->free_value)
+		(t->free_value)(n->value);
+	n->value = value;
+}
+
+static int		ft_rbt_utils_left(
+					t_rbtree_node **n,
+					t_rbtree_node **cand,
+					void *key,
+					void *value)
+{
+	if ((*n)->left == NULL)
+	{
+		*cand = ft_rbt_node_init(key, value);
+		(*n)->left = *cand;
+		return (1);
+	}
+	*n = (*n)->left;
+	return (0);
+}
+
+static int		ft_rbt_utils_right(
+					t_rbtree_node **n,
+					t_rbtree_node **cand,
+					void *key,
+					void *value)
+{
+	if ((*n)->right == NULL)
+	{
+		*cand = ft_rbt_node_init(key, value);
+		(*n)->right = *cand;
+		return (1);
+	}
+	*n = (*n)->right;
+	return (0);
+}
+
+static int		ft_rbt_parcours(
+					t_rbtree *t,
+					t_rbtree_node **cand,
+					void *key,
+					void *value)
+{
+	t_rbtree_node	*n;
+	int				comp_res;
+	int				ret;
+
+	n = t->root;
+	while (1)
+	{
+		comp_res = (t->comp_f)(key, n->key);
+		if (comp_res == 0)
+		{
+			ft_rbt_build_in_place(t, n, key, value);
+			return (1);
+		}
+		else
+		{
+			if (comp_res < 0)
+				ret = ft_rbt_utils_left(&n, cand, key, value);
+			else
+				ret = ft_rbt_utils_right(&n, cand, key, value);
+			if (ret)
+				break ;
+		}
+	}
+	(*cand)->parent = n;
+	return (0);
+}
 
 /*
 **	Return if the cand node has beed used in the tree.
@@ -17,8 +101,6 @@ void			ft_rbt_insert(
 					void *value)
 {
 	t_rbtree_node	*cand;
-	t_rbtree_node	*n;
-	int				comp_res;
 
 	if (t->root == NULL)
 	{
@@ -27,108 +109,8 @@ void			ft_rbt_insert(
 	}
 	else
 	{
-		n = t->root;
-		while (1)
-		{
-			comp_res = (t->comp_f)(key, n->key);
-			if (comp_res == 0)
-			{
-				if (t->free_key)
-					(t->free_key)(key);
-				if (t->free_value)
-					(t->free_value)(n->value);
-				n->value = value;
-				return ;
-			}
-			else if (comp_res < 0)
-			{
-				if (n->left == NULL)
-				{
-					cand = ft_rbt_node_init(key, value);
-					n->left = cand;
-					break;
-				}
-				else
-					n = n->left;
-			}
-			else
-			{
-				if (n->right == NULL)
-				{
-					cand = ft_rbt_node_init(key, value);
-					n->right = cand;
-					break;
-				}
-				else
-					n = n->right;
-			}
-		}
-		cand->parent = n;
+		if (ft_rbt_parcours(t, &cand, key, value))
+			return ;
 	}
-	insert_case1(t, cand);
-}
-
-static void		insert_case1(t_rbtree *t, t_rbtree_node *n)
-{
-	if (n->parent == NULL)
-		n->color = BLACK;
-	else
-		insert_case2(t, n);
-}
-
-static void		insert_case2(t_rbtree *t, t_rbtree_node *n)
-{
-	if (ft_rbt_node_color(n->parent) == BLACK)
-		return ;
-	else
-		insert_case3(t, n);
-}
-
-static void		insert_case3(t_rbtree *t, t_rbtree_node *n)
-{
-	t_rbtree_node	*uncle;
-	t_rbtree_node	*grandpa;
-
-	uncle = ft_rbt_node_uncle(n);
-	if (ft_rbt_node_color(uncle) == RED)
-	{
-		grandpa = ft_rbt_node_grandparent(n);
-		n->parent->color = BLACK;
-		uncle->color = BLACK;
-		grandpa->color = RED;
-		insert_case1(t, grandpa);
-	}
-	else
-		insert_case4(t, n);
-}
-
-static void		insert_case4(t_rbtree *t, t_rbtree_node *n)
-{
-	t_rbtree_node	*grandpa;
-
-	grandpa = ft_rbt_node_grandparent(n);
-	if (n == n->parent->right && n->parent == grandpa->left)
-	{
-		ft_rbt_rotate_left(t, n->parent);
-		n = n->left;
-	}
-	else if (n == n->parent->left && n->parent == grandpa->right)
-	{
-		ft_rbt_rotate_right(t, n->parent);
-		n = n->right;
-	}
-	insert_case5(t, n);
-}
-
-static void		insert_case5(t_rbtree *t, t_rbtree_node *n)
-{
-	t_rbtree_node	*grandpa;
-
-	grandpa = ft_rbt_node_grandparent(n);
-	n->parent->color = BLACK;
-	grandpa->color = RED;
-	if (n == n->parent->left && n->parent == grandpa->left)
-		ft_rbt_rotate_right(t, grandpa);
-	else
-		ft_rbt_rotate_left(t, grandpa);
+	ft_insert_case_general(t, cand);
 }

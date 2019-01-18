@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 16:46:05 by jpriou            #+#    #+#             */
-/*   Updated: 2019/01/13 22:40:02 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/18 08:41:56 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,15 @@ typedef struct			s_des
 	t_bool				do_pad;
 }						t_des;
 
+typedef uint8_t			*(*t_ptr_enc)(t_des *des, uint8_t *msg, size_t size);
+
 typedef struct			s_ft_des_config
 {
 	t_enc_mode			mode;
 	t_bool				need_iv;
 	t_bool				do_pad;
-	uint8_t				*(*f_ptr_encrypt)(t_des *des, uint8_t *msg, size_t size);
-	uint8_t				*(*f_ptr_decrypt)(t_des *des, uint8_t *msg, size_t size);
+	t_ptr_enc			f_ptr_encrypt;
+	t_ptr_enc			f_ptr_decrypt;
 }						t_ft_des_config;
 
 uint64_t				ft_des_process_block(uint64_t msg, uint64_t keys[16]);
@@ -78,8 +80,7 @@ void					ft_des_save_msg(uint8_t *res, uint64_t out);
 **	Utils des
 */
 
-uint8_t					*(*get_des_func(t_enc_mode mode, t_enc_action action))
-							(t_des *des, uint8_t *msg, size_t size);
+t_ptr_enc				get_des_func(t_enc_mode mode, t_enc_action action);
 char					*ft_get_des_action_string(t_enc_mode mode);
 t_bool					ft_need_iv(t_enc_mode mode);
 t_bool					ft_des_do_pad(t_enc_mode mode);

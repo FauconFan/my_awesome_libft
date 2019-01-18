@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 20:38:29 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/26 14:53:36 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/18 09:07:23 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,11 @@ t_mdx			*ft_md5_init(uint8_t *str, size_t len)
 	t_mdx		*md5;
 
 	ft_memcheck((md5 = (t_mdx *)malloc(sizeof(t_mdx))));
-	md5->msg = ft_merkle_damgard_512_pad64_s64(str, len, &(md5->new_len), FALSE);
+	md5->msg = ft_merkle_damgard_512_pad64_s64(
+					str,
+					len,
+					&(md5->new_len),
+					FALSE);
 	md5->hash[0] = 0x67452301;
 	md5->hash[1] = 0xefcdab89;
 	md5->hash[2] = 0x98badcfe;

@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 09:51:18 by jpriou            #+#    #+#             */
-/*   Updated: 2019/01/13 09:35:19 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/18 09:17:25 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,14 @@ t_opt_error				ft_cli_parse(
 
 	while (res_parser->argc)
 	{
-		if (res_parser->argv[0][0] == '-' &&
-			res_parser->argv[0][1] == '-' &&
+		if (res_parser->argv[0][0] == '-' && res_parser->argv[0][1] == '-' &&
 			res_parser->argv[0][2] == '\0')
 		{
 			res_parser->argv = res_parser->argv + 1;
 			res_parser->argc = res_parser->argc - 1;
 			return (OK);
 		}
-		if (res_parser->argv[0][0] == '-' &&
-			res_parser->argv[0][1] == '\0')
+		if (res_parser->argv[0][0] == '-' && res_parser->argv[0][1] == '\0')
 			return (OK);
 		if (res_parser->argv[0][0] != '-')
 			return (OK);

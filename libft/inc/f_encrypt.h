@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 15:50:41 by jpriou            #+#    #+#             */
-/*   Updated: 2019/01/16 22:49:04 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/18 08:43:38 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,72 +44,72 @@ typedef struct		s_merkle_damgard_config
 **	Transformation functions.
 */
 
-char		*ft_base64(uint8_t *str, size_t len);
-char		*ft_base64_url(uint8_t *str, size_t len);
+char				*ft_base64(uint8_t *str, size_t len);
+char				*ft_base64_url(uint8_t *str, size_t len);
 
-uint8_t		*ft_unbase64(char *str, size_t *len);
-uint8_t		*ft_unbase64_url(char *str, size_t *len);
+uint8_t				*ft_unbase64(char *str, size_t *len);
+uint8_t				*ft_unbase64_url(char *str, size_t *len);
 
-uint32_t	ft_rotleft_uint32(uint32_t x, int c);
-uint32_t	ft_rotright_uint32(uint32_t x, int c);
-uint64_t	ft_rotleft_uint64(uint64_t x, int c);
-uint64_t	ft_rotright_uint64(uint64_t x, int c);
+uint32_t			ft_rotleft_uint32(uint32_t x, int c);
+uint32_t			ft_rotright_uint32(uint32_t x, int c);
+uint64_t			ft_rotleft_uint64(uint64_t x, int c);
+uint64_t			ft_rotright_uint64(uint64_t x, int c);
 
 /*
 **	HAshing functions.
 */
 
-char		*ft_md4(uint8_t *str, size_t len);
-char		*ft_md5(uint8_t *str, size_t len);
+char				*ft_md4(uint8_t *str, size_t len);
+char				*ft_md5(uint8_t *str, size_t len);
 
-char		*ft_sha1(uint8_t *msg, size_t len);
-char		*ft_sha224(uint8_t *msg, size_t len);
-char		*ft_sha256(uint8_t *msg, size_t len);
-char		*ft_sha384(uint8_t *msg, size_t len);
-char		*ft_sha512(uint8_t *msg, size_t len);
-char		*ft_sha512_256(uint8_t *msg, size_t len);
-char		*ft_sha512_224(uint8_t *msg, size_t len);
+char				*ft_sha1(uint8_t *msg, size_t len);
+char				*ft_sha224(uint8_t *msg, size_t len);
+char				*ft_sha256(uint8_t *msg, size_t len);
+char				*ft_sha384(uint8_t *msg, size_t len);
+char				*ft_sha512(uint8_t *msg, size_t len);
+char				*ft_sha512_256(uint8_t *msg, size_t len);
+char				*ft_sha512_224(uint8_t *msg, size_t len);
 
-t_hmac		*ft_hmac_init(
+t_hmac				*ft_hmac_init(
 						uint8_t *key,
 						size_t len_key,
 						char *(hash_f)(uint8_t *, size_t),
 						size_t size_block);
-char		*ft_hmac_process(
+char				*ft_hmac_process(
 						t_hmac *hmac,
 						uint8_t *msg,
 						size_t len_msg);
-void		ft_hmac_free(t_hmac **hmac);
+void				ft_hmac_free(t_hmac **hmac);
 
 /*
 **	Prepare message with padding
 */
 
-uint8_t		*ft_merkle_damgard_512_pad32_s32(
+uint8_t				*ft_merkle_damgard_512_pad32_s32(
 						uint8_t *msg,
 						size_t len,
 						size_t *new_len,
 						t_bool little_endian);
 
-uint8_t		*ft_merkle_damgard_512_pad64_s32(
+uint8_t				*ft_merkle_damgard_512_pad64_s32(
 						uint8_t *msg,
 						size_t len,
 						size_t *new_len,
 						t_bool little_endian);
 
-uint8_t		*ft_merkle_damgard_512_pad64_s64(
+uint8_t				*ft_merkle_damgard_512_pad64_s64(
 						uint8_t *msg,
 						size_t len,
 						size_t *new_len,
 						t_bool little_endian);
 
-uint8_t		*ft_merkle_damgard_1024_pad128_s64(
+uint8_t				*ft_merkle_damgard_1024_pad128_s64(
 						uint8_t *msg,
 						size_t len,
 						size_t *new_len,
 						t_bool little_endian);
 
-uint8_t		*ft_merkle_damgard(
+uint8_t				*ft_merkle_damgard(
 						t_merkle_damgard_config config,
 						uint8_t *msg,
 						size_t len,
@@ -119,18 +119,18 @@ uint8_t		*ft_merkle_damgard(
 **	Des encryption
 */
 
-t_des		*ft_des_new(
+t_des				*ft_des_new(
 						uint64_t original_key,
 						uint64_t iv,
 						t_enc_action action,
 						t_enc_mode mode);
-void		ft_des_change_action(
+void				ft_des_change_action(
 						t_des *des,
 						t_enc_action action);
-void		ft_des_set_pad(t_des *des, t_bool pad);
-void		ft_des_free(t_des **des);
+void				ft_des_set_pad(t_des *des, t_bool pad);
+void				ft_des_free(t_des **des);
 
-uint8_t		*ft_des_process(
+uint8_t				*ft_des_process(
 						t_des *des,
 						uint8_t *msg,
 						size_t size_in,

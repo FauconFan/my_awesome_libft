@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/28 09:08:05 by jpriou            #+#    #+#             */
-/*   Updated: 2019/01/13 22:39:49 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/18 09:11:59 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,9 @@ t_ft_des_config		g_des_config_tables[] =
 	{OFB, TRUE, FALSE, ft_des_ofb_enc, ft_des_ofb_dec},
 };
 
-size_t				g_size_des_config_tables =
-	sizeof(g_des_config_tables) / sizeof(*g_des_config_tables);
+size_t				g_size_des_config_tables = SIZE_TAB(g_des_config_tables);
 
-uint8_t				*(*get_des_func(t_enc_mode mode, t_enc_action action))
-						(t_des *des, uint8_t *msg, size_t size)
+t_ptr_enc			get_des_func(t_enc_mode mode, t_enc_action action)
 {
 	size_t	i;
 

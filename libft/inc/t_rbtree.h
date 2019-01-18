@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 16:01:34 by jpriou            #+#    #+#             */
-/*   Updated: 2018/11/23 16:22:33 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/18 09:54:17 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,20 @@ void						ft_rbt_free(
 
 void						ft_rbt_insert(
 								t_rbtree *t,
-								void* key,
-								void* value);
+								void *key,
+								void *value);
+
+void						ft_insert_case_general(
+								t_rbtree *t,
+								t_rbtree_node *n);
 
 void						ft_rbt_delete(
 								t_rbtree *t,
 								void *key);
+
+void						ft_delete_case_general(
+								t_rbtree *t,
+								t_rbtree_node *n);
 
 void						*ft_rbt_lookup(
 								t_rbtree *t,
@@ -74,7 +82,7 @@ void						ft_rbt_node_free_single(
 								t_rbtree *t,
 								t_rbtree_node *n);
 
-t_rbtree_node 				*ft_rbt_node_init(
+t_rbtree_node				*ft_rbt_node_init(
 								void *key,
 								void *value);
 
@@ -94,4 +102,5 @@ void						ft_rbt_rotate_left(
 void						ft_rbt_rotate_right(
 								t_rbtree *t,
 								t_rbtree_node *n);
+
 #endif

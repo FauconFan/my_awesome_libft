@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 14:16:23 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/26 14:59:17 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/18 09:07:37 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ t_sha1		*ft_sha1_init(uint8_t *msg, size_t len)
 	t_sha1	*sha1;
 
 	ft_memcheck((sha1 = (t_sha1 *)malloc(sizeof(t_sha1))));
-	sha1->msg = ft_merkle_damgard_512_pad64_s32(msg, len, &(sha1->new_len), TRUE);
+	sha1->msg = ft_merkle_damgard_512_pad64_s32(
+					msg,
+					len,
+					&(sha1->new_len),
+					TRUE);
 	sha1->hash[0] = 0x67452301;
 	sha1->hash[1] = 0xefcdab89;
 	sha1->hash[2] = 0x98badcfe;

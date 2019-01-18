@@ -6,7 +6,7 @@
 /*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 13:13:48 by jpriou            #+#    #+#             */
-/*   Updated: 2019/01/02 14:09:12 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/01/18 09:17:41 by jpriou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ static t_cmd_builder_parser_n	*init_builder(
 	return (res);
 }
 
-t_cmd_builder_parser_n		*ft_create_help_sub_cmd(void)
+t_cmd_builder_parser_n			*ft_create_help_sub_cmd(void)
 {
 	return (init_builder(HELP_CMD, HELP_MSG, NULL, NULL));
 }
 
-t_cmd_builder_parser_n		*ft_create_cmd_builder_parser_node_cmd(
-								char *cmd,
-								char *helper)
+t_cmd_builder_parser_n			*ft_create_cmd_builder_parser_node_cmd(
+									char *cmd,
+									char *helper)
 {
 	t_cmd_builder_parser_n	*res;
 
@@ -46,10 +46,10 @@ t_cmd_builder_parser_n		*ft_create_cmd_builder_parser_node_cmd(
 	return (res);
 }
 
-t_cmd_builder_parser_n		*ft_create_cmd_builder_parser_node_cli_w_help(
-								char *cmd,
-								char *help,
-								t_cli_builder_parser **builder_cli)
+t_cmd_builder_parser_n			*ft_create_cmd_builder_parser_node_cli_w_help(
+									char *cmd,
+									char *help,
+									t_cli_builder_parser **builder_cli)
 {
 	t_cmd_builder_parser_n	*res;
 
@@ -58,9 +58,10 @@ t_cmd_builder_parser_n		*ft_create_cmd_builder_parser_node_cli_w_help(
 	return (res);
 }
 
-t_cmd_builder_parser_n		*ft_create_cmd_builder_parser_node_cli(
-								char *cmd,
-								t_cli_builder_parser **builder_cli)
+t_cmd_builder_parser_n			*ft_create_cmd_builder_parser_node_cli(
+									char *cmd,
+									t_cli_builder_parser **builder_cli)
 {
-	return (ft_create_cmd_builder_parser_node_cli_w_help(cmd, (*builder_cli)->helper, builder_cli));
+	return (ft_create_cmd_builder_parser_node_cli_w_help(
+				cmd, (*builder_cli)->helper, builder_cli));
 }
