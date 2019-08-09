@@ -5,37 +5,27 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/08/09 23:48:50 by pepe             ###   ########.fr        #
+#    Created: 2019/08/09 18:43:59 by pepe              #+#    #+#              #
+#    Updated: 2019/08/09 18:45:17 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+MOD_NAME = ctype
 
-MAKEFLAGS += --no-print-directory
+SRC = \
+	src/ft_isalnum.c \
+	src/ft_isalpha.c \
+	src/ft_isascii.c \
+	src/ft_isblank.c \
+	src/ft_isdigit.c \
+	src/ft_islower.c \
+	src/ft_isprint.c \
+	src/ft_isspace.c \
+	src/ft_isupper.c \
+	src/ft_iswhitespace.c \
+	src/ft_isxdigit.c \
+	src/ft_tolower.c \
+	src/ft_toupper.c \
+	src/ft_toxdigit.c
 
-ALL_MODS = \
-	libft_ctype
-
-MODS_SELECTED = $(ALL_MODS)
-
-.PHONY: all
-all: $(MODS_SELECTED)
-
-.PHONY: libft_ctype
-libft_ctype:
-	@ make -C $@
-
-.PHONY: clean
-clean:
-	@ $(foreach mod, $(ALL_MODS), make -C $(mod) clean)
-
-.PHONY: fclean
-fclean:
-	@ $(foreach mod, $(ALL_MODS), make -C $(mod) fclean)
-	@ rm -rf $(NAME)
-
-.PHONY: re
-re:
-	@ make -C . fclean
-	@ make -C . all
+include ../common/compile.mk

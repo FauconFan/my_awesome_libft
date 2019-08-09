@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_gethexvalue.c                                   :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/15 16:04:01 by jpriou            #+#    #+#             */
-/*   Updated: 2019/01/15 16:16:43 by jpriou           ###   ########.fr       */
+/*   Created: 2017/09/12 12:07:37 by jpriou            #+#    #+#             */
+/*   Updated: 2019/08/09 23:38:46 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_ctype.h"
 
-char	ft_gethexvalue(char c)
+t_bool		ft_isprint(int c)
 {
-	c = c % 16;
-	if (c < 10)
-		return ('0' + c);
-	return ('A' + c - 10);
+	return ((c >= 32 && c < 127) ? TRUE : FALSE);
 }
