@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/08/09 23:49:01 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/10 00:15:20 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ FLAGS = $(CFLAGS) $(CFLAGS_DEP) $(IFLAGS) $(ADD_FLAGS)
 TOT_C = $(shell find src -mindepth 1 -name "*.c" | wc -l)
 
 OBJ = $(SRC:%.c=%.o)
+DEP = $(SRC:%.c=%.d)
 
 .PHONY: all
 all: $(NAME)
@@ -53,19 +54,22 @@ $(NAME): $(OBJ) FORCE
 	@ ranlib $@
 
 %.o: %.c
-	@ $(CC) $(FLAGS) -c $? -o $@
+	@ $(CC) $(FLAGS) -c $< -o $@
 	@ printf " %s[ %3d %%]%s %sCompiled%s    %-55s\\n" \
 		"$(_CYAN)" \
 		"$(shell echo $$(( 100 * $$(find src -mindepth 1 -name "*.o" | wc -l) / $(TOT_C) )))" \
 		"$(_END)" \
 		"$(_GREEN)" \
 		"$(_END)" \
-		"$?"
+		"$<"
+
+-include $(DEP)
 
 .PHONY: clean
 clean:
 	@ rm -rf $(OBJ)
-	@ printf " %s[ INFO ]%s libft - %s cleaned\\n" "$(_CYAN)" "$(_END)" "$(MOD_LIBFT)"
+	@ rm -rf $(DEP)
+	@ printf " %s[ INFO ]%s libft - %s cleaned\\n" "$(_CYAN)" "$(_END)" "$(MOD_NAME)"
 
 .PHONY: fclean
 fclean: clean

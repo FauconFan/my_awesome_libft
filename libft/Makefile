@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/08/09 23:48:50 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/10 00:04:27 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = libft.a
 MAKEFLAGS += --no-print-directory
 
 ALL_MODS = \
-	libft_ctype
+	libft_ctype \
+	libft_math
 
 MODS_SELECTED = $(ALL_MODS)
 
@@ -26,13 +27,17 @@ all: $(MODS_SELECTED)
 libft_ctype:
 	@ make -C $@
 
+.PHONY: libft_math
+libft_math:
+	@ make -C $@
+
 .PHONY: clean
 clean:
-	@ $(foreach mod, $(ALL_MODS), make -C $(mod) clean)
+	@ $(foreach mod, $(ALL_MODS), make -C $(mod) clean;)
 
 .PHONY: fclean
 fclean:
-	@ $(foreach mod, $(ALL_MODS), make -C $(mod) fclean)
+	@ $(foreach mod, $(ALL_MODS), make -C $(mod) fclean;)
 	@ rm -rf $(NAME)
 
 .PHONY: re
