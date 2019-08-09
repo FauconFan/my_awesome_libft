@@ -5,7 +5,7 @@ import yaml
 from collections import OrderedDict
 
 OUTPUT_FILE = ".travis.yml"
-ALL_TEST_FILE = "scripts/test_all.sh"
+ALL_TEST_FILE = ".test_all.sh"
 ALL_CMDS = []
 
 
@@ -51,7 +51,7 @@ def buildTravisData():
     TravisTest.CURRENT_STAGE = "Checks"
     ret.append(TravisTest("Verify .travis.yml file", [
         "sudo apt-get install -y python3-yaml",
-        "python3 scripts/gen_travis_file.py test.out",
+        "python3 .travis_gen.py test.out",
         "diff test.out .travis.yml",
         "rm -f test.out"
         ]))
@@ -65,27 +65,24 @@ def buildTravisData():
     # Build
     for standard in ['c90', 'c99', 'c11', 'c18']:
         TravisTest.CURRENT_STAGE = "Build " + standard
-        for cmd in ['make', 'make so']:
-            suffix_name = ''
-            suffix_cmd = " TEST_CMD=\"" + cmd + " ADDITIONAL_FLAGS=\\\"-std=" + standard + "\\\"\""
-            if cmd != 'make':
-                suffix_name = " (" + cmd + ")"
-            v_gcc = 5
-            base_name_test = "Build libft with gcc {}{}"
-            base_name_cmd = "make -C libft test_docker_compile_gcc VERSION_GCC_DOCKER={}{}"
-            while v_gcc <= 8:
-                if not(v_gcc <= 7 and standard == 'c18'):
-                    name_test = base_name_test.format(str(v_gcc), suffix_name)
-                    cmd_test = base_name_cmd.format(str(v_gcc), suffix_cmd)
-                    ret.append(TravisTest(name_test, cmd_test))
-                v_gcc = v_gcc + 1
-            name1 = "Build libft with gcc latest" + suffix_name
-            cmd1 = "make -C libft test_docker_compile_gcc" + suffix_cmd
-            name2 = "Build libft with clang (latest on Debian)" + suffix_name
-            cmd2 = "make -C libft test_docker_compile_clang" + suffix_cmd
-            ret.append(TravisTest(name1, cmd1))
-            if standard != 'c18':
-                ret.append(TravisTest(name2, cmd2))
+        suffix_name = ''
+        suffix_cmd = " TEST_CMD=\"make ADDITIONAL_FLAGS=\\\"-std=" + standard + "\\\"\""
+        v_gcc = 5
+        base_name_test = "Build libft with gcc {}{}"
+        base_name_cmd = "make -C libft -f test_docker.mk gcc VERSION_GCC_DOCKER={}{}"
+        while v_gcc <= 8:
+            if not(v_gcc <= 7 and standard == 'c18'):
+                name_test = base_name_test.format(str(v_gcc), suffix_name)
+                cmd_test = base_name_cmd.format(str(v_gcc), suffix_cmd)
+                ret.append(TravisTest(name_test, cmd_test))
+            v_gcc = v_gcc + 1
+        name1 = "Build libft with gcc latest" + suffix_name
+        cmd1 = "make -C libft -f test_docker.mk gcc" + suffix_cmd
+        name2 = "Build libft with clang (latest on Debian)" + suffix_name
+        cmd2 = "make -C libft -f test_docker.mk clang" + suffix_cmd
+        ret.append(TravisTest(name1, cmd1))
+        if standard != 'c18':
+            ret.append(TravisTest(name2, cmd2))
 
     TravisTest.CURRENT_STAGE = "All"
     with open(ALL_TEST_FILE, 'w') as f:

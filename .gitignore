@@ -2,3 +2,4 @@
 *.o
 *.a
 examples/bin
+.test_all.sh

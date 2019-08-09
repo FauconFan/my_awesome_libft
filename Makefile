@@ -10,20 +10,22 @@
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY: all libft ctestcom fclean
-
+.PHONY: all
 all:
-	@echo "Summary"
-	@echo ""
-	@echo "make libft"
+	@ echo "Summary"
+	@ echo ""
+	@ echo "make libft"
 
-libft :
-	@make -C libft
-	@echo "the library is in libft folder."
+.PHONY: libft
+libft:
+	@ make -C libft
+	@ echo "the library is in libft folder."
 
+.PHONY: fclean
 fclean:
-	@make -C libft fclean
-	@rm -rf rendu
+	@ make -C libft fclean
 
+.PHONY: testall
 testall:
-	./scripts/test_all.sh
+	@ python3 .travis_gen.py
+	@ ./.test_all.sh

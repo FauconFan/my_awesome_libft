@@ -10,12 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft
-NAME_A = $(NAME).a
-NAME_SO = $(NAME).so
-
-VERSION_GCC_DOCKER = latest
-TEST_CMD = make
+NAME = libft.a
 
 _RED=$(shell tput setaf 1 2> /dev/null || echo "")
 _GREEN=$(shell tput setaf 2 2> /dev/null || echo "")
@@ -63,47 +58,21 @@ OBJ = $(SRC:%.c=%.o)
 ### Compilation ###
 
 .PHONY: all
-all: compile_static_library
+all: $(NAME)
 
-.PHONY: so
-so: compile_dynamic_library
-
-.PHONY: compile_static_library
-compile_static_library:
-	@! test -f $(NAME_SO) || make fclean
-	@printf "FLAGS := %s\n" "$(FLAGS)"
-	@make -C . $(NAME_A) -j8
-
-.PHONY: compile_dynamic_library
-compile_dynamic_library:
-	@! test -f $(NAME_A) || make fclean
-	@printf "FLAGS := %s\n" "$(FLAGS)"
-	@make -C . $(NAME_SO) ADDITIONAL_FLAGS="$(ADDITIONAL_FLAGS) -fPIC" -j8
-
-$(NAME_A): $(OBJ)
-	@printf " %s[100%%]%s %sCompiled%s    %-70s\\n" \
+$(NAME): $(OBJ)
+	@ printf " %s[100%%]%s %sCompiled%s    %-70s\\n" \
 		"$(_CYAN)" \
 		"$(_END)" \
 		"$(_GREEN)" \
 		"$(_END)" \
 		""
-	@ar -rc $@ $(OBJ)
-	@ranlib $@
-	@echo "libft.a built successfully"
-
-$(NAME_SO): $(OBJ)
-	@printf " %s[100%%]%s %sCompiled%s    %-70s\\n" \
-		"$(_CYAN)" \
-		"$(_END)" \
-		"$(_GREEN)" \
-		"$(_END)" \
-		""
-	@$(CC) -shared -Wl,-soname,$(NAME_SO) -o $(NAME_SO) $(OBJ)
-	@echo "libft.so built successfully"
+	@ ar -rc $@ $(OBJ)
+	@ ranlib $@
 
 %.o: %.c
-	@$(CC) $(FLAGS) -c $? -o $@
-	@printf " %s[%3d%%]%s %sCompiled%s    %-55s\\n" \
+	@ $(CC) $(FLAGS) -c $? -o $@
+	@ printf " %s[%3d%%]%s %sCompiled%s    %-55s\\n" \
 		"$(_CYAN)" \
 		"$(shell echo $$(( 100 * $$(find src -mindepth 2 -name "*.o" | wc -l) / $(TOT_C) )))" \
 		"$(_END)" \
@@ -113,53 +82,14 @@ $(NAME_SO): $(OBJ)
 
 .PHONY: clean
 clean:
-	@rm -rf $(OBJ)
-	@printf " %s[INFO]%s libft cleaned\\n" "$(_CYAN)" "$(_END)"
+	@ rm -rf $(OBJ)
+	@ printf " %s[INFO]%s libft cleaned\\n" "$(_CYAN)" "$(_END)"
 
 .PHONY: fclean
 fclean:
-	@rm -rf $(OBJ)
-	@rm -rf $(NAME_A)
-	@rm -rf $(NAME_SO)
-	@printf " %s[INFO]%s libft full cleaned\\n" "$(_CYAN)" "$(_END)"
+	@ rm -rf $(OBJ)
+	@ rm -rf $(NAME)
+	@ printf " %s[INFO]%s libft full cleaned\\n" "$(_CYAN)" "$(_END)"
 
 .PHONY: re
 re: fclean all
-
-### Test stuff ###
-
-.PHONY: test_docker_compile_gcc
-test_docker_compile_gcc: fclean
-	docker run -d \
-			--name build_libft_gcc \
-			--volume `pwd`:/libft_repo \
-			-w /libft_repo \
-			gcc:$(VERSION_GCC_DOCKER) \
-			tail -f /dev/null
-	docker exec build_libft_gcc gcc --version
-	docker exec build_libft_gcc $(TEST_CMD)
-	docker exec build_libft_gcc make fclean
-	docker stop build_libft_gcc
-	docker rm build_libft_gcc
-
-.PHONY: test_docker_compile_clang
-test_docker_compile_clang: fclean
-	docker run -d \
-			--name build_libft_clang \
-			--volume `pwd`:/libft_repo \
-			-w /libft_repo \
-			debian \
-			tail -f /dev/null
-	docker exec build_libft_clang apt-get update
-	docker exec build_libft_clang apt-get install -y --no-install-recommends clang make
-	docker exec build_libft_clang apt-get clean
-	docker exec build_libft_clang rm -rf /var/lib/apt/lists/*
-	docker exec build_libft_clang $(TEST_CMD) CC=clang
-	docker exec build_libft_clang make fclean
-	docker stop build_libft_clang
-	docker rm build_libft_clang
-
-test: $(NAME_A)
-	@gcc -g $(SRC_FOLDER)main.c -L ./ -l ft -o test_libft $(INCLUDES_FLAGS)
-	@valgrind --leak-check=full ./test_libft
-	@rm -f test_libft
