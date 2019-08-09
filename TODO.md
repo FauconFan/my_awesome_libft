@@ -3,11 +3,13 @@
 ## Rework
 
  - [x] mettre en place un nouveau système de compilation
+ - [ ] mettre en place un nouveau système de tests
  - [x] faire f_ctype
  - [x] faire f_math
  - [ ] Splitter f_encrypt en modules
  - [ ] faire f_filesystem
  - [ ] faire f_memmory
+ - [ ] memdump (from ft malloc)
  - [ ] faire f_put
  - [ ] faire f_str (peut etre splitter)
  - [ ] faire f_tab (splitter)
