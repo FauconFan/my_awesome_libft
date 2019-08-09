@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/08/10 00:15:20 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/10 00:24:29 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,16 @@ _END=$(shell tput sgr0 2> /dev/null || echo "")
 
 MAKEFLAGS += --no-print-directory
 
-CC = clang
-CFLAGS = -Wall -Wextra -Werror -Weverything
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 CFLAGS_DEP = -MT $@ -MD -MP -MF $(@:.o=.d)
 IFLAGS = -I inc/ -I ../common/
 ADD_FLAGS =
+
+ifeq ($(CC), clang)
+	CFLAGS += -Weverything
+endif
+
 FLAGS = $(CFLAGS) $(CFLAGS_DEP) $(IFLAGS) $(ADD_FLAGS)
 
 
