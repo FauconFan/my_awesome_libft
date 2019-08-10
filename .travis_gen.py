@@ -147,8 +147,9 @@ def buildBody(output, list):
         else:
             testsingle['script'] = test.script
         testsingle['after_script'] = test.after_script
-        testsingle['env'] = dict()
-        testsingle['env']['NAME'] = test.name
+        testsingle['name'] = test.name
+        # testsingle['env'] = dict()
+        # testsingle['env']['NAME'] = test.name
         testbook.append(testsingle)
     return output
 

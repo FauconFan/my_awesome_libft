@@ -19,8 +19,7 @@ matrix:
         - diff test.out .travis.yml
         - rm -f test.out
         after_script: make fclean
-        env:
-            NAME: Verify .travis.yml file
+        name: Verify .travis.yml file
     -   stage: Checks
         script:
         - make -C libft
@@ -29,129 +28,106 @@ matrix:
         - diff c_files o_files
         - rm -f c_files o_files
         after_script: make fclean
-        env:
-            NAME: Verify unused file
+        name: Verify unused file
     -   stage: Build c90
         script: make -C libft -f test_docker.mk gcc VERSION_GCC_DOCKER=5 TEST_CMD="make
             ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc 5
+        name: Build libft with gcc 5
     -   stage: Build c90
         script: make -C libft -f test_docker.mk gcc VERSION_GCC_DOCKER=6 TEST_CMD="make
             ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc 6
+        name: Build libft with gcc 6
     -   stage: Build c90
         script: make -C libft -f test_docker.mk gcc VERSION_GCC_DOCKER=7 TEST_CMD="make
             ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc 7
+        name: Build libft with gcc 7
     -   stage: Build c90
         script: make -C libft -f test_docker.mk gcc VERSION_GCC_DOCKER=8 TEST_CMD="make
             ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc 8
+        name: Build libft with gcc 8
     -   stage: Build c90
         script: make -C libft -f test_docker.mk gcc TEST_CMD="make ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc latest
+        name: Build libft with gcc latest
     -   stage: Build c90
         script: make -C libft -f test_docker.mk clang TEST_CMD="make ADDITIONAL_FLAGS=\"-std=c90\""
         after_script: make fclean
-        env:
-            NAME: Build libft with clang (latest on Debian)
+        name: Build libft with clang (latest on Debian)
     -   stage: Build c99
         script: make -C libft -f test_docker.mk gcc VERSION_GCC_DOCKER=5 TEST_CMD="make
             ADDITIONAL_FLAGS=\"-std=c99\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc 5
+        name: Build libft with gcc 5
     -   stage: Build c99
         script: make -C libft -f test_docker.mk gcc VERSION_GCC_DOCKER=6 TEST_CMD="make
             ADDITIONAL_FLAGS=\"-std=c99\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc 6
+        name: Build libft with gcc 6
     -   stage: Build c99
         script: make -C libft -f test_docker.mk gcc VERSION_GCC_DOCKER=7 TEST_CMD="make
             ADDITIONAL_FLAGS=\"-std=c99\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc 7
+        name: Build libft with gcc 7
     -   stage: Build c99
         script: make -C libft -f test_docker.mk gcc VERSION_GCC_DOCKER=8 TEST_CMD="make
             ADDITIONAL_FLAGS=\"-std=c99\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc 8
+        name: Build libft with gcc 8
     -   stage: Build c99
         script: make -C libft -f test_docker.mk gcc TEST_CMD="make ADDITIONAL_FLAGS=\"-std=c99\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc latest
+        name: Build libft with gcc latest
     -   stage: Build c99
         script: make -C libft -f test_docker.mk clang TEST_CMD="make ADDITIONAL_FLAGS=\"-std=c99\""
         after_script: make fclean
-        env:
-            NAME: Build libft with clang (latest on Debian)
+        name: Build libft with clang (latest on Debian)
     -   stage: Build c11
         script: make -C libft -f test_docker.mk gcc VERSION_GCC_DOCKER=5 TEST_CMD="make
             ADDITIONAL_FLAGS=\"-std=c11\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc 5
+        name: Build libft with gcc 5
     -   stage: Build c11
         script: make -C libft -f test_docker.mk gcc VERSION_GCC_DOCKER=6 TEST_CMD="make
             ADDITIONAL_FLAGS=\"-std=c11\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc 6
+        name: Build libft with gcc 6
     -   stage: Build c11
         script: make -C libft -f test_docker.mk gcc VERSION_GCC_DOCKER=7 TEST_CMD="make
             ADDITIONAL_FLAGS=\"-std=c11\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc 7
+        name: Build libft with gcc 7
     -   stage: Build c11
         script: make -C libft -f test_docker.mk gcc VERSION_GCC_DOCKER=8 TEST_CMD="make
             ADDITIONAL_FLAGS=\"-std=c11\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc 8
+        name: Build libft with gcc 8
     -   stage: Build c11
         script: make -C libft -f test_docker.mk gcc TEST_CMD="make ADDITIONAL_FLAGS=\"-std=c11\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc latest
+        name: Build libft with gcc latest
     -   stage: Build c11
         script: make -C libft -f test_docker.mk clang TEST_CMD="make ADDITIONAL_FLAGS=\"-std=c11\""
         after_script: make fclean
-        env:
-            NAME: Build libft with clang (latest on Debian)
+        name: Build libft with clang (latest on Debian)
     -   stage: Build c18
         script: make -C libft -f test_docker.mk gcc VERSION_GCC_DOCKER=8 TEST_CMD="make
             ADDITIONAL_FLAGS=\"-std=c18\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc 8
+        name: Build libft with gcc 8
     -   stage: Build c18
         script: make -C libft -f test_docker.mk gcc TEST_CMD="make ADDITIONAL_FLAGS=\"-std=c18\""
         after_script: make fclean
-        env:
-            NAME: Build libft with gcc latest
+        name: Build libft with gcc latest
     -   stage: Tests
         script: bash tests/test.bash 001_ctype_single
         after_script: make fclean
-        env:
-            NAME: 001_ctype_single
+        name: 001_ctype_single
     -   stage: Tests
         script: bash tests/test.bash 002_math_single
         after_script: make fclean
-        env:
-            NAME: 002_math_single
+        name: 002_math_single
 ...
