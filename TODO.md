@@ -3,7 +3,7 @@
 ## Rework
 
  - [x] mettre en place un nouveau système de compilation
- - [ ] mettre en place un nouveau système de tests
+ - [x] mettre en place un nouveau système de tests
  - [x] faire f_ctype
  - [x] faire f_math
  - [ ] Splitter f_encrypt en modules
