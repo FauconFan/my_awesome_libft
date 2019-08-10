@@ -85,12 +85,17 @@ def buildTravisData():
             ret.append(TravisTest(name2, cmd2))
     
     # Tests
+    all_subdirs = []
     TravisTest.CURRENT_STAGE = "Tests"
     for file in os.listdir('tests'):
         fullpathfile = "tests/" + file
         if os.path.isdir(fullpathfile):
-            cmd = "bash tests/test.bash " + file
-            ret.append(TravisTest(file, cmd))
+            all_subdirs.append(file)
+
+    all_subdirs.sort()
+    for subdir in all_subdirs:
+        cmd = "bash tests/test.bash " + subdir
+        ret.append(TravisTest(subdir, cmd))
 
     TravisTest.CURRENT_STAGE = "All"
     with open(ALL_TEST_FILE, 'w') as f:
