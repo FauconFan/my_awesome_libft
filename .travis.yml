@@ -9,6 +9,7 @@ stage:
 - Build c99
 - Build c11
 - Build c18
+- Tests
 matrix:
     include:
     -   stage: Checks
@@ -143,4 +144,14 @@ matrix:
         after_script: make fclean
         env:
             NAME: Build libft with gcc latest
+    -   stage: Tests
+        script: bash tests/test.bash 001_ctype_single
+        after_script: make fclean
+        env:
+            NAME: 001_ctype_single
+    -   stage: Tests
+        script: bash tests/test.bash 002_math_single
+        after_script: make fclean
+        env:
+            NAME: 002_math_single
 ...

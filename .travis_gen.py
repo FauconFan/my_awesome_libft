@@ -83,6 +83,14 @@ def buildTravisData():
         ret.append(TravisTest(name1, cmd1))
         if standard != 'c18':
             ret.append(TravisTest(name2, cmd2))
+    
+    # Tests
+    TravisTest.CURRENT_STAGE = "Tests"
+    for file in os.listdir('tests'):
+        fullpathfile = "tests/" + file
+        if os.path.isdir(fullpathfile):
+            cmd = "bash tests/test.bash " + file
+            ret.append(TravisTest(file, cmd))
 
     TravisTest.CURRENT_STAGE = "All"
     with open(ALL_TEST_FILE, 'w') as f:

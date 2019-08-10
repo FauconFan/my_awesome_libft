@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/08/10 00:04:27 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/10 14:58:12 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ ALL_MODS = \
 MODS_SELECTED = $(ALL_MODS)
 
 .PHONY: all
-all: $(MODS_SELECTED)
+all: setup_symlinks_inc_folder $(MODS_SELECTED)
 
 .PHONY: libft_ctype
 libft_ctype:
@@ -44,3 +44,14 @@ fclean:
 re:
 	@ make -C . fclean
 	@ make -C . all
+
+.PHONY: setup_symlinks_inc_folder
+setup_symlinks_inc_folder:
+	@ rm -rf inc/
+	@ mkdir inc/
+	@ $(foreach mod, $(ALL_MODS), \
+		for header in $(mod)/inc/*; do \
+			(BASE=$$(basename $$header); set -x; ln -s ../$$header inc/$$BASE) ; \
+		done \
+	;)
+	@ (set -x; ln -s ../common/common.h inc/common.h)
