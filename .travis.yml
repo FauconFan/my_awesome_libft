@@ -130,4 +130,8 @@ matrix:
         script: bash tests/test.bash 002_math_single
         after_script: make fclean
         name: 002_math_single
+    -   stage: Tests
+        script: bash tests/test.bash 003_memory_single
+        after_script: make fclean
+        name: 003_memory_single
 ...

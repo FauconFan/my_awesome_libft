@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/08/10 14:58:12 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/10 19:53:57 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ MAKEFLAGS += --no-print-directory
 
 ALL_MODS = \
 	libft_ctype \
-	libft_math
+	libft_math \
+	libft_memory
 
 MODS_SELECTED = $(ALL_MODS)
 
@@ -29,6 +30,10 @@ libft_ctype:
 
 .PHONY: libft_math
 libft_math:
+	@ make -C $@
+
+.PHONY: libft_memory
+libft_memory:
 	@ make -C $@
 
 .PHONY: clean
