@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 10:04:11 by jpriou            #+#    #+#             */
-/*   Updated: 2019/08/10 19:49:31 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/11 09:55:26 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		*ft_memndup(void *data, size_t len, size_t n)
 {
-	void	*res;
+	char	*res;
 	size_t	min;
 	size_t	ecart;
 

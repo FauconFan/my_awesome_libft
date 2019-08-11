@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 11:49:37 by jpriou            #+#    #+#             */
-/*   Updated: 2017/11/11 14:51:14 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/08/11 09:52:39 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	char	*s1;
-	char	*s2;
-	size_t	index;
+	char		*s1;
+	const char	*s2;
+	size_t		index;
 
 	s1 = (char *)dest;
-	s2 = (char *)src;
+	s2 = (const char *)src;
 	index = 0;
 	while (index < n)
 	{
