@@ -134,4 +134,8 @@ matrix:
         script: bash tests/test.bash 003_memory_single
         after_script: make fclean
         name: 003_memory_single
+    -   stage: Tests
+        script: bash tests/test.bash 004_put_single
+        after_script: make fclean
+        name: 004_put_single
 ...

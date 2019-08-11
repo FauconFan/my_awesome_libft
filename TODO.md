@@ -10,7 +10,7 @@
  - [ ] faire f_filesystem
  - [x] faire f_memory
  - [ ] memdump (from ft malloc)
- - [ ] faire f_put
+ - [x] faire f_put
  - [ ] faire f_str (peut etre splitter)
  - [ ] faire f_tab (splitter)
  - [ ] faire f_utils (pt supprimer)
