@@ -8,7 +8,7 @@
  - [x] faire f_math
  - [ ] Splitter f_encrypt en modules
  - [ ] faire f_filesystem
- - [ ] faire f_memmory
+ - [x] faire f_memory
  - [ ] memdump (from ft malloc)
  - [ ] faire f_put
  - [ ] faire f_str (peut etre splitter)
