@@ -138,4 +138,8 @@ matrix:
         script: bash tests/test.bash 004_put_single
         after_script: make fclean
         name: 004_put_single
+    -   stage: Tests
+        script: bash tests/test.bash 005_strstd_single
+        after_script: make fclean
+        name: 005_strstd_single
 ...

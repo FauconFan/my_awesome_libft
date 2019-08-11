@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/08/11 09:51:43 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/11 11:06:30 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ ALL_MODS = \
 	libft_ctype \
 	libft_math \
 	libft_memory \
-	libft_put
+	libft_put \
+	libft_strstd \
+	libft_strconv \
 
 MODS_SELECTED = $(ALL_MODS)
 
@@ -27,6 +29,9 @@ all: setup_symlinks_inc_folder $(MODS_SELECTED)
 
 libft_%: FORCE
 	@ make -C $@
+
+libft_strstd: libft_memory
+libft_strconv: libft_strstd libft_memory libft_math libft_ctype
 
 .PHONY: clean
 clean:
