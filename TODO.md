@@ -2,11 +2,6 @@
 
 ## Tmp
 
- - [x] ft_escape, ft_unescape
- - [x] faire le test pour ft_strconv
- - [x] mettre les .o et les .d dans un autre dossier
- - [x] mettre ft switch dans memory
- - [x] faire libft_strlambda
  - [ ] split math
  - [ ] in math make log family return size_t
  - [ ] verifier que le compilateur par defaut est gcc
