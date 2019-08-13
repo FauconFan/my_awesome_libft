@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_remquo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 20:57:56 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 14:21:27 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/08/13 17:00:11 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ double	ft_remquo(double x, double y)
 	double yr;
 	double tmp;
 
-	yr = ft_abs(y);
+	yr = ft_dabs(y);
 	tmp = x;
 	while (tmp < 0)
 		tmp += yr;

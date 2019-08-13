@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tan.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 21:54:15 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 14:11:07 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/08/13 17:00:03 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ double				ft_tan(double x, short *rc)
 		return (ft_tan(ft_remquo(x, FT_PI), rc));
 	else if (x > 0.5 * FT_PI)
 		return (-ft_tan(FT_PI - x, rc));
-	else if (ft_abs(x - FT_PI / 2) < PREC_DOUBLE)
+	else if (ft_dabs(x - FT_PI / 2) < PREC_DOUBLE)
 	{
 		if (rc != NULL)
 			*rc = MATH_NOT_DEFINED;

@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 07:55:17 by jpriou            #+#    #+#             */
-/*   Updated: 2019/08/11 11:05:04 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/13 17:02:31 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ static char		*returnzero(char *res)
 	return (res);
 }
 
-char			*ft_itoa_base(int n, char *base)
+char			*ft_itoa_base(int n, const char *base)
 {
 	char	*res;
 	int		index;
 	int		len;
-	int		lenbase;
+	size_t	lenbase;
 
 	lenbase = ft_strlen(base);
-	len = my_log(n, lenbase);
+	len = my_log(n, (int)lenbase);
 	index = 0;
-	ft_memcheck((res = (char *)malloc(sizeof(char) * (len + 1))));
+	ft_memcheck((res = malloc((size_t)len + 1)));
 	if (n == 0)
 		return (returnzero(res));
 	else if (n < 0)
@@ -47,7 +47,7 @@ char			*ft_itoa_base(int n, char *base)
 	index = (int)len - 1;
 	while (n)
 	{
-		res[index] = base[(n % lenbase) * ((n < 0) ? -1 : 1)];
+		res[index] = base[(unsigned int)ft_abs(n) % lenbase];
 		index--;
 		n /= lenbase;
 	}

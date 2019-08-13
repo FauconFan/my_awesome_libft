@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 21:33:35 by jpriou            #+#    #+#             */
-/*   Updated: 2019/08/10 00:00:57 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/13 16:59:52 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static double		cos_compute(double x)
 	{
 		mon = buffer / ft_fact(2 * level);
 		res += mon * ((level % 2 == 0) ? 1 : -1);
-		if (ft_abs(mon) < PREC_DOUBLE)
+		if (ft_dabs(mon) < PREC_DOUBLE)
 			break ;
 		buffer *= x * x;
 		level++;

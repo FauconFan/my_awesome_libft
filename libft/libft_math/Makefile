@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/09 23:50:38 by pepe              #+#    #+#              #
-#    Updated: 2019/08/09 23:56:01 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/13 16:57:47 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,11 @@ SRC = \
 	src/trigo/ft_cos.c \
 	src/trigo/ft_sin.c \
 	src/trigo/ft_tan.c \
-	src/ft_abs.c \
+	src/abs/ft_abs.c \
+	src/abs/ft_labs.c \
+	src/abs/ft_llabs.c \
+	src/abs/ft_fabs.c \
+	src/abs/ft_dabs.c \
 	src/ft_fact.c \
 	src/ft_max.c \
 	src/ft_min.c \

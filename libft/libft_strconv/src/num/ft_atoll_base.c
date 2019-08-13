@@ -6,14 +6,14 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 13:24:46 by jpriou            #+#    #+#             */
-/*   Updated: 2019/08/11 10:58:38 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/13 16:42:07 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_strconv.h"
 #include "libft_strstd.h"
 
-static char			*update_str(char *str)
+static const char	*update_str(const char *str)
 {
 	int		index;
 	char	c;
@@ -29,7 +29,7 @@ static char			*update_str(char *str)
 	return (str + index);
 }
 
-static int			validate_base(char *base)
+static int			validate_base(const char *base)
 {
 	int		index[2];
 
@@ -50,7 +50,7 @@ static int			validate_base(char *base)
 	return (1);
 }
 
-static int			get_place_in_base(char c, char *base)
+static int			get_place_in_base(char c, const char *base)
 {
 	int		index;
 
@@ -64,7 +64,10 @@ static int			get_place_in_base(char c, char *base)
 	return (-1);
 }
 
-static long long	atoll_real(char *str, char *base, int length_base)
+static long long	atoll_real(
+						const char *str,
+						const char *base,
+						size_t length_base)
 {
 	int		sign;
 	long	res;
@@ -88,13 +91,13 @@ static long long	atoll_real(char *str, char *base, int length_base)
 	return (res * -sign);
 }
 
-long long			ft_atoll_base(char const *str, char *base)
+long long			ft_atoll_base(char const *str, const char *base)
 {
-	int		length_base;
-	char	*cpy;
+	size_t		length_base;
+	const char	*cpy;
 
 	length_base = ft_strlen(base);
-	cpy = (char *)str;
+	cpy = str;
 	if (length_base <= 1)
 		return (0);
 	if (validate_base(base) == 0)

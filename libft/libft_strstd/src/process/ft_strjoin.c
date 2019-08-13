@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/09 15:22:47 by jpriou            #+#    #+#             */
-/*   Updated: 2019/08/11 10:36:08 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/13 16:36:35 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 char					*ft_strjoin(const char *s1, const char *s2)
 {
-	unsigned int	len1;
-	unsigned int	len2;
-	unsigned int	len_tot;
-	char			*res;
+	size_t	len1;
+	size_t	len2;
+	size_t	len_tot;
+	char	*res;
 
 	if (s1 == 0 || s2 == 0)
 		return (0);

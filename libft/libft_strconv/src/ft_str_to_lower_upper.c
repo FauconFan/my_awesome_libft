@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 10:47:37 by pepe              #+#    #+#             */
-/*   Updated: 2019/08/11 11:06:47 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/13 17:05:43 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*ft_str_treat(char *str, int (*func)(int))
 	i = 0;
 	while (str[i])
 	{
-		str[i] = func(str[i]);
+		str[i] = (char)func((int)str[i]);
 		++i;
 	}
 	return (str);

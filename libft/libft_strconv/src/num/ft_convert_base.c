@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/09 08:13:09 by jpriou            #+#    #+#             */
-/*   Updated: 2019/08/11 10:59:07 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/13 16:45:25 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft_strstd.h"
 #include "libft_memory.h"
 
-static int		place_in_str(char c, char *s)
+static int		place_in_str(char c, const char *s)
 {
 	int		index;
 
@@ -30,7 +30,7 @@ static int		place_in_str(char c, char *s)
 	return (-1);
 }
 
-static int		build_number_deci(char *nbr, char *base_from, int length_base)
+static int		build_number_deci(char *nbr, const char *base_from, int length_base)
 {
 	int		index;
 	int		sign;
@@ -69,19 +69,22 @@ static int		get_length_number_in_base(int nb, int length_base)
 	return (length);
 }
 
-char			*ft_convert_base(char *nbr, char *base_from, char *base_to)
+char			*ft_convert_base(
+					char *nbr,
+					const char *base_from,
+					const char *base_to)
 {
 	int		length[6];
 	char	*res;
 
-	length[0] = ft_strlen(base_from);
-	length[1] = ft_strlen(base_to);
+	length[0] = (int)ft_strlen(base_from);
+	length[1] = (int)ft_strlen(base_to);
 	length[4] = 0;
 	length[3] = build_number_deci(nbr, base_from, length[0]);
 	length[2] = get_length_number_in_base(length[3], length[1]);
 	if (*nbr == '-' && *nbr == '+')
 		nbr++;
-	ft_memcheck((res = (char *)malloc(sizeof(*res) * (length[2] + 1))));
+	ft_memcheck((res = malloc((size_t)length[2] + 1)));
 	if (*nbr == '-')
 	{
 		length[2]++;

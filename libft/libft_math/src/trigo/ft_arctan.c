@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_arctan.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 22:44:24 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 14:08:06 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/08/13 16:59:45 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ double		ft_arctan(double x)
 
 	if (x < 0)
 		return (ft_arctan(-x));
-	else if (ft_abs(x) < PREC_DOUBLE)
+	else if (ft_dabs(x) < PREC_DOUBLE)
 		return (0);
 	else if (x > 1)
 		return (FT_PI / 2 - ft_arctan(1 / x));

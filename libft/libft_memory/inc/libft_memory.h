@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/10 19:44:54 by pepe              #+#    #+#             */
-/*   Updated: 2019/08/11 09:54:06 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/13 16:30:02 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ void			*ft_memdup(void *d, size_t len);
 void			*ft_memndup(void *d, size_t len, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			ft_memprint(void *v, size_t len);
+
+void			ft_switch_endian(uint8_t *str, size_t len);
 
 #endif

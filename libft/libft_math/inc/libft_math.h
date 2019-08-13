@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/09 23:51:39 by pepe              #+#    #+#             */
-/*   Updated: 2019/08/10 00:13:36 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/13 16:58:51 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,12 @@
 double						ft_min(double a, double b);
 double						ft_max(double a, double b);
 
-double						ft_abs(double c);
+int							ft_abs(int c);
+long int					ft_labs(long int c);
+long long int				ft_llabs(long long int c);
+float						ft_fabs(float c);
+double						ft_dabs(double c);
+
 int							ft_log10(double n);
 int							ft_logb(double n, int lengthbase);
 int							ft_logi10(int n);

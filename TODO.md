@@ -7,6 +7,8 @@
  - [ ] mettre les .o et les .d dans un autre dossier
  - [x] mettre ft switch dans memory
  - [ ] faire libft_strlambda
+ - [ ] split math
+ - [ ] in math make log family return size_t
 
 ## Rework
 

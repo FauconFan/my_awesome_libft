@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 12:28:25 by jpriou            #+#    #+#             */
-/*   Updated: 2019/08/11 10:36:19 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/13 16:37:34 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int		is_blank(char c)
 	return (c == ' ' || c == '\n' || c == '\t');
 }
 
-static int		check_only_blank(char *tmp)
+static int		check_only_blank(const char *tmp)
 {
 	while (*tmp)
 	{
@@ -29,7 +29,7 @@ static int		check_only_blank(char *tmp)
 	return (0);
 }
 
-static size_t	true_size(char *s)
+static size_t	true_size(const char *s)
 {
 	size_t	real_size;
 
@@ -45,17 +45,17 @@ static size_t	true_size(char *s)
 
 char			*ft_strtrim(const char *s)
 {
-	char	*tmp;
-	char	*res;
-	size_t	real_size;
-	size_t	index;
+	const char	*tmp;
+	char		*res;
+	size_t		real_size;
+	size_t		index;
 
-	tmp = (char *)s;
+	tmp = s;
 	res = 0;
 	index = 0;
 	if (s == 0)
 		return (0);
-	if (check_only_blank((char *)s) == 0)
+	if (check_only_blank(s) == 0)
 		return (ft_strnew(0));
 	while (is_blank(*tmp))
 		tmp++;
