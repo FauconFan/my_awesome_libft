@@ -57,8 +57,8 @@ def buildTravisData():
         ]))
     ret.append(TravisTest("Verify unused file", [
         "make -C libft",
-        "find libft -name \"*.c\" | sed 's/\.c//g' | sort > c_files",
-        "find libft -name \"*.o\" | sed 's/\.o//g' | sort > o_files",
+        "find libft -name \"*.c\" | sed 's/\.c//g' | sed 's/src//g' | sort > c_files",
+        "find libft -name \"*.o\" | sed 's/\.o//g' | sed 's/obj//g' | sort > o_files",
         "diff c_files o_files",
         "rm -f c_files o_files"
         ]))

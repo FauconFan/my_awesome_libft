@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/08/13 17:15:36 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/13 17:20:34 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ FLAGS = $(CFLAGS) $(CFLAGS_DEP) $(IFLAGS) $(ADD_FLAGS)
 TOT_C = $(shell find . -mindepth 1 -name "*.c" | wc -l)
 
 SRC_FOLDER = src/
-OBJ_FOLDER = .obj/
+OBJ_FOLDER = obj/
 
 OBJ = $(SRC:$(SRC_FOLDER)%.c=$(OBJ_FOLDER)%.o)
 DEP = $(SRC:$(SRC_FOLDER)%.c=$(OBJ_FOLDER)%.d)
