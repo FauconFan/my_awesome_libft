@@ -59,8 +59,11 @@ def buildTravisData():
         "make -C libft",
         "find libft -name \"*.c\" | sed 's/\.c//g' | sed 's/src//g' | sort > c_files",
         "find libft -name \"*.o\" | sed 's/\.o//g' | sed 's/obj//g' | sort > o_files",
+        "find libft -name \"*.d\" | sed 's/\.d//g' | sed 's/obj//g' | sort > d_files",
         "diff c_files o_files",
-        "rm -f c_files o_files"
+        "diff c_files d_files",
+        "wc -l c_files",
+        "rm -f c_files o_files d_files"
         ]))
     # Build
     for standard in ['c90', 'c99', 'c11', 'c18']:
