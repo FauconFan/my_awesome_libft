@@ -5,7 +5,7 @@
  - [ ] ft_escape, ft_unescape
  - [ ] faire le test pour ft_strconv
  - [ ] mettre les .o et les .d dans un autre dossier
- - [ ] mettre ft switch dans memory
+ - [x] mettre ft switch dans memory
  - [ ] faire libft_strlambda
 
 ## Rework

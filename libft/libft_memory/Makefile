@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/10 19:45:58 by pepe              #+#    #+#              #
-#    Updated: 2019/08/11 11:14:39 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/13 16:23:25 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC = \
 	src/ft_memmove.c \
 	src/ft_memndup.c \
 	src/ft_memprint.c \
-	src/ft_memset.c
+	src/ft_memset.c \
+	src/ft_switch_endian.c
 
 include ../common/compile.mk
