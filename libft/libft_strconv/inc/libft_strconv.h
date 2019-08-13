@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 10:55:05 by pepe              #+#    #+#             */
-/*   Updated: 2019/08/13 16:39:09 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/13 17:29:04 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,5 @@ uint8_t			*ft_str_hex_to_array_num(char *str, size_t *len_res);
 
 char			*ft_str_toupper(char *str);
 char			*ft_str_tolower(char *str);
-
-char			*ft_escape(char *str);
-char			*ft_unescape(char *str);
 
 #endif

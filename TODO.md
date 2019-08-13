@@ -2,7 +2,7 @@
 
 ## Tmp
 
- - [ ] ft_escape, ft_unescape
+ - [x] ft_escape, ft_unescape
  - [ ] faire le test pour ft_strconv
  - [x] mettre les .o et les .d dans un autre dossier
  - [x] mettre ft switch dans memory
@@ -39,3 +39,7 @@
  - [x] Faire le ft\_getopt
  - [ ] Faire ft_printf pour les booléens
  - [ ] Faire la doc
+
+## First issues
+
+ - [ ] Mettre ft_escape / ft_unescape

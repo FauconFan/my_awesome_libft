@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/11 10:40:28 by pepe              #+#    #+#              #
-#    Updated: 2019/08/11 11:14:31 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/13 17:28:58 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,6 @@ SRC = \
 	src/num/ft_lltoa.c \
 	src/num/ft_ulltoa_base.c \
 	src/num/ft_ulltoa.c \
-	src/escape/ft_escape.c \
-	src/escape/ft_unescape.c \
 	src/ft_str_hex_to_array_num.c \
 	src/ft_str_to_lower_upper.c
 
