@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 10:55:05 by pepe              #+#    #+#             */
-/*   Updated: 2019/08/13 17:29:04 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/13 17:48:23 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ char			*ft_convert_base(
 					char *nbr,
 					const char *base_from,
 					const char *base_to);
+
+/*
+**	rest
+*/
 
 uint8_t			*ft_str_hex_to_array_num(char *str, size_t *len_res);
 

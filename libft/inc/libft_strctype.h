@@ -1,0 +1,1 @@
+../libft_strctype/inc/libft_strctype.h

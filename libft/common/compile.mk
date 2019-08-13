@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/08/13 17:20:34 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/13 18:20:28 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ _END=$(shell tput sgr0 2> /dev/null || echo "")
 MAKEFLAGS += --no-print-directory
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 CFLAGS_DEP = -MT $@ -MD -MP -MF $(@:.o=.d)
 IFLAGS = -I ../inc/ -I ../common/
 ADD_FLAGS =
@@ -81,6 +81,7 @@ clean:
 
 .PHONY: fclean
 fclean: clean
+	@ rm -rf $(OBJ_FOLDER)
 
 .PHONY: re
 re: fclean all
