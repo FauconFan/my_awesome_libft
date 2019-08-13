@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/08/13 17:06:08 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/13 17:15:36 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,11 +38,13 @@ endif
 
 FLAGS = $(CFLAGS) $(CFLAGS_DEP) $(IFLAGS) $(ADD_FLAGS)
 
+TOT_C = $(shell find . -mindepth 1 -name "*.c" | wc -l)
 
-TOT_C = $(shell find src -mindepth 1 -name "*.c" | wc -l)
+SRC_FOLDER = src/
+OBJ_FOLDER = .obj/
 
-OBJ = $(SRC:%.c=%.o)
-DEP = $(SRC:%.c=%.d)
+OBJ = $(SRC:$(SRC_FOLDER)%.c=$(OBJ_FOLDER)%.o)
+DEP = $(SRC:$(SRC_FOLDER)%.c=$(OBJ_FOLDER)%.d)
 
 .PHONY: all
 all: $(NAME)
@@ -58,11 +60,12 @@ $(NAME): $(OBJ) FORCE
 	@ ar -rc $@ $(OBJ)
 	@ ranlib $@
 
-%.o: %.c
+$(OBJ_FOLDER)%.o: $(SRC_FOLDER)%.c
+	@ mkdir -p $(dir $@)
 	@ $(CC) $(FLAGS) -c $< -o $@
 	@ printf " %s[ %3d %%]%s %sCompiled%s    %-55s\\n" \
 		"$(_CYAN)" \
-		"$(shell echo $$(( 100 * $$(find src -mindepth 1 -name "*.o" | wc -l) / $(TOT_C) )))" \
+		"$(shell echo $$(( 100 * $$(find . -mindepth 1 -name "*.o" | wc -l) / $(TOT_C) )))" \
 		"$(_END)" \
 		"$(_GREEN)" \
 		"$(_END)" \
