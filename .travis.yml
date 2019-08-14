@@ -149,4 +149,12 @@ matrix:
         script: bash tests/test.bash 006_strconv_single
         after_script: make fclean
         name: 006_strconv_single
+    -   stage: Tests
+        script: bash tests/test.bash 007_strlambda_single
+        after_script: make fclean
+        name: 007_strlambda_single
+    -   stage: Tests
+        script: bash tests/test.bash 008_strctype_single
+        after_script: make fclean
+        name: 008_strctype_single
 ...
