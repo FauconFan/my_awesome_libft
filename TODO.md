@@ -4,7 +4,7 @@
 
  - [ ] split math
  - [ ] in math make log family return size_t
- - [ ] verifier que le compilateur par defaut est gcc
+ - [x] verifier que le compilateur par defaut est gcc
 
 ## Rework
 

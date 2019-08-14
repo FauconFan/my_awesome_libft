@@ -32,6 +32,11 @@ matrix:
         - rm -f c_files o_files d_files
         after_script: make fclean
         name: Verify unused file
+    -   stage: Checks
+        script:
+        - grep 'CC =' libft/common/compile.mk | grep gcc
+        after_script: make fclean
+        name: Verify compiler is gcc
     -   stage: Build c90
         script: make -C libft -f test_docker.mk gcc VERSION_GCC_DOCKER=5 TEST_CMD="make
             ADDITIONAL_FLAGS=\"-std=c90\""

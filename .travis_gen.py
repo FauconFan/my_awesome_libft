@@ -65,6 +65,9 @@ def buildTravisData():
         "wc -l c_files",
         "rm -f c_files o_files d_files"
         ]))
+    ret.append(TravisTest("Verify compiler is gcc", [
+        "grep 'CC =' libft/common/compile.mk | grep gcc"
+        ]))
     # Build
     for standard in ['c90', 'c99', 'c11', 'c18']:
         TravisTest.CURRENT_STAGE = "Build " + standard
