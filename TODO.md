@@ -17,7 +17,7 @@
  - [x] faire f_memory
  - [ ] memdump (from ft malloc)
  - [x] faire f_put
- - [ ] faire f_str (peut etre splitter)
+ - [x] faire f_str (peut etre splitter)
  - [ ] faire f_tab (splitter)
  - [ ] faire f_utils (pt supprimer)
  - [ ] faire f_wchar
