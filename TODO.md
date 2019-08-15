@@ -14,7 +14,7 @@
  - [x] faire f_str (peut etre splitter)
  - [ ] faire f_tab (splitter)
  - [ ] faire f_utils (pt supprimer)
- - [ ] faire f_wchar
+ - [x] faire f_wchar
  - [ ] faire m_ft_printf
  - [ ] faire m_getopt
  - [ ] faire m_regex (refaire voir supprimer)

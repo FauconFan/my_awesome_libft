@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/08/13 18:14:09 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/16 00:02:49 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ ALL_MODS = \
 	libft_strstd \
 	libft_strconv \
 	libft_strlambda \
-	libft_strctype
+	libft_strctype \
+	libft_wchar
 
 MODS_SELECTED = $(ALL_MODS)
 
