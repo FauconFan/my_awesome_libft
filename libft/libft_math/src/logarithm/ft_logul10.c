@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_logi10.c                                        :+:      :+:    :+:   */
+/*   ft_logul10.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 07:42:12 by jpriou            #+#    #+#             */
-/*   Updated: 2018/08/12 16:31:04 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/08/15 23:48:09 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_math.h"
 
-int		ft_logi10(int n)
+unsigned int		ft_logul10(unsigned long n)
 {
-	return (ft_logib(n, 10));
+	return (ft_logulb(n, 10));
 }

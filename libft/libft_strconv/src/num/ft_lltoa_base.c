@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 17:07:09 by jpriou            #+#    #+#             */
-/*   Updated: 2019/08/13 17:04:30 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/15 23:52:44 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,18 @@
 
 char		*ft_lltoa_base(long long n, const char *base)
 {
-	char	*res;
-	int		index;
-	int		len;
-	size_t	baselen;
+	char			*res;
+	unsigned int	index;
+	unsigned int	len;
+	size_t			baselen;
 
 	if (n == 0)
 		return (ft_strdup("0"));
 	baselen = ft_strlen(base);
-	len = (n < 0) ? 1 + ft_logllb(-n, (int)baselen) : ft_logllb(n, (int)baselen);
+	if (n < 0)
+		len = 1 + ft_logullb((unsigned long long)-n, baselen);
+	else
+		len = ft_logullb((unsigned long long)n, baselen);
 	if ((res = malloc((size_t)len + 1)) == NULL)
 		return (NULL);
 	if (n < 0)

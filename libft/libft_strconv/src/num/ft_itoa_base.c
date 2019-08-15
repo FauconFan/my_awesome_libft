@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 07:55:17 by jpriou            #+#    #+#             */
-/*   Updated: 2019/08/13 17:02:31 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/15 23:50:55 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include "libft_memory.h"
 #include "libft_math.h"
 
-static int		my_log(int n, int len)
+static unsigned int		my_log(int n, size_t len)
 {
 	if (n < 0)
-		return (1 + ft_logib(-n, len));
-	return (ft_logib(n, len));
+		return (1 + ft_loguib((unsigned int)-n, len));
+	return (ft_loguib((unsigned int)n, len));
 }
 
 static char		*returnzero(char *res)
@@ -31,13 +31,13 @@ static char		*returnzero(char *res)
 
 char			*ft_itoa_base(int n, const char *base)
 {
-	char	*res;
-	int		index;
-	int		len;
-	size_t	lenbase;
+	char			*res;
+	int				index;
+	unsigned int	len;
+	size_t			lenbase;
 
 	lenbase = ft_strlen(base);
-	len = my_log(n, (int)lenbase);
+	len = my_log(n, lenbase);
 	index = 0;
 	ft_memcheck((res = malloc((size_t)len + 1)));
 	if (n == 0)

@@ -6,13 +6,13 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 22:25:15 by jpriou            #+#    #+#             */
-/*   Updated: 2019/08/13 16:59:39 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/15 23:55:58 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_math.h"
 
-double			ft_arcsin(double x, short *rc)
+double			ft_arcsin(double x, t_math_res *rc)
 {
 	if (rc != NULL)
 		*rc = MATH_OK;

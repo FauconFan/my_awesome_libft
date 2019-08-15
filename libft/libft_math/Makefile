@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/09 23:50:38 by pepe              #+#    #+#              #
-#    Updated: 2019/08/13 16:57:47 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/15 23:44:14 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,10 @@ MOD_NAME = math
 SRC = \
 	src/logarithm/ft_log10.c \
 	src/logarithm/ft_logb.c \
-	src/logarithm/ft_logi10.c \
-	src/logarithm/ft_logib.c \
-	src/logarithm/ft_logll10.c \
-	src/logarithm/ft_logllb.c \
+	src/logarithm/ft_logui10.c \
+	src/logarithm/ft_loguib.c \
+	src/logarithm/ft_logul10.c \
+	src/logarithm/ft_logulb.c \
 	src/logarithm/ft_logull10.c \
 	src/logarithm/ft_logullb.c \
 	src/pow/ft_curt.c \

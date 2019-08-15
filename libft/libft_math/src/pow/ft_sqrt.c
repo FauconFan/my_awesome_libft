@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpriou <jpriou@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 17:32:51 by jpriou            #+#    #+#             */
-/*   Updated: 2018/10/04 14:21:03 by jpriou           ###   ########.fr       */
+/*   Updated: 2019/08/15 23:55:42 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_math.h"
 
-double	ft_sqrt(double x, short *rc)
+double	ft_sqrt(double x, t_math_res *rc)
 {
 	return (ft_nrt(x, 2, rc));
 }

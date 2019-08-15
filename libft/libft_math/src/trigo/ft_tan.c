@@ -6,13 +6,13 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 21:54:15 by jpriou            #+#    #+#             */
-/*   Updated: 2019/08/13 17:00:03 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/15 23:56:11 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_math.h"
 
-double				ft_tan(double x, short *rc)
+double				ft_tan(double x, t_math_res *rc)
 {
 	double tmp;
 

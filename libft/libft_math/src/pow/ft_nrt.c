@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 17:18:13 by jpriou            #+#    #+#             */
-/*   Updated: 2019/08/13 16:59:14 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/15 23:55:28 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static double	core_nrt(double x, size_t n)
 	return (cand);
 }
 
-double			ft_nrt(double x, size_t n, short *rc)
+double			ft_nrt(double x, size_t n, t_math_res *rc)
 {
 	if (rc != NULL)
 		*rc = (MATH_OK);

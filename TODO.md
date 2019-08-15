@@ -1,11 +1,5 @@
 # TODO
 
-## Tmp
-
- - [ ] split math
- - [ ] in math make log family return size_t
- - [x] verifier que le compilateur par defaut est gcc
-
 ## Rework
 
  - [x] mettre en place un nouveau système de compilation
@@ -39,3 +33,4 @@
 ## First issues
 
  - [ ] Mettre ft_escape / ft_unescape
+ - [ ] May split math

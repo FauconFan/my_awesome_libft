@@ -6,13 +6,13 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 22:35:11 by jpriou            #+#    #+#             */
-/*   Updated: 2019/08/13 16:59:31 by pepe             ###   ########.fr       */
+/*   Updated: 2019/08/15 23:55:54 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_math.h"
 
-double			ft_arccos(double x, short *rc)
+double			ft_arccos(double x, t_math_res *rc)
 {
 	double sq3;
 
