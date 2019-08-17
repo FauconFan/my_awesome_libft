@@ -3,7 +3,8 @@
 ## Tmp
 
  - [ ] Ecrire un test pour vérifier la consistence des fichiers
- - [ ] Faire un test pout tabstr
+ - [ ] Faire des test
+ - [ ] Avoir un meilleur système pour compiler sans abondance d'informations
 
 ## Rework
 
@@ -24,9 +25,9 @@
  - [ ] faire m_getopt
  - [ ] faire m_regex (refaire voir supprimer)
  - [ ] faire t_rbtree
- - [ ] faire t_sb
+ - [x] faire t_sb
  - [x] faire t_slist
- - [ ] faire t_vb
+ - [x] faire t_vb
 
 ## Release 1.0
 
