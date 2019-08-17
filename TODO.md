@@ -3,6 +3,7 @@
 ## Tmp
 
  - [ ] Ecrire un test pour vérifier la consistence des fichiers
+ - [ ] Faire un test pout tabstr
 
 ## Rework
 
