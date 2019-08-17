@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/08/17 11:16:30 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/17 12:00:06 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ MAKEFLAGS += --no-print-directory
 CC = gcc
 CFLAGS = -g -Wall -Wextra -Werror
 CFLAGS_DEP = -MT $@ -MD -MP -MF $(@:.o=.d)
-IFLAGS = -I ../inc/ -I ../common/
+IFLAGS = -I inc/ -I ../inc/ -I ../common/
 ADD_FLAGS =
 
 ifeq ($(CC), clang)

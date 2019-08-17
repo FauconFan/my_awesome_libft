@@ -25,7 +25,7 @@
  - [ ] faire m_regex (refaire voir supprimer)
  - [ ] faire t_rbtree
  - [ ] faire t_sb
- - [ ] faire t_slist
+ - [x] faire t_slist
  - [ ] faire t_vb
 
 ## Release 1.0

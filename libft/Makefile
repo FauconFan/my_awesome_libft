@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/08/17 11:31:42 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/17 11:59:12 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ ALL_MODS = \
 	libft_strctype \
 	libft_wchar \
 	libft_tabvoid \
-	libft_tabstr
+	libft_tabstr \
+	libft_structslist
 
 MODS_SELECTED = $(ALL_MODS)
 
@@ -41,6 +42,7 @@ libft_strlambda: libft_strstd libft_memory
 libft_strctype: libft_strlambda libft_ctype
 libft_tabvoid: libft_memory
 libft_tabstr: libft_memory libft_strstd libft_tabvoid
+libft_structslist: libft_memory libft_tabvoid
 
 .PHONY: clean
 clean:
