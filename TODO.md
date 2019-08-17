@@ -1,5 +1,9 @@
 # TODO
 
+## Tmp
+
+ - [ ] Ecrire un test pour vérifier la consistence des fichiers
+
 ## Rework
 
  - [x] mettre en place un nouveau système de compilation
@@ -12,7 +16,7 @@
  - [ ] memdump (from ft malloc)
  - [x] faire f_put
  - [x] faire f_str (peut etre splitter)
- - [ ] faire f_tab (splitter)
+ - [x] faire f_tab (splitter)
  - [ ] faire f_utils (pt supprimer)
  - [x] faire f_wchar
  - [ ] faire m_ft_printf
@@ -34,3 +38,4 @@
 
  - [ ] Mettre ft_escape / ft_unescape
  - [ ] May split math
+ - [ ] libft_vtab sort (quicksort)

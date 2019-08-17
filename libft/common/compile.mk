@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/08/14 12:19:20 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/17 11:13:41 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ DEP = $(SRC:$(SRC_FOLDER)%.c=$(OBJ_FOLDER)%.d)
 .PHONY: all
 all: $(NAME)
 
-$(NAME): $(OBJ) FORCE
+$(NAME): INIT $(OBJ) FORCE
 	@ printf " %s[ 100 %%]%s libft - %s %sCompiled%s    %-70s\\n" \
 		"$(_CYAN)" \
 		"$(_END)" \
@@ -59,6 +59,13 @@ $(NAME): $(OBJ) FORCE
 		""
 	@ ar -rc $@ $(OBJ)
 	@ ranlib $@
+
+.PHONY: INIT
+INIT: FORCE
+	@ printf " Compiling %slibft - %s%s\\n" \
+		"$(_PURPLE)" \
+		"$(MOD_NAME)" \
+		"$(_END)"
 
 $(OBJ_FOLDER)%.o: $(SRC_FOLDER)%.c
 	@ mkdir -p $(dir $@)
