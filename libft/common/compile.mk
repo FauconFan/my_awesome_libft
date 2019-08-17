@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 15:58:37 by fauconfa          #+#    #+#              #
-#    Updated: 2019/08/17 11:13:41 by pepe             ###   ########.fr        #
+#    Updated: 2019/08/17 11:16:30 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ _END=$(shell tput sgr0 2> /dev/null || echo "")
 
 MAKEFLAGS += --no-print-directory
 
-CC = clang
+CC = gcc
 CFLAGS = -g -Wall -Wextra -Werror
 CFLAGS_DEP = -MT $@ -MD -MP -MF $(@:.o=.d)
 IFLAGS = -I ../inc/ -I ../common/
